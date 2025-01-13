@@ -1,0 +1,429 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13595,        420]
+NotebookOptionsPosition[     11757,        380]
+NotebookOutlinePosition[     12220,        397]
+CellTagsIndexPosition[     12177,        394]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", "BernSum", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BernSum", "[", 
+    RowBox[{"n_", ",", "0"}], "]"}], " ", "=", " ", "1"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BernSum", "[", 
+    RowBox[{"0", ",", "1"}], "]"}], " ", "=", " ", "0"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BernSum", "[", 
+    RowBox[{"n_", ",", "1"}], "]"}], " ", ":=", " ", 
+   FractionBox["n", "6"]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"BernSum", "[", 
+     RowBox[{"n_", ",", "m_"}], "]"}], " ", "/;", " ", 
+    RowBox[{"m", ">", "n"}]}], ":=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BernSum", "[", 
+    RowBox[{"n_", ",", " ", "m_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"Sum", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"BernoulliB", "[", 
+        RowBox[{"2", " ", "j1"}], "]"}], "/", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"2", " ", "j1"}], ")"}], "!"}]}], 
+      RowBox[{
+       RowBox[{"BernoulliB", "[", 
+        RowBox[{"2", " ", "j2"}], "]"}], "/", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"2", " ", "j2"}], ")"}], "!"}]}], "\[IndentingNewLine]", 
+      RowBox[{"BernSum", "[", 
+       RowBox[{
+        RowBox[{"n", "-", "1"}], ",", " ", 
+        RowBox[{"m", "-", "j1", "-", "j2"}]}], "]"}]}], " ", ",", 
+     RowBox[{"{", 
+      RowBox[{"j1", ",", "0", ",", "m"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j2", ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"0", ",", 
+         RowBox[{"m", "-", "n", "+", "1", "-", "j1"}]}], "]"}], ",", 
+       RowBox[{"m", "-", "j1"}]}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"A", "[", 
+    RowBox[{"n_", ",", "N_"}], "]"}], " ", ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"-", "1"}], ")"}], "^", "n"}], " ", "N"}], " ", "-", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"-", "1"}], ")"}], "^", "n"}], " ", 
+     RowBox[{"2", "^", 
+      RowBox[{"(", 
+       RowBox[{"2", " ", "n"}], ")"}]}], 
+     RowBox[{"Sum", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"BernoulliB", "[", 
+          RowBox[{"2", " ", "j0"}], "]"}], "/", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"2", " ", "j0"}], ")"}], "!"}]}], 
+        RowBox[{"BernSum", "[", 
+         RowBox[{"n", ",", 
+          RowBox[{"n", "-", "j0"}]}], "]"}], " ", 
+        RowBox[{"N", "^", 
+         RowBox[{"(", 
+          RowBox[{"2", " ", "j0"}], ")"}]}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j0", ",", "0", ",", "n"}], "}"}]}], "]"}]}]}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.9165293434143972`*^9, 3.91652935348147*^9}, {
+   3.916529867520197*^9, 3.9165298818916893`*^9}, {3.916529939858926*^9, 
+   3.916529944816113*^9}, {3.916530020597974*^9, 3.916530044533312*^9}, {
+   3.916530081427813*^9, 3.916530106838757*^9}, 3.9165302500823517`*^9, {
+   3.916530626085166*^9, 3.916530631267068*^9}, {3.9165307120681667`*^9, 
+   3.91653071779589*^9}, 3.916531090678019*^9, {3.9165311490096197`*^9, 
+   3.916531149297386*^9}, {3.91653181430974*^9, 3.9165318618462677`*^9}, 
+   3.916531938931344*^9, {3.9165319912521067`*^9, 3.916532050322836*^9}, 
+   3.916532092899311*^9, {3.916532167779131*^9, 3.916532171457251*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"ae4d0eb1-78dc-4167-91df-a500d0e55715"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BernSum", "[", 
+  RowBox[{"n", ",", "0"}], "]"}]], "Input",
+ CellChangeTimes->{3.9165293022166147`*^9},
+ CellLabel->"In[8]:=",ExpressionUUID->"2f28fb4d-221a-4d37-934d-084740239265"],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.9165293029768*^9, 3.9165293701339083`*^9, 
+  3.916530112016288*^9, 3.9165311596818523`*^9, 3.9165320599996233`*^9, 
+  3.916532102626936*^9, 3.9165321774314833`*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"f31aedfa-251d-4ada-aed0-b8b617613e74"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BernSum", "[", 
+  RowBox[{"n", ",", "1"}], "]"}]], "Input",
+ CellChangeTimes->{3.9165320704334393`*^9},
+ CellLabel->"In[9]:=",ExpressionUUID->"f66fb97f-6889-4320-81d6-61d20f4977ed"],
+
+Cell[BoxData[
+ FractionBox["n", "6"]], "Output",
+ CellChangeTimes->{3.91653218062157*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"9f93b597-4d5d-4589-8129-8ed13fb53d34"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FunctionExpand", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"-", "1"}], ")"}], "^", "n"}]}], " ", 
+    RowBox[{"2", "^", 
+     RowBox[{"(", 
+      RowBox[{"2", " ", "n"}], ")"}]}], 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"BernoulliB", "[", 
+        RowBox[{"2", " ", "j0"}], "]"}], "/", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"2", " ", "j0"}], ")"}], "!"}]}], 
+      RowBox[{"BernSum", "[", 
+       RowBox[{"n", ",", "1"}], "]"}], " ", 
+      RowBox[{"N", "^", 
+       RowBox[{"(", 
+        RowBox[{"2", " ", "j0"}], ")"}]}]}], ")"}]}], "/.", 
+   RowBox[{"j0", "->", " ", 
+    RowBox[{"n", "-", "1"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9165322618511877`*^9, 3.916532323054206*^9}, {
+  3.916532354961976*^9, 3.916532375694583*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"832f0903-a315-46ec-8a82-f0491f996f49"],
+
+Cell[BoxData[
+ RowBox[{"-", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"-", "1"}], ")"}], "n"], " ", 
+    SuperscriptBox["2", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      RowBox[{"2", " ", "n"}]}]], " ", "n", " ", 
+    SuperscriptBox["N", 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", "n"}], ")"}]}]], " ", 
+    RowBox[{"BernoulliB", "[", 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", "n"}], ")"}]}], "]"}]}], 
+   RowBox[{"3", " ", 
+    RowBox[{"Gamma", "[", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      RowBox[{"2", " ", "n"}]}], "]"}]}]]}]], "Output",
+ CellChangeTimes->{
+  3.91653232489537*^9, {3.916532365487253*^9, 3.9165323789176397`*^9}},
+ CellLabel->"Out[16]=",ExpressionUUID->"f6c5714e-f0ce-4f29-956a-c0f12ce37d45"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"FunctionExpand", "[", 
+  RowBox[{"Zeta", "[", 
+   RowBox[{"2", " ", "n"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.916532685070671*^9, 3.9165326902438383`*^9}, {
+  3.916532734492689*^9, 3.916532761642198*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"ddb9f3c3-5eba-4d6a-a0ed-f8b0c4436995"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"-", "1"}], ")"}], "^", 
+   RowBox[{"(", 
+    RowBox[{"k", "-", "1"}], ")"}]}], " ", 
+  RowBox[{"BernoulliB", "[", 
+   RowBox[{"2", " ", "k"}], "]"}], " ", 
+  RowBox[{"2", "^", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"2", " ", "k"}], "-", "1"}], ")"}]}], " ", 
+  RowBox[{
+   RowBox[{"Pi", "^", 
+    RowBox[{"(", 
+     RowBox[{"2", " ", "k"}], ")"}]}], "/", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"2", " ", "k"}], ")"}], "!"}], " "}]}]], "Input",
+ CellChangeTimes->{{3.916532870314506*^9, 
+  3.916532956459291*^9}},ExpressionUUID->"6a48e392-f3a0-4d4f-85b2-\
+63afe57e40ac"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"-", "1"}], ")"}], 
+    RowBox[{
+     RowBox[{"-", "1"}], "+", "k"}]], " ", 
+   SuperscriptBox["2", 
+    RowBox[{
+     RowBox[{"-", "1"}], "+", 
+     RowBox[{"2", " ", "k"}]}]], " ", 
+   SuperscriptBox["\[Pi]", 
+    RowBox[{"2", " ", "k"}]], " ", 
+   RowBox[{"BernoulliB", "[", 
+    RowBox[{"2", " ", "k"}], "]"}]}], 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"2", " ", "k"}], ")"}], "!"}]]], "Output",
+ CellChangeTimes->{3.9165329404049873`*^9},
+ CellLabel->"Out[19]=",ExpressionUUID->"6a175eab-8cd8-46a6-b076-0566ebea3ef0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Brule", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"BernoulliB", "[", 
+    RowBox[{"2", " ", "k_"}], "]"}], ":>", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"2", " ", "k"}], ")"}], "!"}], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"-", "1"}], ")"}], 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", "k"}]], " ", 
+    SuperscriptBox["2", 
+     RowBox[{"1", "-", 
+      RowBox[{"2", " ", "k"}]}]], " ", 
+    SuperscriptBox["\[Pi]", 
+     RowBox[{
+      RowBox[{"-", "2"}], " ", "k"}]], " ", 
+    RowBox[{"Zeta", "[", 
+     RowBox[{"2", " ", "k"}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.916532968557667*^9, 3.9165330530163*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"ac000236-5c67-4b5a-a902-205f3daf0b49"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"BernoulliB", "[", 
+   RowBox[{"2", " ", "k_"}], "]"}], "\[RuleDelayed]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"2", " ", "k"}], ")"}], "!"}], " ", 
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"-", "1"}], ")"}], 
+    RowBox[{
+     RowBox[{"-", "1"}], "+", "k"}]], " ", 
+   SuperscriptBox["2", 
+    RowBox[{"1", "-", 
+     RowBox[{"2", " ", "k"}]}]], " ", 
+   SuperscriptBox["\[Pi]", 
+    RowBox[{
+     RowBox[{"-", "2"}], " ", "k"}]], " ", 
+   RowBox[{"Zeta", "[", 
+    RowBox[{"2", " ", "k"}], "]"}]}]}]], "Output",
+ CellChangeTimes->{3.916533058469441*^9},
+ CellLabel->"Out[20]=",ExpressionUUID->"f47a2fe1-2cbc-43a7-b9e7-8dc54ec69b72"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Simplify", "[", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"-", "1"}], ")"}], "^", "n"}]}], " ", 
+      RowBox[{"2", "^", 
+       RowBox[{"(", 
+        RowBox[{"2", " ", "n"}], ")"}]}], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"BernoulliB", "[", 
+          RowBox[{"2", " ", "j0"}], "]"}], "/", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"2", " ", "j0"}], ")"}], "!"}]}], 
+        RowBox[{"BernSum", "[", 
+         RowBox[{"n", ",", "1"}], "]"}], " ", 
+        RowBox[{"q", "^", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", "j0"}], "-", 
+           RowBox[{"2", " ", "n"}]}], ")"}]}]}], ")"}]}], "/.", 
+     RowBox[{"j0", "->", " ", 
+      RowBox[{"n", "-", "1"}]}]}], ")"}], "/.", "Brule"}], "]"}]], "Input",
+ CellChangeTimes->{{3.916533083825577*^9, 3.916533122682914*^9}, {
+  3.916533176955194*^9, 3.916533201290642*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"8e854435-c4ad-42f9-bc06-4baf0aea7e78"],
+
+Cell[BoxData[
+ RowBox[{"-", 
+  FractionBox[
+   RowBox[{"4", " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"-", "1"}], ")"}], 
+     RowBox[{"2", " ", "n"}]], " ", "n", " ", 
+    SuperscriptBox["\[Pi]", 
+     RowBox[{"2", "-", 
+      RowBox[{"2", " ", "n"}]}]], " ", 
+    RowBox[{"Zeta", "[", 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", "n"}], ")"}]}], "]"}]}], 
+   RowBox[{"3", " ", 
+    SuperscriptBox["q", "2"]}]]}]], "Output",
+ CellChangeTimes->{{3.9165331008461027`*^9, 3.916533124156975*^9}, 
+   3.916533203176857*^9},
+ CellLabel->"Out[23]=",ExpressionUUID->"adc29276-ee4b-40b5-8be1-68774ff52475"]
+}, Open  ]]
+},
+WindowSize->{1280, 781},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+PrivateNotebookOptions->{"CloudPublishPath"->"/Published/BernSum.nb"},
+FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (July 24, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"1751179f-c5d9-452e-9403-075b1c5fdc49"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3482, 98, 70, "Input",ExpressionUUID->"ae4d0eb1-78dc-4167-91df-a500d0e55715"],
+Cell[CellGroupData[{
+Cell[4065, 122, 205, 4, 70, "Input",ExpressionUUID->"2f28fb4d-221a-4d37-934d-084740239265"],
+Cell[4273, 128, 292, 4, 70, "Output",ExpressionUUID->"f31aedfa-251d-4ada-aed0-b8b617613e74"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4602, 137, 205, 4, 70, "Input",ExpressionUUID->"f66fb97f-6889-4320-81d6-61d20f4977ed"],
+Cell[4810, 143, 167, 3, 70, "Output",ExpressionUUID->"9f93b597-4d5d-4589-8129-8ed13fb53d34"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5014, 151, 940, 28, 70, "Input",ExpressionUUID->"832f0903-a315-46ec-8a82-f0491f996f49"],
+Cell[5957, 181, 874, 28, 70, "Output",ExpressionUUID->"f6c5714e-f0ce-4f29-956a-c0f12ce37d45"]
+}, Open  ]],
+Cell[6846, 212, 318, 6, 70, "Input",ExpressionUUID->"ddb9f3c3-5eba-4d6a-a0ed-f8b0c4436995"],
+Cell[CellGroupData[{
+Cell[7189, 222, 644, 22, 70, "Input",ExpressionUUID->"6a48e392-f3a0-4d4f-85b2-63afe57e40ac"],
+Cell[7836, 246, 612, 20, 70, "Output",ExpressionUUID->"6a175eab-8cd8-46a6-b076-0566ebea3ef0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8485, 271, 759, 23, 70, "Input",ExpressionUUID->"ac000236-5c67-4b5a-a902-205f3daf0b49"],
+Cell[9247, 296, 694, 22, 70, "Output",ExpressionUUID->"f47a2fe1-2cbc-43a7-b9e7-8dc54ec69b72"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9978, 323, 1096, 32, 70, "Input",ExpressionUUID->"8e854435-c4ad-42f9-bc06-4baf0aea7e78"],
+Cell[11077, 357, 664, 20, 70, "Output",ExpressionUUID->"adc29276-ee4b-40b5-8be1-68774ff52475"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

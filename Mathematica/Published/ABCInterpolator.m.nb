@@ -1,0 +1,914 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     32884,        905]
+NotebookOptionsPosition[     32422,        889]
+NotebookOutlinePosition[     32813,        905]
+CellTagsIndexPosition[     32770,        902]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Code",ExpressionUUID->"bd8cc2bc-b520-4b84-a547-084eca4cd81d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"gg", "[", 
+     RowBox[{"r_", ",", "\[CapitalDelta]_"}], "]"}], " ", ":=", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "2"}], "+", 
+       RowBox[{"2", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"Sqrt", "[", 
+          RowBox[{"r", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}]}], "]"}], 
+         "]"}], " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"Sqrt", "[", 
+          RowBox[{"r", " ", "\[CapitalDelta]"}], "]"}], "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", 
+            RowBox[{"2", " ", "\[CapitalDelta]"}]}], ")"}], " ", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"Sqrt", "[", 
+            RowBox[{"r", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}]}], "]"}], 
+           "]"}], " ", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"Sqrt", "[", 
+            RowBox[{"r", " ", "\[CapitalDelta]"}], "]"}], "]"}]}], ")"}], "/", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}], " ", 
+          "\[CapitalDelta]"}], "]"}]}]}], ")"}], "/", 
+     RowBox[{"r", "^", "2"}]}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"action", "[", " ", 
+     RowBox[{"r_", ",", "\[CapitalDelta]_"}], "]"}], ":=", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "8"}], " ", 
+          RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], " ", 
+          RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}], " ", 
+          RowBox[{"Cos", "[", 
+           RowBox[{
+            RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], "-", 
+              RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], ")"}]}], 
+           "]"}]}], "+", 
+         RowBox[{"8", " ", 
+          RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], " ", 
+          RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}], " ", 
+          RowBox[{"Cos", "[", 
+           RowBox[{
+            RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], "+", 
+              RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], ")"}]}], 
+           "]"}]}], "+", 
+         RowBox[{"4", " ", 
+          RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", 
+            RowBox[{"2", " ", "\[CapitalDelta]"}], "-", 
+            RowBox[{"\[CapitalDelta]", " ", 
+             RowBox[{"Cos", "[", 
+              RowBox[{"2", " ", 
+               RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+               RowBox[{"Sqrt", "[", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}]}], 
+              "]"}]}], "-", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}], " ", 
+             RowBox[{"Cos", "[", 
+              RowBox[{"2", " ", 
+               RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+               RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], "]"}]}]}], 
+           ")"}]}], "-", 
+         RowBox[{"8", " ", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], " ", 
+          "\[CapitalDelta]", " ", 
+          RowBox[{"Sin", "[", 
+           RowBox[{
+            RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], "-", 
+              RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], ")"}]}], 
+           "]"}]}], "-", 
+         RowBox[{
+          RowBox[{"Sqrt", "[", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], " ", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"2", " ", 
+            RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], "-", 
+              RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], ")"}]}], 
+           "]"}]}], "+", 
+         RowBox[{"4", " ", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], " ", 
+          "\[CapitalDelta]", " ", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"2", " ", 
+            RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], "-", 
+              RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], ")"}]}], 
+           "]"}]}], "-", 
+         RowBox[{"8", " ", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], " ", 
+          "\[CapitalDelta]", " ", 
+          RowBox[{"Sin", "[", 
+           RowBox[{
+            RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], "+", 
+              RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], ")"}]}], 
+           "]"}]}], "-", 
+         RowBox[{
+          RowBox[{"Sqrt", "[", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], " ", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"2", " ", 
+            RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], "+", 
+              RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], ")"}]}], 
+           "]"}]}], "+", 
+         RowBox[{"4", " ", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], " ", 
+          "\[CapitalDelta]", " ", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"2", " ", 
+            RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], "+", 
+              RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], ")"}]}], 
+           "]"}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], " ", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"2", " ", 
+            RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+            RowBox[{"Sqrt", "[", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}]}], "]"}]}], 
+         "+", 
+         RowBox[{
+          RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"-", "8"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"Sqrt", "[", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], "-", 
+                 RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], ")"}]}], 
+              "]"}]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"-", "3"}], "+", 
+               RowBox[{"4", " ", "\[CapitalDelta]"}]}], ")"}], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"2", " ", 
+               RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"Sqrt", "[", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], "-", 
+                 RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], ")"}]}], 
+              "]"}]}], "+", 
+            RowBox[{"8", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"Sqrt", "[", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], "+", 
+                 RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], ")"}]}], 
+              "]"}]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"3", "-", 
+               RowBox[{"4", " ", "\[CapitalDelta]"}]}], ")"}], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"2", " ", 
+               RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"Sqrt", "[", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], "+", 
+                 RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], ")"}]}], 
+              "]"}]}], "+", 
+            RowBox[{"2", " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"2", " ", 
+               RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+               RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], "]"}]}]}], 
+           ")"}]}]}], ")"}]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"16", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}], " ", 
+       "\[CapitalDelta]", " ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           RowBox[{
+            RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+            RowBox[{"Sqrt", "[", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}]}], "]"}], 
+          "-", 
+          RowBox[{"Cos", "[", 
+           RowBox[{
+            RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+            RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], "]"}]}], ")"}], 
+        "^", "2"}]}], ")"}]}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"r0data", " ", "=", " ", 
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"data", "=", 
+        RowBox[{"{", "}"}]}], ",", " ", 
+       RowBox[{"delta", " ", "=", " ", "0.001"}], ",", " ", 
+       RowBox[{"r0", " ", "=", " ", 
+        RowBox[{"-", "16.7"}]}]}], "}"}], ",", "\n", 
+     RowBox[{
+      RowBox[{"d", " ", "=", " ", "delta"}], ";", "\n", 
+      RowBox[{"While", "[", 
+       RowBox[{
+        RowBox[{"d", " ", "<", " ", "0.98"}], ",", "\n", 
+        RowBox[{
+         RowBox[{"r0", " ", "=", 
+          RowBox[{
+           RowBox[{"Re", "[", " ", 
+            RowBox[{"r", "/.", 
+             RowBox[{
+              RowBox[{"FindRoot", "[", 
+               RowBox[{
+                RowBox[{"gg", "[", 
+                 RowBox[{"r", ",", "d"}], "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"r", ",", " ", "r0"}], "}"}]}], "]"}], "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "//", "Quiet"}]}], ";",
+          "\n", 
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"data", ",", 
+           RowBox[{"{", 
+            RowBox[{"d", ",", "r0"}], "}"}]}], "]"}], ";", "\n", 
+         RowBox[{"d", " ", "+=", " ", "delta"}], ";"}]}], "\n", "]"}], ";", 
+      "\n", "data"}]}], "\n", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"r2data", " ", "=", " ", 
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"data", "=", 
+        RowBox[{"{", "}"}]}], ",", " ", 
+       RowBox[{"delta", " ", "=", " ", "0.001"}], ",", " ", 
+       RowBox[{"r0", " ", "=", "44.74657089612265`"}]}], "}"}], ",", "\n", 
+     RowBox[{
+      RowBox[{"d", " ", "=", " ", "0.5"}], ";", "\n", 
+      RowBox[{"While", "[", 
+       RowBox[{
+        RowBox[{"d", " ", ">", " ", "0.05"}], ",", "\n", 
+        RowBox[{
+         RowBox[{"r0", " ", "=", 
+          RowBox[{
+           RowBox[{"Re", "[", " ", 
+            RowBox[{"r", "/.", 
+             RowBox[{
+              RowBox[{"FindRoot", "[", 
+               RowBox[{
+                RowBox[{"gg", "[", 
+                 RowBox[{"r", ",", "d"}], "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"r", ",", " ", "r0"}], "}"}]}], "]"}], "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "//", "Quiet"}]}], ";",
+          "\n", 
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"data", ",", 
+           RowBox[{"{", 
+            RowBox[{"d", ",", "r0"}], "}"}]}], "]"}], ";", "\n", 
+         RowBox[{"d", " ", "-=", " ", "delta"}], ";"}]}], "\n", "]"}], ";", 
+      "\n", "data"}]}], "\n", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"ClearAll", "[", 
+   RowBox[{"r", ",", "d"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"interp0", " ", "=", " ", 
+   RowBox[{"Interpolation", "[", "r0data", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"interp2", " ", "=", " ", 
+    RowBox[{"Interpolation", "[", "r2data", "]"}]}], ";"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"\[CapitalDelta]1", "=", 
+     RowBox[{"Re", "[", 
+      RowBox[{"d", "/.", 
+       RowBox[{
+        RowBox[{"FindRoot", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"action", "[", 
+            RowBox[{
+             RowBox[{"interp2", "[", "d", "]"}], ",", "d"}], "]"}], "-", " ", 
+           
+           RowBox[{"action", "[", 
+            RowBox[{
+             RowBox[{"interp0", "[", "d", "]"}], ",", "d"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"d", ",", "0.156"}], "}"}]}], "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ";", "\n", 
+    RowBox[{"\[CapitalDelta]2", "=", 
+     RowBox[{"Re", "[", 
+      RowBox[{"d", "/.", 
+       RowBox[{
+        RowBox[{"FindRoot", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"action", "[", 
+            RowBox[{
+             RowBox[{"interp2", "[", "d", "]"}], ",", "d"}], "]"}], "-", " ", 
+           
+           RowBox[{"action", "[", 
+            RowBox[{
+             RowBox[{"interp0", "[", "d", "]"}], ",", "d"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"d", ",", "0.42"}], "}"}]}], "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ";"}], "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"\[CapitalDelta]1", "=", "0.15714261196307505`"}], " ", ";"}], "\n", 
+ RowBox[{
+  RowBox[{"\[CapitalDelta]2", "=", "0.4301495990065511`"}], " ", 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"cons", "[", 
+    RowBox[{"\[CapitalDelta]_", ",", " ", "r_"}], "]"}], " ", ":=", 
+   RowBox[{"-", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", "\[CapitalDelta]", " ", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"2", " ", 
+           RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+           RowBox[{"Sqrt", "[", 
+            RowBox[{
+             RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}]}], "]"}]}], 
+        "+", 
+        RowBox[{
+         RowBox[{"1", "/", 
+          RowBox[{"Sqrt", "[", "r", "]"}]}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{"1", "-", 
+              RowBox[{"2", " ", "\[CapitalDelta]"}]}], ")"}]}], "-", 
+           RowBox[{"4", " ", 
+            RowBox[{"Sqrt", "[", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], " ", 
+            "\[CapitalDelta]", " ", 
+            RowBox[{"Sin", "[", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Sqrt", "[", 
+                 RowBox[{
+                  RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], "-", 
+                RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], ")"}]}], 
+             "]"}]}], "-", 
+           RowBox[{"4", " ", 
+            RowBox[{"Sqrt", "[", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], " ", 
+            "\[CapitalDelta]", " ", 
+            RowBox[{"Sin", "[", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Sqrt", "[", 
+                 RowBox[{
+                  RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], "+", 
+                RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], ")"}]}], 
+             "]"}]}], "+", 
+           RowBox[{
+            RowBox[{"Sqrt", "[", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], " ", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"2", " ", 
+              RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+              RowBox[{"Sqrt", "[", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}]}], 
+             "]"}]}], "+", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             RowBox[{"2", " ", 
+              RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+              RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", " ", 
+               RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}]}], "+", 
+              RowBox[{
+               RowBox[{"Sqrt", "[", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", 
+                 RowBox[{"4", " ", "\[CapitalDelta]"}]}], ")"}], " ", 
+               RowBox[{"Sin", "[", 
+                RowBox[{"2", " ", 
+                 RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+                 RowBox[{"Sqrt", "[", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}]}], 
+                "]"}]}]}], ")"}]}], "+", 
+           RowBox[{"8", " ", 
+            RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+            RowBox[{"Sqrt", "[", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}], " ", 
+            RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}], " ", 
+            RowBox[{"Sin", "[", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+              RowBox[{"Sqrt", "[", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}]}], "]"}], 
+            " ", 
+            RowBox[{"Sin", "[", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+              RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], "]"}]}], "+", 
+           RowBox[{
+            RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"8", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}], " ", 
+               RowBox[{"Cos", "[", 
+                RowBox[{
+                 RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+                 RowBox[{"Sqrt", "[", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}]}], 
+                "]"}], " ", 
+               RowBox[{"Sin", "[", 
+                RowBox[{
+                 RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+                 RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], "]"}]}], 
+              "+", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"1", "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"3", "-", 
+                    RowBox[{"4", " ", "\[CapitalDelta]"}]}], ")"}], " ", 
+                  RowBox[{"Cos", "[", 
+                   RowBox[{"2", " ", 
+                    RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}]}], 
+                   "]"}]}]}], ")"}], " ", 
+               RowBox[{"Sin", "[", 
+                RowBox[{"2", " ", 
+                 RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+                 RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], "]"}]}]}], 
+             ")"}]}]}], ")"}]}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"16", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}], " ", 
+        "\[CapitalDelta]", " ", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Cos", "[", 
+            RowBox[{
+             RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+             RowBox[{"Sqrt", "[", 
+              RowBox[{
+               RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], "]"}]}], "]"}], 
+           "-", 
+           RowBox[{"Cos", "[", 
+            RowBox[{
+             RowBox[{"Sqrt", "[", "r", "]"}], " ", 
+             RowBox[{"Sqrt", "[", "\[CapitalDelta]", "]"}]}], "]"}]}], ")"}], 
+         "^", "2"}]}], ")"}]}], ")"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Alpha]\[Alpha]", "[", 
+    RowBox[{"\[CapitalDelta]_", ",", "r_"}], "]"}], ":=", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"r", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"\[CapitalDelta]", " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{"r", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}]}], "]"}], 
+          "]"}]}], "-", 
+        RowBox[{
+         RowBox[{"Sqrt", "[", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}], " ", 
+           "\[CapitalDelta]"}], "]"}], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{"r", " ", "\[CapitalDelta]"}], "]"}], "]"}]}]}], ")"}], 
+      " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"\[CapitalDelta]", " ", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{"r", " ", "\[CapitalDelta]"}], "]"}], "]"}], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{"r", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}]}], "]"}], 
+          "]"}]}], "-", 
+        RowBox[{
+         RowBox[{"Sqrt", "[", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}], " ", 
+           "\[CapitalDelta]"}], "]"}], " ", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{"r", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}]}], "]"}], 
+          "]"}], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{"r", " ", "\[CapitalDelta]"}], "]"}], "]"}]}]}], ")"}]}], 
+     ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}], " ", 
+      RowBox[{"\[CapitalDelta]", "^", "2"}], " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{"r", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}]}], "]"}], 
+          "]"}], "-", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{"r", " ", "\[CapitalDelta]"}], "]"}], "]"}]}], ")"}], "^", 
+       "2"}]}], ")"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{"\[Omega]_", ",", "  ", "r_", ",", " ", "\[CapitalDelta]_"}], 
+    "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "r"}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+       RowBox[{"Sqrt", "[", "\[Omega]", "]"}], "/", "2"}], "]"}]}], "+", 
+    RowBox[{"r", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+       RowBox[{"1", "/", "2"}], " ", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", 
+         RowBox[{"2", " ", "\[CapitalDelta]"}]}], ")"}], " ", 
+       RowBox[{"Sqrt", "[", "\[Omega]", "]"}]}], "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}], " ", 
+     "\[CapitalDelta]", " ", 
+     RowBox[{"Sqrt", "[", "\[Omega]", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{"r", "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "1"}], "+", "\[CapitalDelta]"}], ")"}], " ", 
+        "\[CapitalDelta]", " ", "\[Omega]"}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+       RowBox[{"Sqrt", "[", "\[Omega]", "]"}], "/", "2"}], "]"}]}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"IQ", "[", " ", "\[CapitalDelta]_", "]"}], " ", ":=", "\n", 
+    RowBox[{
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "r", ",", "L", ",", "S", ",", "J", ",", " ", "Q", ",", " ", 
+         "\[Omega]", ",", " ", "Phi", ",", " ", "FF", ",", " ", 
+         RowBox[{"eps", " ", "=", " ", "0.1"}]}], "}"}], ",", "\n", 
+       RowBox[{
+        RowBox[{"r", " ", "=", " ", 
+         RowBox[{"interp2", "[", "\[CapitalDelta]", "]"}]}], ";", "\n", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"Print", "[", "r", "]"}], ";"}], "*)"}], "\n", 
+        RowBox[{"Phi", " ", "=", 
+         RowBox[{"D", "[", 
+          RowBox[{
+           RowBox[{"Log", "[", " ", 
+            RowBox[{
+             RowBox[{"f", "[", 
+              RowBox[{"\[Omega]", ",", "r", ",", "\[CapitalDelta]"}], "]"}], 
+             "/", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"Cos", "[", 
+                RowBox[{
+                 RowBox[{"Sqrt", "[", "\[Omega]", "]"}], "/", "2"}], "]"}], 
+               " ", 
+               RowBox[{"\[Omega]", "^", 
+                RowBox[{"(", 
+                 RowBox[{"3", "/", "2"}], ")"}]}]}], ")"}]}], "]"}], ",", 
+           "\[Omega]"}], "]"}]}], ";", "\n", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"Print", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Phi", "/.", 
+              RowBox[{"{", 
+               RowBox[{"\[Omega]", "->", 
+                RowBox[{"eps", "-", 
+                 RowBox[{"I", " ", "L"}]}]}], "}"}]}], ",", 
+             RowBox[{"Phi", "/.", 
+              RowBox[{"{", 
+               RowBox[{"\[Omega]", "->", 
+                RowBox[{"eps", "+", 
+                 RowBox[{"I", " ", "L"}]}]}], "}"}]}]}], "}"}], "]"}], ";"}], 
+         "*)"}], "\n", 
+        RowBox[{"NIntegrate", "[", " ", 
+         RowBox[{
+          RowBox[{"Re", "[", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"Phi", " ", 
+              RowBox[{"Log", "[", "\[Omega]", "]"}]}], ")"}], "/.", 
+            RowBox[{"\[Omega]", "->", 
+             RowBox[{"eps", "+", 
+              RowBox[{"I", " ", "x"}]}]}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", 
+            RowBox[{"-", "Infinity"}], ",", " ", "Infinity"}], "}"}], ",", 
+          "\n", 
+          RowBox[{"Method", "->", "\"\<DoubleExponentialOscillatory\>\""}]}], 
+         "]"}]}]}], "\n", "]"}], "//", "Quiet"}]}], ";"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"qtab", " ", "=", " ", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[CapitalDelta]", ",", 
+         RowBox[{"IQ", "[", " ", "\[CapitalDelta]", "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "\[CapitalDelta]", ",", "\[CapitalDelta]1", ",", "\[CapitalDelta]2", 
+         ",", "0.00005"}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{"iqinterp", " ", "=", " ", 
+     RowBox[{"Interpolation", "[", "qtab", "]"}]}], ";", "\n", 
+    RowBox[{"DumpSave", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<iqinterp.mx\>\""}],
+       ",", "iqinterp"}], "]"}], ";"}], "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Get", "[", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<iqinterp.mx\>\""}], 
+   "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"ClearAll", "[", "r", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ABC", "[", " ", "\[CapitalDelta]_", "]"}], " ", ":=", "\n", 
+   RowBox[{
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"r", ",", "L", ",", "S", ",", "J", ",", " ", "Q"}], "}"}], ",",
+       "\n", 
+      RowBox[{
+       RowBox[{"r", " ", "=", " ", 
+        RowBox[{"interp2", "[", "\[CapitalDelta]", "]"}]}], ";", "\n", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"Print", "[", "r", "]"}], ";"}], "*)"}], "\n", 
+       RowBox[{"L", " ", "=", " ", 
+        RowBox[{"Re", "[", 
+         RowBox[{"action", "[", 
+          RowBox[{"r", ",", "\[CapitalDelta]"}], "]"}], "]"}]}], ";", "\n", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"Print", "[", "L", "]"}], ";"}], "*)"}], "\n", 
+       RowBox[{"S", "=", " ", 
+        RowBox[{"Re", "[", 
+         RowBox[{"\[Alpha]\[Alpha]", "[", 
+          RowBox[{"\[CapitalDelta]", ",", " ", "r"}], "]"}], "]"}]}], ";", 
+       "\n", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"Print", "[", "S", "]"}], ";"}], "*)"}], "\n", 
+       RowBox[{"J", " ", "=", " ", 
+        RowBox[{"Re", "[", 
+         RowBox[{"cons", "[", 
+          RowBox[{"\[CapitalDelta]", ",", " ", "r"}], "]"}], "]"}]}], ";", 
+       "\n", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"Print", "[", "J", "]"}], ";"}], "*)"}], "\n", 
+       RowBox[{"Q", " ", "=", " ", 
+        RowBox[{"Exp", "[", 
+         RowBox[{
+          RowBox[{"1", "/", 
+           RowBox[{"(", 
+            RowBox[{"8", " ", "Pi"}], ")"}]}], 
+          RowBox[{"iqinterp", "[", "\[CapitalDelta]", "]"}]}], "]"}]}], ";", 
+       "\n", 
+       RowBox[{"Q", " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"2", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"r", "-", "6"}], ")"}], "/", 
+            RowBox[{"(", 
+             RowBox[{"r", "+", "12"}], ")"}]}]}], ",", 
+          RowBox[{"J", "/", "S"}], ",", 
+          RowBox[{"L", "/", 
+           RowBox[{"(", " ", 
+            RowBox[{"2", " ", "Pi", " ", "S"}], ")"}]}]}], "}"}]}]}]}], "\n", 
+     "]"}], "//", "Quiet"}]}], ";"}]}], "Input",
+ InitializationCell->
+  True,ExpressionUUID->"2918b8b5-6c0c-49b5-8d0e-efea686c4d4a"]
+},
+WindowSize->{808, 911},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (July 24, 2023)",
+StyleDefinitions->"Package.nb",
+ExpressionUUID->"0109053d-b72e-4e3e-ad3c-0187c3fcb266"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 130, 1, 70, "Code",ExpressionUUID->"bd8cc2bc-b520-4b84-a547-084eca4cd81d"],
+Cell[691, 23, 31727, 864, 70, "Input",ExpressionUUID->"2918b8b5-6c0c-49b5-8d0e-efea686c4d4a",
+ InitializationCell->True]
+}
+]
+*)
+
+(* End of internal cache information *)

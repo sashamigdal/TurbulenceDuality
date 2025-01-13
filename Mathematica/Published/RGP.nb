@@ -1,0 +1,775 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     23728,        766]
+NotebookOptionsPosition[     19516,        690]
+NotebookOutlinePosition[     19857,        705]
+CellTagsIndexPosition[     19814,        702]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ TemplateBox[Association["boxes" -> FormBox[
+     RowBox[{"\[Kappa]", 
+       SuperscriptBox[
+        StyleBox["F", "TI"], "\[Prime]"], "+", 
+       RowBox[{"(", 
+         RowBox[{
+           StyleBox["i", "TI"], "\[Kappa]", "-", "2", 
+           SuperscriptBox[
+            StyleBox["e", "TI"], 
+            RowBox[{
+              StyleBox["i", "TI"], "\[Theta]"}]], 
+           StyleBox["p", "TI"]}], ")"}], 
+       SuperscriptBox[
+        StyleBox["F", "TI"], "*"], "-", "2", 
+       SuperscriptBox[
+        StyleBox["e", "TI"], 
+        RowBox[{"-", 
+          StyleBox["i", "TI"], "\[Theta]"}]], 
+       StyleBox["F", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+   "\\kappa  F'  + \\left(i \\kappa -2 e^{i \\theta } p\\right)F^*-2 e^{-i \
+\\theta }F", "state" -> "Boxes"],
+  "TeXAssistantTemplate"]], "Input",
+ Background->RGBColor[1, 0.9, 0.8]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ClearAll", "[", "F", "]"}], ";"}]], "Input",
+ CellLabel->"In[1]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Eq", " ", "[", 
+    RowBox[{"F_", "[", "\[Xi]_", "]"}], "]"}], ":=", "  ", 
+   RowBox[{
+    RowBox[{"I", " ", "\[Kappa]", " ", "\[Xi]", " ", 
+     RowBox[{
+      RowBox[{"F", "'"}], "[", "\[Xi]", "]"}]}], " ", "-", " ", 
+    RowBox[{
+     RowBox[{"(", " ", 
+      RowBox[{
+       RowBox[{"I", " ", "\[Kappa]"}], " ", "-", " ", 
+       RowBox[{"2", " ", "p", " ", "\[Xi]"}]}], ")"}], " ", 
+     RowBox[{"F", "[", 
+      RowBox[{"1", "/", "\[Xi]"}], "]"}]}], " ", "-", " ", 
+    RowBox[{"2", " ", 
+     RowBox[{
+      RowBox[{"F", "[", "\[Xi]", "]"}], "/", "\[Xi]"}]}]}]}], ";"}]], "Input",\
+
+ CellLabel->"In[2]:="],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Eq", "[", 
+  RowBox[{"F", "[", "\[Xi]", "]"}], "]"}]], "Input",
+ CellLabel->"In[3]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"\[ImaginaryI]", " ", "\[Kappa]"}], "-", 
+       RowBox[{"2", " ", "p", " ", "\[Xi]"}]}], ")"}], " ", 
+     RowBox[{"F", "[", 
+      FractionBox["1", "\[Xi]"], "]"}]}], ")"}]}], "-", 
+  FractionBox[
+   RowBox[{"2", " ", 
+    RowBox[{"F", "[", "\[Xi]", "]"}]}], "\[Xi]"], "+", 
+  RowBox[{"\[ImaginaryI]", " ", "\[Kappa]", " ", "\[Xi]", " ", 
+   RowBox[{
+    SuperscriptBox["F", "\[Prime]",
+     MultilineFunction->None], "[", "\[Xi]", "]"}]}]}]], "Output",
+ CellLabel->"Out[3]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Eq1", "[", 
+   RowBox[{"F", "[", "\[Xi]", "]"}], "]"}], " ", "=", " ", 
+  RowBox[{
+   RowBox[{"F", "[", "\[Xi]", "]"}], " ", "\[Rule]", 
+   RowBox[{"ExpandAll", "[", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"F", "[", "\[Xi]", "]"}], "/.", 
+      RowBox[{"Solve", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Eq", "[", 
+          RowBox[{"F", "[", "\[Xi]", "]"}], "]"}], "\[Equal]", "0"}], ",", 
+        RowBox[{"F", "[", "\[Xi]", "]"}]}], "]"}]}], ")"}], 
+    "]"}]}]}]], "Input",
+ CellLabel->"In[4]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"F", "[", "\[Xi]", "]"}], "\[Rule]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", "\[Kappa]", " ", 
+     "\[Xi]", " ", 
+     RowBox[{"F", "[", 
+      FractionBox["1", "\[Xi]"], "]"}]}], "+", 
+    RowBox[{"p", " ", 
+     SuperscriptBox["\[Xi]", "2"], " ", 
+     RowBox[{"F", "[", 
+      FractionBox["1", "\[Xi]"], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", "\[Kappa]", " ", 
+     SuperscriptBox["\[Xi]", "2"], " ", 
+     RowBox[{
+      SuperscriptBox["F", "\[Prime]",
+       MultilineFunction->None], "[", "\[Xi]", "]"}]}]}], "}"}]}]], "Output",
+ CellLabel->"Out[4]="]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"F", " ", "=", " ", 
+     RowBox[{"Sum", " ", 
+      RowBox[{"f", "[", "n", "]"}], " ", 
+      RowBox[{"\[Xi]", "^", "n"}]}]}], " ", ";", " ", 
+    RowBox[{
+     RowBox[{"F", "[", 
+      RowBox[{"1", "/", "\[Xi]"}], "]"}], " ", "=", " ", 
+     RowBox[{"-", 
+      RowBox[{
+       RowBox[{"F", "\[Conjugate]"}], "[", "\[Xi]", "]"}]}]}]}], " ", ",", 
+   RowBox[{
+    RowBox[{"f", "[", 
+     RowBox[{"-", "n"}], "]"}], " ", "=", " ", 
+    RowBox[{"-", 
+     RowBox[{
+      RowBox[{"f", "\[Conjugate]"}], "[", "n", "]"}]}]}]}], " ", 
+  "*)"}]], "Input",
+ CellLabel->"In[108]:="],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", 
+   RowBox[{"f", ",", " ", "A"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"\[Kappa]", " ", "=."}]}], "Input",
+ CellLabel->"In[171]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Conds", " ", "=", " ", 
+   RowBox[{"Element", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"C", "[", "1", "]"}], ",", 
+       RowBox[{"C", "[", "2", "]"}], ",", "p", ",", "\[Kappa]", ",", " ", 
+       "\[Xi]"}], "}"}], ",", "Reals"}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[240]:="],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"f", "[", "0", "]"}], " ", "=", "I"}], " ", ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"f", "[", "1", "]"}], "  ", "=", 
+     RowBox[{
+      RowBox[{"C", "[", "1", "]"}], " ", "+", " ", 
+      RowBox[{"I", " ", 
+       RowBox[{"C", "[", "2", "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"f", "[", "n_", "]"}], ":=", "   ", 
+     RowBox[{"FullSimplify", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "p"}], " ", 
+         RowBox[{"Conjugate", "[", 
+          RowBox[{"f", "[", 
+           RowBox[{"n", "-", "2"}], "]"}], "]"}]}], " ", "-", " ", 
+        RowBox[{"I", " ", 
+         RowBox[{"\[Kappa]", "/", "2"}], " ", 
+         RowBox[{"Conjugate", "[", 
+          RowBox[{"f", "[", 
+           RowBox[{"n", "-", "1"}], "]"}], "]"}]}], " ", "+", " ", 
+        RowBox[{"I", " ", 
+         RowBox[{"\[Kappa]", "/", "2"}], " ", 
+         RowBox[{"(", 
+          RowBox[{"n", "-", "1"}], ")"}], " ", 
+         RowBox[{"f", "[", 
+          RowBox[{"n", "-", "1"}], "]"}]}]}], ",", "Conds"}], "]"}]}], 
+    ";"}]}]}]], "Input",
+ CellLabel->"In[241]:="],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ColumnForm", "[", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"f", "[", "k", "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k", ",", "0", ",", "4"}], "}"}]}], "]"}], "]"}]], "Input",
+ CellLabel->"In[244]:="],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {"\[ImaginaryI]"},
+    {
+     RowBox[{
+      TemplateBox[{"1"},
+       "C"], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       TemplateBox[{"2"},
+        "C"]}]}]},
+    {
+     RowBox[{
+      RowBox[{"\[ImaginaryI]", " ", "p"}], "-", 
+      RowBox[{"\[Kappa]", " ", 
+       TemplateBox[{"2"},
+        "C"]}]}]},
+    {
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"p", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "3"}], " ", "\[Kappa]"}], "-", 
+           RowBox[{"2", " ", 
+            TemplateBox[{"1"},
+             "C"]}], "+", 
+           RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+            TemplateBox[{"2"},
+             "C"]}]}], ")"}]}], "-", 
+        RowBox[{"\[ImaginaryI]", " ", 
+         SuperscriptBox["\[Kappa]", "2"], " ", 
+         TemplateBox[{"2"},
+          "C"]}]}], ")"}]}]},
+    {
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", "p", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", "p"}], "-", 
+         RowBox[{"\[Kappa]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"3", " ", "\[Kappa]"}], "+", 
+            RowBox[{"2", " ", 
+             TemplateBox[{"1"},
+              "C"]}]}], ")"}]}]}], ")"}]}], "+", 
+      RowBox[{"\[Kappa]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "p"}], "+", 
+         SuperscriptBox["\[Kappa]", "2"]}], ")"}], " ", 
+       TemplateBox[{"2"},
+        "C"]}]}]}
+   },
+   BaselinePosition->{Baseline, {1, 1}},
+   GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}],
+  ColumnForm[{
+    Complex[0, 1], C[1] + Complex[0, 1] C[2], 
+    Complex[0, 1] $CellContext`p - $CellContext`\[Kappa] C[2], 
+    Rational[1, 
+      2] ($CellContext`p ((-3) $CellContext`\[Kappa] - 2 C[1] + 
+       Complex[0, 2] C[2]) + Complex[0, -1] $CellContext`\[Kappa]^2 C[2]), 
+    Complex[0, 
+       Rational[1, 2]] $CellContext`p (
+      2 $CellContext`p - $CellContext`\[Kappa] (3 $CellContext`\[Kappa] + 
+       2 C[1])) + $CellContext`\[Kappa] (-$CellContext`p + $CellContext`\
+\[Kappa]^2) C[2]}],
+  Editable->False]], "Output",
+ CellLabel->"Out[244]="]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"F", "[", 
+    RowBox[{"\[Xi]_", ",", " ", "M_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"Sum", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"f", "[", "n", "]"}], " ", 
+      RowBox[{"\[Xi]", "^", "n"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "0", ",", "M"}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[179]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f0", "[", "n_", "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{"n", "^", "\[Lambda]"}], " ", 
+   RowBox[{
+    RowBox[{"Gamma", "[", 
+     RowBox[{"\[Mu]", " ", "n"}], "]"}], "^", "\[Nu]"}]}]}]], "Input",
+ CellLabel->"In[183]:="],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{"Asymptotic", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"\[Lambda]", " ", 
+       RowBox[{"Log", "[", 
+        RowBox[{"n", "/", 
+         RowBox[{"(", 
+          RowBox[{"n", "-", "1"}], ")"}]}], "]"}]}], " ", "+", " ", 
+      RowBox[{"\[Nu]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Log", "[", 
+          RowBox[{"Gamma", "[", 
+           RowBox[{"\[Mu]", " ", "n"}], "]"}], "]"}], " ", "-", " ", 
+         RowBox[{"Log", "[", 
+          RowBox[{"Gamma", "[", 
+           RowBox[{"\[Mu]", 
+            RowBox[{"(", 
+             RowBox[{"n", "-", "1"}], ")"}]}], "]"}], "]"}]}], ")"}]}]}], ",",
+      " ", 
+     RowBox[{"n", "\[Rule]", 
+      RowBox[{"+", "Infinity"}]}]}], "]"}], ",", " ", 
+   RowBox[{"n", ">", "0"}]}], "]"}]], "Input",
+ CellLabel->"In[189]:="],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellLabel->"Out[189]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LG", "[", "z_", "]"}], " ", "=", " ", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"Asymptotic", "[", 
+    RowBox[{
+     RowBox[{"Log", "[", 
+      RowBox[{"Gamma", "[", "z", "]"}], "]"}], ",", " ", 
+     RowBox[{"z", " ", "\[Rule]", "Infinity"}]}], "]"}], "]"}]}]], "Input",
+ CellLabel->"In[204]:="],
+
+Cell[BoxData[
+ RowBox[{"Log", "[", 
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"-", "z"}]], " ", 
+   SqrtBox[
+    RowBox[{"2", " ", "\[Pi]"}]], " ", 
+   SuperscriptBox["z", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", "2"]}], "+", "z"}]]}], "]"}]], "Output",
+ CellLabel->"Out[204]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LHS", " ", "=", "\[IndentingNewLine]", 
+  RowBox[{"FullSimplify", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Asymptotic", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"\[Lambda]", " ", 
+        RowBox[{"Log", "[", 
+         RowBox[{"n", "/", 
+          RowBox[{"(", 
+           RowBox[{"n", "-", "1"}], ")"}]}], "]"}]}], "+", " ", 
+       RowBox[{"\[Nu]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"LG", "[", 
+           RowBox[{"\[Mu]", " ", "n"}], "]"}], "-", " ", 
+          RowBox[{"LG", "[", 
+           RowBox[{"\[Mu]", 
+            RowBox[{"(", 
+             RowBox[{"n", "-", "1"}], ")"}]}], "]"}]}], ")"}]}]}], ",", " ", 
+      RowBox[{"n", "\[Rule]", 
+       RowBox[{"+", "Infinity"}]}]}], "]"}], "\[IndentingNewLine]", ",", " ", 
+    
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"n", ">", "0"}], ",", " ", 
+      RowBox[{"\[Mu]", " ", ">", "0"}]}], "}"}]}], "]"}]}]], "Input",
+ CellLabel->"In[209]:="],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"\[Lambda]", "-", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"1", "+", "\[Mu]"}], ")"}], " ", "\[Nu]"}], "+", 
+   RowBox[{"n", " ", "\[Mu]", " ", "\[Nu]", " ", 
+    RowBox[{"Log", "[", 
+     RowBox[{"n", " ", "\[Mu]"}], "]"}]}]}], "n"]], "Output",
+ CellLabel->"Out[209]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RHS", " ", "=", 
+  RowBox[{"Log", "[", " ", 
+   RowBox[{"I", " ", 
+    RowBox[{"\[Kappa]", "/", "2"}], " ", "n"}], "]"}]}]], "Input",
+ CellLabel->"In[210]:="],
+
+Cell[BoxData[
+ RowBox[{"Log", "[", 
+  FractionBox[
+   RowBox[{"\[ImaginaryI]", " ", "n", " ", "\[Kappa]"}], "2"], 
+  "]"}]], "Output",
+ CellLabel->"Out[210]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ee", " ", "=", 
+  RowBox[{"Normal", "[", 
+   RowBox[{"Series", "[", 
+    RowBox[{
+     RowBox[{"LHS", "-", " ", "RHS"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "Infinity", ",", "1"}], "}"}]}], "]"}], 
+   "]"}]}]], "Input",
+ CellLabel->"In[215]:="],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox[
+   RowBox[{
+    RowBox[{"2", " ", "\[Lambda]"}], "-", "\[Nu]", "-", 
+    RowBox[{"\[Mu]", " ", "\[Nu]"}]}], 
+   RowBox[{"2", " ", "n"}]], "-", 
+  RowBox[{"Log", "[", 
+   FractionBox[
+    RowBox[{"\[ImaginaryI]", " ", "n", " ", "\[Kappa]"}], "2"], "]"}], "+", 
+  RowBox[{"\[Mu]", " ", "\[Nu]", " ", 
+   RowBox[{"Log", "[", 
+    RowBox[{"n", " ", "\[Mu]"}], "]"}]}]}]], "Output",
+ CellLabel->"Out[215]="]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sol", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\[Nu]", " ", "\[Rule]", " ", 
+      RowBox[{"1", "/", "\[Mu]"}]}], ",", " ", 
+     RowBox[{"\[Mu]", " ", "\[Rule]", 
+      RowBox[{"I", " ", 
+       RowBox[{"\[Kappa]", "/", "2"}]}]}], ",", 
+     RowBox[{"\[Lambda]", "\[Rule]", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"\[Nu]", " ", "+", " ", "1"}], ")"}], "/", "2"}]}]}], "}"}]}],
+   ";"}]], "Input",
+ CellLabel->"In[214]:="],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ee", "//.", "sol"}]], "Input",
+ CellLabel->"In[216]:="],
+
+Cell[BoxData["0"], "Output",
+ CellLabel->"Out[216]="]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fas", "[", "n_", "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"n", "^", "\[Lambda]"}], " ", 
+     RowBox[{
+      RowBox[{"Gamma", "[", 
+       RowBox[{"\[Mu]", " ", "n"}], "]"}], "^", "\[Nu]"}]}], ")"}], "//.", 
+   "sol"}]}]], "Input",
+ CellLabel->"In[217]:="],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"fas", "[", "n", "]"}]], "Input",
+ CellLabel->"In[218]:="],
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox["n", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      FractionBox[
+       RowBox[{"2", " ", "\[ImaginaryI]"}], "\[Kappa]"]}], ")"}]}]], " ", 
+  SuperscriptBox[
+   RowBox[{"Gamma", "[", 
+    FractionBox[
+     RowBox[{"\[ImaginaryI]", " ", "n", " ", "\[Kappa]"}], "2"], "]"}], 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "2"}], " ", "\[ImaginaryI]"}], "/", 
+    "\[Kappa]"}]]}]], "Output",
+ CellLabel->"Out[218]="]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"logf", "[", "n_", "]"}], " ", ":=", " ", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"PowerExpand", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"\[Lambda]", " ", 
+        RowBox[{"Log", "[", "n", "]"}]}], " ", "+", " ", 
+       RowBox[{"\[Nu]", " ", 
+        RowBox[{"LG", "[", 
+         RowBox[{"\[Mu]", " ", "n"}], "]"}]}]}], ")"}], "//.", "sol"}], "]"}],
+    "]"}]}]], "Input",
+ CellLabel->"In[228]:="],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"logf", "[", "n", "]"}]], "Input",
+ CellLabel->"In[229]:="],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   RowBox[{"\[Pi]", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", "n", " ", "\[Kappa]"}]}], ")"}]}], "-", 
+   RowBox[{"n", " ", "\[Kappa]", " ", 
+    RowBox[{"(", 
+     RowBox[{"2", "+", 
+      RowBox[{"Log", "[", "4", "]"}]}], ")"}]}], "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"\[Kappa]", "+", 
+      RowBox[{"2", " ", "n", " ", "\[Kappa]"}]}], ")"}], " ", 
+    RowBox[{"Log", "[", "n", "]"}]}], "-", 
+   RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+    RowBox[{"Log", "[", 
+     RowBox[{"4", " ", "\[Pi]"}], "]"}]}], "+", 
+   RowBox[{"2", " ", 
+    RowBox[{"(", 
+     RowBox[{"\[ImaginaryI]", "+", 
+      RowBox[{"n", " ", "\[Kappa]"}]}], ")"}], " ", 
+    RowBox[{"Log", "[", "\[Kappa]", "]"}]}]}], 
+  RowBox[{"2", " ", "\[Kappa]"}]]], "Output",
+ CellLabel->"Out[229]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"as", " ", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Series", "[", 
+     RowBox[{
+      RowBox[{"logf", "[", "n", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", " ", "Infinity", ",", "2"}], "}"}]}], "]"}], "//", 
+    "Normal"}], "//", "FullSimplify"}]}]], "Input",
+ CellLabel->"In[245]:="],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   RowBox[{"\[Pi]", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", "n", " ", "\[Kappa]"}]}], ")"}]}], "-", 
+   RowBox[{"n", " ", "\[Kappa]", " ", 
+    RowBox[{"(", 
+     RowBox[{"2", "+", 
+      RowBox[{"Log", "[", "4", "]"}]}], ")"}]}], "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"\[Kappa]", "+", 
+      RowBox[{"2", " ", "n", " ", "\[Kappa]"}]}], ")"}], " ", 
+    RowBox[{"Log", "[", "n", "]"}]}], "-", 
+   RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+    RowBox[{"Log", "[", 
+     RowBox[{"4", " ", "\[Pi]"}], "]"}]}], "+", 
+   RowBox[{"2", " ", 
+    RowBox[{"(", 
+     RowBox[{"\[ImaginaryI]", "+", 
+      RowBox[{"n", " ", "\[Kappa]"}]}], ")"}], " ", 
+    RowBox[{"Log", "[", "\[Kappa]", "]"}]}]}], 
+  RowBox[{"2", " ", "\[Kappa]"}]]], "Output",
+ CellLabel->"Out[245]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Collect", "[", 
+  RowBox[{"as", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Log", "[", "n", "]"}], ",", " ", "n"}], "}"}]}], "]"}]], "Input",\
+
+ CellLabel->"In[248]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     FractionBox["1", "2"], "+", "n"}], ")"}], " ", 
+   RowBox[{"Log", "[", "n", "]"}]}], "+", 
+  FractionBox[
+   RowBox[{
+    RowBox[{"-", "\[Pi]"}], "-", 
+    RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+     RowBox[{"Log", "[", 
+      RowBox[{"4", " ", "\[Pi]"}], "]"}]}], "+", 
+    RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+     RowBox[{"Log", "[", "\[Kappa]", "]"}]}]}], 
+   RowBox[{"2", " ", "\[Kappa]"}]], "+", 
+  FractionBox[
+   RowBox[{"n", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[ImaginaryI]", " ", "\[Pi]", " ", "\[Kappa]"}], "-", 
+      RowBox[{"\[Kappa]", " ", 
+       RowBox[{"(", 
+        RowBox[{"2", "+", 
+         RowBox[{"Log", "[", "4", "]"}]}], ")"}]}], "+", 
+      RowBox[{"2", " ", "\[Kappa]", " ", 
+       RowBox[{"Log", "[", "\[Kappa]", "]"}]}]}], ")"}]}], 
+   RowBox[{"2", " ", "\[Kappa]"}]]}]], "Output",
+ CellLabel->"Out[248]="]
+}, Open  ]]
+},
+WindowSize->{1886, 1031},
+WindowMargins->{{4, Automatic}, {0, Automatic}},
+FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 875, 23, 70, "Input",ExpressionUUID->"6feba4cf-497e-453c-ad3f-672623e27b36"],
+Cell[1436, 45, 102, 3, 70, "Input",ExpressionUUID->"d6c53e44-ae38-41c4-8a6a-47b1aeaa71c4"],
+Cell[1541, 50, 660, 20, 70, "Input",ExpressionUUID->"2c008756-cabb-4b32-af99-c12ca7497390"],
+Cell[CellGroupData[{
+Cell[2226, 74, 110, 3, 70, "Input",ExpressionUUID->"bce7d770-2ea3-4478-a331-77aedf74e72c"],
+Cell[2339, 79, 597, 18, 70, "Output",ExpressionUUID->"d40ad037-857b-4cb6-9327-67c1c6a61601"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2973, 102, 556, 17, 70, "Input",ExpressionUUID->"2c23552e-62cd-420f-af32-fe44d3073345"],
+Cell[3532, 121, 715, 21, 70, "Output",ExpressionUUID->"183e210c-e829-4ea7-956a-36f42b3324a6"]
+}, Open  ]],
+Cell[4262, 145, 644, 21, 70, "Input",ExpressionUUID->"e2453e17-8ed6-4de3-9ed8-b4b19aa87410"],
+Cell[4909, 168, 193, 5, 70, "Input",ExpressionUUID->"f8a33434-6cb3-4945-b8b6-c9774bca02c7"],
+Cell[5105, 175, 343, 10, 70, "Input",ExpressionUUID->"f1cf3c72-e35e-42c6-9b0d-79f8dd361909"],
+Cell[5451, 187, 1239, 37, 70, "Input",ExpressionUUID->"7d9847e7-1a84-482b-beb7-9359f5ea6f53"],
+Cell[CellGroupData[{
+Cell[6715, 228, 235, 7, 70, "Input",ExpressionUUID->"cfe778ec-de23-407b-9eee-21f830749ee1"],
+Cell[6953, 237, 2260, 72, 70, "Output",ExpressionUUID->"95122c08-7b8e-4afd-9314-a7b1ef58665f"]
+}, Open  ]],
+Cell[9228, 312, 376, 12, 70, "Input",ExpressionUUID->"833a49e7-d263-4009-801e-e95757a563f9"],
+Cell[9607, 326, 262, 8, 70, "Input",ExpressionUUID->"32f2afdc-86be-4347-a1db-c5fa5366ea8e"],
+Cell[CellGroupData[{
+Cell[9894, 338, 859, 26, 70, "Input",ExpressionUUID->"174e795e-1a8d-4fc7-b7d9-92f6a88671d4"],
+Cell[10756, 366, 60, 1, 70, "Output",ExpressionUUID->"98552b54-c025-4c82-88d7-391586685c6e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10853, 372, 334, 9, 70, "Input",ExpressionUUID->"3ecba3e2-f5e5-43e4-a077-cb687ddbb077"],
+Cell[11190, 383, 312, 11, 70, "Output",ExpressionUUID->"449c00f0-f1b3-411d-9540-4acf9ecb58bb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11539, 399, 976, 28, 70, "Input",ExpressionUUID->"7da5865e-d811-4933-8399-06b488ebec45"],
+Cell[12518, 429, 344, 10, 70, "Output",ExpressionUUID->"5ddabce8-f560-40a8-9722-3336a7fe3c8d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12899, 444, 182, 5, 70, "Input",ExpressionUUID->"a5c99642-bae3-48ed-9c77-5722f33359e3"],
+Cell[13084, 451, 159, 5, 70, "Output",ExpressionUUID->"08bfc1b7-3940-4f60-be83-d8919bba114e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13280, 461, 286, 9, 70, "Input",ExpressionUUID->"4cc52787-880e-4450-bea1-3900ca06d41d"],
+Cell[13569, 472, 441, 13, 70, "Output",ExpressionUUID->"ebdfd5cf-b5e9-4968-b859-cf8e760fd29e"]
+}, Open  ]],
+Cell[14025, 488, 494, 15, 70, "Input",ExpressionUUID->"8778d86a-1a51-4b0b-8c90-64a4dbd825ab"],
+Cell[CellGroupData[{
+Cell[14544, 507, 79, 2, 70, "Input",ExpressionUUID->"df2d7f68-916c-467e-ae5e-5c4929e6021b"],
+Cell[14626, 511, 53, 1, 70, "Output",ExpressionUUID->"723323b7-49e3-4ebc-bf04-6f183999af2a"]
+}, Open  ]],
+Cell[14694, 515, 328, 11, 70, "Input",ExpressionUUID->"b48a768e-0f14-4e93-823c-c92df19d9c7d"],
+Cell[CellGroupData[{
+Cell[15047, 530, 81, 2, 70, "Input",ExpressionUUID->"621517f1-8525-4ed9-9242-3140c7892b96"],
+Cell[15131, 534, 498, 17, 70, "Output",ExpressionUUID->"e7650b31-1c77-4716-9fcd-6722e187c8d5"]
+}, Open  ]],
+Cell[15644, 554, 464, 14, 70, "Input",ExpressionUUID->"127712e8-2b37-4c7f-9049-74c9735cb9ea"],
+Cell[CellGroupData[{
+Cell[16133, 572, 82, 2, 70, "Input",ExpressionUUID->"0f24fb87-fa55-42fa-b8ff-e2b00f1264f2"],
+Cell[16218, 576, 875, 26, 70, "Output",ExpressionUUID->"26c19985-2709-4c92-9fbf-c1dcb006ee34"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17130, 607, 323, 10, 70, "Input",ExpressionUUID->"4da97c25-7798-4f97-8760-6dbb4fb01969"],
+Cell[17456, 619, 875, 26, 70, "Output",ExpressionUUID->"59561bfd-3912-4dcd-bfcd-4f0281e3f974"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18368, 650, 198, 7, 70, "Input",ExpressionUUID->"44aadc4f-b494-4d75-bf6d-5da92f2e4ef7"],
+Cell[18569, 659, 931, 28, 70, "Output",ExpressionUUID->"453bdb36-5ded-4aec-bf26-75fb3b312d45"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

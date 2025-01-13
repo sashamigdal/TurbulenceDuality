@@ -1,0 +1,3429 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    180191,       3420]
+NotebookOptionsPosition[    178011,       3375]
+NotebookOutlinePosition[    178483,       3392]
+CellTagsIndexPosition[    178440,       3389]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ TemplateBox[<|"boxes" -> FormBox[
+     RowBox[{
+       UnderoverscriptBox["\[Sum]", 
+        RowBox[{
+          StyleBox["m", "TI"], "\[LongEqual]", "2"}], 
+        StyleBox["N", "TI"], LimitsPositioning -> True], 
+       SubscriptBox["\[CurlyPhi]", 
+        StyleBox["l", "TI"]], 
+       RowBox[{"(", 
+         StyleBox["m", "TI"], ")"}], "\[Rule]", 
+       FractionBox[
+        SuperscriptBox[
+         StyleBox["N", "TI"], 
+         RowBox[{
+           StyleBox["l", "TI"], "+", "1"}]], 
+        RowBox[{
+          RowBox[{"(", 
+            RowBox[{
+              StyleBox["l", "TI"], "+", "1"}], ")"}], "\[Zeta]", 
+          RowBox[{"(", 
+            RowBox[{
+              StyleBox["l", "TI"], "+", "1"}], ")"}]}]]}], TraditionalForm], 
+   "errors" -> {}, "input" -> 
+   "\\sum_{m=2}^N\\varphi_l(m)  \\to \\frac{ N^{l+1}}{ (l +1) \\zeta(l+1)}", 
+   "state" -> "Boxes"|>,
+  "TeXAssistantTemplate"]], "Input",
+ Evaluatable->False,
+ CellChangeTimes->{3.907499239365152*^9},
+ Background->RGBColor[
+  0.94, 0.91, 0.88],ExpressionUUID->"4d6b780d-19fb-48f5-89f5-dabc8805e8d1"],
+
+Cell[BoxData[
+ TemplateBox[<|"boxes" -> FormBox[
+     RowBox[{
+       SubscriptBox[
+        StyleBox["B", "TI"], 
+        RowBox[{"2", 
+          StyleBox["n", "TI"]}]], "\[LongEqual]", 
+       FractionBox[
+        RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", "-1", ")"}], 
+           RowBox[{
+             StyleBox["n", "TI"], "+", "1"}]], "2", 
+          RowBox[{"(", 
+            RowBox[{"2", 
+              StyleBox["n", "TI"]}], ")"}], "!"}], 
+        SuperscriptBox[
+         RowBox[{"(", 
+           RowBox[{"2", "\[Pi]"}], ")"}], 
+         RowBox[{"2", 
+           StyleBox["n", "TI"]}]]], "\[Zeta]", 
+       RowBox[{"(", 
+         RowBox[{"2", 
+           StyleBox["n", "TI"]}], ")"}]}], TraditionalForm], "errors" -> {}, 
+   "input" -> "B_{2n} = \\frac {(-1)^{n+1}2(2n)!} {(2\\pi)^{2n}} \\zeta(2n)", 
+   "state" -> "Boxes"|>,
+  "TeXAssistantTemplate"]], "Input",
+ Evaluatable->False,
+ CellChangeTimes->{3.907501486478265*^9},
+ Background->RGBColor[
+  0.94, 0.91, 0.88],ExpressionUUID->"c279a4c1-f0e3-476e-90a9-913a50560ea1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"SumCot", "[", "n_", "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"-", "1"}], ")"}], "^", "n"}]}], " ", 
+    RowBox[{"2", "^", 
+     RowBox[{"(", 
+      RowBox[{"2", " ", "n"}], ")"}]}], 
+    RowBox[{
+     RowBox[{"BernoulliB", "[", 
+      RowBox[{"2", " ", "n"}], "]"}], "/", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"2", " ", "n"}], ")"}], "!"}]}], " ", 
+    RowBox[{"Phi", "[", 
+     RowBox[{
+      RowBox[{"2", " ", "n"}], ",", "N"}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9074133725758944`*^9, 3.907413472120432*^9}, 
+   3.90750855809308*^9},
+ CellLabel->"In[70]:=",ExpressionUUID->"e79cf3e1-1c55-45aa-9af0-298aa8d858a4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"AsymSumCot", "[", "n_", "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"2", "^", 
+     RowBox[{"(", 
+      RowBox[{"2", " ", "n"}], ")"}]}], "2", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"2", "n"}], ")"}], "!"}], 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Zeta", "[", 
+       RowBox[{"2", " ", "n"}], "]"}], "/", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", "n"}], "+", "1"}], ")"}], "!"}]}], " ", "/", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"2", " ", "Pi"}], ")"}], "^", 
+      RowBox[{"(", 
+       RowBox[{"2", " ", "n"}], ")"}]}]}], 
+    RowBox[{
+     RowBox[{"N", "^", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", "n"}], " ", "+", "1"}], ")"}]}], "/", 
+     RowBox[{"Zeta", "[", 
+      RowBox[{
+       RowBox[{"2", " ", "n"}], " ", "+", "1"}], "]"}]}]}]}], ";"}]], "Input",\
+
+ CellChangeTimes->{{3.9074990122490263`*^9, 3.907499053619795*^9}, {
+   3.907499287946014*^9, 3.907499384513797*^9}, {3.907501849123101*^9, 
+   3.9075018505257463`*^9}, 3.90750857651859*^9, {3.907581488944272*^9, 
+   3.9075815358203287`*^9}, {3.90758156988757*^9, 3.907581591387417*^9}, 
+   3.907620700017445*^9},
+ CellLabel->"In[71]:=",ExpressionUUID->"d5c82e67-4106-4175-b38a-53604f419f03"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"2", "^", 
+    RowBox[{"(", 
+     RowBox[{"2", " ", "n"}], ")"}]}], "2", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"2", "n"}], ")"}], "!"}], 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Zeta", "[", 
+      RowBox[{"2", " ", "n"}], "]"}], "/", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", "n"}], "+", "1"}], ")"}], "!"}]}], " ", "/", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"2", " ", "Pi"}], ")"}], "^", 
+     RowBox[{"(", 
+      RowBox[{"2", " ", "n"}], ")"}]}]}], 
+   RowBox[{
+    RowBox[{"N", "^", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", " ", "n"}], " ", "+", "1"}], ")"}]}], "/", 
+    RowBox[{"Zeta", "[", 
+     RowBox[{
+      RowBox[{"2", " ", "n"}], " ", "+", "1"}], "]"}]}]}], "//", 
+  "FullSimplify"}]], "Input",
+ CellChangeTimes->{{3.9091951490779123`*^9, 3.90919515419375*^9}},
+ CellLabel->"In[99]:=",ExpressionUUID->"cce63025-45c8-4dc1-ba76-d3f089f06b31"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"2", " ", 
+   SuperscriptBox["N", 
+    RowBox[{"1", "+", 
+     RowBox[{"2", " ", "n"}]}]], " ", 
+   SuperscriptBox["\[Pi]", 
+    RowBox[{
+     RowBox[{"-", "2"}], " ", "n"}]], " ", 
+   RowBox[{"Zeta", "[", 
+    RowBox[{"2", " ", "n"}], "]"}]}], 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"1", "+", 
+     RowBox[{"2", " ", "n"}]}], ")"}], " ", 
+   RowBox[{"Zeta", "[", 
+    RowBox[{"1", "+", 
+     RowBox[{"2", " ", "n"}]}], "]"}]}]]], "Output",
+ CellChangeTimes->{{3.9091951277217007`*^9, 3.909195155103116*^9}},
+ CellLabel->"Out[99]=",ExpressionUUID->"f88fc827-91c5-400f-a703-0011564e956b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Fall", "[", "0", "]"}]], "Input",
+ CellChangeTimes->{{3.909053604550282*^9, 3.909053608549127*^9}},
+ CellLabel->"In[94]:=",ExpressionUUID->"c0cd052b-6147-45c1-86e2-d5fa99a8e432"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.90905361009089*^9},
+ CellLabel->"Out[94]=",ExpressionUUID->"6122d83f-3e53-4d5b-9f4e-1db46fa35d90"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Pall", "[", "x_", "]"}], ":=", 
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"EulerPhi", "[", "k", "]"}], 
+     RowBox[{"Residue", "[", 
+      RowBox[{
+       RowBox[{
+        FractionBox[
+         RowBox[{"2", " ", 
+          SuperscriptBox["\[Pi]", 
+           RowBox[{
+            RowBox[{"-", "2"}], " ", "n"}]], " "}], 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"1", "+", 
+            RowBox[{"2", " ", "n"}]}], ")"}], " "}]], " ", 
+        RowBox[{"x", "^", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "n"}], " ", "+", "1"}], ")"}]}], " ", 
+        RowBox[{"k", "^", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "2"}], " ", "n"}], " ", "-", "1"}], ")"}]}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"n", " ", ",", " ", 
+         RowBox[{
+          RowBox[{"-", "1"}], "/", "2"}]}], "}"}]}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k", " ", ",", "1", ",", 
+      RowBox[{"Floor", "[", 
+       RowBox[{"1", "/", 
+        RowBox[{"(", 
+         RowBox[{"Pi", " ", 
+          RowBox[{"Sqrt", "[", "x", "]"}]}], ")"}]}], "]"}]}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.909033362199442*^9, 3.9090333650096827`*^9}, {
+   3.909033467780677*^9, 3.909033483426483*^9}, {3.909033517823678*^9, 
+   3.909033586753565*^9}, {3.9090336258266983`*^9, 3.909033698307625*^9}, 
+   3.9090337826373663`*^9, {3.909033827164784*^9, 3.909033854416419*^9}, {
+   3.909202935966487*^9, 3.9092029655653877`*^9}, {3.915443255908948*^9, 
+   3.915443261745243*^9}, 3.915443303939856*^9, 3.915443735079729*^9},
+ CellLabel->
+  "In[118]:=",ExpressionUUID->"4b5a610d-725b-457c-993f-be820312414d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Pall", "[", "x", "]"}]], "Input",
+ CellChangeTimes->{{3.9089547561770153`*^9, 3.9089547702443943`*^9}, 
+   3.909033848769828*^9},
+ CellLabel->
+  "In[119]:=",ExpressionUUID->"342c84ec-d947-409b-8c57-86709c4aab61"],
+
+Cell[BoxData[
+ RowBox[{
+  UnderoverscriptBox["\[Sum]", 
+   RowBox[{"k", "=", "1"}], 
+   RowBox[{"Floor", "[", 
+    FractionBox["1", 
+     RowBox[{"\[Pi]", " ", 
+      SqrtBox["x"]}]], "]"}]], 
+  RowBox[{"\[Pi]", " ", 
+   SuperscriptBox["x", 
+    RowBox[{"3", "/", "2"}]], " ", 
+   RowBox[{"EulerPhi", "[", "k", "]"}]}]}]], "Output",
+ CellChangeTimes->{{3.90895476247119*^9, 3.908954772287986*^9}, 
+   3.909033232736823*^9, 3.909033303129408*^9, 3.9090337996606483`*^9, {
+   3.909033832127644*^9, 3.9090338590907*^9}, 3.9091104776130753`*^9, {
+   3.909202956728273*^9, 3.909202972601027*^9}, 3.909461021345284*^9, {
+   3.915443294445568*^9, 3.915443321308468*^9}, 3.9154437551401243`*^9},
+ CellLabel->
+  "Out[119]=",ExpressionUUID->"38165cf7-4816-4dac-a781-2fb25b16d3af"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"2", "/", "5"}], " ", 
+  RowBox[{"Pi", "^", 
+   RowBox[{"(", 
+    RowBox[{"-", "4"}], ")"}]}], 
+  RowBox[{
+   RowBox[{"Zeta", "[", "4", "]"}], "/", 
+   RowBox[{"Zeta", "[", "5", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.915444258846059*^9, 3.915444266732242*^9}, {
+  3.915444296821342*^9, 3.9154443042868567`*^9}, {3.9154447850920057`*^9, 
+  3.915444790611033*^9}},
+ CellLabel->
+  "In[122]:=",ExpressionUUID->"23c12123-097d-4b25-abe8-367db91b9adc"],
+
+Cell[BoxData[
+ FractionBox["1", 
+  RowBox[{"225", " ", 
+   RowBox[{"Zeta", "[", "5", "]"}]}]]], "Output",
+ CellChangeTimes->{3.9154443056308107`*^9, 3.915444791465303*^9},
+ CellLabel->
+  "Out[122]=",ExpressionUUID->"42313cfa-c85a-469d-87bb-f4503412695c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"N", "[", 
+  FractionBox["1", 
+   RowBox[{"225", " ", 
+    RowBox[{"Zeta", "[", "5", "]"}]}]], "]"}]], "Input",
+ CellChangeTimes->{{3.915444314340234*^9, 3.91544431606391*^9}, 
+   3.9154448036518993`*^9},
+ CellLabel->
+  "In[123]:=",ExpressionUUID->"edef3f74-884a-4a5d-8bc6-271aa4029376"],
+
+Cell[BoxData["0.004286165957463389`"], "Output",
+ CellChangeTimes->{3.915444317184116*^9, 3.915444804965227*^9},
+ CellLabel->
+  "Out[123]=",ExpressionUUID->"3bfc8622-0c55-4c13-bb37-2b63c1de5adb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"S1", " ", "=", 
+  RowBox[{
+   RowBox[{"LogLogPlot", "[", 
+    RowBox[{
+     RowBox[{"Pi", " ", "z", " ", 
+      RowBox[{"Sqrt", "[", "z", "]"}], 
+      RowBox[{"Sum", "[", 
+       RowBox[{
+        RowBox[{"EulerPhi", "[", "k", "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"k", " ", ",", "1", ",", 
+          RowBox[{"Floor", "[", 
+           RowBox[{"1", "/", 
+            RowBox[{"(", 
+             RowBox[{"Pi", " ", 
+              RowBox[{"Sqrt", "[", "z", "]"}]}], ")"}]}], "]"}]}], "}"}]}], 
+       "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", 
+       RowBox[{"10", "^", 
+        RowBox[{"(", 
+         RowBox[{"-", "5"}], ")"}]}], ",", 
+       RowBox[{"1", "/", 
+        RowBox[{"Pi", "^", "2"}]}]}], "}"}], ",", 
+     RowBox[{"PlotLabel", "->", 
+      RowBox[{"X", " ", 
+       RowBox[{"Sqrt", "[", "X", "]"}], "Pi", " ", 
+       RowBox[{"Phi", "[", 
+        RowBox[{"Floor", "[", 
+         RowBox[{"1", "/", 
+          RowBox[{"(", 
+           RowBox[{"Pi", " ", 
+            RowBox[{"Sqrt", "[", "X", "]"}]}], ")"}]}], "]"}], "]"}]}]}], ",",
+      " ", 
+     RowBox[{"PlotStyle", "->", 
+      RowBox[{"{", 
+       RowBox[{"Red", ",", "  ", 
+        RowBox[{"Thickness", "[", "0.001", "]"}]}], "}"}]}]}], "]"}], "//", 
+   "Quiet"}]}]], "Input",
+ CellChangeTimes->{{3.9089540182956676`*^9, 3.908954019075079*^9}, 
+   3.9089562865182247`*^9, 3.9089576450089283`*^9, 3.9090339146095753`*^9, {
+   3.9092029902403193`*^9, 3.90920301356514*^9}, {3.909234682708226*^9, 
+   3.909234709578257*^9}, {3.90946090974955*^9, 3.9094609971969*^9}, {
+   3.909461081691668*^9, 3.909461111902845*^9}, {3.9094611642653103`*^9, 
+   3.909461166925207*^9}, {3.909461316535202*^9, 3.909461322387002*^9}, {
+   3.9094613551818113`*^9, 3.909461359082614*^9}, {3.9154449156545877`*^9, 
+   3.915444919988296*^9}, {3.915445009477068*^9, 3.915445070868771*^9}, {
+   3.9154451181644707`*^9, 3.915445170468685*^9}},
+ CellLabel->
+  "In[128]:=",ExpressionUUID->"a75febe6-aa27-4d33-b859-4a21ca2ce01b"],
+
+Cell[BoxData[
+ GraphicsBox[
+  InterpretationBox[{
+    TagBox[{{{}, {}, 
+       TagBox[
+        {RGBColor[1, 0, 0], Thickness[0.001], Opacity[1.], 
+         LineBox[{{-11.512925276736235`, -8.103730310273376}, \
+{-11.510096462752436`, -8.099487089297678}, {-11.507267648768636`, \
+-8.095243868321978}, {-11.504438834784835`, -8.091000647346277}, \
+{-11.502741299827175`, -8.088454344909787}}], 
+         LineBox[{{-11.33009576964469, -8.005781124152954}, \
+{-11.328814423258244`, -8.003859104573285}, {-11.325747664743421`, \
+-7.999258966801051}, {-11.322680906228598`, -7.9946588290288165`}, \
+{-11.319614147713775`, -7.990058691256582}, {-11.316547389198952`, \
+-7.985458553484348}, {-11.314119940884693`, -7.9818173810129585`}}], 
+         LineBox[{{-11.148152213233237`, -7.908003182992761}, \
+{-11.144808912368873`, -7.902988231696216}, {-11.14174215385405, \
+-7.898388093923981}, {-11.135608636824404`, -7.889187818379512}, \
+{-11.132745107201387`, -7.884892523944987}, {-11.130082143444188`, \
+-7.880898078309188}}], 
+         LineBox[{{-10.783509099645327`, -7.737516083845809}, \
+{-10.778286511544342`, -7.729682201694332}, {-10.7726717944667, \
+-7.721260126077867}, {-10.769626491396854`, -7.7166921714731}, \
+{-10.76658118832701, -7.712124216868332}, {-10.763535885257165`, \
+-7.707556262263565}, {-10.76061393704551, -7.703173339946084}}], 
+         LineBox[{{-10.407404636639447`, -7.558621790127633}, \
+{-10.404405873136206`, -7.554123644872772}, {-10.401563798958165`, \
+-7.5498605336057105`}, {-10.395879650602087`, -7.541334311071593}, \
+{-10.392799631893023`, -7.536714283007997}, {-10.38971961318396, \
+-7.532094254944403}, {-10.386639594474897`, -7.527474226880807}, \
+{-10.383559575765835`, -7.522854198817216}, {-10.380479557056773`, \
+-7.518234170753622}, {-10.378503463520092`, -7.515270030448601}}], 
+         LineBox[{{-10.227102442650851`, -7.474498077336233}, \
+{-10.226478621603626`, -7.473562345765395}, {-10.223398602894562`, \
+-7.4689423177018}, {-10.220318584185499`, -7.464322289638204}, \
+{-10.217238565476437`, -7.459702261574612}, {-10.211078528058312`, \
+-7.450462205447424}, {-10.207998509349249`, -7.445842177383829}, \
+{-10.204918490640186`, -7.441222149320234}, {-10.201838471931122`, \
+-7.436602121256639}, {-10.19875845322206, -7.431982093193047}, \
+{-10.03480294961904, -7.339396627167185}}], 
+         LineBox[{{-9.854897883383131, -7.26771595639707}, \
+{-9.85009817491217, -7.260516393690627}, {-9.847277556179108, \
+-7.256285465591035}, {-9.844456937446047, -7.252054537491444}, \
+{-9.841636318712984, -7.247823609391849}, {-9.83599508124686, \
+-7.2393617531926635`}, {-9.824712606314614, -7.2224380407942945`}, \
+{-9.821654043050529, -7.2178501958981665`}, {-9.818595479786445, \
+-7.213262351002041}, {-9.81553691652236, -7.208674506105913}, \
+{-9.814801159238117, -7.2075708701795485`}}], 
+         LineBox[{{-9.664277523774482, -7.190479078117246}, \
+{-9.662608753318107, -7.187975922432684}, {-9.659550190054023, \
+-7.183388077536558}, {-9.653433063525853, -7.174212387744302}, \
+{-9.650374500261767, -7.169624542848174}, {-9.647315936997682, \
+-7.165036697952046}, {-9.641198810469511, -7.15586100815979}, \
+{-9.628964557413171, -7.13750962857528}, {-9.626109223040892, \
+-7.133226627016861}, {-9.62325388866861, -7.128943625458439}, \
+{-9.620398554296331, -7.12466062390002}, {-9.619524220110284, \
+-7.123349122620949}}], 
+         LineBox[{{-9.45355649245883, -7.084962300251118}, \
+{-9.44907849195955, -7.078245299502199}, {-9.446223157587271, \
+-7.07396229794378}, {-9.443423994299188, -7.069763553011655}, \
+{-9.440624831011103, -7.065564808079528}, {-9.435026504434937, \
+-7.057167318215279}, {-9.423829851282601, -7.040372338486775}, \
+{-9.421030687994516, -7.036173593554648}, {-9.418231524706433, \
+-7.031974848622523}, {-9.412633198130266, -7.0235773587582715`}, \
+{-9.40983403484218, -7.019378613826144}, {-9.407034871554098, \
+-7.01517986889402}, {-9.404235708266015, -7.010981123961895}, \
+{-9.40309705082982, -7.009273137807602}}], 
+         LineBox[{{-9.27953373847957, -6.993827206077625}, \
+{-9.275474197014153, -6.9877378938795}, {-9.27267503372607, \
+-6.983539148947377}, {-9.269875870437986, -6.9793404040152485`}, \
+{-9.267076707149903, -6.975141659083125}, {-9.223872733450445, \
+-6.910335698533938}}], 
+         LineBox[{{-8.950927635897017, -6.84358225907293}, \
+{-8.948011133925764, -6.83920750611605}, {-8.945177254998463, \
+-6.834956687725098}, {-8.942343376071161, -6.830705869334146}, \
+{-8.936675618216556, -6.822204232552239}, {-8.933841739289253, \
+-6.817953414161284}, {-8.931007860361952, -6.813702595770332}, \
+{-8.925340102507349, -6.8052009589884275`}, {-8.914004586798143, \
+-6.788197685424619}, {-8.911170707870841, -6.7839468670336665`}, \
+{-8.90833682894354, -6.779696048642714}, {-8.902669071088935, \
+-6.771194411860807}, {-8.899835192161632, -6.766943593469852}, \
+{-8.89700131323433, -6.7626927750789}, {-8.891333555379727, \
+-6.754191138296996}, {-8.888261731921403, -6.74958340310951}, \
+{-8.885189908463078, -6.744975667922021}, {-8.88407465985965, \
+-6.743302795016879}}], 
+         LineBox[{{-8.72427026528301, -6.748718661184905}, \
+{-8.722383265171846, -6.745888161018159}, {-8.71931144171352, \
+-6.74128042583067}, {-8.716239618255194, -6.736672690643181}, \
+{-8.71316779479687, -6.732064955455695}, {-8.707024147880219, \
+-6.722849485080718}, {-8.69473685404692, -6.7044185443307684`}, \
+{-8.69172120167279, -6.699895065769574}, {-8.68870554929866, \
+-6.69537158720838}, {-8.682674244550402, -6.686324630085992}, \
+{-8.670611635053884, -6.668230715841216}, {-8.667595982679755, \
+-6.663707237280022}, {-8.664580330305625, -6.659183758718828}, \
+{-8.658549025557367, -6.65013680159644}, {-8.655533373183237, \
+-6.645613323035246}, {-8.652517720809108, -6.641089844474052}, \
+{-8.649502068434979, -6.6365663659128575`}, {-8.648508588546882, \
+-6.635076146080713}}], 
+         LineBox[{{-8.557507047404908, -6.680895391161705}, \
+{-8.556016844836972, -6.678660087309801}, {-8.553001192462842, \
+-6.674136608748608}, {-8.549985540088713, -6.669613130187414}, \
+{-8.546969887714583, -6.66508965162622}, {-8.543954235340454, \
+-6.660566173065026}, {-8.537922930592195, -6.6515192159426375`}, \
+{-8.525860321095678, -6.633425301697861}, {-8.501735102102643, \
+-6.597237473208308}, {-8.49892267862032, -6.593018837984824}, \
+{-8.496110255137996, -6.5888002027613375`}, {-8.490485408173347, \
+-6.580362932314365}, {-8.487672984691024, -6.57614429709088}, \
+{-8.484860561208698, -6.571925661867392}, {-8.479235714244052, \
+-6.563488391420421}, {-8.476423290761728, -6.559269756196936}, \
+{-8.474485834567623, -6.556363571905779}}], LineBox[CompressedData["
+1:eJwBQQG+/iFib1JlAgAAABMAAAACAAAA58ae20nAIMCVeYfhLkQawEqy1HGm
+viDAvjsppEQ/GsAcLkkvxbsgwDOvhtygNhrABWwDjlS6IMDvaLX4TjIawO6p
+vezjuCDAqiLkFP0tGsC/JTKqArYgwByWQU1ZJRrAYh0bJUCwIMAFffy9ERQa
+wKcM7Rq7pCDA1Epyn4LxGcBQVY9JK6MgwNAkWSvT7BnA+J0xeJuhIMDH/j+3
+I+gZwEgvdtV7niDAt7INz8TeGcDwdxgE7JwgwLCM9FoV2hnAmcC6MlybIMCr
+ZtvmZdUZwOpR/488mCDAnRqp/gbMGcCSmqG+rJYgwJX0j4pXxxnAOuND7RyV
+IMCOznYWqMIZwOIr5huNkyDAhahdovi9GcCLdIhK/ZEgwICCRC5JuRnAGdPG
+0FaRIMAqnv/AVbcZwG3Pmxs=
+          "]], LineBox[CompressedData["
+1:eJwBQQG+/iFib1JlAgAAABMAAAACAAAAJUlplM1ZIMBCK3rLO/kZwN70/Ac0
+WCDAbS41Jm/0GcCGPZ82pFYgwGUIHLK/7xnA1s7jk4RTIMBVvOnJYOYZwHjx
+bE5FTSDAPCSF+aLTGcC6Nn/DxkAgwAL0u1gnrhnAqmJclVE/IMDRd1POx6kZ
+wJqOOWfcPSDAofvqQ2ilGcB65vMK8jogwEEDGi+pnBnAOpZoUh01IMCBEngF
+K4sZwCrCRSSoMyDAUZYPe8uGGcAa7iL2MjIgwCEap/BrghnA+kXdmUgvIMDB
+IdbbrHkZwOpxumvTLSDAkaVtUU11GcDanZc9XiwgwGEpBcftcBnAuvVR4XMp
+IMABMTSyLmgZwKohL7P+JyDA0bTLJ89jGcCaTQyFiSYgwKE4Y51vXxnAE6pC
+MHMlIMAMTgafLFwZwD/djfM=
+          "]], LineBox[CompressedData["
+1:eJwBYQGe/iFib1JlAgAAABUAAAACAAAAlV7I5NDPH8AsJXpHU5wZwLS1Hy7L
+zB/A2id9tcqXGcB0ZZR19sYfwHovrKALjxnA09Ieuc3DH8CJ0/uFTooZwDJA
+qfykwB/Al3dLa5GFGcDwGr6DU7ofwLS/6jUXfBnAbdDnkbCtH8DwTynLImkZ
+wGY7O65qlB/AZXCm9TlDGcDFqMXxQZEfwHQU9tp8PhnAJBZQNRmOH8CCuEXA
+vzkZwOLwZLzHhx/AnwDlikUwGcBfpo7KJHsfwNuQIyBRHRnAvhMZDvx3H8Dp
+NHMFlBgZwB6Bo1HTdB/A+tjC6tYTGcDcW7jYgW4fwBYhYrVcChnAO8lCHFlr
+H8AlxbGanwUZwJo2zV8waB/AM2kBgOIAGcBYEeLm3mEfwFGxoEpo9xjAt35s
+KrZeH8BfVfAvq/IYwBbs9m2NWx/Abfk/Fe7tGMCQ/BMlrlkfwCSS6ycf6xjA
+zp6l6w==
+          "]], LineBox[CompressedData["
+1:eJwBkQFu/iFib1JlAgAAABgAAAACAAAADBnIIahTH8Dk5X3D+U0ZwDM0ljgT
+Uh/Ang6zZZpLGcCSoSB86k4fwK2yAkvdRhnAUXw1A5lIH8DL+qEVYz0ZwLDp
+v0ZwRR/A2p7x+qU4GcAQV0qKR0IfwOpCQeDoMxnAzjFfEfY7H8AHi+CqbioZ
+wErniB9TLx/AQRsfQHoXGcCpVBNjKiwfwE+/biW9EhnACMKdpgEpH8BeY74K
+AA4ZwMecsi2wIh/AfKtd1YUEGcBEUtw7DRYfwLg7nGqR8RjAPb0vWMf8HsAt
+XBmVqMsYwHwLTlWt+R7AjNHGkAHHGMC6WWxSk/YewOlGdIxawhjANvaoTF/w
+HsCjMc+DDLkYwHREx0lF7R7AAKd8f2W0GMCzkuVGK+oewF4cKnu+rxjAMC8i
+QffjHsAaB4VycKYYwG59QD7d4B7Ad3wybsmhGMCty147w90ewNXx32kinRjA
+7Bl9OKnaHsA0Z41le5gYwCpomzWP1x7Akdw6YdSTGMDACmdfgdUewHJQ7J+/
+kBjAjXOzXw==
+          "]], LineBox[CompressedData["
+1:eJwBwQE+/iFib1JlAgAAABsAAAACAAAAxJqlOS9CHsBqOXj+LZEYwB5iaKiU
+Px7AcGScJEaNGMBdsIalejwewM/ZSSCfiBjA2kzDn0Y2HsCLxKQXUX8YwKhh
+V+NhMx7Av+MC/fl6GMB2dusmfTAewPUCYeKidhjAEqATrrMqHsBeQR2t9G0Y
+wEnzY7wgHx7AMb6VQphcGMC4mQTZ+gcewNi3hm3fORjAhq6YHBYFHsAN1+RS
+iDUYwFTDLGAxAh7AQvZCODExGMDv7FTnZ/wdwKo0/wKDKBjAJkCl9dTwHcB8
+sXeYJhcYwJXmRRKv2R3AI6tow230F8Bi+9lVytYdwFbKxqgW8BfAMBBumeXT
+HcCM6SSOv+sXwMw5liAczh3A9ifhWBHjF8CaTipkN8sdwCpHPz663hfAaGO+
+p1LIHcBfZp0jY9oXwASN5i6Jwh3AyaRZ7rTRF8DSoXpypL8dwP/Dt9NdzRfA
+oLYOtr+8HcAz4xW5BskXwG7LovnauR3AaQJ0nq/EF8A74DY99rYdwJwh0oNY
+wBfACPXKgBG0HcDPQDBpAbwXwNYJX8QssR3ABWCOTqq3F8DxTktRb7AdwK3H
+8CGOthfAUCjVpg==
+          "]], LineBox[CompressedData["
+1:eJwBcQGO/iFib1JlAgAAABYAAAACAAAAbWv/TWmqHcB+F/2D4poYwA5dr9KZ
+pR3A8AEFS6uTGMCqhtdZ0J8dwFpAwRX9ihjA4dknaD2UHcAtvTmroHkYwFCA
+yIQXfR3A07Yq1udWGMCdqixo9HkdwEb2QCszUhjA6tSQS9F2HcC6NVeAfk0Y
+wIQpWRKLcB3AobSDKhVEGMC40umf/mMdwG+y3H5CMRjAICULu+VKHcALro4n
+nQsYwG1Pb57CRx3Afu2kfOgGGMC6edOBn0QdwPIsu9EzAhjAVM6bSFk+HcDZ
+q+d7yvgXwIh3LNbMMR3Ap6lA0PflF8DVoZC5qS4dwBrpViVD4RfAIsz0nIYr
+HcCOKG16jtwXwLwgvWNAJR3AdaeZJCXTF8DwyU3xsxgdwEOl8nhSwBfAPfSx
+1JAVHcC25AjOnbsXwIoeFrhtEh3AKiQfI+m2F8DXSHqbSg8dwJ1jNXg0shfA
+HWHt4oEMHcAGCGJjB64XwL+kq5s=
+          "]], LineBox[CompressedData["
+1:eJwVxXssFAAcB/DrODaih5uf+F3rVB53NVKmYb1GWUMxmt3o7IrYlauLmktO
+Z5he9E+cNLmm0WQzPabs+pp1aiW3TkqbPLqsP8Q8ThNN9cdnH6lKk5wlFAgE
+/v/833i5ceSSiwSZ4VKvAKEPzL0PYsdEEtRsCd62Z5UP3Gfdgs1CCdxP7r1S
+uUxIY83qOyuM4vupgwO/CE0HbdMXlxmz42r5pjnC7NkIW8oiI9vfUKKeIlx/
+tWL0nGPEN7bJhN8JyKsONEwwfBtc9SEfCB7GeTflN8bNr5IBXR9B0ZM2FTXK
+EG7cFWx5TZgn6RPHEONHfaYt/SUhqLv9QG4f42ldZ+DVVkKVly3j6GNG0m21
+1V5OOO38qELVzqjXh60pMRDiHOXt+W2MiZzFBL9iguBTpMjYzNBFVbxNKiBo
+60ytY/WMplGTxXyCkHitaHDOyJh+kytSKAnyomMClxpGVEdojENBsGe4pchu
+Maxl5m55MiFVql3SljF+y7501e4jhK2P31pmYMSKG5d2RhM8nQKO1OgZVX9O
+RfZHECz2IdOLQsZmq+OZKIRg+tjxru8C40xn18I9GUFvubEwcp7RaSoNjw4g
+7G7ef9g5j5FYsK5DKyGIjX753mpG7fHPMx4bCDOVjrtBOQz7oYbQFjHhva6/
+NzKLEbojWxOzlvBQ3TITr2IU+m5vG3EnlKeX+imVjB6n+UmdK0GVkBF7Lp3h
+8fO53NuJMLlYO5yoYAxrxNXjK974Cw7yA7Q=
+          "]], LineBox[CompressedData["
+1:eJwBkQFu/iFib1JlAgAAABgAAAACAAAAaBZN2khUHMD3VN1VTw0YwNQQxey5
+UBzAmUyR8fgHGMCM8nhA3kocwC0fH28v/xfA/rXg5yY/HMBYxDpqnO0XwOE8
+sDa4JxzArQ5yYHbKF8CnSk/U2vgbwFaj4EwqhBfAYhy9t/v1G8DuXQWi238X
+wB7uKpsc8xvAiBgq94x7F8CWkQZiXu0bwLyNc6HvchfAhNi97+HhG8AheAb2
+tGEXwGJmLAvpyhvA7kwsnz8/F8AeOJruCcgbwIgHUfTwOhfA2gkI0irFG8Ai
+wnVJojYXwFGt45hsvxvAVTe/8wQuF8BA9Jom8LMbwLshUkjKHBfA/MUIChGx
+G8BV3HadexgXwLeXdu0xrhvA7pab8iwUF8AuO1K0c6gbwCAM5ZyPCxfA6gzA
+l5SlG8C6xgnyQAcXwKbeLXu1ohvAVIEuR/ICF8AdgglC95wbwIf2d/FU+hbA
+2FN3JRiaG8AfsZxGBvYWwJQl5Qg5lxvAuWvBm7fxFsC2F8/hHJcbwOxWIGGN
+8RbAGTS8iw==
+          "]], LineBox[CompressedData["
+1:eJwB8QEO/iFib1JlAgAAAB4AAAACAAAAMjSD3haRG8DKwD/QQHEXwINsnJa8
+ixvAQ5VlZDlpF8D6D3hd/oUbwHYKrw6cYBfAtuHlQB+DG8AQxdNjTVwXwHKz
+UyRAgBvAqn/4uP5XF8DpVi/rgXobwN30QWNhTxfA2J3meAVvG8BD39S3Jj4X
+wJRvVFwmbBvA3Zn5DNg5F8BQQcI/R2kbwHdUHmKJNRfAx+SdBoljG8CqyWcM
+7CwXwLYrVZQMWBvAELT6YLEbF8CTucOvE0EbwNyIIAo8+RbAzqABM/Y9G8C0
+Y/3Oj/QWwAiIP7bYOhvAiz7ak+PvFsB+Vru8nTQbwDz0kx2L5hbAavOyySco
+G8CeXwcx2tMWwEAtouM7DxvAXzbuV3iuFsB7FOBmHgwbwDgRyxzMqRbAtvsd
+6gAJG8AQ7KfhH6UWwCzKmfDFAhvAwaFha8ebFsAXZ5H9T/YawCIN1X4WiRbA
+7qCAF2TdGsDk47ultGMWwCmIvppG2hrAvL6YaghfFsBkb/wdKdcawJWZdS9c
+WhbA2j14JO7QGsBGTy+5A1EWwBUltqfQzRrAHyoMfldMFsBQDPQqs8oawPcE
+6UKrRxbAxdpvMXjEGsCnuqLMUj4WwADCrbRawRrAf5V/kaY5FsCrxcagVb8a
+wAAbpfOeNhbAdC/nYQ==
+          "]], LineBox[CompressedData["
+1:eJwVi30s1HEAh290re2UOff7nt83b9WFaMN0mvIySsjGaSNXSakLK0R2XtZC
+Nu9/SGiFLhbKSzKX2NQ+lGXddWWoiLOdoxvNjTZjl6Q/nj17/nj2JaSdkZlx
+OBynbf7bWZfbENlP8bM43r5UJMTLrER/sz4KcdKQZc1+IZYuNg/qlRR7TijG
+DXZCOJ2aO/mhm2LB7vZDX1aIekF8eEU7xYMx8QG9pRDfTPWa1GcUaS/4hqM8
+IfhzU1FRzRShpcaO8p1CFHfHxBIFxbr/c2+vTYKMiAjZkyqK2Dbb03cXCcJK
+/PKUORR7C8zTHYcJBN4roWo5hYp7z+E9CLRzT/n6WxS5ZfaaxIHtP8CixTqV
+4vt9H7euHoJHa1PqjASK6pa0eb8mgl9Xs6lnOIWl+of0fB5BL/+wPjSU4q0k
+eddWLkE+ZjsvBVOkTKz1NskJGNuQwMoACrXWSrCYQuA/xiQZvSjKVkI02RcI
+KgN7XnXaUnCFyqBaH4Jzxmt5wyyFsi5wxUdMIGqgYTOE4orjZ8WMB0H/esG0
+hRXF0KHFPyIXAl2XxPwGlyLf1/F1DyHoiNvxqdCMwn2wU3aWTyDn9dXWbbHQ
+Bh8XmHYT8BIdXFUbLPwiY9KDuARH7JclrsssTJcr3EZ/M/iraqRBSyzaFtip
+TCODkZxovdTAQnq9tcRmiUHcxEBWqY5FX+bQfLyOgUvhzcDGWRbJG5HV5loG
+qx4iXv80C5s7M0GtkwyKKsofG76ykBevK5a/MJAcC0jijLM4aFEUUaVmQA2r
+njajLMYrrTfFIwz0NS0mdw2LQqaxffIdA0FqtMxuu1VS549vtvsfxCckBg==
+
+          "]], LineBox[CompressedData["
+1:eJwB0QEu/iFib1JlAgAAABwAAAACAAAAkIoJYhfIGcCmnp5jMYgWwAxNdSKP
+whnAYEJABOV/FsDX+ijspr8ZwBDHzbKIexbAIL6sVYC8GcD+axPRznYWwGqB
+ML9ZuRnA7RBZ7xRyFsD8BziSDLMZwMha5CuhaBbAIhVHOHKmGcCB7vqkuVUW
+wG0vZYQ9jRnA8RUol+ovFsADZKEc1FoZwNJkgntM5BXATCclhq1XGcC/CciZ
+kt8VwJbqqO+GVBnArq4NuNjaFcAocbDCOU4ZwIn4mPRk0RXATn6/aJ9BGcBC
+jK9tfb4VwJmY3bRqKBnAs7PcX66YFcAvzRlNAfYYwJQCN0QQTRXAWHExcOny
+GMDReNp4bEgVwIAVSZPR7xjADu99rchDFcDSXXjZoekYwInbxBaBOhXAdO7W
+ZULdGMB7tFLp8ScVwJ2S7ogq2hjAuSr2HU4jFcDGNgasEtcYwPegmVKqHhXA
+F3818uLQGMBwjeC7YhUVwEAjTRXLzRjArQOE8L4QFcBox2Q4s8oYwOp5JyUb
+DBXAug+UfoPEGMBkZm6O0wIVwOOzq6FrwRjAotwRwy/+FMAMWMPEU74YwOBS
+tfeL+RTAzO8yfaS8GMCAtlwMBfcUwJPr3bs=
+          "]], LineBox[CompressedData["
+1:eJwVxX0s1GEAB/ArWUteMr/n9zybaiHTm6MysWErh15M0XaUrabFUkaxmmvG
+eekYjswlXUXdRjjcVevNLr5F63LeylsqS3qhW9y8REnXyx+ffZyOJUXELhUI
+BJv/+f9u6zFJxX2G5jfewUI5D5nISmh9j8FRc6rvVT6PxnGn8NnbDJGudis8
+ZDwEW8Mvt6kZeu3FyWNpPDb0n2iqr2GwzftZHZjKI1wiHVZUMYSar72tTOGh
+eqJxia1keGb8KIo6ySMowlZrWcrQ1HqGvojkkTjn2jtRzDDvS0JdD/IoU/rP
+9RcybNc+lGaG8RgfTfCrljE0Xvvz1TeIR36KQR98nuHmWbmubhuPHkXeh9wY
+hny32phCGx7Rg0sdrDwZogtG1PtbCbhdF9Pc3BlOq73afzUTdNSv+SLaxJBj
+yBu/1UTgl+XzKGM9Q/3Kra6COwSr3ROPfmcMiwWZFdobBO+yhtQjSxiuFzqX
+2KcTKCbiiNlMoa0/p3ksIQiNmk13XKRo62jvjD9LoHO3ixDPUXyzTrF6mkBw
+/bXoh8FIESBvzU6OJjgi1Ioe9FK8lx8/1+tDwF/xb+zroZhteKjI8CLosjDQ
+6U6K5V3Wdzd7EgQMfTZu0VN42N4zZbsRrM1xLFHpKKRFlvFePMHAZM1CyyOK
+0sZDuSP2BEWHvI8P36e41dVQVWhDYBaG72C3KbptxaOflhG8H5INy6sonIqr
+oy/NcCgXcSFqFYW3ZkGy08ThgOamVl9Jsbc7rHzCyAE5umwLJUWy3Xxf0CiH
+VNOeiXWXKWQe+2amhjl4Hh4UBygolPsr7SuGONzwmN4oKaJ4WhwSNtfDIUqZ
+UVpWQDGguZqg6uCwytLm9908CmO3KT9Mz0GfpIx7eYHCbAqsXWjlIH3j1jOZ
+ReGwqvx5dQsH1Suhy5SUIijHWVSn4/AX4LhZRA==
+          "]], LineBox[CompressedData["
+1:eJwVx30s1HEAx/FzSfNwF/v+ft/fdXIeQi0b5SHmYdnOQx7mCiFFHjOHRIo5
+SclhIzaGzUJYtIgo8nDzEcZVLOmPZLbUVHpYy9N21kh/vPfeyzwuPTiRz+Px
+juz2/5Lfn0x/5HLonRsZCbnMIqYo6npCNgf6LHtUN5lF7d6hm9IsDskbhbKI
+BBYzRaJSiwwOQ06Viw8usvBQztV/lHOI62vXSMNYiIv9Ri9Ec+jsnz+eL2Xx
+rsTJ4Kw3B69Bt+ZVExa+ZYJmb8LhysjO7YW3DPINUh5ZGnIY29E3OjrDoK9s
+6ukeAQfOU9SYo2ZgWV44OarDYRjHhlgw4N3V/PTYotB5Ebsm62QwWLHsfGKJ
+4t74WPx4MQPbKtW0dRfFK3WxV6c7g/X5ShO3Dor1Xq/hABcGQ2YJabKHFJIG
+LcfvDgxOPdYT5LRQZGYqDh22YRCvDg9U11IYG6fz7x9gULfz52VKAYU8NQzV
+mwTRPhPighsUVWHExWGVwKq8Tl6dS6HyfNM1+4ugR3xST5VFYcT6NwqXCaad
+yvyEyRQDKo/8kjkCfqr1VPcZCt39Vu553QRTPRpuIojCXrPUK+4gqNC8TpoP
+oIj63GAz0EZwsPjqPr4PRXe/yHizgcC5GT4hrhTnYgy20ssJtr9V1SQ5UxT6
+qzOEpQTjdklfFI4UHY7KlY47BMEqgbLVlkJLlze/oiBIfR85sWFB0f5krT9e
+TmBvasvqmVHM1nfb8S8RaBK1EiUmFH+L0tqaYgmUa23avhyFLPJrzWIEQaCr
+IvQ8Q5Hj1SrMCyUgt4Ja040oWmxjleLTBB8mzdcLhRTTIsn28wCCJuGGtE6f
+YpO/cC3cl8C11NCibNeLrtpS713/Az5IJJ0=
+          "]], LineBox[CompressedData["
+1:eJwVj2tIk1EAhlckVGrI+c5xFFNyDS+Jl5aIygKbg3nBLmrQMIVkmamolM2h
+ZjVz+kNwymaWXVBcKgqGlqssezWblliWacg0jS5O84JjWWhS68fL8+/heb3S
+chPObOXxeCLH/rPbOOCpdXKHV0WaR0IMwxM/aen8XwafN54hc5EMV/PY2OYf
+hoRHlrYyCUO0ySok6wzFjXX7RGEM47Kq/gg7w6iKcKeDGAqz14ZTVhnk4oAG
+5s+wV58yfmWZAUvyoNfeDNlf/K1mK0On8lLcQU+GbZoh18RphtoEa6mTK0PI
+8y2KLDNDamCvvXWBoiY8f6W+juHHt3MTNiPFsUCFYNPRsf1E341rAoqLWbqX
+n8Md/mD9dQuf4mbLYI45lKHA5axBzFF8FYb2VQUzfH/hUj27g0LN59KFIoYB
+8ckKyS8ODbyRDrkzg8ZtRWV/x8H2PjKqZpJiY1iQpCznwHdTL6omKLqaV473
+aDhI4jsMyWMUmaX9R0kJB+2gh1U0QjEZkRGHfA57nq5XmkBhau2SCtI4RBkf
+TEw1OzrLYw98kHDQF/hm+qgolqXqXTIbQXTRuOLwBYrioY2fC0sEmyWamOQ8
+Cpcjl6er5wnStVO+VZkUfgpt+8wsQZhBN7eWSqHM1ccWvSVYrDv00e0Uhc3O
+FwuHCRpuLZj3Kyg0hfW7X5kJdjbJ7qUmUtwta7S69xL0Nq8a1McoApy9R589
+JjjfdqesJp6iR9dqUj4ksHT+Vprljj/197Wd7QS6bmPSrIwiwyskR9FCUDdT
+a6yUUtg/3Z6zNBH8A833HBM=
+          "]], LineBox[CompressedData["
+1:eJwVjntMDHAAx0+dU67T/R55tEql9CBduqm8ZxQlctaoPFJIrKUlenB57FDZ
+kkRRuGPUyJVJRexbyUrYRZSpEemodUImPcz547vPPt/tu30douIVO0wEAoHM
+mP/ko4Ga4ws5vE2THcYv4IhsCGMr/TicvSYFuczjsGoSmUYZWXEvZ+4LLw6l
+LvJjnozjZW3+OBs3jrmtkpdaD+MuwOZrnROHvu1+bZM7x8Czy7pYe46Q91w9
+Zuwl7dcvV07hcDQ0bt0xjWOl4e6i9SKON9+T1qZPNjLR13l4HEfWL8clBYxj
+558HFuoxhsHRg3bPJRzHhPXvDIMMT8RenXITjkfWLSmZnxh2uxWEC/sY5AH9
+FbVgKN8eG3q1hsHuivMcWRpD96GebmU1Q9+KbaqU/QxTz0fvC7/HUN1X2FGX
+wHC4aXMuKWMI9eFZobsY1sxRtKRfZch8YfIlNZSh9/f84E2Z/3+8Vzd4Mjhl
+Wayw2sjQHHbBKqKbIr9cKz/xkyKFWY6pgikicjQT8wcobKNHFk1fRWGXkPeh
+uJ+i7o5eWbWc4pos7dRTPYVYAUHfAooyrX+3pIOi6HSCMMSdorG0M/fsY4pa
+SavYegLFUIn4pzqPwtyswPo2CB5k/G28c4aidIMqIqCGQBn7/VJ9NoXiRkLh
+h0oCoVtb4OcMiov+gXZMSyAt1mhclRQeqhGH5CIC1+t+Cu1OinUmW9yWpRJs
+1MSU1/hQFIw6+r7xJhiOMiztkFOcso3LVnkSFM5I0o14UaQvruyRzyLounb0
+2/zZFDGHg/JyHQl23yjyqLankAv3/QghBBa7nB6221K4OD9aJZAQaF1vrh6y
+prDxN1NrzQgGS6r2+FhRmJ4sXDtJQHDo1quSCnMKnbjhVrNBCvu4cL/XIoqG
+2ZbCtF4p6jy6GgdNKaqCwyLce6QQaQ16778El7L7zTM6pSiOTzqwfoQgp8xn
+m+9bKYJko6LEIQJVy5EqfasUhoGj5878Ikj90Wx5XifFzOV7oyONvuabZ32Q
+0f8BohJpDQ==
+          "]], LineBox[CompressedData["
+1:eJwVzGtMU2cAxnGkRInmfU/fHoWAUoer0QEOMMHp5gIxDJ2Cl0rQQERWblPE
+ym2UUW7RNgzdSlZFrBqwMlAb0HCZIXh5kFlwUOaOqFAngWzUbjLxggEhWo8f
+njz5f/n5q9TKVHc3N7fV4j68OUmRFD/BEPWNn3zBjzy+e3V2QPofw5Hr9/qW
+6Hj4tCpSQp4waIb9FH2lPK7lWl5t+4ch05VeWKjlkRi2+rB6lCHpo2YhQMPD
+/Gu4uemR6Kmiyn5Q84jMt4b2DzKsO1w5uDaDh+OzmM7/7zME1dmDnWk8Atvj
+R4LuMvCOg8NRiTxaO/Lklt8YRved/MIjhkc3LKaGRoaiLOfr4gAe4797G2tL
+GNpKK/bnjslAzx28VaZlcHYeC7WOyBCcf/uFqoDBR2KY9v5LhuyPc7Yvz2Eo
+1hn1HYIM04X95FIaw8aKM2Z3yCBZpStviWEYNDbZK00y+BpeFlkXM8zUC5sb
+t8nw9U7bt+NXpYiw+QY62hlc75xX+VkOPxvu71KapdibvOzvrkkOdlOEpuqs
+FDe7E2juMw7L6i3V9mopSir7UwZGOTRfKxtSGaRw+beyEz0chH9XJeRoxY4s
+yfCq4iCL1CcejxO7YtFSn1DRn16T+mC+6E9s3XwnQPQlZp3vXNHfWZ5XoBB9
+jtQnzhH9JbO9Q94cUrZYbbYJDq7GEY3pHUXdL/I/n90R+65FWNxHoYj/42FI
+sdheG/TydLG7QsZaHRTyL88rxpMolNpbyn2PKdYne3S1x1OUhsXCb4Di+8tW
+V+xWiscN+af1nRSTG7cUHA2jMB67sWP3GQqnJvbAtITCPS76xuwOirk1bfOt
+bwmCueHAK5solt/2umicItjToz6VEk6hYkNjnz4laP/cmGsLEt2Le/amCgRZ
+S+0BNfMoBHuaUqglGHWmn9xwneC5W8/zGhMBNb/xmGoh4FZ8Ysg8TrA+4Wi2
+5RJBdM7TXs9ygmpbU8zCaoKMU9H7H5QRWPURHT0/EVTcbPSsKySYDBdWFukI
+LozRhqw8Av83yVWhWoLuBYe+ClcTbG9+LXFkE6w1X+mdyiSYMcbZZg4RvAe4
+J4zk
+          "]], LineBox[CompressedData["
+1:eJwVyn0s1HEAx3G+v3OR32/ul7JuNU4Xw7GVhyi0POxOl6csD4nmmeqQ6tKV
+1MwVO6ViTZKtdZmkB4ZlZ+ejnESpxZWpsfSwlJI5tx5Q3R+fvbfXPo5p+TGZ
+xMzMzOP/TPV8s1r3NZWBUVPTEyBnISyuEjQmMRB1eHOlBSyC1QatPI7Bw0uL
+AWoZi5SB2OSQaAa78/sOL2WzOPWj4w9PyuDHjsqmhHQWXQEKv+ZABvYWjquZ
+RBZjaWOvFL4M2t5NRWbHsvhV5i+XbGQQrm1V9kSz2KRfbJlcz0BRGDonl7Bo
+yS0R8WkGr6ayh8a9WTTUq+zPjNE4N3S39L4Niw87R7drR2gs7HK5mWjNwtHC
+SW4corHvzXUdZxmLugPawaxHNMSfq7m7l3i46Dd7TNJMY9H8RJn5Nx6KXsYN
+WxbTyPORVMQM8BDDXVemcqQRWTdRZSjl4W/ug9kLOdYQjAjEBQYbfF2YaT7w
+2golboa9nbUMyoeX35hKsUS+bG208f/vOd8uvXeWi9FYj4Nbg63Q6OBunZ9u
+gWt7I2XaaS68cp2+d81Q+B7Tu82rm4O20nn/oCkKG44WtSvaOdhUpyvXTVI4
+dMXbDbc58BvMdBrSUzBOqG0jajgIcG1ImtBQ+CNTfsoq4CD0o/OgeRkFy7Pi
+ilohB7uSXRrFAgoOmv7XJtcf+Tk/wKeQOn46PKyYQlxFf0iULYUb5pt7zh+h
+kKDJmYjnUnAOu9W0JpVCEv+W3b5pApG+/KTPFgoZelel6gGB74xUaPKP079e
+2rQSKFZQNfcmCbI4A4Lq2wQaHw1tHCXI8drfVVdPsLVIZCzREcguNs3dKSUI
+taKfmPxb4/Egz2ICpXtv4PtqgjxIKzsKCfqiilpdVQQHZ764de8n2H55+qrJ
+Z7maYyEZBKpONW8xl+CQvarvcTLB07dJSpMbfPasDI8nsDFb9bs8kUAeIUp7
+EU2wU/gsz9R/nz5W5w==
+          "]], 
+         LineBox[{{-11.435940572553374`, -8.069665712318255}, \
+{-11.43088967120605, -8.062089360297268}, {-11.428060857222249`, \
+-8.057846139321567}, {-11.425232043238449`, -8.053602918345867}, \
+{-11.42240322925465, -8.049359697370168}, {-11.421097310786665`, \
+-8.04740081966819}}], 
+         LineBox[{{-11.241192244503022`, -7.964293672053804}, \
+{-11.239878426328382`, -7.962322944791843}, {-11.236811667813559`, \
+-7.957722807019609}, {-11.233744909298736`, -7.953122669247375}, \
+{-11.230678150783913`, -7.948522531475141}, {-11.22761139226909, \
+-7.943922393702906}, {-11.224544633754267`, -7.939322255930671}, \
+{-11.22421716516016, -7.938831053039512}}], 
+         LineBox[{{-11.050571884894373`, -7.863782265478919}, \
+{-11.046839218510861`, -7.858183265903652}, {-11.043975688887844`, \
+-7.853887971469127}, {-11.041112159264827`, -7.8495926770346}, \
+{-11.03824862964181, -7.845297382600076}, {-11.035385100018793`, \
+-7.84100208816555}, {-11.032521570395774`, -7.836706793731021}, \
+{-11.031296632785034`, -7.834869387314912}}], 
+         LineBox[{{-10.86743749784339, -7.786195719108604}, \
+{-10.862507267708992`, -7.778800373907006}, {-10.859699909170171`, \
+-7.774589336098775}, {-10.856892550631349`, -7.770378298290542}, \
+{-10.854085192092526`, -7.766167260482308}, {-10.851277833553706`, \
+-7.761956222674078}, {-10.848470475014885`, -7.757745184865846}, \
+{-10.845733165883102`, -7.7536392211681715`}}], 
+         LineBox[{{-10.695903854328542`, -7.707696565607033}, \
+{-10.69349391465073, -7.704081656090317}, {-10.690448611580885`, \
+-7.699513701485549}, {-10.68740330851104, -7.694945746880782}, \
+{-10.684358005441196`, -7.6903777922760135`}, {-10.68131270237135, \
+-7.685809837671246}, {-10.67522209623166, -7.676673928461711}, \
+{-10.672176793161816`, -7.672105973856944}, {-10.671710411903844`, \
+-7.671406401969986}}], 
+         LineBox[{{-10.508266343893231`, -7.6127876402775865`}, \
+{-10.503878469367592`, -7.606205828489128}, {-10.498194321011512`, \
+-7.597679605955008}, {-10.495352246833473`, -7.59341649468795}, \
+{-10.492510172655432`, -7.589153383420888}, {-10.486826024299354`, \
+-7.580627160886771}, {-10.483983950121315`, -7.576364049619713}, \
+{-10.481141875943276`, -7.572100938352654}, {-10.481090052295194`, \
+-7.572023202880531}}], 
+         LineBox[{{-10.30118498601155, -7.504652829843615}, \
+{-10.300399070621136`, -7.503473956757993}, {-10.297319051912073`, \
+-7.498853928694398}, {-10.29423903320301, -7.494233900630803}, \
+{-10.291159014493946`, -7.489613872567208}, {-10.284998977075821`, \
+-7.480373816440021}, {-10.28191895836676, -7.475753788376428}, \
+{-10.278838939657696`, -7.471133760312833}, {-10.275758920948633`, \
+-7.466513732249238}, {-10.27267890223957, -7.461893704185643}, \
+{-10.27036902097954, -7.4584288822956}}], 
+         LineBox[{{-9.943801408524799, -7.3284320604695985`}, \
+{-9.940357974370148, -7.323266909237623}, {-9.937537355637085, \
+-7.319035981138028}, {-9.934716736904022, -7.314805053038435}, \
+{-9.931896118170961, -7.310574124938843}, {-9.926254880704839, \
+-7.30211226873966}, {-9.914972405772591, -7.285188556341288}, \
+{-9.91215178703953, -7.280957628241697}, {-9.909331168306467, \
+-7.276726700142102}, {-9.906510549573404, -7.272495772042508}, \
+{-9.905725907391632, -7.27131880876985}}], 
+         LineBox[{{-9.761857852113346, -7.225179885774452}, \
+{-9.760482777768829, -7.2231172742576755`}, {-9.757424214504745, \
+-7.21852942936155}, {-9.751307087976574, -7.209353739569294}, \
+{-9.748248524712489, -7.204765894673166}, {-9.745189961448403, \
+-7.200178049777038}, {-9.739072834920233, -7.191002359984782}, \
+{-9.736014271656147, -7.186414515088654}, {-9.732955708392062, \
+-7.1818266701925255`}, {-9.726838581863893, -7.172650980400272}, \
+{-9.723780018599808, -7.168063135504144}, {-9.720721455335724, \
+-7.163475290608019}, {-9.719545061259609, -7.161710699493846}}], 
+         LineBox[{{-9.561690934999381, -7.129380928405562}, \
+{-9.55758119810618, -7.123216323065758}, {-9.5547258637339, \
+-7.118933321507339}, {-9.549015194989341, -7.110367318390501}, \
+{-9.537593857500221, -7.093235312156821}, {-9.534738523127942, \
+-7.088952310598402}, {-9.53188318875566, -7.08466930903998}, \
+{-9.526172520011102, -7.076103305923142}, {-9.523317185638822, \
+-7.0718203043647225`}, {-9.520461851266543, -7.067537302806304}, \
+{-9.517606516894263, -7.063254301247884}, {-9.514751182521984, \
+-7.058971299689465}, {-9.514236753139441, -7.058199655615651}}], 
+         LineBox[{{-9.397214738525436, -7.064988190488599}, \
+{-9.393039055113679, -7.0587246653709625`}, {-9.390239891825594, \
+-7.054525920438835}, {-9.38744072853751, -7.050327175506708}, \
+{-9.384641565249426, -7.0461284305745835`}, {-9.379043238673258, \
+-7.037730940710332}, {-9.376244075385173, -7.033532195778204}, \
+{-9.37344491209709, -7.02933345084608}, {-9.367846585520923, \
+-7.020935960981828}, {-9.356649932368587, -7.004140981253324}, \
+{-9.353850769080502, -6.999942236321197}, {-9.351051605792419, \
+-6.995743491389073}, {-9.348252442504336, -6.991544746456948}, \
+{-9.345453279216251, -6.987346001524821}, {-9.345121977083314, \
+-6.986849048325416}}], 
+         LineBox[{{-9.021110275519558, -6.89799780127325}, \
+{-9.016024228181006, -6.890368730265423}, {-9.013190349253705, \
+-6.886117911874471}, {-9.010356470326403, -6.881867093483518}, \
+{-9.0046887124718, -6.873365456701614}, {-9.001854833544499, \
+-6.869114638310662}, {-8.999020954617198, -6.86486381991971}, \
+{-8.993353196762593, -6.8563621831378025`}, {-8.982017681053385, \
+-6.839358909573991}, {-8.979183802126084, -6.835108091183039}, \
+{-8.976349923198782, -6.830857272792087}, {-8.970682165344178, \
+-6.82235563601018}, {-8.967848286416874, -6.818104817619225}, \
+{-8.965014407489573, -6.8138539992282725`}, {-8.962180528562271, \
+-6.80960318083732}, {-8.95934664963497, -6.805352362446368}, \
+{-8.9568099482014, -6.801547310296013}}], 
+         LineBox[{{-8.802711691589574, -6.761020284986923}, \
+{-8.802250675088299, -6.760328760235011}, {-8.799178851629973, \
+-6.755721025047523}, {-8.793035204713323, -6.746505554672548}, \
+{-8.789963381255, -6.741897819485063}, {-8.786891557796674, \
+-6.737290084297573}, {-8.780747910880024, -6.728074613922598}, \
+{-8.768460617046722, -6.709643673172647}, {-8.765388793588397, \
+-6.705035937985158}, {-8.762316970130072, -6.700428202797672}, \
+{-8.756173323213421, -6.691212732422694}, {-8.743886029380121, \
+-6.672781791672745}, {-8.740814205921797, -6.668174056485259}, \
+{-8.737742382463471, -6.66356632129777}, {-8.734670559005146, \
+-6.658958586110281}, {-8.731598735546822, -6.654350850922795}, \
+{-8.730152577587393, -6.652181613983654}}], LineBox[CompressedData["
+1:eJwBYQGe/iFib1JlAgAAABUAAAACAAAACgawTwZJIcAqJQ0S1q8awIhJe7vp
+RyHApO9uVYCsGsAppPp2XkYhwIf/7IfepxrAyv55MtNEIcBqD2u6PKMawGtZ
++e1HQyHATh/p7JqeGsAMtHipvEEhwDEvZx/5mRrATml3IKY+IcD2TmOEtZAa
+wO/D9tsaPSHA2l7hthOMGsCQHnaXjzshwLxuX+lxhxrA0tN0Dnk4IcCCjltO
+Ln4awFc+cvxLMiHAEc5TGKdrGsD4mPG3wDAhwPXd0UoFZxrAmvNwczUvIcDa
+7U99Y2IawNyob+oeLCHAoQ1M4h9ZGsB9A++lkyohwIMdyhR+VBrAHl5uYQgp
+IcBmLUhH3E8awGATbdjxJSHALE1ErJhGGsABbuyTZiQhwA9dwt72QRrAoshr
+T9siIcDybEARVT0awEMj6wpQISHA1Xy+Q7M4GsBIu/WRdCAhwORE3tggNhrA
+9A2eHg==
+          "]], 
+         LineBox[{{-8.46860352226324, -6.616532974936156}, \
+{-8.465173596832432, -6.611388086789944}, {-8.462361173350107, \
+-6.607169451566456}, {-8.45673632638546, -6.598732181119486}, \
+{-8.453923902903137, -6.5945135458960005`}, {-8.451111479420813, \
+-6.590294910672515}, {-8.445486632456165, -6.581857640225542}, \
+{-8.434236938526869, -6.564983099331599}, {-8.411737550668278, \
+-6.531234017543712}, {-8.408925127185954, -6.527015382320227}, \
+{-8.40611270370363, -6.522796747096741}, {-8.400487856738982, \
+-6.514359476649768}, {-8.397675433256659, -6.510140841426284}, \
+{-8.394863009774333, -6.505922206202795}, {-8.389238162809686, \
+-6.497484935755825}, {-8.386425739327363, -6.49326630053234}, \
+{-8.38361331584504, -6.4890476653088545`}, {-8.381445803297838, \
+-6.485796396488053}}], LineBox[CompressedData["
+1:eJwBYQGe/iFib1JlAgAAABUAAAACAAAAV+Egz1OOIMDMQeQeY/AZwIROb9ZN
+jSDAVInPNFHtGcAslxEFvosgwExjtsCh6BnA1N+zMy6KIMBDPZ1M8uMZwHwo
+VmKeiCDAOxeE2ELfGcDNuZq/foUgwC7LUfDj1RnAbtwjej9/IMARM+0fJsMZ
+wLAhNu/AciDA2AIkf6qdGcBYatgdMXEgwM/cCgv7mBnAALN6TKFvIMDItvGW
+S5QZwFFEv6mBbCDAu2q/ruyKGcD6jGHY8WogwLZEpjo9hhnAotUDB2JpIMCu
+Ho3GjYEZwPJmSGRCZiDAndJa3i54GcCar+qSsmQgwJWsQWp/cxnAQ/iMwSJj
+IMCRhij2z24ZwOxAL/CSYSDAjGAPgiBqGcCUidEeA2AgwIQ69g1xZRnAPNJz
+TXNeIMB8FN2ZwWAZwOQaFnzjXCDAc+7DJRJcGcDnOg+W0FwgwH1Or3PZWxnA
+42CkzQ==
+          "]], LineBox[CompressedData["
+1:eJwBkQFu/iFib1JlAgAAABgAAAACAAAAUbicLnAiIMCMm5T7N5EZwFr9gMy0
+ICDApmpB1QWMGcA6VTtwyh0gwEdycMBGgxnAKoEYQlUcIMAX9gc2534ZwBqt
+9RPgGiDA53mfq4d6GcD6BLC39RcgwIeBzpbIcRnAurQk/yASIMDHkCxtSmAZ
+wKrgAdGrECDAlxTE4upbGcCaDN+iNg8gwGeYW1iLVxnAemSZRkwMIMAHoIpD
+zE4ZwDoUDo53BiDAR6/oGU49GcAqQOtfAgUgwBczgI/uOBnAGmzIMY0DIMDn
+thcFjzQZwPrDgtWiACDAh75G8M8rGcB05+45nPUfwMbNpMZRGhnAVD+p3bHy
+H8CXUTw88hUZwDSXY4HH7x/AZ9XTsZIRGcD0RtjI8ukfwAfdAp3TCBnA1J6S
+bAjnH8DXYJoSdAQZwLT2TBAe5B/Ap+QxiBQAGcB0psFXSd4fwEfsYHNV9xjA
+VP57+17bH8AWcPjo9fIYwDRWNp902B/A5vOPXpbuGMAZQhTo1tUfwL7V3Mup
+6hjAmFW7eQ==
+          "]], LineBox[CompressedData["
+1:eJwBoQFe/iFib1JlAgAAABkAAAACAAAAPCcbXHvPHsD3JrO4UgAZwOZS9ixB
+zh7Ad+j7cXv+GMAkoRQqJ8sewNNdqW3U+RjAYu8yJw3IHsAw01ZpLfUYwKE9
+USTzxB7Aj0gEZYbwGMAe2o0ev74ewEozX1w45xjAGBMHE1eyHsDBCBVLnNQY
+wAyF+fuGmR7AsLOAKGSvGMBK0xf5bJYewA0pLiS9qhjAiSE29lKTHsBrntsf
+FqYYwAa+cvAejR7AJok2F8icGMAA9+vktoAewJ1e7AUsihjAPkUK4px9HsD6
+05kBhYUYwH2TKN+Ceh7AWUlH/d2AGMD6L2XZTnQewBQ0ovSPdxjA82jezeZn
+HsCKCVjj82QYwDK3/MrMZB7A6H4F30xgGMBwBRvIsmEewEX0stqlWxjA7KFX
+wn5bHsD/3g3SV1IYwCrwdb9kWB7AXFS7zbBNGMBpPpS8SlUewLvJaMkJSRjA
+5trQthZPHsB3tMPAuz8YwCQp77P8Sx7A0ylxvBQ7GMBjdw2x4kgewDKfHrht
+NhjASH7xPDVIHsCJqfSJaTUYwPK2wk4=
+          "]], 
+         LineBox[{{-11.476758315815788`, -8.082883108025515}, \
+{-11.473321880963042`, -8.077728455746396}, {-11.467664252995442`, \
+-8.069242013794996}, {-11.464835439011644`, -8.0649987928193}, \
+{-11.462335885192134`, -8.061249462090034}}], 
+         LineBox[{{-11.286137956207138`, -7.978187759194275}, \
+{-11.2828130455359, -7.973200393187415}, {-11.279746287021077`, \
+-7.968600255415182}, {-11.276679528506254`, -7.964000117642947}, \
+{-11.27361276999143, -7.959399979870713}, {-11.270546011476608`, \
+-7.9547998420984785`}, {-11.269673667315272`, -7.953491325856476}}], 
+         LineBox[{{-11.099957110075115`, -7.894352988868022}, \
+{-11.095519222102158`, -7.887696156908587}, {-11.089792162856124`, \
+-7.879105568039535}, {-11.086928633233107`, -7.87481027360501}, \
+{-11.08406510361009, -7.870514979170484}, {-11.08129923719587, \
+-7.866366179549154}}], 
+         LineBox[{{-10.92149484261923, -7.801484561727597}, \
+{-10.915847079946605`, -7.793012917718659}, {-10.913039721407783`, \
+-7.788801879910426}, {-10.90742500433014, -7.780379804293961}, \
+{-10.904617645791319`, -7.77616876648573}, {-10.901810287252497`, \
+-7.771957728677497}, {-10.900531114259332`, -7.770038969187749}}], 
+         LineBox[{{-10.725534025898822`, -7.703638561678364}, \
+{-10.72394694534918, -7.701257940853901}, {-10.720901642279335`, \
+-7.696689986249133}, {-10.71785633920949, -7.692122031644366}, \
+{-10.7117657330698, -7.682986122434831}, {-10.708720429999955`, \
+-7.678418167830063}, {-10.70567512693011, -7.673850213225296}, \
+{-10.702629823860265`, -7.6692822586205285`}, {-10.701786166632925`, \
+-7.668016772779517}}], 
+         LineBox[{{-10.540787385636792`, -7.6085532551939306`}, \
+{-10.532299211147988`, -7.595820993460725}, {-10.529457136969949`, \
+-7.5915578821936665`}, {-10.526615062791908`, -7.587294770926605}, \
+{-10.52377298861387, -7.583031659659547}, {-10.52093091443583, \
+-7.578768548392488}, {-10.51808884025779, -7.574505437125428}, \
+{-10.51524676607975, -7.570242325858368}, {-10.514148656197614`, \
+-7.568595161035164}}], 
+         LineBox[{{-10.372621151215709`, -7.543110546363618}, \
+{-10.371239500929583`, -7.541038070934429}, {-10.36815948222052, \
+-7.536418042870834}, {-10.365079463511456`, -7.531798014807239}, \
+{-10.358919426093331`, -7.522557958680052}, {-10.35583940738427, \
+-7.517937930616459}, {-10.352759388675207`, -7.513317902552863}, \
+{-10.34659935125708, -7.504077846425674}, {-10.343519332548016`, \
+-7.499457818362079}, {-10.34310430932129, -7.4988352835219905`}}], 
+         LineBox[{{-9.986813818966725, -7.358518479711005}, \
+{-9.982667255366072, -7.352298634310026}, {-9.97984663663301, \
+-7.348067706210432}, {-9.977026017899949, -7.34383677811084}, \
+{-9.971384780433826, -7.335374921911656}, {-9.960102305501579, \
+-7.318451209513285}, {-9.957281686768518, -7.314220281413693}, \
+{-9.954461068035455, -7.3099893533141}, {-9.951640449302392, \
+-7.3057584252145045`}, {-9.949683720829182, -7.30282333250469}}], 
+         LineBox[{{-9.808918846933734, -7.273382383111555}, \
+{-9.806361226730104, -7.2695459528061095`}, {-9.803302663466019, \
+-7.264958107909981}, {-9.800244100201933, -7.260370263013853}, \
+{-9.797185536937848, -7.255782418117725}, {-9.794126973673762, \
+-7.251194573221597}, {-9.788009847145593, -7.242018883429344}, \
+{-9.784951283881508, -7.237431038533216}, {-9.781892720617424, \
+-7.23284319363709}, {-9.775775594089254, -7.223667503844834}, \
+{-9.772717030825168, -7.219079658948706}, {-9.769658467561083, \
+-7.214491814052578}, {-9.767740164417729, -7.211614359337547}}], 
+         LineBox[{{-9.613641907805901, -7.166485393095086}, \
+{-9.608977216807213, -7.159488356597055}, {-9.606121882434934, \
+-7.155205355038635}, {-9.603266548062654, -7.150922353480216}, \
+{-9.600411213690375, -7.146639351921797}, {-9.594700544945816, \
+-7.138073348804959}, {-9.583279207456696, -7.120941342571279}, \
+{-9.580423873084417, -7.11665834101286}, {-9.577568538712136, \
+-7.112375339454438}, {-9.574713204339856, -7.108092337896019}, \
+{-9.571857869967577, -7.1038093363376}, {-9.569002535595297, \
+-7.09952633477918}, {-9.567573247303764, -7.097382402341881}}], 
+         LineBox[{{-9.217990421146062, -6.952155962896119}, \
+{-9.06703404887244, -6.857399228460885}, {-9.061366291017835, \
+-6.848897591678978}, {-9.050030775308628, -6.831894318115166}, \
+{-9.047196896381326, -6.827643499724214}, {-9.044363017454025, \
+-6.823392681333262}, {-9.038695259599422, -6.8148910445513575`}, \
+{-9.03586138067212, -6.810640226160405}, {-9.033027501744819, \
+-6.806389407769453}, {-9.030193622817517, -6.802138589378501}, \
+{-9.027359743890214, -6.797887770987546}, {-9.02699258782394, \
+-6.797337036888136}}], 
+         LineBox[{{-8.878192347555267, -6.815972360811488}, \
+{-8.875974438088102, -6.81264549661074}, {-8.872902614629776, \
+-6.808037761423252}, {-8.866758967713126, -6.798822291048277}, \
+{-8.8636871442548, -6.794214555860789}, {-8.860615320796477, \
+-6.789606820673303}, {-8.854471673879825, -6.780391350298325}, \
+{-8.842184380046525, -6.761960409548376}, {-8.839112556588201, \
+-6.75735267436089}, {-8.836040733129876, -6.7527449391734}, \
+{-8.829897086213226, -6.743529468798426}, {-8.8268252627549, \
+-6.738921733610938}, {-8.823753439296574, -6.734313998423449}, \
+{-8.817609792379924, -6.725098528048474}, {-8.814537968921599, \
+-6.720490792860986}, {-8.811466145463275, -6.7158830576735}, \
+{-8.808594003893957, -6.7115748453195225`}}], 
+         LineBox[{{-11.195213208053625`, -7.938333061776873}, \
+{-11.193877048606037`, -7.936328822605491}, {-11.190810290091214`, \
+-7.931728684833256}, {-11.18467677306157, -7.92252840928879}, \
+{-11.181610014546749`, -7.917928271516558}, {-11.178543256031926`, \
+-7.913328133744324}, {-11.177703440831625`, -7.912068410943872}}], 
+         LineBox[{{-10.999936268925792`, -7.8420109723052125`}, \
+{-10.995295685296547`, -7.835050096861345}, {-10.99243215567353, \
+-7.830754802426819}, {-10.989568626050513`, -7.826459507992293}, \
+{-10.986705096427494`, -7.822164213557766}, {-10.983841566804475`, \
+-7.817868919123238}, {-10.980978037181458`, -7.813573624688712}, \
+{-10.98001177155836, -7.812124226254063}}], 
+         LineBox[{{-10.635293155337882`, -7.669342847211899}, \
+{-10.632587853253831`, -7.665284894085823}, {-10.629542550183986`, \
+-7.6607169394810555`}, {-10.626497247114141`, -7.656148984876288}, \
+{-10.623451944044296`, -7.651581030271521}, {-10.620406640974451`, \
+-7.647013075666753}, {-10.617361337904606`, -7.642445121061986}, \
+{-10.614316034834761`, -7.637877166457218}, {-10.611270731764916`, \
+-7.633309211852451}, {-10.610167094570336`, -7.63165375606058}}], 
+         LineBox[{{-10.441593503358048`, -7.582289923172561}, \
+{-10.438510763272681`, -7.577665813044511}, {-10.43566868909464, \
+-7.57340270177745}, {-10.429984540738563`, -7.564876479243333}, \
+{-10.427142466560522`, -7.560613367976272}, {-10.424300392382483`, \
+-7.556350256709213}, {-10.418616244026403`, -7.547824034175093}, \
+{-10.415774169848364`, -7.543560922908035}, {-10.41328694894383, \
+-7.5398300915512335`}}], 
+         LineBox[{{-10.264486708675157`, -7.469808121156545}, \
+{-10.263438846112379`, -7.468236327312377}, {-10.260358827403318`, \
+-7.463616299248785}, {-10.257278808694256`, -7.4589962711851925`}, \
+{-10.254198789985193`, -7.454376243121597}, {-10.248038752567066`, \
+-7.445136186994407}, {-10.244958733858002`, -7.440516158930812}, \
+{-10.241878715148939`, -7.435896130867217}, {-10.238798696439876`, \
+-7.431276102803622}, {-10.235718677730814`, -7.42665607474003}, \
+{-10.232984754955234`, -7.42255519057666}}], 
+         LineBox[{{-9.89984359508725, -7.301461308846659}, \
+{-9.89522807464116, -7.294538028177525}, {-9.892407455908097, \
+-7.290307100077931}, {-9.889586837175035, -7.286076171978337}, \
+{-9.886766218441974, -7.281845243878745}, {-9.881124980975851, \
+-7.273383387679562}, {-9.869842506043604, -7.2564596752811905`}, \
+{-9.867021887310543, -7.252228747181599}, {-9.86420126857748, \
+-7.247997819082005}, {-9.861380649844417, -7.2437668909824104`}, \
+{-9.860780195687514, -7.242866209747056}}], 
+         LineBox[{{-9.713662748955226, -7.231358846478766}, \
+{-9.711545765543468, -7.228183371361129}, {-9.708487202279382, \
+-7.223595526465001}, {-9.702370075751212, -7.214419836672745}, \
+{-9.699311512487126, -7.209831991776617}, {-9.696252949223041, \
+-7.205244146880489}, {-9.690135822694872, -7.196068457088235}, \
+{-9.687077259430787, -7.191480612192107}, {-9.684018696166703, \
+-7.186892767295982}, {-9.677901569638532, -7.177717077503726}, \
+{-9.674843006374447, -7.1731292326075975`}, {-9.671784443110361, \
+-7.168541387711469}, {-9.670159836078865, -7.166104477164224}}], 
+         LineBox[{{-9.508354440835058, -7.1363875641487065`}, \
+{-9.503329845032866, -7.128850670445418}, {-9.500474510660586, \
+-7.124567668886999}, {-9.497619176288307, -7.12028466732858}, \
+{-9.491908507543746, -7.111718664211739}, {-9.489053173171467, \
+-7.1074356626533195`}, {-9.486197838799185, -7.103152661094898}, \
+{-9.480487170054626, -7.094586657978059}, {-9.477631835682347, \
+-7.09030365641964}, {-9.474776501310068, -7.086020654861221}, \
+{-9.469065832565509, -7.077454651744382}, {-9.46621049819323, \
+-7.073171650185963}, {-9.46335516382095, -7.068888648627544}, \
+{-9.46049982944867, -7.064605647069125}, {-9.459438804763213, \
+-7.063014110040939}}], 
+         LineBox[{{-9.339239664778932, -7.023487953945598}, \
+{-9.334256626063915, -7.016013395873074}, {-9.33145746277583, \
+-7.011814650940948}, {-9.328658299487747, -7.007615906008823}, \
+{-9.32305997291158, -6.99921841614457}, {-9.311863319759244, \
+-6.9824234364160676`}, {-9.309064156471159, -6.978224691483939}, \
+{-9.306264993183076, -6.974025946551816}, {-9.300666666606908, \
+-6.965628456687564}, {-9.297867503318823, -6.961429711755437}, \
+{-9.29506834003074, -6.957230966823311}, {-9.289470013454572, \
+-6.94883347695906}, {-9.286670850166487, -6.944634732026933}, \
+{-9.285416050783953, -6.942752532953131}}], 
+         LineBox[{{-11.496858987522792`, -8.092858582550763}, \
+{-11.493123578849637`, -8.08725546954103}, {-11.490294764865839`, \
+-8.083012248565332}, {-11.48746595088204, -8.078769027589635}, \
+{-11.48463713689824, -8.074525806613934}, {-11.482640628120171`, \
+-8.07153104344683}}], 
+         LineBox[{{-11.30823762858031, -8.001612717862036}, \
+{-11.307347113654483`, -8.000276945473297}, {-11.30428035513966, \
+-7.995676807701063}, {-11.301213596624837`, -7.991076669928828}, \
+{-11.298146838110014`, -7.986476532156593}, {-11.295080079595191`, \
+-7.981876394384359}, {-11.292020268511521`, -7.977286677758854}}], 
+         LineBox[{{-11.124199831139805`, -7.91110859907668}, \
+{-11.118427459086298`, -7.9024500409964205`}, {-11.112700399840264`, \
+-7.893859452127369}, {-11.109836870217247`, -7.889564157692844}, \
+{-11.10697334059423, -7.885268863258318}, {-11.105839422379498`, \
+-7.88356798593622}}], 
+         LineBox[{{-10.94798529611927, -7.81790916310921}, \
+{-10.94392066533482, -7.811812216932535}, {-10.941113306795998`, \
+-7.807601179124301}, {-10.938305948257177`, -7.80339014131607}, \
+{-10.935498589718355`, -7.799179103507837}, {-10.932691231179533`, \
+-7.794968065699603}, {-10.929883872640712`, -7.790757027891372}, \
+{-10.927377154923613`, -7.786996951315724}}], 
+         LineBox[{{-10.754731624741128`, -7.72473895028805}, \
+{-10.75439997604763, -7.724241477247803}, {-10.751354672977785`, \
+-7.719673522643036}, {-10.74830936990794, -7.715105568038268}, \
+{-10.745264066838095`, -7.710537613433501}, {-10.74221876376825, \
+-7.705969658828733}, {-10.739173460698405`, -7.701401704223966}, \
+{-10.73612815762856, -7.6968337496191985`}, {-10.733082854558715`, \
+-7.692265795014431}, {-10.731416338203205`, -7.689766020481167}}], 
+         LineBox[{{-10.572788068329674`, -7.631064369019815}, \
+{-10.569246175462503`, -7.625751529719059}, {-10.566404101284464`, \
+-7.621488418452}, {-10.563562027106425`, -7.617225307184942}, \
+{-10.560719952928384`, -7.612962195917881}, {-10.555035804572306`, \
+-7.604435973383763}, {-10.552193730394265`, -7.600172862116702}, \
+{-10.549351656216226`, -7.595909750849644}, {-10.546669697941175`, \
+-7.591886813437067}}], 
+         LineBox[{{-11.218334852855778`, -7.954356613593224}, \
+{-11.215344358209798`, -7.949870871624254}, {-11.212277599694975`, \
+-7.94527073385202}, {-11.209210841180152`, -7.940670596079786}, \
+{-11.206144082665329`, -7.936070458307551}, {-11.203077324150506`, \
+-7.9314703205353165`}, {-11.201095520358008`, -7.928497614846569}}], 
+         LineBox[{{-11.025414320480651`, -7.867212681525431}, \
+{-11.021067451903704`, -7.86069237866001}, {-11.018203922280687`, \
+-7.856397084225485}, {-11.01534039265767, -7.852101789790959}, \
+{-11.012476863034653`, -7.8478064953564335`}, {-11.009613333411634`, \
+-7.843511200921905}, {-11.006749803788615`, -7.839215906487377}, \
+{-11.005818581230175`, -7.837819072649716}}], 
+         LineBox[{{-10.66582809959946, -7.677757731532647}, \
+{-10.66304088395228, -7.673576908061877}, {-10.659995580882436`, \
+-7.6690089534571095`}, {-10.65695027781259, -7.664440998852342}, \
+{-10.650859671672901`, -7.655305089642807}, {-10.647814368603056`, \
+-7.65073713503804}, {-10.644769065533211`, -7.646169180433272}, \
+{-10.641723762463366`, -7.641601225828505}, {-10.641175467642265`, \
+-7.640778783596853}}], 
+         LineBox[{{-10.475207739990811`, -7.577825223642935}, \
+{-10.469773579231116`, -7.569673982503394}, {-10.464089430875038`, \
+-7.561147759969276}, {-10.461247356696997`, -7.556884648702216}, \
+{-10.458405282518958`, -7.552621537435157}, {-10.45556320834092, \
+-7.5483584261680985`}, {-10.452721134162879`, -7.544095314901037}, \
+{-10.44987905998484, -7.539832203633979}, {-10.44747581566243, \
+-7.536227337150366}}], 
+         LineBox[{{-11.456453572887751`, -8.066795040038093}, \
+{-11.450691369092645`, -8.058151734345435}, {-11.445033741125046`, \
+-8.049665292394035}, {-11.442204927141248`, -8.045422071418338}, \
+{-11.441822884857757`, -8.044849007993102}}], 
+         LineBox[{{-11.26379135501089, -7.981156150663038}, \
+{-11.261345735932139`, -7.977487722044912}, {-11.258278977417318`, \
+-7.97288758427268}, {-11.255212218902496`, -7.968287446500448}, \
+{-11.252145460387673`, -7.963687308728214}, {-11.24907870187285, \
+-7.959087170955979}, {-11.247074556807405`, -7.956080953357811}}], 
+         LineBox[{{-11.075416924891487`, -7.884639200780718}, \
+{-11.066883925871984`, -7.871839702251465}, {-11.064020396248967`, \
+-7.867544407816939}, {-11.06115686662595, -7.863249113382413}, \
+{-11.058293337002933`, -7.858953818947888}, {-11.056454197198756`, \
+-7.856195109241622}}], 
+         LineBox[{{-10.894648801954949`, -7.782670435732434}, \
+{-10.890580853097209`, -7.776568512445824}, {-10.884966136019566`, \
+-7.76814643682936}, {-10.882158777480743`, -7.7639353990211255`}, \
+{-10.879351418941923`, -7.7597243612128946`}, {-10.8765440604031, \
+-7.755513323404661}, {-10.873736701864278`, -7.751302285596428}, \
+{-10.873319810147773`, -7.750676948021671}}], 
+         LineBox[{{-10.337221997016908`, -7.515223234411912}, \
+{-10.334279276420828`, -7.510809153517792}, {-10.331199257711766`, \
+-7.5061891254542}, {-10.328119239002703`, -7.501569097390605}, \
+{-10.321959201584576`, -7.492329041263415}, {-10.318879182875513`, \
+-7.48770901319982}, {-10.31579916416645, -7.483088985136225}, \
+{-10.312719145457386`, -7.4784689570726295`}, {-10.309639126748325`, \
+-7.473848929009037}, {-10.307067298315934`, -7.469991186360451}}], 
+         LineBox[{{-11.171821128527242`, -7.932364379380527}, \
+{-11.169342980487457`, -7.9286471573208495`}, {-11.166276221972634`, \
+-7.924047019548615}, {-11.160142704942988`, -7.914846744004146}, \
+{-11.157075946428165`, -7.910246606231912}, {-11.15403452553762, \
+-7.905684474896094}}], 
+         LineBox[{{-10.81187836962924, -7.763875302901696}, \
+{-10.806360096932558`, -7.755597893856674}, {-10.803552738393737`, \
+-7.751386856048443}, {-10.800745379854915`, -7.747175818240209}, \
+{-10.795130662777272`, -7.738753742623745}, {-10.792323304238451`, \
+-7.734542704815514}, {-10.789515945699629`, -7.73033166700728}, \
+{-10.78939141194971, -7.730144866382402}}], 
+         LineBox[{{-10.604284782265953`, -7.648555178842441}, \
+{-10.602134822555382`, -7.645330239276585}, {-10.599089519485537`, \
+-7.640762284671817}, {-10.596044216415692`, -7.63619433006705}, \
+{-10.589953610276002`, -7.627058420857515}, {-10.586908307206157`, \
+-7.6224904662527475`}, {-10.583863004136312`, -7.61792251164798}, \
+{-10.580817701066467`, -7.613354557043212}, {-10.578670380634057`, \
+-7.610133576394597}}], 
+         LineBox[{{-10.028920637314657`, -7.353301409788166}, \
+{-9.999590967764442, -7.309306905462844}, {-9.99677034903138, \
+-7.305075977363249}, {-9.993949730298318, -7.300845049263658}, \
+{-9.992696131271108, -7.2989646507228425`}}], 
+         LineBox[{{-11.415214998482282`, -8.050047010999247}, \
+{-11.411087973319452`, -8.043856473255001}, {-11.408259159335653`, \
+-8.039613252279302}, {-11.405430345351853`, -8.035370031303602}, \
+{-11.402601531368052`, -8.031126810327901}, {-11.400154711052073`, \
+-8.027456579853933}}], 
+         LineBox[{{-11.373108180086616`, -8.030355873684199}, \
+{-11.368655763562458`, -8.023677248897963}, {-11.36582694957866, \
+-8.019434027922264}, {-11.36299813559486, -8.015190806946567}, \
+{-11.36016932161106, -8.010947585970866}, {-11.357599914157504`, \
+-8.007093474790532}}], 
+         LineBox[{{-11.39427239874769, -8.04493119375199}, \
+{-11.391286275432854`, -8.040452008779738}, {-11.388457461449056`, \
+-8.03620878780404}, {-11.385628647465257`, -8.031965566828342}, \
+{-11.382799833481457`, -8.027722345852641}, {-11.379971019497656`, \
+-8.02347912487694}, {-11.378990492390999`, -8.022008334216954}}], 
+         LineBox[{{-10.839850853578719`, -7.760044473413422}, \
+{-10.834433682320777`, -7.751918716526508}, {-10.828818965243133`, \
+-7.743496640910044}, {-10.826011606704311`, -7.73928560310181}, \
+{-10.823204248165489`, -7.735074565293576}, {-10.820396889626668`, \
+-7.730863527485345}, {-10.817760681933622`, -7.726909215945777}}], 
+         LineBox[{{-11.351717601853121`, -8.0211194391063}, \
+{-11.346025251692062`, -8.012580913864712}, {-11.343196437708263`, \
+-8.008337692889015}, {-11.340367623724465`, -8.004094471913316}, \
+{-11.337538809740664`, -7.999851250937615}, {-11.335978081949072`, \
+-7.997510159250227}}], 
+         LineBox[{{-10.974129459253977`, -7.836600171866539}, \
+{-10.96952391868939, -7.829691861019659}, {-10.963796859443356`, \
+-7.8211012721506075`}, {-10.960933329820339`, -7.816805977716082}, \
+{-10.958069800197322`, -7.812510683281556}, {-10.955206270574305`, \
+-7.808215388847031}, {-10.953867608423653`, -7.806207395621054}}]},
+        Annotation[#, "Charting`Private`Tag#1"]& ], {}}, {}},
+     {"WolframDynamicHighlight", <|
+      "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>}], 
+    DynamicBox[(Charting`HighlightActionBox["DynamicHighlight", {}, 
+      Slot["HighlightElements"], 
+      Slot["LayoutOptions"], 
+      Slot["Meta"], 
+      Charting`HighlightActionFunction["DynamicHighlight", {{{{}, {}, 
+          Annotation[{
+            Directive[
+             Opacity[1.], 
+             AbsoluteThickness[2], 
+             RGBColor[1, 0, 0], 
+             Thickness[0.001]], 
+            
+            Line[{{-11.512925276736235`, -8.103730310273376}, \
+{-11.510096462752436`, -8.099487089297678}, {-11.507267648768636`, \
+-8.095243868321978}, {-11.504438834784835`, -8.091000647346277}, \
+{-11.502741299827175`, -8.088454344909787}}], 
+            
+            Line[{{-11.33009576964469, -8.005781124152954}, \
+{-11.328814423258244`, -8.003859104573285}, {-11.325747664743421`, \
+-7.999258966801051}, {-11.322680906228598`, -7.9946588290288165`}, \
+{-11.319614147713775`, -7.990058691256582}, {-11.316547389198952`, \
+-7.985458553484348}, {-11.314119940884693`, -7.9818173810129585`}}], 
+            
+            Line[{{-11.148152213233237`, -7.908003182992761}, \
+{-11.144808912368873`, -7.902988231696216}, {-11.14174215385405, \
+-7.898388093923981}, {-11.135608636824404`, -7.889187818379512}, \
+{-11.132745107201387`, -7.884892523944987}, {-11.130082143444188`, \
+-7.880898078309188}}], 
+            
+            Line[{{-10.783509099645327`, -7.737516083845809}, \
+{-10.778286511544342`, -7.729682201694332}, {-10.7726717944667, \
+-7.721260126077867}, {-10.769626491396854`, -7.7166921714731}, \
+{-10.76658118832701, -7.712124216868332}, {-10.763535885257165`, \
+-7.707556262263565}, {-10.76061393704551, -7.703173339946084}}], 
+            
+            Line[{{-10.407404636639447`, -7.558621790127633}, \
+{-10.404405873136206`, -7.554123644872772}, {-10.401563798958165`, \
+-7.5498605336057105`}, {-10.395879650602087`, -7.541334311071593}, \
+{-10.392799631893023`, -7.536714283007997}, {-10.38971961318396, \
+-7.532094254944403}, {-10.386639594474897`, -7.527474226880807}, \
+{-10.383559575765835`, -7.522854198817216}, {-10.380479557056773`, \
+-7.518234170753622}, {-10.378503463520092`, -7.515270030448601}}], 
+            
+            Line[{{-10.227102442650851`, -7.474498077336233}, \
+{-10.226478621603626`, -7.473562345765395}, {-10.223398602894562`, \
+-7.4689423177018}, {-10.220318584185499`, -7.464322289638204}, \
+{-10.217238565476437`, -7.459702261574612}, {-10.211078528058312`, \
+-7.450462205447424}, {-10.207998509349249`, -7.445842177383829}, \
+{-10.204918490640186`, -7.441222149320234}, {-10.201838471931122`, \
+-7.436602121256639}, {-10.19875845322206, -7.431982093193047}, \
+{-10.03480294961904, -7.339396627167185}}], 
+            
+            Line[{{-9.854897883383131, -7.26771595639707}, \
+{-9.85009817491217, -7.260516393690627}, {-9.847277556179108, \
+-7.256285465591035}, {-9.844456937446047, -7.252054537491444}, \
+{-9.841636318712984, -7.247823609391849}, {-9.83599508124686, \
+-7.2393617531926635`}, {-9.824712606314614, -7.2224380407942945`}, \
+{-9.821654043050529, -7.2178501958981665`}, {-9.818595479786445, \
+-7.213262351002041}, {-9.81553691652236, -7.208674506105913}, \
+{-9.814801159238117, -7.2075708701795485`}}], 
+            
+            Line[{{-9.664277523774482, -7.190479078117246}, \
+{-9.662608753318107, -7.187975922432684}, {-9.659550190054023, \
+-7.183388077536558}, {-9.653433063525853, -7.174212387744302}, \
+{-9.650374500261767, -7.169624542848174}, {-9.647315936997682, \
+-7.165036697952046}, {-9.641198810469511, -7.15586100815979}, \
+{-9.628964557413171, -7.13750962857528}, {-9.626109223040892, \
+-7.133226627016861}, {-9.62325388866861, -7.128943625458439}, \
+{-9.620398554296331, -7.12466062390002}, {-9.619524220110284, \
+-7.123349122620949}}], 
+            
+            Line[{{-9.45355649245883, -7.084962300251118}, \
+{-9.44907849195955, -7.078245299502199}, {-9.446223157587271, \
+-7.07396229794378}, {-9.443423994299188, -7.069763553011655}, \
+{-9.440624831011103, -7.065564808079528}, {-9.435026504434937, \
+-7.057167318215279}, {-9.423829851282601, -7.040372338486775}, \
+{-9.421030687994516, -7.036173593554648}, {-9.418231524706433, \
+-7.031974848622523}, {-9.412633198130266, -7.0235773587582715`}, \
+{-9.40983403484218, -7.019378613826144}, {-9.407034871554098, \
+-7.01517986889402}, {-9.404235708266015, -7.010981123961895}, \
+{-9.40309705082982, -7.009273137807602}}], 
+            
+            Line[{{-9.27953373847957, -6.993827206077625}, \
+{-9.275474197014153, -6.9877378938795}, {-9.27267503372607, \
+-6.983539148947377}, {-9.269875870437986, -6.9793404040152485`}, \
+{-9.267076707149903, -6.975141659083125}, {-9.223872733450445, \
+-6.910335698533938}}], 
+            
+            Line[{{-8.950927635897017, -6.84358225907293}, \
+{-8.948011133925764, -6.83920750611605}, {-8.945177254998463, \
+-6.834956687725098}, {-8.942343376071161, -6.830705869334146}, \
+{-8.936675618216556, -6.822204232552239}, {-8.933841739289253, \
+-6.817953414161284}, {-8.931007860361952, -6.813702595770332}, \
+{-8.925340102507349, -6.8052009589884275`}, {-8.914004586798143, \
+-6.788197685424619}, {-8.911170707870841, -6.7839468670336665`}, \
+{-8.90833682894354, -6.779696048642714}, {-8.902669071088935, \
+-6.771194411860807}, {-8.899835192161632, -6.766943593469852}, \
+{-8.89700131323433, -6.7626927750789}, {-8.891333555379727, \
+-6.754191138296996}, {-8.888261731921403, -6.74958340310951}, \
+{-8.885189908463078, -6.744975667922021}, {-8.88407465985965, \
+-6.743302795016879}}], 
+            
+            Line[{{-8.72427026528301, -6.748718661184905}, \
+{-8.722383265171846, -6.745888161018159}, {-8.71931144171352, \
+-6.74128042583067}, {-8.716239618255194, -6.736672690643181}, \
+{-8.71316779479687, -6.732064955455695}, {-8.707024147880219, \
+-6.722849485080718}, {-8.69473685404692, -6.7044185443307684`}, \
+{-8.69172120167279, -6.699895065769574}, {-8.68870554929866, \
+-6.69537158720838}, {-8.682674244550402, -6.686324630085992}, \
+{-8.670611635053884, -6.668230715841216}, {-8.667595982679755, \
+-6.663707237280022}, {-8.664580330305625, -6.659183758718828}, \
+{-8.658549025557367, -6.65013680159644}, {-8.655533373183237, \
+-6.645613323035246}, {-8.652517720809108, -6.641089844474052}, \
+{-8.649502068434979, -6.6365663659128575`}, {-8.648508588546882, \
+-6.635076146080713}}], 
+            
+            Line[{{-8.557507047404908, -6.680895391161705}, \
+{-8.556016844836972, -6.678660087309801}, {-8.553001192462842, \
+-6.674136608748608}, {-8.549985540088713, -6.669613130187414}, \
+{-8.546969887714583, -6.66508965162622}, {-8.543954235340454, \
+-6.660566173065026}, {-8.537922930592195, -6.6515192159426375`}, \
+{-8.525860321095678, -6.633425301697861}, {-8.501735102102643, \
+-6.597237473208308}, {-8.49892267862032, -6.593018837984824}, \
+{-8.496110255137996, -6.5888002027613375`}, {-8.490485408173347, \
+-6.580362932314365}, {-8.487672984691024, -6.57614429709088}, \
+{-8.484860561208698, -6.571925661867392}, {-8.479235714244052, \
+-6.563488391420421}, {-8.476423290761728, -6.559269756196936}, \
+{-8.474485834567623, -6.556363571905779}}], 
+            Line[CompressedData["
+1:eJwBQQG+/iFib1JlAgAAABMAAAACAAAA58ae20nAIMCVeYfhLkQawEqy1HGm
+viDAvjsppEQ/GsAcLkkvxbsgwDOvhtygNhrABWwDjlS6IMDvaLX4TjIawO6p
+vezjuCDAqiLkFP0tGsC/JTKqArYgwByWQU1ZJRrAYh0bJUCwIMAFffy9ERQa
+wKcM7Rq7pCDA1Epyn4LxGcBQVY9JK6MgwNAkWSvT7BnA+J0xeJuhIMDH/j+3
+I+gZwEgvdtV7niDAt7INz8TeGcDwdxgE7JwgwLCM9FoV2hnAmcC6MlybIMCr
+ZtvmZdUZwOpR/488mCDAnRqp/gbMGcCSmqG+rJYgwJX0j4pXxxnAOuND7RyV
+IMCOznYWqMIZwOIr5huNkyDAhahdovi9GcCLdIhK/ZEgwICCRC5JuRnAGdPG
+0FaRIMAqnv/AVbcZwG3Pmxs=
+             "]], 
+            Line[CompressedData["
+1:eJwBQQG+/iFib1JlAgAAABMAAAACAAAAJUlplM1ZIMBCK3rLO/kZwN70/Ac0
+WCDAbS41Jm/0GcCGPZ82pFYgwGUIHLK/7xnA1s7jk4RTIMBVvOnJYOYZwHjx
+bE5FTSDAPCSF+aLTGcC6Nn/DxkAgwAL0u1gnrhnAqmJclVE/IMDRd1POx6kZ
+wJqOOWfcPSDAofvqQ2ilGcB65vMK8jogwEEDGi+pnBnAOpZoUh01IMCBEngF
+K4sZwCrCRSSoMyDAUZYPe8uGGcAa7iL2MjIgwCEap/BrghnA+kXdmUgvIMDB
+IdbbrHkZwOpxumvTLSDAkaVtUU11GcDanZc9XiwgwGEpBcftcBnAuvVR4XMp
+IMABMTSyLmgZwKohL7P+JyDA0bTLJ89jGcCaTQyFiSYgwKE4Y51vXxnAE6pC
+MHMlIMAMTgafLFwZwD/djfM=
+             "]], 
+            Line[CompressedData["
+1:eJwBYQGe/iFib1JlAgAAABUAAAACAAAAlV7I5NDPH8AsJXpHU5wZwLS1Hy7L
+zB/A2id9tcqXGcB0ZZR19sYfwHovrKALjxnA09Ieuc3DH8CJ0/uFTooZwDJA
+qfykwB/Al3dLa5GFGcDwGr6DU7ofwLS/6jUXfBnAbdDnkbCtH8DwTynLImkZ
+wGY7O65qlB/AZXCm9TlDGcDFqMXxQZEfwHQU9tp8PhnAJBZQNRmOH8CCuEXA
+vzkZwOLwZLzHhx/AnwDlikUwGcBfpo7KJHsfwNuQIyBRHRnAvhMZDvx3H8Dp
+NHMFlBgZwB6Bo1HTdB/A+tjC6tYTGcDcW7jYgW4fwBYhYrVcChnAO8lCHFlr
+H8AlxbGanwUZwJo2zV8waB/AM2kBgOIAGcBYEeLm3mEfwFGxoEpo9xjAt35s
+KrZeH8BfVfAvq/IYwBbs9m2NWx/Abfk/Fe7tGMCQ/BMlrlkfwCSS6ycf6xjA
+zp6l6w==
+             "]], 
+            Line[CompressedData["
+1:eJwBkQFu/iFib1JlAgAAABgAAAACAAAADBnIIahTH8Dk5X3D+U0ZwDM0ljgT
+Uh/Ang6zZZpLGcCSoSB86k4fwK2yAkvdRhnAUXw1A5lIH8DL+qEVYz0ZwLDp
+v0ZwRR/A2p7x+qU4GcAQV0qKR0IfwOpCQeDoMxnAzjFfEfY7H8AHi+CqbioZ
+wErniB9TLx/AQRsfQHoXGcCpVBNjKiwfwE+/biW9EhnACMKdpgEpH8BeY74K
+AA4ZwMecsi2wIh/AfKtd1YUEGcBEUtw7DRYfwLg7nGqR8RjAPb0vWMf8HsAt
+XBmVqMsYwHwLTlWt+R7AjNHGkAHHGMC6WWxSk/YewOlGdIxawhjANvaoTF/w
+HsCjMc+DDLkYwHREx0lF7R7AAKd8f2W0GMCzkuVGK+oewF4cKnu+rxjAMC8i
+QffjHsAaB4VycKYYwG59QD7d4B7Ad3wybsmhGMCty147w90ewNXx32kinRjA
+7Bl9OKnaHsA0Z41le5gYwCpomzWP1x7Akdw6YdSTGMDACmdfgdUewHJQ7J+/
+kBjAjXOzXw==
+             "]], 
+            Line[CompressedData["
+1:eJwBwQE+/iFib1JlAgAAABsAAAACAAAAxJqlOS9CHsBqOXj+LZEYwB5iaKiU
+Px7AcGScJEaNGMBdsIalejwewM/ZSSCfiBjA2kzDn0Y2HsCLxKQXUX8YwKhh
+V+NhMx7Av+MC/fl6GMB2dusmfTAewPUCYeKidhjAEqATrrMqHsBeQR2t9G0Y
+wEnzY7wgHx7AMb6VQphcGMC4mQTZ+gcewNi3hm3fORjAhq6YHBYFHsAN1+RS
+iDUYwFTDLGAxAh7AQvZCODExGMDv7FTnZ/wdwKo0/wKDKBjAJkCl9dTwHcB8
+sXeYJhcYwJXmRRKv2R3AI6tow230F8Bi+9lVytYdwFbKxqgW8BfAMBBumeXT
+HcCM6SSOv+sXwMw5liAczh3A9ifhWBHjF8CaTipkN8sdwCpHPz663hfAaGO+
+p1LIHcBfZp0jY9oXwASN5i6Jwh3AyaRZ7rTRF8DSoXpypL8dwP/Dt9NdzRfA
+oLYOtr+8HcAz4xW5BskXwG7LovnauR3AaQJ0nq/EF8A74DY99rYdwJwh0oNY
+wBfACPXKgBG0HcDPQDBpAbwXwNYJX8QssR3ABWCOTqq3F8DxTktRb7AdwK3H
+8CGOthfAUCjVpg==
+             "]], 
+            Line[CompressedData["
+1:eJwBcQGO/iFib1JlAgAAABYAAAACAAAAbWv/TWmqHcB+F/2D4poYwA5dr9KZ
+pR3A8AEFS6uTGMCqhtdZ0J8dwFpAwRX9ihjA4dknaD2UHcAtvTmroHkYwFCA
+yIQXfR3A07Yq1udWGMCdqixo9HkdwEb2QCszUhjA6tSQS9F2HcC6NVeAfk0Y
+wIQpWRKLcB3AobSDKhVEGMC40umf/mMdwG+y3H5CMRjAICULu+VKHcALro4n
+nQsYwG1Pb57CRx3Afu2kfOgGGMC6edOBn0QdwPIsu9EzAhjAVM6bSFk+HcDZ
+q+d7yvgXwIh3LNbMMR3Ap6lA0PflF8DVoZC5qS4dwBrpViVD4RfAIsz0nIYr
+HcCOKG16jtwXwLwgvWNAJR3AdaeZJCXTF8DwyU3xsxgdwEOl8nhSwBfAPfSx
+1JAVHcC25AjOnbsXwIoeFrhtEh3AKiQfI+m2F8DXSHqbSg8dwJ1jNXg0shfA
+HWHt4oEMHcAGCGJjB64XwL+kq5s=
+             "]], 
+            Line[CompressedData["
+1:eJwVxXssFAAcB/DrODaih5uf+F3rVB53NVKmYb1GWUMxmt3o7IrYlauLmktO
+Z5he9E+cNLmm0WQzPabs+pp1aiW3TkqbPLqsP8Q8ThNN9cdnH6lKk5wlFAgE
+/v/833i5ceSSiwSZ4VKvAKEPzL0PYsdEEtRsCd62Z5UP3Gfdgs1CCdxP7r1S
+uUxIY83qOyuM4vupgwO/CE0HbdMXlxmz42r5pjnC7NkIW8oiI9vfUKKeIlx/
+tWL0nGPEN7bJhN8JyKsONEwwfBtc9SEfCB7GeTflN8bNr5IBXR9B0ZM2FTXK
+EG7cFWx5TZgn6RPHEONHfaYt/SUhqLv9QG4f42ldZ+DVVkKVly3j6GNG0m21
+1V5OOO38qELVzqjXh60pMRDiHOXt+W2MiZzFBL9iguBTpMjYzNBFVbxNKiBo
+60ytY/WMplGTxXyCkHitaHDOyJh+kytSKAnyomMClxpGVEdojENBsGe4pchu
+Maxl5m55MiFVql3SljF+y7501e4jhK2P31pmYMSKG5d2RhM8nQKO1OgZVX9O
+RfZHECz2IdOLQsZmq+OZKIRg+tjxru8C40xn18I9GUFvubEwcp7RaSoNjw4g
+7G7ef9g5j5FYsK5DKyGIjX753mpG7fHPMx4bCDOVjrtBOQz7oYbQFjHhva6/
+NzKLEbojWxOzlvBQ3TITr2IU+m5vG3EnlKeX+imVjB6n+UmdK0GVkBF7Lp3h
+8fO53NuJMLlYO5yoYAxrxNXjK974Cw7yA7Q=
+             "]], 
+            Line[CompressedData["
+1:eJwBkQFu/iFib1JlAgAAABgAAAACAAAAaBZN2khUHMD3VN1VTw0YwNQQxey5
+UBzAmUyR8fgHGMCM8nhA3kocwC0fH28v/xfA/rXg5yY/HMBYxDpqnO0XwOE8
+sDa4JxzArQ5yYHbKF8CnSk/U2vgbwFaj4EwqhBfAYhy9t/v1G8DuXQWi238X
+wB7uKpsc8xvAiBgq94x7F8CWkQZiXu0bwLyNc6HvchfAhNi97+HhG8AheAb2
+tGEXwGJmLAvpyhvA7kwsnz8/F8AeOJruCcgbwIgHUfTwOhfA2gkI0irFG8Ai
+wnVJojYXwFGt45hsvxvAVTe/8wQuF8BA9Jom8LMbwLshUkjKHBfA/MUIChGx
+G8BV3HadexgXwLeXdu0xrhvA7pab8iwUF8AuO1K0c6gbwCAM5ZyPCxfA6gzA
+l5SlG8C6xgnyQAcXwKbeLXu1ohvAVIEuR/ICF8AdgglC95wbwIf2d/FU+hbA
+2FN3JRiaG8AfsZxGBvYWwJQl5Qg5lxvAuWvBm7fxFsC2F8/hHJcbwOxWIGGN
+8RbAGTS8iw==
+             "]], 
+            Line[CompressedData["
+1:eJwB8QEO/iFib1JlAgAAAB4AAAACAAAAMjSD3haRG8DKwD/QQHEXwINsnJa8
+ixvAQ5VlZDlpF8D6D3hd/oUbwHYKrw6cYBfAtuHlQB+DG8AQxdNjTVwXwHKz
+UyRAgBvAqn/4uP5XF8DpVi/rgXobwN30QWNhTxfA2J3meAVvG8BD39S3Jj4X
+wJRvVFwmbBvA3Zn5DNg5F8BQQcI/R2kbwHdUHmKJNRfAx+SdBoljG8CqyWcM
+7CwXwLYrVZQMWBvAELT6YLEbF8CTucOvE0EbwNyIIAo8+RbAzqABM/Y9G8C0
+Y/3Oj/QWwAiIP7bYOhvAiz7ak+PvFsB+Vru8nTQbwDz0kx2L5hbAavOyySco
+G8CeXwcx2tMWwEAtouM7DxvAXzbuV3iuFsB7FOBmHgwbwDgRyxzMqRbAtvsd
+6gAJG8AQ7KfhH6UWwCzKmfDFAhvAwaFha8ebFsAXZ5H9T/YawCIN1X4WiRbA
+7qCAF2TdGsDk47ultGMWwCmIvppG2hrAvL6YaghfFsBkb/wdKdcawJWZdS9c
+WhbA2j14JO7QGsBGTy+5A1EWwBUltqfQzRrAHyoMfldMFsBQDPQqs8oawPcE
+6UKrRxbAxdpvMXjEGsCnuqLMUj4WwADCrbRawRrAf5V/kaY5FsCrxcagVb8a
+wAAbpfOeNhbAdC/nYQ==
+             "]], 
+            Line[CompressedData["
+1:eJwVi30s1HEAh290re2UOff7nt83b9WFaMN0mvIySsjGaSNXSakLK0R2XtZC
+Nu9/SGiFLhbKSzKX2NQ+lGXddWWoiLOdoxvNjTZjl6Q/nj17/nj2JaSdkZlx
+OBynbf7bWZfbENlP8bM43r5UJMTLrER/sz4KcdKQZc1+IZYuNg/qlRR7TijG
+DXZCOJ2aO/mhm2LB7vZDX1aIekF8eEU7xYMx8QG9pRDfTPWa1GcUaS/4hqM8
+IfhzU1FRzRShpcaO8p1CFHfHxBIFxbr/c2+vTYKMiAjZkyqK2Dbb03cXCcJK
+/PKUORR7C8zTHYcJBN4roWo5hYp7z+E9CLRzT/n6WxS5ZfaaxIHtP8CixTqV
+4vt9H7euHoJHa1PqjASK6pa0eb8mgl9Xs6lnOIWl+of0fB5BL/+wPjSU4q0k
+eddWLkE+ZjsvBVOkTKz1NskJGNuQwMoACrXWSrCYQuA/xiQZvSjKVkI02RcI
+KgN7XnXaUnCFyqBaH4Jzxmt5wyyFsi5wxUdMIGqgYTOE4orjZ8WMB0H/esG0
+hRXF0KHFPyIXAl2XxPwGlyLf1/F1DyHoiNvxqdCMwn2wU3aWTyDn9dXWbbHQ
+Bh8XmHYT8BIdXFUbLPwiY9KDuARH7JclrsssTJcr3EZ/M/iraqRBSyzaFtip
+TCODkZxovdTAQnq9tcRmiUHcxEBWqY5FX+bQfLyOgUvhzcDGWRbJG5HV5loG
+qx4iXv80C5s7M0GtkwyKKsofG76ykBevK5a/MJAcC0jijLM4aFEUUaVmQA2r
+njajLMYrrTfFIwz0NS0mdw2LQqaxffIdA0FqtMxuu1VS549vtvsfxCckBg==
+
+             "]], 
+            Line[CompressedData["
+1:eJwB0QEu/iFib1JlAgAAABwAAAACAAAAkIoJYhfIGcCmnp5jMYgWwAxNdSKP
+whnAYEJABOV/FsDX+ijspr8ZwBDHzbKIexbAIL6sVYC8GcD+axPRznYWwGqB
+ML9ZuRnA7RBZ7xRyFsD8BziSDLMZwMha5CuhaBbAIhVHOHKmGcCB7vqkuVUW
+wG0vZYQ9jRnA8RUol+ovFsADZKEc1FoZwNJkgntM5BXATCclhq1XGcC/CciZ
+kt8VwJbqqO+GVBnArq4NuNjaFcAocbDCOU4ZwIn4mPRk0RXATn6/aJ9BGcBC
+jK9tfb4VwJmY3bRqKBnAs7PcX66YFcAvzRlNAfYYwJQCN0QQTRXAWHExcOny
+GMDReNp4bEgVwIAVSZPR7xjADu99rchDFcDSXXjZoekYwInbxBaBOhXAdO7W
+ZULdGMB7tFLp8ScVwJ2S7ogq2hjAuSr2HU4jFcDGNgasEtcYwPegmVKqHhXA
+F3818uLQGMBwjeC7YhUVwEAjTRXLzRjArQOE8L4QFcBox2Q4s8oYwOp5JyUb
+DBXAug+UfoPEGMBkZm6O0wIVwOOzq6FrwRjAotwRwy/+FMAMWMPEU74YwOBS
+tfeL+RTAzO8yfaS8GMCAtlwMBfcUwJPr3bs=
+             "]], 
+            Line[CompressedData["
+1:eJwVxX0s1GEAB/ArWUteMr/n9zybaiHTm6MysWErh15M0XaUrabFUkaxmmvG
+eekYjswlXUXdRjjcVevNLr5F63LeylsqS3qhW9y8REnXyx+ffZyOJUXELhUI
+BJv/+f9u6zFJxX2G5jfewUI5D5nISmh9j8FRc6rvVT6PxnGn8NnbDJGudis8
+ZDwEW8Mvt6kZeu3FyWNpPDb0n2iqr2GwzftZHZjKI1wiHVZUMYSar72tTOGh
+eqJxia1keGb8KIo6ySMowlZrWcrQ1HqGvojkkTjn2jtRzDDvS0JdD/IoU/rP
+9RcybNc+lGaG8RgfTfCrljE0Xvvz1TeIR36KQR98nuHmWbmubhuPHkXeh9wY
+hny32phCGx7Rg0sdrDwZogtG1PtbCbhdF9Pc3BlOq73afzUTdNSv+SLaxJBj
+yBu/1UTgl+XzKGM9Q/3Kra6COwSr3ROPfmcMiwWZFdobBO+yhtQjSxiuFzqX
+2KcTKCbiiNlMoa0/p3ksIQiNmk13XKRo62jvjD9LoHO3ixDPUXyzTrF6mkBw
+/bXoh8FIESBvzU6OJjgi1Ioe9FK8lx8/1+tDwF/xb+zroZhteKjI8CLosjDQ
+6U6K5V3Wdzd7EgQMfTZu0VN42N4zZbsRrM1xLFHpKKRFlvFePMHAZM1CyyOK
+0sZDuSP2BEWHvI8P36e41dVQVWhDYBaG72C3KbptxaOflhG8H5INy6sonIqr
+oy/NcCgXcSFqFYW3ZkGy08ThgOamVl9Jsbc7rHzCyAE5umwLJUWy3Xxf0CiH
+VNOeiXWXKWQe+2amhjl4Hh4UBygolPsr7SuGONzwmN4oKaJ4WhwSNtfDIUqZ
+UVpWQDGguZqg6uCwytLm9908CmO3KT9Mz0GfpIx7eYHCbAqsXWjlIH3j1jOZ
+ReGwqvx5dQsH1Suhy5SUIijHWVSn4/AX4LhZRA==
+             "]], 
+            Line[CompressedData["
+1:eJwVx30s1HEAx/FzSfNwF/v+ft/fdXIeQi0b5SHmYdnOQx7mCiFFHjOHRIo5
+SclhIzaGzUJYtIgo8nDzEcZVLOmPZLbUVHpYy9N21kh/vPfeyzwuPTiRz+Px
+juz2/5Lfn0x/5HLonRsZCbnMIqYo6npCNgf6LHtUN5lF7d6hm9IsDskbhbKI
+BBYzRaJSiwwOQ06Viw8usvBQztV/lHOI62vXSMNYiIv9Ri9Ec+jsnz+eL2Xx
+rsTJ4Kw3B69Bt+ZVExa+ZYJmb8LhysjO7YW3DPINUh5ZGnIY29E3OjrDoK9s
+6ukeAQfOU9SYo2ZgWV44OarDYRjHhlgw4N3V/PTYotB5Ebsm62QwWLHsfGKJ
+4t74WPx4MQPbKtW0dRfFK3WxV6c7g/X5ShO3Dor1Xq/hABcGQ2YJabKHFJIG
+LcfvDgxOPdYT5LRQZGYqDh22YRCvDg9U11IYG6fz7x9gULfz52VKAYU8NQzV
+mwTRPhPighsUVWHExWGVwKq8Tl6dS6HyfNM1+4ugR3xST5VFYcT6NwqXCaad
+yvyEyRQDKo/8kjkCfqr1VPcZCt39Vu553QRTPRpuIojCXrPUK+4gqNC8TpoP
+oIj63GAz0EZwsPjqPr4PRXe/yHizgcC5GT4hrhTnYgy20ssJtr9V1SQ5UxT6
+qzOEpQTjdklfFI4UHY7KlY47BMEqgbLVlkJLlze/oiBIfR85sWFB0f5krT9e
+TmBvasvqmVHM1nfb8S8RaBK1EiUmFH+L0tqaYgmUa23avhyFLPJrzWIEQaCr
+IvQ8Q5Hj1SrMCyUgt4Ja040oWmxjleLTBB8mzdcLhRTTIsn28wCCJuGGtE6f
+YpO/cC3cl8C11NCibNeLrtpS713/Az5IJJ0=
+             "]], 
+            Line[CompressedData["
+1:eJwVj2tIk1EAhlckVGrI+c5xFFNyDS+Jl5aIygKbg3nBLmrQMIVkmamolM2h
+ZjVz+kNwymaWXVBcKgqGlqssezWblliWacg0jS5O84JjWWhS68fL8+/heb3S
+chPObOXxeCLH/rPbOOCpdXKHV0WaR0IMwxM/aen8XwafN54hc5EMV/PY2OYf
+hoRHlrYyCUO0ySok6wzFjXX7RGEM47Kq/gg7w6iKcKeDGAqz14ZTVhnk4oAG
+5s+wV58yfmWZAUvyoNfeDNlf/K1mK0On8lLcQU+GbZoh18RphtoEa6mTK0PI
+8y2KLDNDamCvvXWBoiY8f6W+juHHt3MTNiPFsUCFYNPRsf1E341rAoqLWbqX
+n8Md/mD9dQuf4mbLYI45lKHA5axBzFF8FYb2VQUzfH/hUj27g0LN59KFIoYB
+8ckKyS8ODbyRDrkzg8ZtRWV/x8H2PjKqZpJiY1iQpCznwHdTL6omKLqaV473
+aDhI4jsMyWMUmaX9R0kJB+2gh1U0QjEZkRGHfA57nq5XmkBhau2SCtI4RBkf
+TEw1OzrLYw98kHDQF/hm+qgolqXqXTIbQXTRuOLwBYrioY2fC0sEmyWamOQ8
+Cpcjl6er5wnStVO+VZkUfgpt+8wsQZhBN7eWSqHM1ccWvSVYrDv00e0Uhc3O
+FwuHCRpuLZj3Kyg0hfW7X5kJdjbJ7qUmUtwta7S69xL0Nq8a1McoApy9R589
+JjjfdqesJp6iR9dqUj4ksHT+Vprljj/197Wd7QS6bmPSrIwiwyskR9FCUDdT
+a6yUUtg/3Z6zNBH8A833HBM=
+             "]], 
+            Line[CompressedData["
+1:eJwVjntMDHAAx0+dU67T/R55tEql9CBduqm8ZxQlctaoPFJIrKUlenB57FDZ
+kkRRuGPUyJVJRexbyUrYRZSpEemodUImPcz547vPPt/tu30douIVO0wEAoHM
+mP/ko4Ga4ws5vE2THcYv4IhsCGMr/TicvSYFuczjsGoSmUYZWXEvZ+4LLw6l
+LvJjnozjZW3+OBs3jrmtkpdaD+MuwOZrnROHvu1+bZM7x8Czy7pYe46Q91w9
+Zuwl7dcvV07hcDQ0bt0xjWOl4e6i9SKON9+T1qZPNjLR13l4HEfWL8clBYxj
+558HFuoxhsHRg3bPJRzHhPXvDIMMT8RenXITjkfWLSmZnxh2uxWEC/sY5AH9
+FbVgKN8eG3q1hsHuivMcWRpD96GebmU1Q9+KbaqU/QxTz0fvC7/HUN1X2FGX
+wHC4aXMuKWMI9eFZobsY1sxRtKRfZch8YfIlNZSh9/f84E2Z/3+8Vzd4Mjhl
+Wayw2sjQHHbBKqKbIr9cKz/xkyKFWY6pgikicjQT8wcobKNHFk1fRWGXkPeh
+uJ+i7o5eWbWc4pos7dRTPYVYAUHfAooyrX+3pIOi6HSCMMSdorG0M/fsY4pa
+SavYegLFUIn4pzqPwtyswPo2CB5k/G28c4aidIMqIqCGQBn7/VJ9NoXiRkLh
+h0oCoVtb4OcMiov+gXZMSyAt1mhclRQeqhGH5CIC1+t+Cu1OinUmW9yWpRJs
+1MSU1/hQFIw6+r7xJhiOMiztkFOcso3LVnkSFM5I0o14UaQvruyRzyLounb0
+2/zZFDGHg/JyHQl23yjyqLankAv3/QghBBa7nB6221K4OD9aJZAQaF1vrh6y
+prDxN1NrzQgGS6r2+FhRmJ4sXDtJQHDo1quSCnMKnbjhVrNBCvu4cL/XIoqG
+2ZbCtF4p6jy6GgdNKaqCwyLce6QQaQ16778El7L7zTM6pSiOTzqwfoQgp8xn
+m+9bKYJko6LEIQJVy5EqfasUhoGj5878Ikj90Wx5XifFzOV7oyONvuabZ32Q
+0f8BohJpDQ==
+             "]], 
+            Line[CompressedData["
+1:eJwVzGtMU2cAxnGkRInmfU/fHoWAUoer0QEOMMHp5gIxDJ2Cl0rQQERWblPE
+ym2UUW7RNgzdSlZFrBqwMlAb0HCZIXh5kFlwUOaOqFAngWzUbjLxggEhWo8f
+njz5f/n5q9TKVHc3N7fV4j68OUmRFD/BEPWNn3zBjzy+e3V2QPofw5Hr9/qW
+6Hj4tCpSQp4waIb9FH2lPK7lWl5t+4ch05VeWKjlkRi2+rB6lCHpo2YhQMPD
+/Gu4uemR6Kmiyn5Q84jMt4b2DzKsO1w5uDaDh+OzmM7/7zME1dmDnWk8Atvj
+R4LuMvCOg8NRiTxaO/Lklt8YRved/MIjhkc3LKaGRoaiLOfr4gAe4797G2tL
+GNpKK/bnjslAzx28VaZlcHYeC7WOyBCcf/uFqoDBR2KY9v5LhuyPc7Yvz2Eo
+1hn1HYIM04X95FIaw8aKM2Z3yCBZpStviWEYNDbZK00y+BpeFlkXM8zUC5sb
+t8nw9U7bt+NXpYiw+QY62hlc75xX+VkOPxvu71KapdibvOzvrkkOdlOEpuqs
+FDe7E2juMw7L6i3V9mopSir7UwZGOTRfKxtSGaRw+beyEz0chH9XJeRoxY4s
+yfCq4iCL1CcejxO7YtFSn1DRn16T+mC+6E9s3XwnQPQlZp3vXNHfWZ5XoBB9
+jtQnzhH9JbO9Q94cUrZYbbYJDq7GEY3pHUXdL/I/n90R+65FWNxHoYj/42FI
+sdheG/TydLG7QsZaHRTyL88rxpMolNpbyn2PKdYne3S1x1OUhsXCb4Di+8tW
+V+xWiscN+af1nRSTG7cUHA2jMB67sWP3GQqnJvbAtITCPS76xuwOirk1bfOt
+bwmCueHAK5solt/2umicItjToz6VEk6hYkNjnz4laP/cmGsLEt2Le/amCgRZ
+S+0BNfMoBHuaUqglGHWmn9xwneC5W8/zGhMBNb/xmGoh4FZ8Ysg8TrA+4Wi2
+5RJBdM7TXs9ygmpbU8zCaoKMU9H7H5QRWPURHT0/EVTcbPSsKySYDBdWFukI
+LozRhqw8Av83yVWhWoLuBYe+ClcTbG9+LXFkE6w1X+mdyiSYMcbZZg4RvAe4
+J4zk
+             "]], 
+            Line[CompressedData["
+1:eJwVyn0s1HEAx3G+v3OR32/ul7JuNU4Xw7GVhyi0POxOl6csD4nmmeqQ6tKV
+1MwVO6ViTZKtdZmkB4ZlZ+ejnESpxZWpsfSwlJI5tx5Q3R+fvbfXPo5p+TGZ
+xMzMzOP/TPV8s1r3NZWBUVPTEyBnISyuEjQmMRB1eHOlBSyC1QatPI7Bw0uL
+AWoZi5SB2OSQaAa78/sOL2WzOPWj4w9PyuDHjsqmhHQWXQEKv+ZABvYWjquZ
+RBZjaWOvFL4M2t5NRWbHsvhV5i+XbGQQrm1V9kSz2KRfbJlcz0BRGDonl7Bo
+yS0R8WkGr6ayh8a9WTTUq+zPjNE4N3S39L4Niw87R7drR2gs7HK5mWjNwtHC
+SW4corHvzXUdZxmLugPawaxHNMSfq7m7l3i46Dd7TNJMY9H8RJn5Nx6KXsYN
+WxbTyPORVMQM8BDDXVemcqQRWTdRZSjl4W/ug9kLOdYQjAjEBQYbfF2YaT7w
+2golboa9nbUMyoeX35hKsUS+bG208f/vOd8uvXeWi9FYj4Nbg63Q6OBunZ9u
+gWt7I2XaaS68cp2+d81Q+B7Tu82rm4O20nn/oCkKG44WtSvaOdhUpyvXTVI4
+dMXbDbc58BvMdBrSUzBOqG0jajgIcG1ImtBQ+CNTfsoq4CD0o/OgeRkFy7Pi
+ilohB7uSXRrFAgoOmv7XJtcf+Tk/wKeQOn46PKyYQlxFf0iULYUb5pt7zh+h
+kKDJmYjnUnAOu9W0JpVCEv+W3b5pApG+/KTPFgoZelel6gGB74xUaPKP079e
+2rQSKFZQNfcmCbI4A4Lq2wQaHw1tHCXI8drfVVdPsLVIZCzREcguNs3dKSUI
+taKfmPxb4/Egz2ICpXtv4PtqgjxIKzsKCfqiilpdVQQHZ764de8n2H55+qrJ
+Z7maYyEZBKpONW8xl+CQvarvcTLB07dJSpMbfPasDI8nsDFb9bs8kUAeIUp7
+EU2wU/gsz9R/nz5W5w==
+             "]], 
+            
+            Line[{{-11.435940572553374`, -8.069665712318255}, \
+{-11.43088967120605, -8.062089360297268}, {-11.428060857222249`, \
+-8.057846139321567}, {-11.425232043238449`, -8.053602918345867}, \
+{-11.42240322925465, -8.049359697370168}, {-11.421097310786665`, \
+-8.04740081966819}}], 
+            
+            Line[{{-11.241192244503022`, -7.964293672053804}, \
+{-11.239878426328382`, -7.962322944791843}, {-11.236811667813559`, \
+-7.957722807019609}, {-11.233744909298736`, -7.953122669247375}, \
+{-11.230678150783913`, -7.948522531475141}, {-11.22761139226909, \
+-7.943922393702906}, {-11.224544633754267`, -7.939322255930671}, \
+{-11.22421716516016, -7.938831053039512}}], 
+            
+            Line[{{-11.050571884894373`, -7.863782265478919}, \
+{-11.046839218510861`, -7.858183265903652}, {-11.043975688887844`, \
+-7.853887971469127}, {-11.041112159264827`, -7.8495926770346}, \
+{-11.03824862964181, -7.845297382600076}, {-11.035385100018793`, \
+-7.84100208816555}, {-11.032521570395774`, -7.836706793731021}, \
+{-11.031296632785034`, -7.834869387314912}}], 
+            
+            Line[{{-10.86743749784339, -7.786195719108604}, \
+{-10.862507267708992`, -7.778800373907006}, {-10.859699909170171`, \
+-7.774589336098775}, {-10.856892550631349`, -7.770378298290542}, \
+{-10.854085192092526`, -7.766167260482308}, {-10.851277833553706`, \
+-7.761956222674078}, {-10.848470475014885`, -7.757745184865846}, \
+{-10.845733165883102`, -7.7536392211681715`}}], 
+            
+            Line[{{-10.695903854328542`, -7.707696565607033}, \
+{-10.69349391465073, -7.704081656090317}, {-10.690448611580885`, \
+-7.699513701485549}, {-10.68740330851104, -7.694945746880782}, \
+{-10.684358005441196`, -7.6903777922760135`}, {-10.68131270237135, \
+-7.685809837671246}, {-10.67522209623166, -7.676673928461711}, \
+{-10.672176793161816`, -7.672105973856944}, {-10.671710411903844`, \
+-7.671406401969986}}], 
+            
+            Line[{{-10.508266343893231`, -7.6127876402775865`}, \
+{-10.503878469367592`, -7.606205828489128}, {-10.498194321011512`, \
+-7.597679605955008}, {-10.495352246833473`, -7.59341649468795}, \
+{-10.492510172655432`, -7.589153383420888}, {-10.486826024299354`, \
+-7.580627160886771}, {-10.483983950121315`, -7.576364049619713}, \
+{-10.481141875943276`, -7.572100938352654}, {-10.481090052295194`, \
+-7.572023202880531}}], 
+            
+            Line[{{-10.30118498601155, -7.504652829843615}, \
+{-10.300399070621136`, -7.503473956757993}, {-10.297319051912073`, \
+-7.498853928694398}, {-10.29423903320301, -7.494233900630803}, \
+{-10.291159014493946`, -7.489613872567208}, {-10.284998977075821`, \
+-7.480373816440021}, {-10.28191895836676, -7.475753788376428}, \
+{-10.278838939657696`, -7.471133760312833}, {-10.275758920948633`, \
+-7.466513732249238}, {-10.27267890223957, -7.461893704185643}, \
+{-10.27036902097954, -7.4584288822956}}], 
+            
+            Line[{{-9.943801408524799, -7.3284320604695985`}, \
+{-9.940357974370148, -7.323266909237623}, {-9.937537355637085, \
+-7.319035981138028}, {-9.934716736904022, -7.314805053038435}, \
+{-9.931896118170961, -7.310574124938843}, {-9.926254880704839, \
+-7.30211226873966}, {-9.914972405772591, -7.285188556341288}, \
+{-9.91215178703953, -7.280957628241697}, {-9.909331168306467, \
+-7.276726700142102}, {-9.906510549573404, -7.272495772042508}, \
+{-9.905725907391632, -7.27131880876985}}], 
+            
+            Line[{{-9.761857852113346, -7.225179885774452}, \
+{-9.760482777768829, -7.2231172742576755`}, {-9.757424214504745, \
+-7.21852942936155}, {-9.751307087976574, -7.209353739569294}, \
+{-9.748248524712489, -7.204765894673166}, {-9.745189961448403, \
+-7.200178049777038}, {-9.739072834920233, -7.191002359984782}, \
+{-9.736014271656147, -7.186414515088654}, {-9.732955708392062, \
+-7.1818266701925255`}, {-9.726838581863893, -7.172650980400272}, \
+{-9.723780018599808, -7.168063135504144}, {-9.720721455335724, \
+-7.163475290608019}, {-9.719545061259609, -7.161710699493846}}], 
+            
+            Line[{{-9.561690934999381, -7.129380928405562}, \
+{-9.55758119810618, -7.123216323065758}, {-9.5547258637339, \
+-7.118933321507339}, {-9.549015194989341, -7.110367318390501}, \
+{-9.537593857500221, -7.093235312156821}, {-9.534738523127942, \
+-7.088952310598402}, {-9.53188318875566, -7.08466930903998}, \
+{-9.526172520011102, -7.076103305923142}, {-9.523317185638822, \
+-7.0718203043647225`}, {-9.520461851266543, -7.067537302806304}, \
+{-9.517606516894263, -7.063254301247884}, {-9.514751182521984, \
+-7.058971299689465}, {-9.514236753139441, -7.058199655615651}}], 
+            
+            Line[{{-9.397214738525436, -7.064988190488599}, \
+{-9.393039055113679, -7.0587246653709625`}, {-9.390239891825594, \
+-7.054525920438835}, {-9.38744072853751, -7.050327175506708}, \
+{-9.384641565249426, -7.0461284305745835`}, {-9.379043238673258, \
+-7.037730940710332}, {-9.376244075385173, -7.033532195778204}, \
+{-9.37344491209709, -7.02933345084608}, {-9.367846585520923, \
+-7.020935960981828}, {-9.356649932368587, -7.004140981253324}, \
+{-9.353850769080502, -6.999942236321197}, {-9.351051605792419, \
+-6.995743491389073}, {-9.348252442504336, -6.991544746456948}, \
+{-9.345453279216251, -6.987346001524821}, {-9.345121977083314, \
+-6.986849048325416}}], 
+            
+            Line[{{-9.021110275519558, -6.89799780127325}, \
+{-9.016024228181006, -6.890368730265423}, {-9.013190349253705, \
+-6.886117911874471}, {-9.010356470326403, -6.881867093483518}, \
+{-9.0046887124718, -6.873365456701614}, {-9.001854833544499, \
+-6.869114638310662}, {-8.999020954617198, -6.86486381991971}, \
+{-8.993353196762593, -6.8563621831378025`}, {-8.982017681053385, \
+-6.839358909573991}, {-8.979183802126084, -6.835108091183039}, \
+{-8.976349923198782, -6.830857272792087}, {-8.970682165344178, \
+-6.82235563601018}, {-8.967848286416874, -6.818104817619225}, \
+{-8.965014407489573, -6.8138539992282725`}, {-8.962180528562271, \
+-6.80960318083732}, {-8.95934664963497, -6.805352362446368}, \
+{-8.9568099482014, -6.801547310296013}}], 
+            
+            Line[{{-8.802711691589574, -6.761020284986923}, \
+{-8.802250675088299, -6.760328760235011}, {-8.799178851629973, \
+-6.755721025047523}, {-8.793035204713323, -6.746505554672548}, \
+{-8.789963381255, -6.741897819485063}, {-8.786891557796674, \
+-6.737290084297573}, {-8.780747910880024, -6.728074613922598}, \
+{-8.768460617046722, -6.709643673172647}, {-8.765388793588397, \
+-6.705035937985158}, {-8.762316970130072, -6.700428202797672}, \
+{-8.756173323213421, -6.691212732422694}, {-8.743886029380121, \
+-6.672781791672745}, {-8.740814205921797, -6.668174056485259}, \
+{-8.737742382463471, -6.66356632129777}, {-8.734670559005146, \
+-6.658958586110281}, {-8.731598735546822, -6.654350850922795}, \
+{-8.730152577587393, -6.652181613983654}}], 
+            Line[CompressedData["
+1:eJwBYQGe/iFib1JlAgAAABUAAAACAAAACgawTwZJIcAqJQ0S1q8awIhJe7vp
+RyHApO9uVYCsGsAppPp2XkYhwIf/7IfepxrAyv55MtNEIcBqD2u6PKMawGtZ
++e1HQyHATh/p7JqeGsAMtHipvEEhwDEvZx/5mRrATml3IKY+IcD2TmOEtZAa
+wO/D9tsaPSHA2l7hthOMGsCQHnaXjzshwLxuX+lxhxrA0tN0Dnk4IcCCjltO
+Ln4awFc+cvxLMiHAEc5TGKdrGsD4mPG3wDAhwPXd0UoFZxrAmvNwczUvIcDa
+7U99Y2IawNyob+oeLCHAoQ1M4h9ZGsB9A++lkyohwIMdyhR+VBrAHl5uYQgp
+IcBmLUhH3E8awGATbdjxJSHALE1ErJhGGsABbuyTZiQhwA9dwt72QRrAoshr
+T9siIcDybEARVT0awEMj6wpQISHA1Xy+Q7M4GsBIu/WRdCAhwORE3tggNhrA
+9A2eHg==
+             "]], 
+            
+            Line[{{-8.46860352226324, -6.616532974936156}, \
+{-8.465173596832432, -6.611388086789944}, {-8.462361173350107, \
+-6.607169451566456}, {-8.45673632638546, -6.598732181119486}, \
+{-8.453923902903137, -6.5945135458960005`}, {-8.451111479420813, \
+-6.590294910672515}, {-8.445486632456165, -6.581857640225542}, \
+{-8.434236938526869, -6.564983099331599}, {-8.411737550668278, \
+-6.531234017543712}, {-8.408925127185954, -6.527015382320227}, \
+{-8.40611270370363, -6.522796747096741}, {-8.400487856738982, \
+-6.514359476649768}, {-8.397675433256659, -6.510140841426284}, \
+{-8.394863009774333, -6.505922206202795}, {-8.389238162809686, \
+-6.497484935755825}, {-8.386425739327363, -6.49326630053234}, \
+{-8.38361331584504, -6.4890476653088545`}, {-8.381445803297838, \
+-6.485796396488053}}], 
+            Line[CompressedData["
+1:eJwBYQGe/iFib1JlAgAAABUAAAACAAAAV+Egz1OOIMDMQeQeY/AZwIROb9ZN
+jSDAVInPNFHtGcAslxEFvosgwExjtsCh6BnA1N+zMy6KIMBDPZ1M8uMZwHwo
+VmKeiCDAOxeE2ELfGcDNuZq/foUgwC7LUfDj1RnAbtwjej9/IMARM+0fJsMZ
+wLAhNu/AciDA2AIkf6qdGcBYatgdMXEgwM/cCgv7mBnAALN6TKFvIMDItvGW
+S5QZwFFEv6mBbCDAu2q/ruyKGcD6jGHY8WogwLZEpjo9hhnAotUDB2JpIMCu
+Ho3GjYEZwPJmSGRCZiDAndJa3i54GcCar+qSsmQgwJWsQWp/cxnAQ/iMwSJj
+IMCRhij2z24ZwOxAL/CSYSDAjGAPgiBqGcCUidEeA2AgwIQ69g1xZRnAPNJz
+TXNeIMB8FN2ZwWAZwOQaFnzjXCDAc+7DJRJcGcDnOg+W0FwgwH1Or3PZWxnA
+42CkzQ==
+             "]], 
+            Line[CompressedData["
+1:eJwBkQFu/iFib1JlAgAAABgAAAACAAAAUbicLnAiIMCMm5T7N5EZwFr9gMy0
+ICDApmpB1QWMGcA6VTtwyh0gwEdycMBGgxnAKoEYQlUcIMAX9gc2534ZwBqt
+9RPgGiDA53mfq4d6GcD6BLC39RcgwIeBzpbIcRnAurQk/yASIMDHkCxtSmAZ
+wKrgAdGrECDAlxTE4upbGcCaDN+iNg8gwGeYW1iLVxnAemSZRkwMIMAHoIpD
+zE4ZwDoUDo53BiDAR6/oGU49GcAqQOtfAgUgwBczgI/uOBnAGmzIMY0DIMDn
+thcFjzQZwPrDgtWiACDAh75G8M8rGcB05+45nPUfwMbNpMZRGhnAVD+p3bHy
+H8CXUTw88hUZwDSXY4HH7x/AZ9XTsZIRGcD0RtjI8ukfwAfdAp3TCBnA1J6S
+bAjnH8DXYJoSdAQZwLT2TBAe5B/Ap+QxiBQAGcB0psFXSd4fwEfsYHNV9xjA
+VP57+17bH8AWcPjo9fIYwDRWNp902B/A5vOPXpbuGMAZQhTo1tUfwL7V3Mup
+6hjAmFW7eQ==
+             "]], 
+            Line[CompressedData["
+1:eJwBoQFe/iFib1JlAgAAABkAAAACAAAAPCcbXHvPHsD3JrO4UgAZwOZS9ixB
+zh7Ad+j7cXv+GMAkoRQqJ8sewNNdqW3U+RjAYu8yJw3IHsAw01ZpLfUYwKE9
+USTzxB7Aj0gEZYbwGMAe2o0ev74ewEozX1w45xjAGBMHE1eyHsDBCBVLnNQY
+wAyF+fuGmR7AsLOAKGSvGMBK0xf5bJYewA0pLiS9qhjAiSE29lKTHsBrntsf
+FqYYwAa+cvAejR7AJok2F8icGMAA9+vktoAewJ1e7AUsihjAPkUK4px9HsD6
+05kBhYUYwH2TKN+Ceh7AWUlH/d2AGMD6L2XZTnQewBQ0ovSPdxjA82jezeZn
+HsCKCVjj82QYwDK3/MrMZB7A6H4F30xgGMBwBRvIsmEewEX0stqlWxjA7KFX
+wn5bHsD/3g3SV1IYwCrwdb9kWB7AXFS7zbBNGMBpPpS8SlUewLvJaMkJSRjA
+5trQthZPHsB3tMPAuz8YwCQp77P8Sx7A0ylxvBQ7GMBjdw2x4kgewDKfHrht
+NhjASH7xPDVIHsCJqfSJaTUYwPK2wk4=
+             "]], 
+            
+            Line[{{-11.476758315815788`, -8.082883108025515}, \
+{-11.473321880963042`, -8.077728455746396}, {-11.467664252995442`, \
+-8.069242013794996}, {-11.464835439011644`, -8.0649987928193}, \
+{-11.462335885192134`, -8.061249462090034}}], 
+            
+            Line[{{-11.286137956207138`, -7.978187759194275}, \
+{-11.2828130455359, -7.973200393187415}, {-11.279746287021077`, \
+-7.968600255415182}, {-11.276679528506254`, -7.964000117642947}, \
+{-11.27361276999143, -7.959399979870713}, {-11.270546011476608`, \
+-7.9547998420984785`}, {-11.269673667315272`, -7.953491325856476}}], 
+            
+            Line[{{-11.099957110075115`, -7.894352988868022}, \
+{-11.095519222102158`, -7.887696156908587}, {-11.089792162856124`, \
+-7.879105568039535}, {-11.086928633233107`, -7.87481027360501}, \
+{-11.08406510361009, -7.870514979170484}, {-11.08129923719587, \
+-7.866366179549154}}], 
+            
+            Line[{{-10.92149484261923, -7.801484561727597}, \
+{-10.915847079946605`, -7.793012917718659}, {-10.913039721407783`, \
+-7.788801879910426}, {-10.90742500433014, -7.780379804293961}, \
+{-10.904617645791319`, -7.77616876648573}, {-10.901810287252497`, \
+-7.771957728677497}, {-10.900531114259332`, -7.770038969187749}}], 
+            
+            Line[{{-10.725534025898822`, -7.703638561678364}, \
+{-10.72394694534918, -7.701257940853901}, {-10.720901642279335`, \
+-7.696689986249133}, {-10.71785633920949, -7.692122031644366}, \
+{-10.7117657330698, -7.682986122434831}, {-10.708720429999955`, \
+-7.678418167830063}, {-10.70567512693011, -7.673850213225296}, \
+{-10.702629823860265`, -7.6692822586205285`}, {-10.701786166632925`, \
+-7.668016772779517}}], 
+            
+            Line[{{-10.540787385636792`, -7.6085532551939306`}, \
+{-10.532299211147988`, -7.595820993460725}, {-10.529457136969949`, \
+-7.5915578821936665`}, {-10.526615062791908`, -7.587294770926605}, \
+{-10.52377298861387, -7.583031659659547}, {-10.52093091443583, \
+-7.578768548392488}, {-10.51808884025779, -7.574505437125428}, \
+{-10.51524676607975, -7.570242325858368}, {-10.514148656197614`, \
+-7.568595161035164}}], 
+            
+            Line[{{-10.372621151215709`, -7.543110546363618}, \
+{-10.371239500929583`, -7.541038070934429}, {-10.36815948222052, \
+-7.536418042870834}, {-10.365079463511456`, -7.531798014807239}, \
+{-10.358919426093331`, -7.522557958680052}, {-10.35583940738427, \
+-7.517937930616459}, {-10.352759388675207`, -7.513317902552863}, \
+{-10.34659935125708, -7.504077846425674}, {-10.343519332548016`, \
+-7.499457818362079}, {-10.34310430932129, -7.4988352835219905`}}], 
+            
+            Line[{{-9.986813818966725, -7.358518479711005}, \
+{-9.982667255366072, -7.352298634310026}, {-9.97984663663301, \
+-7.348067706210432}, {-9.977026017899949, -7.34383677811084}, \
+{-9.971384780433826, -7.335374921911656}, {-9.960102305501579, \
+-7.318451209513285}, {-9.957281686768518, -7.314220281413693}, \
+{-9.954461068035455, -7.3099893533141}, {-9.951640449302392, \
+-7.3057584252145045`}, {-9.949683720829182, -7.30282333250469}}], 
+            
+            Line[{{-9.808918846933734, -7.273382383111555}, \
+{-9.806361226730104, -7.2695459528061095`}, {-9.803302663466019, \
+-7.264958107909981}, {-9.800244100201933, -7.260370263013853}, \
+{-9.797185536937848, -7.255782418117725}, {-9.794126973673762, \
+-7.251194573221597}, {-9.788009847145593, -7.242018883429344}, \
+{-9.784951283881508, -7.237431038533216}, {-9.781892720617424, \
+-7.23284319363709}, {-9.775775594089254, -7.223667503844834}, \
+{-9.772717030825168, -7.219079658948706}, {-9.769658467561083, \
+-7.214491814052578}, {-9.767740164417729, -7.211614359337547}}], 
+            
+            Line[{{-9.613641907805901, -7.166485393095086}, \
+{-9.608977216807213, -7.159488356597055}, {-9.606121882434934, \
+-7.155205355038635}, {-9.603266548062654, -7.150922353480216}, \
+{-9.600411213690375, -7.146639351921797}, {-9.594700544945816, \
+-7.138073348804959}, {-9.583279207456696, -7.120941342571279}, \
+{-9.580423873084417, -7.11665834101286}, {-9.577568538712136, \
+-7.112375339454438}, {-9.574713204339856, -7.108092337896019}, \
+{-9.571857869967577, -7.1038093363376}, {-9.569002535595297, \
+-7.09952633477918}, {-9.567573247303764, -7.097382402341881}}], 
+            
+            Line[{{-9.217990421146062, -6.952155962896119}, \
+{-9.06703404887244, -6.857399228460885}, {-9.061366291017835, \
+-6.848897591678978}, {-9.050030775308628, -6.831894318115166}, \
+{-9.047196896381326, -6.827643499724214}, {-9.044363017454025, \
+-6.823392681333262}, {-9.038695259599422, -6.8148910445513575`}, \
+{-9.03586138067212, -6.810640226160405}, {-9.033027501744819, \
+-6.806389407769453}, {-9.030193622817517, -6.802138589378501}, \
+{-9.027359743890214, -6.797887770987546}, {-9.02699258782394, \
+-6.797337036888136}}], 
+            
+            Line[{{-8.878192347555267, -6.815972360811488}, \
+{-8.875974438088102, -6.81264549661074}, {-8.872902614629776, \
+-6.808037761423252}, {-8.866758967713126, -6.798822291048277}, \
+{-8.8636871442548, -6.794214555860789}, {-8.860615320796477, \
+-6.789606820673303}, {-8.854471673879825, -6.780391350298325}, \
+{-8.842184380046525, -6.761960409548376}, {-8.839112556588201, \
+-6.75735267436089}, {-8.836040733129876, -6.7527449391734}, \
+{-8.829897086213226, -6.743529468798426}, {-8.8268252627549, \
+-6.738921733610938}, {-8.823753439296574, -6.734313998423449}, \
+{-8.817609792379924, -6.725098528048474}, {-8.814537968921599, \
+-6.720490792860986}, {-8.811466145463275, -6.7158830576735}, \
+{-8.808594003893957, -6.7115748453195225`}}], 
+            
+            Line[{{-11.195213208053625`, -7.938333061776873}, \
+{-11.193877048606037`, -7.936328822605491}, {-11.190810290091214`, \
+-7.931728684833256}, {-11.18467677306157, -7.92252840928879}, \
+{-11.181610014546749`, -7.917928271516558}, {-11.178543256031926`, \
+-7.913328133744324}, {-11.177703440831625`, -7.912068410943872}}], 
+            
+            Line[{{-10.999936268925792`, -7.8420109723052125`}, \
+{-10.995295685296547`, -7.835050096861345}, {-10.99243215567353, \
+-7.830754802426819}, {-10.989568626050513`, -7.826459507992293}, \
+{-10.986705096427494`, -7.822164213557766}, {-10.983841566804475`, \
+-7.817868919123238}, {-10.980978037181458`, -7.813573624688712}, \
+{-10.98001177155836, -7.812124226254063}}], 
+            
+            Line[{{-10.635293155337882`, -7.669342847211899}, \
+{-10.632587853253831`, -7.665284894085823}, {-10.629542550183986`, \
+-7.6607169394810555`}, {-10.626497247114141`, -7.656148984876288}, \
+{-10.623451944044296`, -7.651581030271521}, {-10.620406640974451`, \
+-7.647013075666753}, {-10.617361337904606`, -7.642445121061986}, \
+{-10.614316034834761`, -7.637877166457218}, {-10.611270731764916`, \
+-7.633309211852451}, {-10.610167094570336`, -7.63165375606058}}], 
+            
+            Line[{{-10.441593503358048`, -7.582289923172561}, \
+{-10.438510763272681`, -7.577665813044511}, {-10.43566868909464, \
+-7.57340270177745}, {-10.429984540738563`, -7.564876479243333}, \
+{-10.427142466560522`, -7.560613367976272}, {-10.424300392382483`, \
+-7.556350256709213}, {-10.418616244026403`, -7.547824034175093}, \
+{-10.415774169848364`, -7.543560922908035}, {-10.41328694894383, \
+-7.5398300915512335`}}], 
+            
+            Line[{{-10.264486708675157`, -7.469808121156545}, \
+{-10.263438846112379`, -7.468236327312377}, {-10.260358827403318`, \
+-7.463616299248785}, {-10.257278808694256`, -7.4589962711851925`}, \
+{-10.254198789985193`, -7.454376243121597}, {-10.248038752567066`, \
+-7.445136186994407}, {-10.244958733858002`, -7.440516158930812}, \
+{-10.241878715148939`, -7.435896130867217}, {-10.238798696439876`, \
+-7.431276102803622}, {-10.235718677730814`, -7.42665607474003}, \
+{-10.232984754955234`, -7.42255519057666}}], 
+            
+            Line[{{-9.89984359508725, -7.301461308846659}, \
+{-9.89522807464116, -7.294538028177525}, {-9.892407455908097, \
+-7.290307100077931}, {-9.889586837175035, -7.286076171978337}, \
+{-9.886766218441974, -7.281845243878745}, {-9.881124980975851, \
+-7.273383387679562}, {-9.869842506043604, -7.2564596752811905`}, \
+{-9.867021887310543, -7.252228747181599}, {-9.86420126857748, \
+-7.247997819082005}, {-9.861380649844417, -7.2437668909824104`}, \
+{-9.860780195687514, -7.242866209747056}}], 
+            
+            Line[{{-9.713662748955226, -7.231358846478766}, \
+{-9.711545765543468, -7.228183371361129}, {-9.708487202279382, \
+-7.223595526465001}, {-9.702370075751212, -7.214419836672745}, \
+{-9.699311512487126, -7.209831991776617}, {-9.696252949223041, \
+-7.205244146880489}, {-9.690135822694872, -7.196068457088235}, \
+{-9.687077259430787, -7.191480612192107}, {-9.684018696166703, \
+-7.186892767295982}, {-9.677901569638532, -7.177717077503726}, \
+{-9.674843006374447, -7.1731292326075975`}, {-9.671784443110361, \
+-7.168541387711469}, {-9.670159836078865, -7.166104477164224}}], 
+            
+            Line[{{-9.508354440835058, -7.1363875641487065`}, \
+{-9.503329845032866, -7.128850670445418}, {-9.500474510660586, \
+-7.124567668886999}, {-9.497619176288307, -7.12028466732858}, \
+{-9.491908507543746, -7.111718664211739}, {-9.489053173171467, \
+-7.1074356626533195`}, {-9.486197838799185, -7.103152661094898}, \
+{-9.480487170054626, -7.094586657978059}, {-9.477631835682347, \
+-7.09030365641964}, {-9.474776501310068, -7.086020654861221}, \
+{-9.469065832565509, -7.077454651744382}, {-9.46621049819323, \
+-7.073171650185963}, {-9.46335516382095, -7.068888648627544}, \
+{-9.46049982944867, -7.064605647069125}, {-9.459438804763213, \
+-7.063014110040939}}], 
+            
+            Line[{{-9.339239664778932, -7.023487953945598}, \
+{-9.334256626063915, -7.016013395873074}, {-9.33145746277583, \
+-7.011814650940948}, {-9.328658299487747, -7.007615906008823}, \
+{-9.32305997291158, -6.99921841614457}, {-9.311863319759244, \
+-6.9824234364160676`}, {-9.309064156471159, -6.978224691483939}, \
+{-9.306264993183076, -6.974025946551816}, {-9.300666666606908, \
+-6.965628456687564}, {-9.297867503318823, -6.961429711755437}, \
+{-9.29506834003074, -6.957230966823311}, {-9.289470013454572, \
+-6.94883347695906}, {-9.286670850166487, -6.944634732026933}, \
+{-9.285416050783953, -6.942752532953131}}], 
+            
+            Line[{{-11.496858987522792`, -8.092858582550763}, \
+{-11.493123578849637`, -8.08725546954103}, {-11.490294764865839`, \
+-8.083012248565332}, {-11.48746595088204, -8.078769027589635}, \
+{-11.48463713689824, -8.074525806613934}, {-11.482640628120171`, \
+-8.07153104344683}}], 
+            
+            Line[{{-11.30823762858031, -8.001612717862036}, \
+{-11.307347113654483`, -8.000276945473297}, {-11.30428035513966, \
+-7.995676807701063}, {-11.301213596624837`, -7.991076669928828}, \
+{-11.298146838110014`, -7.986476532156593}, {-11.295080079595191`, \
+-7.981876394384359}, {-11.292020268511521`, -7.977286677758854}}], 
+            
+            Line[{{-11.124199831139805`, -7.91110859907668}, \
+{-11.118427459086298`, -7.9024500409964205`}, {-11.112700399840264`, \
+-7.893859452127369}, {-11.109836870217247`, -7.889564157692844}, \
+{-11.10697334059423, -7.885268863258318}, {-11.105839422379498`, \
+-7.88356798593622}}], 
+            
+            Line[{{-10.94798529611927, -7.81790916310921}, \
+{-10.94392066533482, -7.811812216932535}, {-10.941113306795998`, \
+-7.807601179124301}, {-10.938305948257177`, -7.80339014131607}, \
+{-10.935498589718355`, -7.799179103507837}, {-10.932691231179533`, \
+-7.794968065699603}, {-10.929883872640712`, -7.790757027891372}, \
+{-10.927377154923613`, -7.786996951315724}}], 
+            
+            Line[{{-10.754731624741128`, -7.72473895028805}, \
+{-10.75439997604763, -7.724241477247803}, {-10.751354672977785`, \
+-7.719673522643036}, {-10.74830936990794, -7.715105568038268}, \
+{-10.745264066838095`, -7.710537613433501}, {-10.74221876376825, \
+-7.705969658828733}, {-10.739173460698405`, -7.701401704223966}, \
+{-10.73612815762856, -7.6968337496191985`}, {-10.733082854558715`, \
+-7.692265795014431}, {-10.731416338203205`, -7.689766020481167}}], 
+            
+            Line[{{-10.572788068329674`, -7.631064369019815}, \
+{-10.569246175462503`, -7.625751529719059}, {-10.566404101284464`, \
+-7.621488418452}, {-10.563562027106425`, -7.617225307184942}, \
+{-10.560719952928384`, -7.612962195917881}, {-10.555035804572306`, \
+-7.604435973383763}, {-10.552193730394265`, -7.600172862116702}, \
+{-10.549351656216226`, -7.595909750849644}, {-10.546669697941175`, \
+-7.591886813437067}}], 
+            
+            Line[{{-11.218334852855778`, -7.954356613593224}, \
+{-11.215344358209798`, -7.949870871624254}, {-11.212277599694975`, \
+-7.94527073385202}, {-11.209210841180152`, -7.940670596079786}, \
+{-11.206144082665329`, -7.936070458307551}, {-11.203077324150506`, \
+-7.9314703205353165`}, {-11.201095520358008`, -7.928497614846569}}], 
+            
+            Line[{{-11.025414320480651`, -7.867212681525431}, \
+{-11.021067451903704`, -7.86069237866001}, {-11.018203922280687`, \
+-7.856397084225485}, {-11.01534039265767, -7.852101789790959}, \
+{-11.012476863034653`, -7.8478064953564335`}, {-11.009613333411634`, \
+-7.843511200921905}, {-11.006749803788615`, -7.839215906487377}, \
+{-11.005818581230175`, -7.837819072649716}}], 
+            
+            Line[{{-10.66582809959946, -7.677757731532647}, \
+{-10.66304088395228, -7.673576908061877}, {-10.659995580882436`, \
+-7.6690089534571095`}, {-10.65695027781259, -7.664440998852342}, \
+{-10.650859671672901`, -7.655305089642807}, {-10.647814368603056`, \
+-7.65073713503804}, {-10.644769065533211`, -7.646169180433272}, \
+{-10.641723762463366`, -7.641601225828505}, {-10.641175467642265`, \
+-7.640778783596853}}], 
+            
+            Line[{{-10.475207739990811`, -7.577825223642935}, \
+{-10.469773579231116`, -7.569673982503394}, {-10.464089430875038`, \
+-7.561147759969276}, {-10.461247356696997`, -7.556884648702216}, \
+{-10.458405282518958`, -7.552621537435157}, {-10.45556320834092, \
+-7.5483584261680985`}, {-10.452721134162879`, -7.544095314901037}, \
+{-10.44987905998484, -7.539832203633979}, {-10.44747581566243, \
+-7.536227337150366}}], 
+            
+            Line[{{-11.456453572887751`, -8.066795040038093}, \
+{-11.450691369092645`, -8.058151734345435}, {-11.445033741125046`, \
+-8.049665292394035}, {-11.442204927141248`, -8.045422071418338}, \
+{-11.441822884857757`, -8.044849007993102}}], 
+            
+            Line[{{-11.26379135501089, -7.981156150663038}, \
+{-11.261345735932139`, -7.977487722044912}, {-11.258278977417318`, \
+-7.97288758427268}, {-11.255212218902496`, -7.968287446500448}, \
+{-11.252145460387673`, -7.963687308728214}, {-11.24907870187285, \
+-7.959087170955979}, {-11.247074556807405`, -7.956080953357811}}], 
+            
+            Line[{{-11.075416924891487`, -7.884639200780718}, \
+{-11.066883925871984`, -7.871839702251465}, {-11.064020396248967`, \
+-7.867544407816939}, {-11.06115686662595, -7.863249113382413}, \
+{-11.058293337002933`, -7.858953818947888}, {-11.056454197198756`, \
+-7.856195109241622}}], 
+            
+            Line[{{-10.894648801954949`, -7.782670435732434}, \
+{-10.890580853097209`, -7.776568512445824}, {-10.884966136019566`, \
+-7.76814643682936}, {-10.882158777480743`, -7.7639353990211255`}, \
+{-10.879351418941923`, -7.7597243612128946`}, {-10.8765440604031, \
+-7.755513323404661}, {-10.873736701864278`, -7.751302285596428}, \
+{-10.873319810147773`, -7.750676948021671}}], 
+            
+            Line[{{-10.337221997016908`, -7.515223234411912}, \
+{-10.334279276420828`, -7.510809153517792}, {-10.331199257711766`, \
+-7.5061891254542}, {-10.328119239002703`, -7.501569097390605}, \
+{-10.321959201584576`, -7.492329041263415}, {-10.318879182875513`, \
+-7.48770901319982}, {-10.31579916416645, -7.483088985136225}, \
+{-10.312719145457386`, -7.4784689570726295`}, {-10.309639126748325`, \
+-7.473848929009037}, {-10.307067298315934`, -7.469991186360451}}], 
+            
+            Line[{{-11.171821128527242`, -7.932364379380527}, \
+{-11.169342980487457`, -7.9286471573208495`}, {-11.166276221972634`, \
+-7.924047019548615}, {-11.160142704942988`, -7.914846744004146}, \
+{-11.157075946428165`, -7.910246606231912}, {-11.15403452553762, \
+-7.905684474896094}}], 
+            
+            Line[{{-10.81187836962924, -7.763875302901696}, \
+{-10.806360096932558`, -7.755597893856674}, {-10.803552738393737`, \
+-7.751386856048443}, {-10.800745379854915`, -7.747175818240209}, \
+{-10.795130662777272`, -7.738753742623745}, {-10.792323304238451`, \
+-7.734542704815514}, {-10.789515945699629`, -7.73033166700728}, \
+{-10.78939141194971, -7.730144866382402}}], 
+            
+            Line[{{-10.604284782265953`, -7.648555178842441}, \
+{-10.602134822555382`, -7.645330239276585}, {-10.599089519485537`, \
+-7.640762284671817}, {-10.596044216415692`, -7.63619433006705}, \
+{-10.589953610276002`, -7.627058420857515}, {-10.586908307206157`, \
+-7.6224904662527475`}, {-10.583863004136312`, -7.61792251164798}, \
+{-10.580817701066467`, -7.613354557043212}, {-10.578670380634057`, \
+-7.610133576394597}}], 
+            
+            Line[{{-10.028920637314657`, -7.353301409788166}, \
+{-9.999590967764442, -7.309306905462844}, {-9.99677034903138, \
+-7.305075977363249}, {-9.993949730298318, -7.300845049263658}, \
+{-9.992696131271108, -7.2989646507228425`}}], 
+            
+            Line[{{-11.415214998482282`, -8.050047010999247}, \
+{-11.411087973319452`, -8.043856473255001}, {-11.408259159335653`, \
+-8.039613252279302}, {-11.405430345351853`, -8.035370031303602}, \
+{-11.402601531368052`, -8.031126810327901}, {-11.400154711052073`, \
+-8.027456579853933}}], 
+            
+            Line[{{-11.373108180086616`, -8.030355873684199}, \
+{-11.368655763562458`, -8.023677248897963}, {-11.36582694957866, \
+-8.019434027922264}, {-11.36299813559486, -8.015190806946567}, \
+{-11.36016932161106, -8.010947585970866}, {-11.357599914157504`, \
+-8.007093474790532}}], 
+            
+            Line[{{-11.39427239874769, -8.04493119375199}, \
+{-11.391286275432854`, -8.040452008779738}, {-11.388457461449056`, \
+-8.03620878780404}, {-11.385628647465257`, -8.031965566828342}, \
+{-11.382799833481457`, -8.027722345852641}, {-11.379971019497656`, \
+-8.02347912487694}, {-11.378990492390999`, -8.022008334216954}}], 
+            
+            Line[{{-10.839850853578719`, -7.760044473413422}, \
+{-10.834433682320777`, -7.751918716526508}, {-10.828818965243133`, \
+-7.743496640910044}, {-10.826011606704311`, -7.73928560310181}, \
+{-10.823204248165489`, -7.735074565293576}, {-10.820396889626668`, \
+-7.730863527485345}, {-10.817760681933622`, -7.726909215945777}}], 
+            
+            Line[{{-11.351717601853121`, -8.0211194391063}, \
+{-11.346025251692062`, -8.012580913864712}, {-11.343196437708263`, \
+-8.008337692889015}, {-11.340367623724465`, -8.004094471913316}, \
+{-11.337538809740664`, -7.999851250937615}, {-11.335978081949072`, \
+-7.997510159250227}}], 
+            
+            Line[{{-10.974129459253977`, -7.836600171866539}, \
+{-10.96952391868939, -7.829691861019659}, {-10.963796859443356`, \
+-7.8211012721506075`}, {-10.960933329820339`, -7.816805977716082}, \
+{-10.958069800197322`, -7.812510683281556}, {-10.955206270574305`, \
+-7.808215388847031}, {-10.953867608423653`, -7.806207395621054}}]}, 
+           "Charting`Private`Tag#1"], {}}}, {}}, <|
+       "HighlightElements" -> <|
+         "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>, 
+        "LayoutOptions" -> <|
+         "PlotRange" -> {{-Log[100000], (-2) 
+             Log[Pi]}, {-8.103730310273376, -2.289460054049791}}, 
+          "Frame" -> {{False, False}, {False, False}}, 
+          "AxesOrigin" -> {-11.512925464970204`, -8.103730310273358}, 
+          "ImageSize" -> {360, 360/GoldenRatio}, "Axes" -> {True, True}, 
+          "LabelStyle" -> {}, "AspectRatio" -> GoldenRatio^(-1), 
+          "DefaultStyle" -> {
+            Directive[
+             Opacity[1.], 
+             AbsoluteThickness[2], 
+             RGBColor[1, 0, 0], 
+             Thickness[0.001]]}, 
+          "HighlightLabelingFunctions" -> <|"CoordinatesToolOptions" -> ({
+              Exp[
+               Part[#, 1]], 
+              Exp[
+               Part[#, 2]]}& ), 
+            "ScalingFunctions" -> {{Log, Exp}, {Log, Exp}}|>, 
+          "Primitives" -> {}, "GCFlag" -> False|>, 
+        "Meta" -> <|
+         "DefaultHighlight" -> {"Dynamic", None}, "Index" -> {}, "Function" -> 
+          Plot, "GroupHighlight" -> False|>|>]]& )[<|
+      "HighlightElements" -> <|
+        "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>, 
+       "LayoutOptions" -> <|
+        "PlotRange" -> {{-Log[100000], (-2) 
+            Log[Pi]}, {-8.103730310273376, -2.289460054049791}}, 
+         "Frame" -> {{False, False}, {False, False}}, 
+         "AxesOrigin" -> {-11.512925464970204`, -8.103730310273358}, 
+         "ImageSize" -> {360, 360/GoldenRatio}, "Axes" -> {True, True}, 
+         "LabelStyle" -> {}, "AspectRatio" -> GoldenRatio^(-1), 
+         "DefaultStyle" -> {
+           Directive[
+            Opacity[1.], 
+            AbsoluteThickness[2], 
+            RGBColor[1, 0, 0], 
+            Thickness[0.001]]}, 
+         "HighlightLabelingFunctions" -> <|"CoordinatesToolOptions" -> ({
+             Exp[
+              Part[#, 1]], 
+             Exp[
+              Part[#, 2]]}& ), 
+           "ScalingFunctions" -> {{Log, Exp}, {Log, Exp}}|>, 
+         "Primitives" -> {}, "GCFlag" -> False|>, 
+       "Meta" -> <|
+        "DefaultHighlight" -> {"Dynamic", None}, "Index" -> {}, "Function" -> 
+         Plot, "GroupHighlight" -> False|>|>],
+     ImageSizeCache->{{4.503599627370496*^15, -4.503599627370496*^15}, {
+      4.503599627370496*^15, -4.503599627370496*^15}}]},
+   Annotation[{{{{}, {}, 
+       Annotation[{
+         Directive[
+          Opacity[1.], 
+          AbsoluteThickness[2], 
+          RGBColor[1, 0, 0], 
+          Thickness[0.001]], 
+         Line[{{-11.512925276736235`, -8.103730310273376}, \
+{-11.510096462752436`, -8.099487089297678}, {-11.507267648768636`, \
+-8.095243868321978}, {-11.504438834784835`, -8.091000647346277}, \
+{-11.502741299827175`, -8.088454344909787}}], 
+         Line[{{-11.33009576964469, -8.005781124152954}, \
+{-11.328814423258244`, -8.003859104573285}, {-11.325747664743421`, \
+-7.999258966801051}, {-11.322680906228598`, -7.9946588290288165`}, \
+{-11.319614147713775`, -7.990058691256582}, {-11.316547389198952`, \
+-7.985458553484348}, {-11.314119940884693`, -7.9818173810129585`}}], 
+         Line[{{-11.148152213233237`, -7.908003182992761}, \
+{-11.144808912368873`, -7.902988231696216}, {-11.14174215385405, \
+-7.898388093923981}, {-11.135608636824404`, -7.889187818379512}, \
+{-11.132745107201387`, -7.884892523944987}, {-11.130082143444188`, \
+-7.880898078309188}}], 
+         Line[{{-10.783509099645327`, -7.737516083845809}, \
+{-10.778286511544342`, -7.729682201694332}, {-10.7726717944667, \
+-7.721260126077867}, {-10.769626491396854`, -7.7166921714731}, \
+{-10.76658118832701, -7.712124216868332}, {-10.763535885257165`, \
+-7.707556262263565}, {-10.76061393704551, -7.703173339946084}}], 
+         Line[{{-10.407404636639447`, -7.558621790127633}, \
+{-10.404405873136206`, -7.554123644872772}, {-10.401563798958165`, \
+-7.5498605336057105`}, {-10.395879650602087`, -7.541334311071593}, \
+{-10.392799631893023`, -7.536714283007997}, {-10.38971961318396, \
+-7.532094254944403}, {-10.386639594474897`, -7.527474226880807}, \
+{-10.383559575765835`, -7.522854198817216}, {-10.380479557056773`, \
+-7.518234170753622}, {-10.378503463520092`, -7.515270030448601}}], 
+         Line[{{-10.227102442650851`, -7.474498077336233}, \
+{-10.226478621603626`, -7.473562345765395}, {-10.223398602894562`, \
+-7.4689423177018}, {-10.220318584185499`, -7.464322289638204}, \
+{-10.217238565476437`, -7.459702261574612}, {-10.211078528058312`, \
+-7.450462205447424}, {-10.207998509349249`, -7.445842177383829}, \
+{-10.204918490640186`, -7.441222149320234}, {-10.201838471931122`, \
+-7.436602121256639}, {-10.19875845322206, -7.431982093193047}, \
+{-10.03480294961904, -7.339396627167185}}], 
+         Line[{{-9.854897883383131, -7.26771595639707}, {-9.85009817491217, \
+-7.260516393690627}, {-9.847277556179108, -7.256285465591035}, \
+{-9.844456937446047, -7.252054537491444}, {-9.841636318712984, \
+-7.247823609391849}, {-9.83599508124686, -7.2393617531926635`}, \
+{-9.824712606314614, -7.2224380407942945`}, {-9.821654043050529, \
+-7.2178501958981665`}, {-9.818595479786445, -7.213262351002041}, \
+{-9.81553691652236, -7.208674506105913}, {-9.814801159238117, \
+-7.2075708701795485`}}], 
+         Line[{{-9.664277523774482, -7.190479078117246}, {-9.662608753318107, \
+-7.187975922432684}, {-9.659550190054023, -7.183388077536558}, \
+{-9.653433063525853, -7.174212387744302}, {-9.650374500261767, \
+-7.169624542848174}, {-9.647315936997682, -7.165036697952046}, \
+{-9.641198810469511, -7.15586100815979}, {-9.628964557413171, \
+-7.13750962857528}, {-9.626109223040892, -7.133226627016861}, \
+{-9.62325388866861, -7.128943625458439}, {-9.620398554296331, \
+-7.12466062390002}, {-9.619524220110284, -7.123349122620949}}], 
+         Line[{{-9.45355649245883, -7.084962300251118}, {-9.44907849195955, \
+-7.078245299502199}, {-9.446223157587271, -7.07396229794378}, \
+{-9.443423994299188, -7.069763553011655}, {-9.440624831011103, \
+-7.065564808079528}, {-9.435026504434937, -7.057167318215279}, \
+{-9.423829851282601, -7.040372338486775}, {-9.421030687994516, \
+-7.036173593554648}, {-9.418231524706433, -7.031974848622523}, \
+{-9.412633198130266, -7.0235773587582715`}, {-9.40983403484218, \
+-7.019378613826144}, {-9.407034871554098, -7.01517986889402}, \
+{-9.404235708266015, -7.010981123961895}, {-9.40309705082982, \
+-7.009273137807602}}], 
+         Line[{{-9.27953373847957, -6.993827206077625}, {-9.275474197014153, \
+-6.9877378938795}, {-9.27267503372607, -6.983539148947377}, \
+{-9.269875870437986, -6.9793404040152485`}, {-9.267076707149903, \
+-6.975141659083125}, {-9.223872733450445, -6.910335698533938}}], 
+         Line[{{-8.950927635897017, -6.84358225907293}, {-8.948011133925764, \
+-6.83920750611605}, {-8.945177254998463, -6.834956687725098}, \
+{-8.942343376071161, -6.830705869334146}, {-8.936675618216556, \
+-6.822204232552239}, {-8.933841739289253, -6.817953414161284}, \
+{-8.931007860361952, -6.813702595770332}, {-8.925340102507349, \
+-6.8052009589884275`}, {-8.914004586798143, -6.788197685424619}, \
+{-8.911170707870841, -6.7839468670336665`}, {-8.90833682894354, \
+-6.779696048642714}, {-8.902669071088935, -6.771194411860807}, \
+{-8.899835192161632, -6.766943593469852}, {-8.89700131323433, \
+-6.7626927750789}, {-8.891333555379727, -6.754191138296996}, \
+{-8.888261731921403, -6.74958340310951}, {-8.885189908463078, \
+-6.744975667922021}, {-8.88407465985965, -6.743302795016879}}], 
+         Line[{{-8.72427026528301, -6.748718661184905}, {-8.722383265171846, \
+-6.745888161018159}, {-8.71931144171352, -6.74128042583067}, \
+{-8.716239618255194, -6.736672690643181}, {-8.71316779479687, \
+-6.732064955455695}, {-8.707024147880219, -6.722849485080718}, \
+{-8.69473685404692, -6.7044185443307684`}, {-8.69172120167279, \
+-6.699895065769574}, {-8.68870554929866, -6.69537158720838}, \
+{-8.682674244550402, -6.686324630085992}, {-8.670611635053884, \
+-6.668230715841216}, {-8.667595982679755, -6.663707237280022}, \
+{-8.664580330305625, -6.659183758718828}, {-8.658549025557367, \
+-6.65013680159644}, {-8.655533373183237, -6.645613323035246}, \
+{-8.652517720809108, -6.641089844474052}, {-8.649502068434979, \
+-6.6365663659128575`}, {-8.648508588546882, -6.635076146080713}}], 
+         Line[{{-8.557507047404908, -6.680895391161705}, {-8.556016844836972, \
+-6.678660087309801}, {-8.553001192462842, -6.674136608748608}, \
+{-8.549985540088713, -6.669613130187414}, {-8.546969887714583, \
+-6.66508965162622}, {-8.543954235340454, -6.660566173065026}, \
+{-8.537922930592195, -6.6515192159426375`}, {-8.525860321095678, \
+-6.633425301697861}, {-8.501735102102643, -6.597237473208308}, \
+{-8.49892267862032, -6.593018837984824}, {-8.496110255137996, \
+-6.5888002027613375`}, {-8.490485408173347, -6.580362932314365}, \
+{-8.487672984691024, -6.57614429709088}, {-8.484860561208698, \
+-6.571925661867392}, {-8.479235714244052, -6.563488391420421}, \
+{-8.476423290761728, -6.559269756196936}, {-8.474485834567623, \
+-6.556363571905779}}], 
+         Line[CompressedData["
+1:eJwBQQG+/iFib1JlAgAAABMAAAACAAAA58ae20nAIMCVeYfhLkQawEqy1HGm
+viDAvjsppEQ/GsAcLkkvxbsgwDOvhtygNhrABWwDjlS6IMDvaLX4TjIawO6p
+vezjuCDAqiLkFP0tGsC/JTKqArYgwByWQU1ZJRrAYh0bJUCwIMAFffy9ERQa
+wKcM7Rq7pCDA1Epyn4LxGcBQVY9JK6MgwNAkWSvT7BnA+J0xeJuhIMDH/j+3
+I+gZwEgvdtV7niDAt7INz8TeGcDwdxgE7JwgwLCM9FoV2hnAmcC6MlybIMCr
+ZtvmZdUZwOpR/488mCDAnRqp/gbMGcCSmqG+rJYgwJX0j4pXxxnAOuND7RyV
+IMCOznYWqMIZwOIr5huNkyDAhahdovi9GcCLdIhK/ZEgwICCRC5JuRnAGdPG
+0FaRIMAqnv/AVbcZwG3Pmxs=
+          "]], 
+         Line[CompressedData["
+1:eJwBQQG+/iFib1JlAgAAABMAAAACAAAAJUlplM1ZIMBCK3rLO/kZwN70/Ac0
+WCDAbS41Jm/0GcCGPZ82pFYgwGUIHLK/7xnA1s7jk4RTIMBVvOnJYOYZwHjx
+bE5FTSDAPCSF+aLTGcC6Nn/DxkAgwAL0u1gnrhnAqmJclVE/IMDRd1POx6kZ
+wJqOOWfcPSDAofvqQ2ilGcB65vMK8jogwEEDGi+pnBnAOpZoUh01IMCBEngF
+K4sZwCrCRSSoMyDAUZYPe8uGGcAa7iL2MjIgwCEap/BrghnA+kXdmUgvIMDB
+IdbbrHkZwOpxumvTLSDAkaVtUU11GcDanZc9XiwgwGEpBcftcBnAuvVR4XMp
+IMABMTSyLmgZwKohL7P+JyDA0bTLJ89jGcCaTQyFiSYgwKE4Y51vXxnAE6pC
+MHMlIMAMTgafLFwZwD/djfM=
+          "]], 
+         Line[CompressedData["
+1:eJwBYQGe/iFib1JlAgAAABUAAAACAAAAlV7I5NDPH8AsJXpHU5wZwLS1Hy7L
+zB/A2id9tcqXGcB0ZZR19sYfwHovrKALjxnA09Ieuc3DH8CJ0/uFTooZwDJA
+qfykwB/Al3dLa5GFGcDwGr6DU7ofwLS/6jUXfBnAbdDnkbCtH8DwTynLImkZ
+wGY7O65qlB/AZXCm9TlDGcDFqMXxQZEfwHQU9tp8PhnAJBZQNRmOH8CCuEXA
+vzkZwOLwZLzHhx/AnwDlikUwGcBfpo7KJHsfwNuQIyBRHRnAvhMZDvx3H8Dp
+NHMFlBgZwB6Bo1HTdB/A+tjC6tYTGcDcW7jYgW4fwBYhYrVcChnAO8lCHFlr
+H8AlxbGanwUZwJo2zV8waB/AM2kBgOIAGcBYEeLm3mEfwFGxoEpo9xjAt35s
+KrZeH8BfVfAvq/IYwBbs9m2NWx/Abfk/Fe7tGMCQ/BMlrlkfwCSS6ycf6xjA
+zp6l6w==
+          "]], 
+         Line[CompressedData["
+1:eJwBkQFu/iFib1JlAgAAABgAAAACAAAADBnIIahTH8Dk5X3D+U0ZwDM0ljgT
+Uh/Ang6zZZpLGcCSoSB86k4fwK2yAkvdRhnAUXw1A5lIH8DL+qEVYz0ZwLDp
+v0ZwRR/A2p7x+qU4GcAQV0qKR0IfwOpCQeDoMxnAzjFfEfY7H8AHi+CqbioZ
+wErniB9TLx/AQRsfQHoXGcCpVBNjKiwfwE+/biW9EhnACMKdpgEpH8BeY74K
+AA4ZwMecsi2wIh/AfKtd1YUEGcBEUtw7DRYfwLg7nGqR8RjAPb0vWMf8HsAt
+XBmVqMsYwHwLTlWt+R7AjNHGkAHHGMC6WWxSk/YewOlGdIxawhjANvaoTF/w
+HsCjMc+DDLkYwHREx0lF7R7AAKd8f2W0GMCzkuVGK+oewF4cKnu+rxjAMC8i
+QffjHsAaB4VycKYYwG59QD7d4B7Ad3wybsmhGMCty147w90ewNXx32kinRjA
+7Bl9OKnaHsA0Z41le5gYwCpomzWP1x7Akdw6YdSTGMDACmdfgdUewHJQ7J+/
+kBjAjXOzXw==
+          "]], 
+         Line[CompressedData["
+1:eJwBwQE+/iFib1JlAgAAABsAAAACAAAAxJqlOS9CHsBqOXj+LZEYwB5iaKiU
+Px7AcGScJEaNGMBdsIalejwewM/ZSSCfiBjA2kzDn0Y2HsCLxKQXUX8YwKhh
+V+NhMx7Av+MC/fl6GMB2dusmfTAewPUCYeKidhjAEqATrrMqHsBeQR2t9G0Y
+wEnzY7wgHx7AMb6VQphcGMC4mQTZ+gcewNi3hm3fORjAhq6YHBYFHsAN1+RS
+iDUYwFTDLGAxAh7AQvZCODExGMDv7FTnZ/wdwKo0/wKDKBjAJkCl9dTwHcB8
+sXeYJhcYwJXmRRKv2R3AI6tow230F8Bi+9lVytYdwFbKxqgW8BfAMBBumeXT
+HcCM6SSOv+sXwMw5liAczh3A9ifhWBHjF8CaTipkN8sdwCpHPz663hfAaGO+
+p1LIHcBfZp0jY9oXwASN5i6Jwh3AyaRZ7rTRF8DSoXpypL8dwP/Dt9NdzRfA
+oLYOtr+8HcAz4xW5BskXwG7LovnauR3AaQJ0nq/EF8A74DY99rYdwJwh0oNY
+wBfACPXKgBG0HcDPQDBpAbwXwNYJX8QssR3ABWCOTqq3F8DxTktRb7AdwK3H
+8CGOthfAUCjVpg==
+          "]], 
+         Line[CompressedData["
+1:eJwBcQGO/iFib1JlAgAAABYAAAACAAAAbWv/TWmqHcB+F/2D4poYwA5dr9KZ
+pR3A8AEFS6uTGMCqhtdZ0J8dwFpAwRX9ihjA4dknaD2UHcAtvTmroHkYwFCA
+yIQXfR3A07Yq1udWGMCdqixo9HkdwEb2QCszUhjA6tSQS9F2HcC6NVeAfk0Y
+wIQpWRKLcB3AobSDKhVEGMC40umf/mMdwG+y3H5CMRjAICULu+VKHcALro4n
+nQsYwG1Pb57CRx3Afu2kfOgGGMC6edOBn0QdwPIsu9EzAhjAVM6bSFk+HcDZ
+q+d7yvgXwIh3LNbMMR3Ap6lA0PflF8DVoZC5qS4dwBrpViVD4RfAIsz0nIYr
+HcCOKG16jtwXwLwgvWNAJR3AdaeZJCXTF8DwyU3xsxgdwEOl8nhSwBfAPfSx
+1JAVHcC25AjOnbsXwIoeFrhtEh3AKiQfI+m2F8DXSHqbSg8dwJ1jNXg0shfA
+HWHt4oEMHcAGCGJjB64XwL+kq5s=
+          "]], 
+         Line[CompressedData["
+1:eJwVxXssFAAcB/DrODaih5uf+F3rVB53NVKmYb1GWUMxmt3o7IrYlauLmktO
+Z5he9E+cNLmm0WQzPabs+pp1aiW3TkqbPLqsP8Q8ThNN9cdnH6lKk5wlFAgE
+/v/833i5ceSSiwSZ4VKvAKEPzL0PYsdEEtRsCd62Z5UP3Gfdgs1CCdxP7r1S
+uUxIY83qOyuM4vupgwO/CE0HbdMXlxmz42r5pjnC7NkIW8oiI9vfUKKeIlx/
+tWL0nGPEN7bJhN8JyKsONEwwfBtc9SEfCB7GeTflN8bNr5IBXR9B0ZM2FTXK
+EG7cFWx5TZgn6RPHEONHfaYt/SUhqLv9QG4f42ldZ+DVVkKVly3j6GNG0m21
+1V5OOO38qELVzqjXh60pMRDiHOXt+W2MiZzFBL9iguBTpMjYzNBFVbxNKiBo
+60ytY/WMplGTxXyCkHitaHDOyJh+kytSKAnyomMClxpGVEdojENBsGe4pchu
+Maxl5m55MiFVql3SljF+y7501e4jhK2P31pmYMSKG5d2RhM8nQKO1OgZVX9O
+RfZHECz2IdOLQsZmq+OZKIRg+tjxru8C40xn18I9GUFvubEwcp7RaSoNjw4g
+7G7ef9g5j5FYsK5DKyGIjX753mpG7fHPMx4bCDOVjrtBOQz7oYbQFjHhva6/
+NzKLEbojWxOzlvBQ3TITr2IU+m5vG3EnlKeX+imVjB6n+UmdK0GVkBF7Lp3h
+8fO53NuJMLlYO5yoYAxrxNXjK974Cw7yA7Q=
+          "]], 
+         Line[CompressedData["
+1:eJwBkQFu/iFib1JlAgAAABgAAAACAAAAaBZN2khUHMD3VN1VTw0YwNQQxey5
+UBzAmUyR8fgHGMCM8nhA3kocwC0fH28v/xfA/rXg5yY/HMBYxDpqnO0XwOE8
+sDa4JxzArQ5yYHbKF8CnSk/U2vgbwFaj4EwqhBfAYhy9t/v1G8DuXQWi238X
+wB7uKpsc8xvAiBgq94x7F8CWkQZiXu0bwLyNc6HvchfAhNi97+HhG8AheAb2
+tGEXwGJmLAvpyhvA7kwsnz8/F8AeOJruCcgbwIgHUfTwOhfA2gkI0irFG8Ai
+wnVJojYXwFGt45hsvxvAVTe/8wQuF8BA9Jom8LMbwLshUkjKHBfA/MUIChGx
+G8BV3HadexgXwLeXdu0xrhvA7pab8iwUF8AuO1K0c6gbwCAM5ZyPCxfA6gzA
+l5SlG8C6xgnyQAcXwKbeLXu1ohvAVIEuR/ICF8AdgglC95wbwIf2d/FU+hbA
+2FN3JRiaG8AfsZxGBvYWwJQl5Qg5lxvAuWvBm7fxFsC2F8/hHJcbwOxWIGGN
+8RbAGTS8iw==
+          "]], 
+         Line[CompressedData["
+1:eJwB8QEO/iFib1JlAgAAAB4AAAACAAAAMjSD3haRG8DKwD/QQHEXwINsnJa8
+ixvAQ5VlZDlpF8D6D3hd/oUbwHYKrw6cYBfAtuHlQB+DG8AQxdNjTVwXwHKz
+UyRAgBvAqn/4uP5XF8DpVi/rgXobwN30QWNhTxfA2J3meAVvG8BD39S3Jj4X
+wJRvVFwmbBvA3Zn5DNg5F8BQQcI/R2kbwHdUHmKJNRfAx+SdBoljG8CqyWcM
+7CwXwLYrVZQMWBvAELT6YLEbF8CTucOvE0EbwNyIIAo8+RbAzqABM/Y9G8C0
+Y/3Oj/QWwAiIP7bYOhvAiz7ak+PvFsB+Vru8nTQbwDz0kx2L5hbAavOyySco
+G8CeXwcx2tMWwEAtouM7DxvAXzbuV3iuFsB7FOBmHgwbwDgRyxzMqRbAtvsd
+6gAJG8AQ7KfhH6UWwCzKmfDFAhvAwaFha8ebFsAXZ5H9T/YawCIN1X4WiRbA
+7qCAF2TdGsDk47ultGMWwCmIvppG2hrAvL6YaghfFsBkb/wdKdcawJWZdS9c
+WhbA2j14JO7QGsBGTy+5A1EWwBUltqfQzRrAHyoMfldMFsBQDPQqs8oawPcE
+6UKrRxbAxdpvMXjEGsCnuqLMUj4WwADCrbRawRrAf5V/kaY5FsCrxcagVb8a
+wAAbpfOeNhbAdC/nYQ==
+          "]], 
+         Line[CompressedData["
+1:eJwVi30s1HEAh290re2UOff7nt83b9WFaMN0mvIySsjGaSNXSakLK0R2XtZC
+Nu9/SGiFLhbKSzKX2NQ+lGXddWWoiLOdoxvNjTZjl6Q/nj17/nj2JaSdkZlx
+OBynbf7bWZfbENlP8bM43r5UJMTLrER/sz4KcdKQZc1+IZYuNg/qlRR7TijG
+DXZCOJ2aO/mhm2LB7vZDX1aIekF8eEU7xYMx8QG9pRDfTPWa1GcUaS/4hqM8
+IfhzU1FRzRShpcaO8p1CFHfHxBIFxbr/c2+vTYKMiAjZkyqK2Dbb03cXCcJK
+/PKUORR7C8zTHYcJBN4roWo5hYp7z+E9CLRzT/n6WxS5ZfaaxIHtP8CixTqV
+4vt9H7euHoJHa1PqjASK6pa0eb8mgl9Xs6lnOIWl+of0fB5BL/+wPjSU4q0k
+eddWLkE+ZjsvBVOkTKz1NskJGNuQwMoACrXWSrCYQuA/xiQZvSjKVkI02RcI
+KgN7XnXaUnCFyqBaH4Jzxmt5wyyFsi5wxUdMIGqgYTOE4orjZ8WMB0H/esG0
+hRXF0KHFPyIXAl2XxPwGlyLf1/F1DyHoiNvxqdCMwn2wU3aWTyDn9dXWbbHQ
+Bh8XmHYT8BIdXFUbLPwiY9KDuARH7JclrsssTJcr3EZ/M/iraqRBSyzaFtip
+TCODkZxovdTAQnq9tcRmiUHcxEBWqY5FX+bQfLyOgUvhzcDGWRbJG5HV5loG
+qx4iXv80C5s7M0GtkwyKKsofG76ykBevK5a/MJAcC0jijLM4aFEUUaVmQA2r
+njajLMYrrTfFIwz0NS0mdw2LQqaxffIdA0FqtMxuu1VS549vtvsfxCckBg==
+
+          "]], 
+         Line[CompressedData["
+1:eJwB0QEu/iFib1JlAgAAABwAAAACAAAAkIoJYhfIGcCmnp5jMYgWwAxNdSKP
+whnAYEJABOV/FsDX+ijspr8ZwBDHzbKIexbAIL6sVYC8GcD+axPRznYWwGqB
+ML9ZuRnA7RBZ7xRyFsD8BziSDLMZwMha5CuhaBbAIhVHOHKmGcCB7vqkuVUW
+wG0vZYQ9jRnA8RUol+ovFsADZKEc1FoZwNJkgntM5BXATCclhq1XGcC/CciZ
+kt8VwJbqqO+GVBnArq4NuNjaFcAocbDCOU4ZwIn4mPRk0RXATn6/aJ9BGcBC
+jK9tfb4VwJmY3bRqKBnAs7PcX66YFcAvzRlNAfYYwJQCN0QQTRXAWHExcOny
+GMDReNp4bEgVwIAVSZPR7xjADu99rchDFcDSXXjZoekYwInbxBaBOhXAdO7W
+ZULdGMB7tFLp8ScVwJ2S7ogq2hjAuSr2HU4jFcDGNgasEtcYwPegmVKqHhXA
+F3818uLQGMBwjeC7YhUVwEAjTRXLzRjArQOE8L4QFcBox2Q4s8oYwOp5JyUb
+DBXAug+UfoPEGMBkZm6O0wIVwOOzq6FrwRjAotwRwy/+FMAMWMPEU74YwOBS
+tfeL+RTAzO8yfaS8GMCAtlwMBfcUwJPr3bs=
+          "]], 
+         Line[CompressedData["
+1:eJwVxX0s1GEAB/ArWUteMr/n9zybaiHTm6MysWErh15M0XaUrabFUkaxmmvG
+eekYjswlXUXdRjjcVevNLr5F63LeylsqS3qhW9y8REnXyx+ffZyOJUXELhUI
+BJv/+f9u6zFJxX2G5jfewUI5D5nISmh9j8FRc6rvVT6PxnGn8NnbDJGudis8
+ZDwEW8Mvt6kZeu3FyWNpPDb0n2iqr2GwzftZHZjKI1wiHVZUMYSar72tTOGh
+eqJxia1keGb8KIo6ySMowlZrWcrQ1HqGvojkkTjn2jtRzDDvS0JdD/IoU/rP
+9RcybNc+lGaG8RgfTfCrljE0Xvvz1TeIR36KQR98nuHmWbmubhuPHkXeh9wY
+hny32phCGx7Rg0sdrDwZogtG1PtbCbhdF9Pc3BlOq73afzUTdNSv+SLaxJBj
+yBu/1UTgl+XzKGM9Q/3Kra6COwSr3ROPfmcMiwWZFdobBO+yhtQjSxiuFzqX
+2KcTKCbiiNlMoa0/p3ksIQiNmk13XKRo62jvjD9LoHO3ixDPUXyzTrF6mkBw
+/bXoh8FIESBvzU6OJjgi1Ioe9FK8lx8/1+tDwF/xb+zroZhteKjI8CLosjDQ
+6U6K5V3Wdzd7EgQMfTZu0VN42N4zZbsRrM1xLFHpKKRFlvFePMHAZM1CyyOK
+0sZDuSP2BEWHvI8P36e41dVQVWhDYBaG72C3KbptxaOflhG8H5INy6sonIqr
+oy/NcCgXcSFqFYW3ZkGy08ThgOamVl9Jsbc7rHzCyAE5umwLJUWy3Xxf0CiH
+VNOeiXWXKWQe+2amhjl4Hh4UBygolPsr7SuGONzwmN4oKaJ4WhwSNtfDIUqZ
+UVpWQDGguZqg6uCwytLm9908CmO3KT9Mz0GfpIx7eYHCbAqsXWjlIH3j1jOZ
+ReGwqvx5dQsH1Suhy5SUIijHWVSn4/AX4LhZRA==
+          "]], 
+         Line[CompressedData["
+1:eJwVx30s1HEAx/FzSfNwF/v+ft/fdXIeQi0b5SHmYdnOQx7mCiFFHjOHRIo5
+SclhIzaGzUJYtIgo8nDzEcZVLOmPZLbUVHpYy9N21kh/vPfeyzwuPTiRz+Px
+juz2/5Lfn0x/5HLonRsZCbnMIqYo6npCNgf6LHtUN5lF7d6hm9IsDskbhbKI
+BBYzRaJSiwwOQ06Viw8usvBQztV/lHOI62vXSMNYiIv9Ri9Ec+jsnz+eL2Xx
+rsTJ4Kw3B69Bt+ZVExa+ZYJmb8LhysjO7YW3DPINUh5ZGnIY29E3OjrDoK9s
+6ukeAQfOU9SYo2ZgWV44OarDYRjHhlgw4N3V/PTYotB5Ebsm62QwWLHsfGKJ
+4t74WPx4MQPbKtW0dRfFK3WxV6c7g/X5ShO3Dor1Xq/hABcGQ2YJabKHFJIG
+LcfvDgxOPdYT5LRQZGYqDh22YRCvDg9U11IYG6fz7x9gULfz52VKAYU8NQzV
+mwTRPhPighsUVWHExWGVwKq8Tl6dS6HyfNM1+4ugR3xST5VFYcT6NwqXCaad
+yvyEyRQDKo/8kjkCfqr1VPcZCt39Vu553QRTPRpuIojCXrPUK+4gqNC8TpoP
+oIj63GAz0EZwsPjqPr4PRXe/yHizgcC5GT4hrhTnYgy20ssJtr9V1SQ5UxT6
+qzOEpQTjdklfFI4UHY7KlY47BMEqgbLVlkJLlze/oiBIfR85sWFB0f5krT9e
+TmBvasvqmVHM1nfb8S8RaBK1EiUmFH+L0tqaYgmUa23avhyFLPJrzWIEQaCr
+IvQ8Q5Hj1SrMCyUgt4Ja040oWmxjleLTBB8mzdcLhRTTIsn28wCCJuGGtE6f
+YpO/cC3cl8C11NCibNeLrtpS713/Az5IJJ0=
+          "]], 
+         Line[CompressedData["
+1:eJwVj2tIk1EAhlckVGrI+c5xFFNyDS+Jl5aIygKbg3nBLmrQMIVkmamolM2h
+ZjVz+kNwymaWXVBcKgqGlqssezWblliWacg0jS5O84JjWWhS68fL8+/heb3S
+chPObOXxeCLH/rPbOOCpdXKHV0WaR0IMwxM/aen8XwafN54hc5EMV/PY2OYf
+hoRHlrYyCUO0ySok6wzFjXX7RGEM47Kq/gg7w6iKcKeDGAqz14ZTVhnk4oAG
+5s+wV58yfmWZAUvyoNfeDNlf/K1mK0On8lLcQU+GbZoh18RphtoEa6mTK0PI
+8y2KLDNDamCvvXWBoiY8f6W+juHHt3MTNiPFsUCFYNPRsf1E341rAoqLWbqX
+n8Md/mD9dQuf4mbLYI45lKHA5axBzFF8FYb2VQUzfH/hUj27g0LN59KFIoYB
+8ckKyS8ODbyRDrkzg8ZtRWV/x8H2PjKqZpJiY1iQpCznwHdTL6omKLqaV473
+aDhI4jsMyWMUmaX9R0kJB+2gh1U0QjEZkRGHfA57nq5XmkBhau2SCtI4RBkf
+TEw1OzrLYw98kHDQF/hm+qgolqXqXTIbQXTRuOLwBYrioY2fC0sEmyWamOQ8
+Cpcjl6er5wnStVO+VZkUfgpt+8wsQZhBN7eWSqHM1ccWvSVYrDv00e0Uhc3O
+FwuHCRpuLZj3Kyg0hfW7X5kJdjbJ7qUmUtwta7S69xL0Nq8a1McoApy9R589
+JjjfdqesJp6iR9dqUj4ksHT+Vprljj/197Wd7QS6bmPSrIwiwyskR9FCUDdT
+a6yUUtg/3Z6zNBH8A833HBM=
+          "]], 
+         Line[CompressedData["
+1:eJwVjntMDHAAx0+dU67T/R55tEql9CBduqm8ZxQlctaoPFJIrKUlenB57FDZ
+kkRRuGPUyJVJRexbyUrYRZSpEemodUImPcz547vPPt/tu30douIVO0wEAoHM
+mP/ko4Ga4ws5vE2THcYv4IhsCGMr/TicvSYFuczjsGoSmUYZWXEvZ+4LLw6l
+LvJjnozjZW3+OBs3jrmtkpdaD+MuwOZrnROHvu1+bZM7x8Czy7pYe46Q91w9
+Zuwl7dcvV07hcDQ0bt0xjWOl4e6i9SKON9+T1qZPNjLR13l4HEfWL8clBYxj
+558HFuoxhsHRg3bPJRzHhPXvDIMMT8RenXITjkfWLSmZnxh2uxWEC/sY5AH9
+FbVgKN8eG3q1hsHuivMcWRpD96GebmU1Q9+KbaqU/QxTz0fvC7/HUN1X2FGX
+wHC4aXMuKWMI9eFZobsY1sxRtKRfZch8YfIlNZSh9/f84E2Z/3+8Vzd4Mjhl
+Wayw2sjQHHbBKqKbIr9cKz/xkyKFWY6pgikicjQT8wcobKNHFk1fRWGXkPeh
+uJ+i7o5eWbWc4pos7dRTPYVYAUHfAooyrX+3pIOi6HSCMMSdorG0M/fsY4pa
+SavYegLFUIn4pzqPwtyswPo2CB5k/G28c4aidIMqIqCGQBn7/VJ9NoXiRkLh
+h0oCoVtb4OcMiov+gXZMSyAt1mhclRQeqhGH5CIC1+t+Cu1OinUmW9yWpRJs
+1MSU1/hQFIw6+r7xJhiOMiztkFOcso3LVnkSFM5I0o14UaQvruyRzyLounb0
+2/zZFDGHg/JyHQl23yjyqLankAv3/QghBBa7nB6221K4OD9aJZAQaF1vrh6y
+prDxN1NrzQgGS6r2+FhRmJ4sXDtJQHDo1quSCnMKnbjhVrNBCvu4cL/XIoqG
+2ZbCtF4p6jy6GgdNKaqCwyLce6QQaQ16778El7L7zTM6pSiOTzqwfoQgp8xn
+m+9bKYJko6LEIQJVy5EqfasUhoGj5878Ikj90Wx5XifFzOV7oyONvuabZ32Q
+0f8BohJpDQ==
+          "]], 
+         Line[CompressedData["
+1:eJwVzGtMU2cAxnGkRInmfU/fHoWAUoer0QEOMMHp5gIxDJ2Cl0rQQERWblPE
+ym2UUW7RNgzdSlZFrBqwMlAb0HCZIXh5kFlwUOaOqFAngWzUbjLxggEhWo8f
+njz5f/n5q9TKVHc3N7fV4j68OUmRFD/BEPWNn3zBjzy+e3V2QPofw5Hr9/qW
+6Hj4tCpSQp4waIb9FH2lPK7lWl5t+4ch05VeWKjlkRi2+rB6lCHpo2YhQMPD
+/Gu4uemR6Kmiyn5Q84jMt4b2DzKsO1w5uDaDh+OzmM7/7zME1dmDnWk8Atvj
+R4LuMvCOg8NRiTxaO/Lklt8YRved/MIjhkc3LKaGRoaiLOfr4gAe4797G2tL
+GNpKK/bnjslAzx28VaZlcHYeC7WOyBCcf/uFqoDBR2KY9v5LhuyPc7Yvz2Eo
+1hn1HYIM04X95FIaw8aKM2Z3yCBZpStviWEYNDbZK00y+BpeFlkXM8zUC5sb
+t8nw9U7bt+NXpYiw+QY62hlc75xX+VkOPxvu71KapdibvOzvrkkOdlOEpuqs
+FDe7E2juMw7L6i3V9mopSir7UwZGOTRfKxtSGaRw+beyEz0chH9XJeRoxY4s
+yfCq4iCL1CcejxO7YtFSn1DRn16T+mC+6E9s3XwnQPQlZp3vXNHfWZ5XoBB9
+jtQnzhH9JbO9Q94cUrZYbbYJDq7GEY3pHUXdL/I/n90R+65FWNxHoYj/42FI
+sdheG/TydLG7QsZaHRTyL88rxpMolNpbyn2PKdYne3S1x1OUhsXCb4Di+8tW
+V+xWiscN+af1nRSTG7cUHA2jMB67sWP3GQqnJvbAtITCPS76xuwOirk1bfOt
+bwmCueHAK5solt/2umicItjToz6VEk6hYkNjnz4laP/cmGsLEt2Le/amCgRZ
+S+0BNfMoBHuaUqglGHWmn9xwneC5W8/zGhMBNb/xmGoh4FZ8Ysg8TrA+4Wi2
+5RJBdM7TXs9ygmpbU8zCaoKMU9H7H5QRWPURHT0/EVTcbPSsKySYDBdWFukI
+LozRhqw8Av83yVWhWoLuBYe+ClcTbG9+LXFkE6w1X+mdyiSYMcbZZg4RvAe4
+J4zk
+          "]], 
+         Line[CompressedData["
+1:eJwVyn0s1HEAx3G+v3OR32/ul7JuNU4Xw7GVhyi0POxOl6csD4nmmeqQ6tKV
+1MwVO6ViTZKtdZmkB4ZlZ+ejnESpxZWpsfSwlJI5tx5Q3R+fvbfXPo5p+TGZ
+xMzMzOP/TPV8s1r3NZWBUVPTEyBnISyuEjQmMRB1eHOlBSyC1QatPI7Bw0uL
+AWoZi5SB2OSQaAa78/sOL2WzOPWj4w9PyuDHjsqmhHQWXQEKv+ZABvYWjquZ
+RBZjaWOvFL4M2t5NRWbHsvhV5i+XbGQQrm1V9kSz2KRfbJlcz0BRGDonl7Bo
+yS0R8WkGr6ayh8a9WTTUq+zPjNE4N3S39L4Niw87R7drR2gs7HK5mWjNwtHC
+SW4corHvzXUdZxmLugPawaxHNMSfq7m7l3i46Dd7TNJMY9H8RJn5Nx6KXsYN
+WxbTyPORVMQM8BDDXVemcqQRWTdRZSjl4W/ug9kLOdYQjAjEBQYbfF2YaT7w
+2golboa9nbUMyoeX35hKsUS+bG208f/vOd8uvXeWi9FYj4Nbg63Q6OBunZ9u
+gWt7I2XaaS68cp2+d81Q+B7Tu82rm4O20nn/oCkKG44WtSvaOdhUpyvXTVI4
+dMXbDbc58BvMdBrSUzBOqG0jajgIcG1ImtBQ+CNTfsoq4CD0o/OgeRkFy7Pi
+ilohB7uSXRrFAgoOmv7XJtcf+Tk/wKeQOn46PKyYQlxFf0iULYUb5pt7zh+h
+kKDJmYjnUnAOu9W0JpVCEv+W3b5pApG+/KTPFgoZelel6gGB74xUaPKP079e
+2rQSKFZQNfcmCbI4A4Lq2wQaHw1tHCXI8drfVVdPsLVIZCzREcguNs3dKSUI
+taKfmPxb4/Egz2ICpXtv4PtqgjxIKzsKCfqiilpdVQQHZ764de8n2H55+qrJ
+Z7maYyEZBKpONW8xl+CQvarvcTLB07dJSpMbfPasDI8nsDFb9bs8kUAeIUp7
+EU2wU/gsz9R/nz5W5w==
+          "]], 
+         Line[{{-11.435940572553374`, -8.069665712318255}, \
+{-11.43088967120605, -8.062089360297268}, {-11.428060857222249`, \
+-8.057846139321567}, {-11.425232043238449`, -8.053602918345867}, \
+{-11.42240322925465, -8.049359697370168}, {-11.421097310786665`, \
+-8.04740081966819}}], 
+         Line[{{-11.241192244503022`, -7.964293672053804}, \
+{-11.239878426328382`, -7.962322944791843}, {-11.236811667813559`, \
+-7.957722807019609}, {-11.233744909298736`, -7.953122669247375}, \
+{-11.230678150783913`, -7.948522531475141}, {-11.22761139226909, \
+-7.943922393702906}, {-11.224544633754267`, -7.939322255930671}, \
+{-11.22421716516016, -7.938831053039512}}], 
+         Line[{{-11.050571884894373`, -7.863782265478919}, \
+{-11.046839218510861`, -7.858183265903652}, {-11.043975688887844`, \
+-7.853887971469127}, {-11.041112159264827`, -7.8495926770346}, \
+{-11.03824862964181, -7.845297382600076}, {-11.035385100018793`, \
+-7.84100208816555}, {-11.032521570395774`, -7.836706793731021}, \
+{-11.031296632785034`, -7.834869387314912}}], 
+         Line[{{-10.86743749784339, -7.786195719108604}, \
+{-10.862507267708992`, -7.778800373907006}, {-10.859699909170171`, \
+-7.774589336098775}, {-10.856892550631349`, -7.770378298290542}, \
+{-10.854085192092526`, -7.766167260482308}, {-10.851277833553706`, \
+-7.761956222674078}, {-10.848470475014885`, -7.757745184865846}, \
+{-10.845733165883102`, -7.7536392211681715`}}], 
+         Line[{{-10.695903854328542`, -7.707696565607033}, \
+{-10.69349391465073, -7.704081656090317}, {-10.690448611580885`, \
+-7.699513701485549}, {-10.68740330851104, -7.694945746880782}, \
+{-10.684358005441196`, -7.6903777922760135`}, {-10.68131270237135, \
+-7.685809837671246}, {-10.67522209623166, -7.676673928461711}, \
+{-10.672176793161816`, -7.672105973856944}, {-10.671710411903844`, \
+-7.671406401969986}}], 
+         Line[{{-10.508266343893231`, -7.6127876402775865`}, \
+{-10.503878469367592`, -7.606205828489128}, {-10.498194321011512`, \
+-7.597679605955008}, {-10.495352246833473`, -7.59341649468795}, \
+{-10.492510172655432`, -7.589153383420888}, {-10.486826024299354`, \
+-7.580627160886771}, {-10.483983950121315`, -7.576364049619713}, \
+{-10.481141875943276`, -7.572100938352654}, {-10.481090052295194`, \
+-7.572023202880531}}], 
+         Line[{{-10.30118498601155, -7.504652829843615}, \
+{-10.300399070621136`, -7.503473956757993}, {-10.297319051912073`, \
+-7.498853928694398}, {-10.29423903320301, -7.494233900630803}, \
+{-10.291159014493946`, -7.489613872567208}, {-10.284998977075821`, \
+-7.480373816440021}, {-10.28191895836676, -7.475753788376428}, \
+{-10.278838939657696`, -7.471133760312833}, {-10.275758920948633`, \
+-7.466513732249238}, {-10.27267890223957, -7.461893704185643}, \
+{-10.27036902097954, -7.4584288822956}}], 
+         Line[{{-9.943801408524799, -7.3284320604695985`}, \
+{-9.940357974370148, -7.323266909237623}, {-9.937537355637085, \
+-7.319035981138028}, {-9.934716736904022, -7.314805053038435}, \
+{-9.931896118170961, -7.310574124938843}, {-9.926254880704839, \
+-7.30211226873966}, {-9.914972405772591, -7.285188556341288}, \
+{-9.91215178703953, -7.280957628241697}, {-9.909331168306467, \
+-7.276726700142102}, {-9.906510549573404, -7.272495772042508}, \
+{-9.905725907391632, -7.27131880876985}}], 
+         Line[{{-9.761857852113346, -7.225179885774452}, {-9.760482777768829, \
+-7.2231172742576755`}, {-9.757424214504745, -7.21852942936155}, \
+{-9.751307087976574, -7.209353739569294}, {-9.748248524712489, \
+-7.204765894673166}, {-9.745189961448403, -7.200178049777038}, \
+{-9.739072834920233, -7.191002359984782}, {-9.736014271656147, \
+-7.186414515088654}, {-9.732955708392062, -7.1818266701925255`}, \
+{-9.726838581863893, -7.172650980400272}, {-9.723780018599808, \
+-7.168063135504144}, {-9.720721455335724, -7.163475290608019}, \
+{-9.719545061259609, -7.161710699493846}}], 
+         Line[{{-9.561690934999381, -7.129380928405562}, {-9.55758119810618, \
+-7.123216323065758}, {-9.5547258637339, -7.118933321507339}, \
+{-9.549015194989341, -7.110367318390501}, {-9.537593857500221, \
+-7.093235312156821}, {-9.534738523127942, -7.088952310598402}, \
+{-9.53188318875566, -7.08466930903998}, {-9.526172520011102, \
+-7.076103305923142}, {-9.523317185638822, -7.0718203043647225`}, \
+{-9.520461851266543, -7.067537302806304}, {-9.517606516894263, \
+-7.063254301247884}, {-9.514751182521984, -7.058971299689465}, \
+{-9.514236753139441, -7.058199655615651}}], 
+         Line[{{-9.397214738525436, -7.064988190488599}, {-9.393039055113679, \
+-7.0587246653709625`}, {-9.390239891825594, -7.054525920438835}, \
+{-9.38744072853751, -7.050327175506708}, {-9.384641565249426, \
+-7.0461284305745835`}, {-9.379043238673258, -7.037730940710332}, \
+{-9.376244075385173, -7.033532195778204}, {-9.37344491209709, \
+-7.02933345084608}, {-9.367846585520923, -7.020935960981828}, \
+{-9.356649932368587, -7.004140981253324}, {-9.353850769080502, \
+-6.999942236321197}, {-9.351051605792419, -6.995743491389073}, \
+{-9.348252442504336, -6.991544746456948}, {-9.345453279216251, \
+-6.987346001524821}, {-9.345121977083314, -6.986849048325416}}], 
+         Line[{{-9.021110275519558, -6.89799780127325}, {-9.016024228181006, \
+-6.890368730265423}, {-9.013190349253705, -6.886117911874471}, \
+{-9.010356470326403, -6.881867093483518}, {-9.0046887124718, \
+-6.873365456701614}, {-9.001854833544499, -6.869114638310662}, \
+{-8.999020954617198, -6.86486381991971}, {-8.993353196762593, \
+-6.8563621831378025`}, {-8.982017681053385, -6.839358909573991}, \
+{-8.979183802126084, -6.835108091183039}, {-8.976349923198782, \
+-6.830857272792087}, {-8.970682165344178, -6.82235563601018}, \
+{-8.967848286416874, -6.818104817619225}, {-8.965014407489573, \
+-6.8138539992282725`}, {-8.962180528562271, -6.80960318083732}, \
+{-8.95934664963497, -6.805352362446368}, {-8.9568099482014, \
+-6.801547310296013}}], 
+         Line[{{-8.802711691589574, -6.761020284986923}, {-8.802250675088299, \
+-6.760328760235011}, {-8.799178851629973, -6.755721025047523}, \
+{-8.793035204713323, -6.746505554672548}, {-8.789963381255, \
+-6.741897819485063}, {-8.786891557796674, -6.737290084297573}, \
+{-8.780747910880024, -6.728074613922598}, {-8.768460617046722, \
+-6.709643673172647}, {-8.765388793588397, -6.705035937985158}, \
+{-8.762316970130072, -6.700428202797672}, {-8.756173323213421, \
+-6.691212732422694}, {-8.743886029380121, -6.672781791672745}, \
+{-8.740814205921797, -6.668174056485259}, {-8.737742382463471, \
+-6.66356632129777}, {-8.734670559005146, -6.658958586110281}, \
+{-8.731598735546822, -6.654350850922795}, {-8.730152577587393, \
+-6.652181613983654}}], 
+         Line[CompressedData["
+1:eJwBYQGe/iFib1JlAgAAABUAAAACAAAACgawTwZJIcAqJQ0S1q8awIhJe7vp
+RyHApO9uVYCsGsAppPp2XkYhwIf/7IfepxrAyv55MtNEIcBqD2u6PKMawGtZ
++e1HQyHATh/p7JqeGsAMtHipvEEhwDEvZx/5mRrATml3IKY+IcD2TmOEtZAa
+wO/D9tsaPSHA2l7hthOMGsCQHnaXjzshwLxuX+lxhxrA0tN0Dnk4IcCCjltO
+Ln4awFc+cvxLMiHAEc5TGKdrGsD4mPG3wDAhwPXd0UoFZxrAmvNwczUvIcDa
+7U99Y2IawNyob+oeLCHAoQ1M4h9ZGsB9A++lkyohwIMdyhR+VBrAHl5uYQgp
+IcBmLUhH3E8awGATbdjxJSHALE1ErJhGGsABbuyTZiQhwA9dwt72QRrAoshr
+T9siIcDybEARVT0awEMj6wpQISHA1Xy+Q7M4GsBIu/WRdCAhwORE3tggNhrA
+9A2eHg==
+          "]], 
+         Line[{{-8.46860352226324, -6.616532974936156}, {-8.465173596832432, \
+-6.611388086789944}, {-8.462361173350107, -6.607169451566456}, \
+{-8.45673632638546, -6.598732181119486}, {-8.453923902903137, \
+-6.5945135458960005`}, {-8.451111479420813, -6.590294910672515}, \
+{-8.445486632456165, -6.581857640225542}, {-8.434236938526869, \
+-6.564983099331599}, {-8.411737550668278, -6.531234017543712}, \
+{-8.408925127185954, -6.527015382320227}, {-8.40611270370363, \
+-6.522796747096741}, {-8.400487856738982, -6.514359476649768}, \
+{-8.397675433256659, -6.510140841426284}, {-8.394863009774333, \
+-6.505922206202795}, {-8.389238162809686, -6.497484935755825}, \
+{-8.386425739327363, -6.49326630053234}, {-8.38361331584504, \
+-6.4890476653088545`}, {-8.381445803297838, -6.485796396488053}}], 
+         Line[CompressedData["
+1:eJwBYQGe/iFib1JlAgAAABUAAAACAAAAV+Egz1OOIMDMQeQeY/AZwIROb9ZN
+jSDAVInPNFHtGcAslxEFvosgwExjtsCh6BnA1N+zMy6KIMBDPZ1M8uMZwHwo
+VmKeiCDAOxeE2ELfGcDNuZq/foUgwC7LUfDj1RnAbtwjej9/IMARM+0fJsMZ
+wLAhNu/AciDA2AIkf6qdGcBYatgdMXEgwM/cCgv7mBnAALN6TKFvIMDItvGW
+S5QZwFFEv6mBbCDAu2q/ruyKGcD6jGHY8WogwLZEpjo9hhnAotUDB2JpIMCu
+Ho3GjYEZwPJmSGRCZiDAndJa3i54GcCar+qSsmQgwJWsQWp/cxnAQ/iMwSJj
+IMCRhij2z24ZwOxAL/CSYSDAjGAPgiBqGcCUidEeA2AgwIQ69g1xZRnAPNJz
+TXNeIMB8FN2ZwWAZwOQaFnzjXCDAc+7DJRJcGcDnOg+W0FwgwH1Or3PZWxnA
+42CkzQ==
+          "]], 
+         Line[CompressedData["
+1:eJwBkQFu/iFib1JlAgAAABgAAAACAAAAUbicLnAiIMCMm5T7N5EZwFr9gMy0
+ICDApmpB1QWMGcA6VTtwyh0gwEdycMBGgxnAKoEYQlUcIMAX9gc2534ZwBqt
+9RPgGiDA53mfq4d6GcD6BLC39RcgwIeBzpbIcRnAurQk/yASIMDHkCxtSmAZ
+wKrgAdGrECDAlxTE4upbGcCaDN+iNg8gwGeYW1iLVxnAemSZRkwMIMAHoIpD
+zE4ZwDoUDo53BiDAR6/oGU49GcAqQOtfAgUgwBczgI/uOBnAGmzIMY0DIMDn
+thcFjzQZwPrDgtWiACDAh75G8M8rGcB05+45nPUfwMbNpMZRGhnAVD+p3bHy
+H8CXUTw88hUZwDSXY4HH7x/AZ9XTsZIRGcD0RtjI8ukfwAfdAp3TCBnA1J6S
+bAjnH8DXYJoSdAQZwLT2TBAe5B/Ap+QxiBQAGcB0psFXSd4fwEfsYHNV9xjA
+VP57+17bH8AWcPjo9fIYwDRWNp902B/A5vOPXpbuGMAZQhTo1tUfwL7V3Mup
+6hjAmFW7eQ==
+          "]], 
+         Line[CompressedData["
+1:eJwBoQFe/iFib1JlAgAAABkAAAACAAAAPCcbXHvPHsD3JrO4UgAZwOZS9ixB
+zh7Ad+j7cXv+GMAkoRQqJ8sewNNdqW3U+RjAYu8yJw3IHsAw01ZpLfUYwKE9
+USTzxB7Aj0gEZYbwGMAe2o0ev74ewEozX1w45xjAGBMHE1eyHsDBCBVLnNQY
+wAyF+fuGmR7AsLOAKGSvGMBK0xf5bJYewA0pLiS9qhjAiSE29lKTHsBrntsf
+FqYYwAa+cvAejR7AJok2F8icGMAA9+vktoAewJ1e7AUsihjAPkUK4px9HsD6
+05kBhYUYwH2TKN+Ceh7AWUlH/d2AGMD6L2XZTnQewBQ0ovSPdxjA82jezeZn
+HsCKCVjj82QYwDK3/MrMZB7A6H4F30xgGMBwBRvIsmEewEX0stqlWxjA7KFX
+wn5bHsD/3g3SV1IYwCrwdb9kWB7AXFS7zbBNGMBpPpS8SlUewLvJaMkJSRjA
+5trQthZPHsB3tMPAuz8YwCQp77P8Sx7A0ylxvBQ7GMBjdw2x4kgewDKfHrht
+NhjASH7xPDVIHsCJqfSJaTUYwPK2wk4=
+          "]], 
+         Line[{{-11.476758315815788`, -8.082883108025515}, \
+{-11.473321880963042`, -8.077728455746396}, {-11.467664252995442`, \
+-8.069242013794996}, {-11.464835439011644`, -8.0649987928193}, \
+{-11.462335885192134`, -8.061249462090034}}], 
+         Line[{{-11.286137956207138`, -7.978187759194275}, \
+{-11.2828130455359, -7.973200393187415}, {-11.279746287021077`, \
+-7.968600255415182}, {-11.276679528506254`, -7.964000117642947}, \
+{-11.27361276999143, -7.959399979870713}, {-11.270546011476608`, \
+-7.9547998420984785`}, {-11.269673667315272`, -7.953491325856476}}], 
+         Line[{{-11.099957110075115`, -7.894352988868022}, \
+{-11.095519222102158`, -7.887696156908587}, {-11.089792162856124`, \
+-7.879105568039535}, {-11.086928633233107`, -7.87481027360501}, \
+{-11.08406510361009, -7.870514979170484}, {-11.08129923719587, \
+-7.866366179549154}}], 
+         Line[{{-10.92149484261923, -7.801484561727597}, \
+{-10.915847079946605`, -7.793012917718659}, {-10.913039721407783`, \
+-7.788801879910426}, {-10.90742500433014, -7.780379804293961}, \
+{-10.904617645791319`, -7.77616876648573}, {-10.901810287252497`, \
+-7.771957728677497}, {-10.900531114259332`, -7.770038969187749}}], 
+         Line[{{-10.725534025898822`, -7.703638561678364}, \
+{-10.72394694534918, -7.701257940853901}, {-10.720901642279335`, \
+-7.696689986249133}, {-10.71785633920949, -7.692122031644366}, \
+{-10.7117657330698, -7.682986122434831}, {-10.708720429999955`, \
+-7.678418167830063}, {-10.70567512693011, -7.673850213225296}, \
+{-10.702629823860265`, -7.6692822586205285`}, {-10.701786166632925`, \
+-7.668016772779517}}], 
+         Line[{{-10.540787385636792`, -7.6085532551939306`}, \
+{-10.532299211147988`, -7.595820993460725}, {-10.529457136969949`, \
+-7.5915578821936665`}, {-10.526615062791908`, -7.587294770926605}, \
+{-10.52377298861387, -7.583031659659547}, {-10.52093091443583, \
+-7.578768548392488}, {-10.51808884025779, -7.574505437125428}, \
+{-10.51524676607975, -7.570242325858368}, {-10.514148656197614`, \
+-7.568595161035164}}], 
+         Line[{{-10.372621151215709`, -7.543110546363618}, \
+{-10.371239500929583`, -7.541038070934429}, {-10.36815948222052, \
+-7.536418042870834}, {-10.365079463511456`, -7.531798014807239}, \
+{-10.358919426093331`, -7.522557958680052}, {-10.35583940738427, \
+-7.517937930616459}, {-10.352759388675207`, -7.513317902552863}, \
+{-10.34659935125708, -7.504077846425674}, {-10.343519332548016`, \
+-7.499457818362079}, {-10.34310430932129, -7.4988352835219905`}}], 
+         Line[{{-9.986813818966725, -7.358518479711005}, {-9.982667255366072, \
+-7.352298634310026}, {-9.97984663663301, -7.348067706210432}, \
+{-9.977026017899949, -7.34383677811084}, {-9.971384780433826, \
+-7.335374921911656}, {-9.960102305501579, -7.318451209513285}, \
+{-9.957281686768518, -7.314220281413693}, {-9.954461068035455, \
+-7.3099893533141}, {-9.951640449302392, -7.3057584252145045`}, \
+{-9.949683720829182, -7.30282333250469}}], 
+         Line[{{-9.808918846933734, -7.273382383111555}, {-9.806361226730104, \
+-7.2695459528061095`}, {-9.803302663466019, -7.264958107909981}, \
+{-9.800244100201933, -7.260370263013853}, {-9.797185536937848, \
+-7.255782418117725}, {-9.794126973673762, -7.251194573221597}, \
+{-9.788009847145593, -7.242018883429344}, {-9.784951283881508, \
+-7.237431038533216}, {-9.781892720617424, -7.23284319363709}, \
+{-9.775775594089254, -7.223667503844834}, {-9.772717030825168, \
+-7.219079658948706}, {-9.769658467561083, -7.214491814052578}, \
+{-9.767740164417729, -7.211614359337547}}], 
+         Line[{{-9.613641907805901, -7.166485393095086}, {-9.608977216807213, \
+-7.159488356597055}, {-9.606121882434934, -7.155205355038635}, \
+{-9.603266548062654, -7.150922353480216}, {-9.600411213690375, \
+-7.146639351921797}, {-9.594700544945816, -7.138073348804959}, \
+{-9.583279207456696, -7.120941342571279}, {-9.580423873084417, \
+-7.11665834101286}, {-9.577568538712136, -7.112375339454438}, \
+{-9.574713204339856, -7.108092337896019}, {-9.571857869967577, \
+-7.1038093363376}, {-9.569002535595297, -7.09952633477918}, \
+{-9.567573247303764, -7.097382402341881}}], 
+         Line[{{-9.217990421146062, -6.952155962896119}, {-9.06703404887244, \
+-6.857399228460885}, {-9.061366291017835, -6.848897591678978}, \
+{-9.050030775308628, -6.831894318115166}, {-9.047196896381326, \
+-6.827643499724214}, {-9.044363017454025, -6.823392681333262}, \
+{-9.038695259599422, -6.8148910445513575`}, {-9.03586138067212, \
+-6.810640226160405}, {-9.033027501744819, -6.806389407769453}, \
+{-9.030193622817517, -6.802138589378501}, {-9.027359743890214, \
+-6.797887770987546}, {-9.02699258782394, -6.797337036888136}}], 
+         Line[{{-8.878192347555267, -6.815972360811488}, {-8.875974438088102, \
+-6.81264549661074}, {-8.872902614629776, -6.808037761423252}, \
+{-8.866758967713126, -6.798822291048277}, {-8.8636871442548, \
+-6.794214555860789}, {-8.860615320796477, -6.789606820673303}, \
+{-8.854471673879825, -6.780391350298325}, {-8.842184380046525, \
+-6.761960409548376}, {-8.839112556588201, -6.75735267436089}, \
+{-8.836040733129876, -6.7527449391734}, {-8.829897086213226, \
+-6.743529468798426}, {-8.8268252627549, -6.738921733610938}, \
+{-8.823753439296574, -6.734313998423449}, {-8.817609792379924, \
+-6.725098528048474}, {-8.814537968921599, -6.720490792860986}, \
+{-8.811466145463275, -6.7158830576735}, {-8.808594003893957, \
+-6.7115748453195225`}}], 
+         Line[{{-11.195213208053625`, -7.938333061776873}, \
+{-11.193877048606037`, -7.936328822605491}, {-11.190810290091214`, \
+-7.931728684833256}, {-11.18467677306157, -7.92252840928879}, \
+{-11.181610014546749`, -7.917928271516558}, {-11.178543256031926`, \
+-7.913328133744324}, {-11.177703440831625`, -7.912068410943872}}], 
+         Line[{{-10.999936268925792`, -7.8420109723052125`}, \
+{-10.995295685296547`, -7.835050096861345}, {-10.99243215567353, \
+-7.830754802426819}, {-10.989568626050513`, -7.826459507992293}, \
+{-10.986705096427494`, -7.822164213557766}, {-10.983841566804475`, \
+-7.817868919123238}, {-10.980978037181458`, -7.813573624688712}, \
+{-10.98001177155836, -7.812124226254063}}], 
+         Line[{{-10.635293155337882`, -7.669342847211899}, \
+{-10.632587853253831`, -7.665284894085823}, {-10.629542550183986`, \
+-7.6607169394810555`}, {-10.626497247114141`, -7.656148984876288}, \
+{-10.623451944044296`, -7.651581030271521}, {-10.620406640974451`, \
+-7.647013075666753}, {-10.617361337904606`, -7.642445121061986}, \
+{-10.614316034834761`, -7.637877166457218}, {-10.611270731764916`, \
+-7.633309211852451}, {-10.610167094570336`, -7.63165375606058}}], 
+         Line[{{-10.441593503358048`, -7.582289923172561}, \
+{-10.438510763272681`, -7.577665813044511}, {-10.43566868909464, \
+-7.57340270177745}, {-10.429984540738563`, -7.564876479243333}, \
+{-10.427142466560522`, -7.560613367976272}, {-10.424300392382483`, \
+-7.556350256709213}, {-10.418616244026403`, -7.547824034175093}, \
+{-10.415774169848364`, -7.543560922908035}, {-10.41328694894383, \
+-7.5398300915512335`}}], 
+         Line[{{-10.264486708675157`, -7.469808121156545}, \
+{-10.263438846112379`, -7.468236327312377}, {-10.260358827403318`, \
+-7.463616299248785}, {-10.257278808694256`, -7.4589962711851925`}, \
+{-10.254198789985193`, -7.454376243121597}, {-10.248038752567066`, \
+-7.445136186994407}, {-10.244958733858002`, -7.440516158930812}, \
+{-10.241878715148939`, -7.435896130867217}, {-10.238798696439876`, \
+-7.431276102803622}, {-10.235718677730814`, -7.42665607474003}, \
+{-10.232984754955234`, -7.42255519057666}}], 
+         Line[{{-9.89984359508725, -7.301461308846659}, {-9.89522807464116, \
+-7.294538028177525}, {-9.892407455908097, -7.290307100077931}, \
+{-9.889586837175035, -7.286076171978337}, {-9.886766218441974, \
+-7.281845243878745}, {-9.881124980975851, -7.273383387679562}, \
+{-9.869842506043604, -7.2564596752811905`}, {-9.867021887310543, \
+-7.252228747181599}, {-9.86420126857748, -7.247997819082005}, \
+{-9.861380649844417, -7.2437668909824104`}, {-9.860780195687514, \
+-7.242866209747056}}], 
+         Line[{{-9.713662748955226, -7.231358846478766}, {-9.711545765543468, \
+-7.228183371361129}, {-9.708487202279382, -7.223595526465001}, \
+{-9.702370075751212, -7.214419836672745}, {-9.699311512487126, \
+-7.209831991776617}, {-9.696252949223041, -7.205244146880489}, \
+{-9.690135822694872, -7.196068457088235}, {-9.687077259430787, \
+-7.191480612192107}, {-9.684018696166703, -7.186892767295982}, \
+{-9.677901569638532, -7.177717077503726}, {-9.674843006374447, \
+-7.1731292326075975`}, {-9.671784443110361, -7.168541387711469}, \
+{-9.670159836078865, -7.166104477164224}}], 
+         Line[{{-9.508354440835058, -7.1363875641487065`}, \
+{-9.503329845032866, -7.128850670445418}, {-9.500474510660586, \
+-7.124567668886999}, {-9.497619176288307, -7.12028466732858}, \
+{-9.491908507543746, -7.111718664211739}, {-9.489053173171467, \
+-7.1074356626533195`}, {-9.486197838799185, -7.103152661094898}, \
+{-9.480487170054626, -7.094586657978059}, {-9.477631835682347, \
+-7.09030365641964}, {-9.474776501310068, -7.086020654861221}, \
+{-9.469065832565509, -7.077454651744382}, {-9.46621049819323, \
+-7.073171650185963}, {-9.46335516382095, -7.068888648627544}, \
+{-9.46049982944867, -7.064605647069125}, {-9.459438804763213, \
+-7.063014110040939}}], 
+         Line[{{-9.339239664778932, -7.023487953945598}, {-9.334256626063915, \
+-7.016013395873074}, {-9.33145746277583, -7.011814650940948}, \
+{-9.328658299487747, -7.007615906008823}, {-9.32305997291158, \
+-6.99921841614457}, {-9.311863319759244, -6.9824234364160676`}, \
+{-9.309064156471159, -6.978224691483939}, {-9.306264993183076, \
+-6.974025946551816}, {-9.300666666606908, -6.965628456687564}, \
+{-9.297867503318823, -6.961429711755437}, {-9.29506834003074, \
+-6.957230966823311}, {-9.289470013454572, -6.94883347695906}, \
+{-9.286670850166487, -6.944634732026933}, {-9.285416050783953, \
+-6.942752532953131}}], 
+         Line[{{-11.496858987522792`, -8.092858582550763}, \
+{-11.493123578849637`, -8.08725546954103}, {-11.490294764865839`, \
+-8.083012248565332}, {-11.48746595088204, -8.078769027589635}, \
+{-11.48463713689824, -8.074525806613934}, {-11.482640628120171`, \
+-8.07153104344683}}], 
+         Line[{{-11.30823762858031, -8.001612717862036}, \
+{-11.307347113654483`, -8.000276945473297}, {-11.30428035513966, \
+-7.995676807701063}, {-11.301213596624837`, -7.991076669928828}, \
+{-11.298146838110014`, -7.986476532156593}, {-11.295080079595191`, \
+-7.981876394384359}, {-11.292020268511521`, -7.977286677758854}}], 
+         Line[{{-11.124199831139805`, -7.91110859907668}, \
+{-11.118427459086298`, -7.9024500409964205`}, {-11.112700399840264`, \
+-7.893859452127369}, {-11.109836870217247`, -7.889564157692844}, \
+{-11.10697334059423, -7.885268863258318}, {-11.105839422379498`, \
+-7.88356798593622}}], 
+         Line[{{-10.94798529611927, -7.81790916310921}, {-10.94392066533482, \
+-7.811812216932535}, {-10.941113306795998`, -7.807601179124301}, \
+{-10.938305948257177`, -7.80339014131607}, {-10.935498589718355`, \
+-7.799179103507837}, {-10.932691231179533`, -7.794968065699603}, \
+{-10.929883872640712`, -7.790757027891372}, {-10.927377154923613`, \
+-7.786996951315724}}], 
+         Line[{{-10.754731624741128`, -7.72473895028805}, \
+{-10.75439997604763, -7.724241477247803}, {-10.751354672977785`, \
+-7.719673522643036}, {-10.74830936990794, -7.715105568038268}, \
+{-10.745264066838095`, -7.710537613433501}, {-10.74221876376825, \
+-7.705969658828733}, {-10.739173460698405`, -7.701401704223966}, \
+{-10.73612815762856, -7.6968337496191985`}, {-10.733082854558715`, \
+-7.692265795014431}, {-10.731416338203205`, -7.689766020481167}}], 
+         Line[{{-10.572788068329674`, -7.631064369019815}, \
+{-10.569246175462503`, -7.625751529719059}, {-10.566404101284464`, \
+-7.621488418452}, {-10.563562027106425`, -7.617225307184942}, \
+{-10.560719952928384`, -7.612962195917881}, {-10.555035804572306`, \
+-7.604435973383763}, {-10.552193730394265`, -7.600172862116702}, \
+{-10.549351656216226`, -7.595909750849644}, {-10.546669697941175`, \
+-7.591886813437067}}], 
+         Line[{{-11.218334852855778`, -7.954356613593224}, \
+{-11.215344358209798`, -7.949870871624254}, {-11.212277599694975`, \
+-7.94527073385202}, {-11.209210841180152`, -7.940670596079786}, \
+{-11.206144082665329`, -7.936070458307551}, {-11.203077324150506`, \
+-7.9314703205353165`}, {-11.201095520358008`, -7.928497614846569}}], 
+         Line[{{-11.025414320480651`, -7.867212681525431}, \
+{-11.021067451903704`, -7.86069237866001}, {-11.018203922280687`, \
+-7.856397084225485}, {-11.01534039265767, -7.852101789790959}, \
+{-11.012476863034653`, -7.8478064953564335`}, {-11.009613333411634`, \
+-7.843511200921905}, {-11.006749803788615`, -7.839215906487377}, \
+{-11.005818581230175`, -7.837819072649716}}], 
+         Line[{{-10.66582809959946, -7.677757731532647}, {-10.66304088395228, \
+-7.673576908061877}, {-10.659995580882436`, -7.6690089534571095`}, \
+{-10.65695027781259, -7.664440998852342}, {-10.650859671672901`, \
+-7.655305089642807}, {-10.647814368603056`, -7.65073713503804}, \
+{-10.644769065533211`, -7.646169180433272}, {-10.641723762463366`, \
+-7.641601225828505}, {-10.641175467642265`, -7.640778783596853}}], 
+         Line[{{-10.475207739990811`, -7.577825223642935}, \
+{-10.469773579231116`, -7.569673982503394}, {-10.464089430875038`, \
+-7.561147759969276}, {-10.461247356696997`, -7.556884648702216}, \
+{-10.458405282518958`, -7.552621537435157}, {-10.45556320834092, \
+-7.5483584261680985`}, {-10.452721134162879`, -7.544095314901037}, \
+{-10.44987905998484, -7.539832203633979}, {-10.44747581566243, \
+-7.536227337150366}}], 
+         Line[{{-11.456453572887751`, -8.066795040038093}, \
+{-11.450691369092645`, -8.058151734345435}, {-11.445033741125046`, \
+-8.049665292394035}, {-11.442204927141248`, -8.045422071418338}, \
+{-11.441822884857757`, -8.044849007993102}}], 
+         Line[{{-11.26379135501089, -7.981156150663038}, \
+{-11.261345735932139`, -7.977487722044912}, {-11.258278977417318`, \
+-7.97288758427268}, {-11.255212218902496`, -7.968287446500448}, \
+{-11.252145460387673`, -7.963687308728214}, {-11.24907870187285, \
+-7.959087170955979}, {-11.247074556807405`, -7.956080953357811}}], 
+         Line[{{-11.075416924891487`, -7.884639200780718}, \
+{-11.066883925871984`, -7.871839702251465}, {-11.064020396248967`, \
+-7.867544407816939}, {-11.06115686662595, -7.863249113382413}, \
+{-11.058293337002933`, -7.858953818947888}, {-11.056454197198756`, \
+-7.856195109241622}}], 
+         Line[{{-10.894648801954949`, -7.782670435732434}, \
+{-10.890580853097209`, -7.776568512445824}, {-10.884966136019566`, \
+-7.76814643682936}, {-10.882158777480743`, -7.7639353990211255`}, \
+{-10.879351418941923`, -7.7597243612128946`}, {-10.8765440604031, \
+-7.755513323404661}, {-10.873736701864278`, -7.751302285596428}, \
+{-10.873319810147773`, -7.750676948021671}}], 
+         Line[{{-10.337221997016908`, -7.515223234411912}, \
+{-10.334279276420828`, -7.510809153517792}, {-10.331199257711766`, \
+-7.5061891254542}, {-10.328119239002703`, -7.501569097390605}, \
+{-10.321959201584576`, -7.492329041263415}, {-10.318879182875513`, \
+-7.48770901319982}, {-10.31579916416645, -7.483088985136225}, \
+{-10.312719145457386`, -7.4784689570726295`}, {-10.309639126748325`, \
+-7.473848929009037}, {-10.307067298315934`, -7.469991186360451}}], 
+         Line[{{-11.171821128527242`, -7.932364379380527}, \
+{-11.169342980487457`, -7.9286471573208495`}, {-11.166276221972634`, \
+-7.924047019548615}, {-11.160142704942988`, -7.914846744004146}, \
+{-11.157075946428165`, -7.910246606231912}, {-11.15403452553762, \
+-7.905684474896094}}], 
+         Line[{{-10.81187836962924, -7.763875302901696}, \
+{-10.806360096932558`, -7.755597893856674}, {-10.803552738393737`, \
+-7.751386856048443}, {-10.800745379854915`, -7.747175818240209}, \
+{-10.795130662777272`, -7.738753742623745}, {-10.792323304238451`, \
+-7.734542704815514}, {-10.789515945699629`, -7.73033166700728}, \
+{-10.78939141194971, -7.730144866382402}}], 
+         Line[{{-10.604284782265953`, -7.648555178842441}, \
+{-10.602134822555382`, -7.645330239276585}, {-10.599089519485537`, \
+-7.640762284671817}, {-10.596044216415692`, -7.63619433006705}, \
+{-10.589953610276002`, -7.627058420857515}, {-10.586908307206157`, \
+-7.6224904662527475`}, {-10.583863004136312`, -7.61792251164798}, \
+{-10.580817701066467`, -7.613354557043212}, {-10.578670380634057`, \
+-7.610133576394597}}], 
+         Line[{{-10.028920637314657`, -7.353301409788166}, \
+{-9.999590967764442, -7.309306905462844}, {-9.99677034903138, \
+-7.305075977363249}, {-9.993949730298318, -7.300845049263658}, \
+{-9.992696131271108, -7.2989646507228425`}}], 
+         Line[{{-11.415214998482282`, -8.050047010999247}, \
+{-11.411087973319452`, -8.043856473255001}, {-11.408259159335653`, \
+-8.039613252279302}, {-11.405430345351853`, -8.035370031303602}, \
+{-11.402601531368052`, -8.031126810327901}, {-11.400154711052073`, \
+-8.027456579853933}}], 
+         Line[{{-11.373108180086616`, -8.030355873684199}, \
+{-11.368655763562458`, -8.023677248897963}, {-11.36582694957866, \
+-8.019434027922264}, {-11.36299813559486, -8.015190806946567}, \
+{-11.36016932161106, -8.010947585970866}, {-11.357599914157504`, \
+-8.007093474790532}}], 
+         Line[{{-11.39427239874769, -8.04493119375199}, \
+{-11.391286275432854`, -8.040452008779738}, {-11.388457461449056`, \
+-8.03620878780404}, {-11.385628647465257`, -8.031965566828342}, \
+{-11.382799833481457`, -8.027722345852641}, {-11.379971019497656`, \
+-8.02347912487694}, {-11.378990492390999`, -8.022008334216954}}], 
+         Line[{{-10.839850853578719`, -7.760044473413422}, \
+{-10.834433682320777`, -7.751918716526508}, {-10.828818965243133`, \
+-7.743496640910044}, {-10.826011606704311`, -7.73928560310181}, \
+{-10.823204248165489`, -7.735074565293576}, {-10.820396889626668`, \
+-7.730863527485345}, {-10.817760681933622`, -7.726909215945777}}], 
+         Line[{{-11.351717601853121`, -8.0211194391063}, \
+{-11.346025251692062`, -8.012580913864712}, {-11.343196437708263`, \
+-8.008337692889015}, {-11.340367623724465`, -8.004094471913316}, \
+{-11.337538809740664`, -7.999851250937615}, {-11.335978081949072`, \
+-7.997510159250227}}], 
+         Line[{{-10.974129459253977`, -7.836600171866539}, \
+{-10.96952391868939, -7.829691861019659}, {-10.963796859443356`, \
+-7.8211012721506075`}, {-10.960933329820339`, -7.816805977716082}, \
+{-10.958069800197322`, -7.812510683281556}, {-10.955206270574305`, \
+-7.808215388847031}, {-10.953867608423653`, -7.806207395621054}}]}, 
+        "Charting`Private`Tag#1"], {}}}, {}}, <|
+    "HighlightElements" -> <|
+      "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>, 
+     "LayoutOptions" -> <|
+      "PlotRange" -> {{-Log[100000], (-2) 
+          Log[Pi]}, {-8.103730310273376, -2.289460054049791}}, 
+       "Frame" -> {{False, False}, {False, False}}, 
+       "AxesOrigin" -> {-11.512925464970204`, -8.103730310273358}, 
+       "ImageSize" -> {360, 360/GoldenRatio}, "Axes" -> {True, True}, 
+       "LabelStyle" -> {}, "AspectRatio" -> GoldenRatio^(-1), "DefaultStyle" -> {
+         Directive[
+          Opacity[1.], 
+          AbsoluteThickness[2], 
+          RGBColor[1, 0, 0], 
+          Thickness[0.001]]}, 
+       "HighlightLabelingFunctions" -> <|"CoordinatesToolOptions" -> ({
+           Exp[
+            Part[#, 1]], 
+           Exp[
+            Part[#, 2]]}& ), "ScalingFunctions" -> {{Log, Exp}, {Log, Exp}}|>,
+        "Primitives" -> {}, "GCFlag" -> False|>, 
+     "Meta" -> <|
+      "DefaultHighlight" -> {"Dynamic", None}, "Index" -> {}, "Function" -> 
+       Plot, "GroupHighlight" -> False|>|>, "DynamicHighlight"]],
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-11.512925464970204`, -8.103730310273358},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{
+     Charting`ScaledTicks[{Log, Exp}, {Log, Exp}, "Nice", WorkingPrecision -> 
+      MachinePrecision, RotateLabel -> 0], 
+     Charting`ScaledFrameTicks[{Log, Exp}]}, {
+     Charting`ScaledTicks[{Log, Exp}, {Log, Exp}, "Nice", WorkingPrecision -> 
+      MachinePrecision, RotateLabel -> 0], 
+     Charting`ScaledFrameTicks[{Log, Exp}]}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Exp[#]& )[
+         Part[#, 1]], 
+        (Exp[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Exp[#]& )[
+         Part[#, 1]], 
+        (Exp[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+    RowBox[{"\[Pi]", " ", 
+      SuperscriptBox["X", 
+       RowBox[{"3", "/", "2"}]], " ", 
+      RowBox[{
+        UnderoverscriptBox["\[Sum]", 
+         RowBox[{"q", "=", "1"}], 
+         TemplateBox[{
+           FractionBox["1", 
+            RowBox[{"\[Pi]", " ", 
+              SqrtBox["X"]}]]}, "Floor"]], 
+        TemplateBox[{"q"}, "EulerPhi"]}]}], TraditionalForm],
+  PlotRange->
+   NCache[{{-Log[100000], (-2) 
+      Log[Pi]}, {-8.103730310273376, -2.289460054049791}}, \
+{{-11.512925464970229`, -2.2894597716988003`}, {-8.103730310273376, \
+-2.289460054049791}}],
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->FrontEndValueCache[{
+     Charting`ScaledTicks[{Log, Exp}, {Log, Exp}, "Nice", WorkingPrecision -> 
+      MachinePrecision, RotateLabel -> 0], 
+     Charting`ScaledTicks[{Log, Exp}, {Log, Exp}, "Nice", WorkingPrecision -> 
+      MachinePrecision, RotateLabel -> 0]}, {{{-11.512925464970229`, 
+       FormBox[
+        TemplateBox[{"10", 
+          RowBox[{"-", "5"}]}, "Superscript", SyntaxForm -> SuperscriptBox], 
+        TraditionalForm], {0.01, 0.}}, {-9.210340371976182, 
+       FormBox[
+        TemplateBox[{"10", 
+          RowBox[{"-", "4"}]}, "Superscript", SyntaxForm -> SuperscriptBox], 
+        TraditionalForm], {0.01, 0.}}, {-6.907755278982137, 
+       FormBox[
+        TagBox[
+         InterpretationBox[
+          StyleBox["\"0.001\"", ShowStringCharacters -> False], 0.001, 
+          AutoDelete -> True], NumberForm[#, {
+           DirectedInfinity[1], 3}]& ], TraditionalForm], {0.01, 
+       0.}}, {-4.605170185988091, 
+       FormBox[
+        TagBox[
+         InterpretationBox[
+          StyleBox["\"0.010\"", ShowStringCharacters -> False], 0.01, 
+          AutoDelete -> True], NumberForm[#, {
+           DirectedInfinity[1], 3}]& ], TraditionalForm], {0.01, 
+       0.}}, {-2.3025850929940455`, 
+       FormBox[
+        TagBox[
+         InterpretationBox[
+          StyleBox["\"0.100\"", ShowStringCharacters -> False], 0.1, 
+          AutoDelete -> True], NumberForm[#, {
+           DirectedInfinity[1], 3}]& ], TraditionalForm], {0.01, 
+       0.}}, {-13.815510557964274`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-13.122363377404328`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-12.716898269296165`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-12.429216196844383`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-12.206072645530174`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-12.02375108873622, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-11.86960040890896, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-11.736069016284437`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-11.618285980628055`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-10.819778284410283`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-10.41431317630212, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-10.126631103850338`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-9.903487552536127, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-9.721165995742174, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-9.567015315914915, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-9.433483923290392, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-9.315700887634009, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-8.517193191416238, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-8.111728083308073, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-7.824046010856292, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-7.600902459542082, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-7.418580902748128, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-7.264430222920869, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-7.1308988302963465`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-7.013115794639964, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-6.214608098422191, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-5.809142990314028, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-5.521460917862246, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-5.298317366548036, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-5.115995809754082, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-4.961845129926823, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-4.8283137373023015`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-4.710530701645918, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-3.912023005428146, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-3.506557897319982, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-3.2188758248682006`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-2.995732273553991, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-2.8134107167600364`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-2.659260036932778, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-2.5257286443082556`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-2.4079456086518722`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-1.6094379124341003`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-1.2039728043259361`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-0.916290731874155, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-0.6931471805599453, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-0.5108256237659907, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-0.35667494393873245`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-0.2231435513142097, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-0.10536051565782628`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 0.}}, {0., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}}, {{-7.600902459542082, 
+       FormBox[
+        TemplateBox[{"\[Times]", "\"\[Times]\"", "5", 
+          TemplateBox[{"10", 
+            RowBox[{"-", "4"}]}, "Superscript", SyntaxForm -> 
+           SuperscriptBox]}, "RowWithSeparators"], TraditionalForm], {0.01, 
+       0.}}, {-6.907755278982137, 
+       FormBox[
+        TagBox[
+         InterpretationBox[
+          StyleBox["\"0.001\"", ShowStringCharacters -> False], 0.001, 
+          AutoDelete -> True], NumberForm[#, {
+           DirectedInfinity[1], 3}]& ], TraditionalForm], {0.01, 
+       0.}}, {-5.298317366548036, 
+       FormBox[
+        TagBox[
+         InterpretationBox[
+          StyleBox["\"0.005\"", ShowStringCharacters -> False], 0.005, 
+          AutoDelete -> True], NumberForm[#, {
+           DirectedInfinity[1], 3}]& ], TraditionalForm], {0.01, 
+       0.}}, {-4.605170185988091, 
+       FormBox[
+        TagBox[
+         InterpretationBox[
+          StyleBox["\"0.010\"", ShowStringCharacters -> False], 0.01, 
+          AutoDelete -> True], NumberForm[#, {
+           DirectedInfinity[1], 3}]& ], TraditionalForm], {0.01, 
+       0.}}, {-2.995732273553991, 
+       FormBox[
+        TagBox[
+         InterpretationBox[
+          StyleBox["\"0.050\"", ShowStringCharacters -> False], 0.05, 
+          AutoDelete -> True], NumberForm[#, {
+           DirectedInfinity[1], 3}]& ], TraditionalForm], {0.01, 
+       0.}}, {-2.3025850929940455`, 
+       FormBox[
+        TagBox[
+         InterpretationBox[
+          StyleBox["\"0.100\"", ShowStringCharacters -> False], 0.1, 
+          AutoDelete -> True], NumberForm[#, {
+           DirectedInfinity[1], 3}]& ], TraditionalForm], {0.01, 
+       0.}}, {-9.903487552536127, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-9.721165995742174, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-9.567015315914915, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-9.433483923290392, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-9.315700887634009, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-9.210340371976182, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-8.517193191416238, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-8.111728083308073, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-7.824046010856292, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-7.418580902748128, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-7.264430222920869, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-7.1308988302963465`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-7.013115794639964, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-6.214608098422191, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-5.809142990314028, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-5.521460917862246, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-5.115995809754082, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-4.961845129926823, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-4.8283137373023015`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-4.710530701645918, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-3.912023005428146, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-3.506557897319982, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-3.2188758248682006`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-2.8134107167600364`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-2.659260036932778, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-2.5257286443082556`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-2.4079456086518722`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-1.6094379124341003`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-1.2039728043259361`, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-0.916290731874155, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}, {-0.6931471805599453, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {0.005, 
+       0.}}}}]]], "Output",
+ CellChangeTimes->{
+  3.908954037846881*^9, 3.908956300472149*^9, {3.908957653327317*^9, 
+   3.9089576608530684`*^9}, 3.9090332432266397`*^9, 3.9090338380215693`*^9, 
+   3.9090338681810226`*^9, 3.909033918804934*^9, 3.9092030204355097`*^9, 
+   3.909234715904965*^9, 3.909461004272626*^9, 3.909461069614771*^9, 
+   3.909461151103896*^9, 3.9094611975904417`*^9, 3.9094613366962633`*^9, 
+   3.909461374647707*^9, 3.915445003366335*^9, 3.915445079606724*^9, {
+   3.9154451436810007`*^9, 3.915445172090399*^9}},
+ CellLabel->
+  "Out[128]=",ExpressionUUID->"27f214a2-0c4a-4705-bd30-b2c11127998e"]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{Automatic, -1888}, {Automatic, -309}},
+PrivateNotebookOptions->{"CloudPublishPath"->"/Published/Cot2Dist.nb"},
+FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (July 24, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ec451783-2b56-4d88-9a77-1bf71911efac"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1089, 30, 70, "Input",ExpressionUUID->"4d6b780d-19fb-48f5-89f5-dabc8805e8d1",
+ Evaluatable->False],
+Cell[1650, 52, 1048, 30, 70, "Input",ExpressionUUID->"c279a4c1-f0e3-476e-90a9-913a50560ea1",
+ Evaluatable->False],
+Cell[2701, 84, 751, 23, 70, "Input",ExpressionUUID->"e79cf3e1-1c55-45aa-9af0-298aa8d858a4"],
+Cell[3455, 109, 1291, 38, 70, "Input",ExpressionUUID->"d5c82e67-4106-4175-b38a-53604f419f03"],
+Cell[CellGroupData[{
+Cell[4771, 151, 961, 32, 70, "Input",ExpressionUUID->"cce63025-45c8-4dc1-ba76-d3f089f06b31"],
+Cell[5735, 185, 627, 19, 70, "Output",ExpressionUUID->"f88fc827-91c5-400f-a703-0011564e956b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6399, 209, 202, 3, 70, "Input",ExpressionUUID->"c0cd052b-6147-45c1-86e2-d5fa99a8e432"],
+Cell[6604, 214, 148, 2, 70, "Output",ExpressionUUID->"6122d83f-3e53-4d5b-9f4e-1db46fa35d90"]
+}, Open  ]],
+Cell[6767, 219, 1727, 47, 70, "Input",ExpressionUUID->"4b5a610d-725b-457c-993f-be820312414d"],
+Cell[CellGroupData[{
+Cell[8519, 270, 236, 5, 70, "Input",ExpressionUUID->"342c84ec-d947-409b-8c57-86709c4aab61"],
+Cell[8758, 277, 770, 18, 70, "Output",ExpressionUUID->"38165cf7-4816-4dac-a781-2fb25b16d3af"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9565, 300, 483, 13, 70, "Input",ExpressionUUID->"23c12123-097d-4b25-abe8-367db91b9adc"],
+Cell[10051, 315, 254, 6, 70, "Output",ExpressionUUID->"42313cfa-c85a-469d-87bb-f4503412695c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10342, 326, 310, 8, 70, "Input",ExpressionUUID->"edef3f74-884a-4a5d-8bc6-271aa4029376"],
+Cell[10655, 336, 195, 3, 70, "Output",ExpressionUUID->"3bfc8622-0c55-4c13-bb37-2b63c1de5adb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10887, 344, 2017, 50, 70, "Input",ExpressionUUID->"a75febe6-aa27-4d33-b859-4a21ca2ce01b"],
+Cell[12907, 396, 165088, 2976, 70, "Output",ExpressionUUID->"27f214a2-0c4a-4705-bd30-b2c11127998e"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
