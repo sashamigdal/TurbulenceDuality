@@ -12,6 +12,7 @@ The AI assistant will:
 - Execute computations and generate plots dynamically using Wolfram Language APIs.
 - Provide explanations and visualizations to make complex concepts accessible.
 - Actively monitor new publications to identify opportunities for collaboration.
+- Leverage [Hugging Face Open-R1](https://github.com/huggingface/open-r1) for tunable, symbolic reasoning on turbulence-related queries.
 
 This assistant combines **natural language understanding (NLU)** with **Mathematica integration**, empowering researchers to interact directly with the data and theory.
 
@@ -28,10 +29,17 @@ This assistant combines **natural language understanding (NLU)** with **Mathemat
    - Retrieve relevant formulas and explanations from:
      - Mathematica notebooks in this repository
      - Associated PDFs containing published results
-   - Execute Mathematica code to compute and visualize:
+   - Execute Mathematica and Python code to compute and visualize:
      - Plots (e.g., energy spectra, velocity correlation functions)
      - Derived quantities (e.g., effective indices, decay laws)
-2. **Real-Time Publication Monitoring**:
+
+2. **Symbolic Reasoning and AI Integration**:
+   - Use [Hugging Face Open-R1](https://github.com/huggingface/open-r1) to:
+     - Parse complex turbulence equations and datasets.
+     - Enable reasoning about nonlinear energy spectra and quantum oscillations.
+     - Build interactive models capable of answering domain-specific questions.
+
+3. **Real-Time Publication Monitoring**:
    - Actively track open-access platforms like arXiv and Preprints.org for new turbulence research.
    - Extract DNS or experimental data from new publications and format it for immediate integration.
    - Automatically email authors, inviting them to collaborate or contribute data.
@@ -48,12 +56,6 @@ This assistant combines **natural language understanding (NLU)** with **Mathemat
   - Enable researchers to upload DNS or experimental data directly to the repository.
   - Process and format data automatically for instant use with Mathematica notebooks.
 
-### **Ongoing Communication**
-- Notify contributors of:
-  - New results (theoretical or experimental).
-  - Opportunities for collaboration or critique.
-- Post updates on platforms like **Reddit**, **ResearchGate**, and **LinkedIn** to attract contributors and critics.
-
 ### **Automated Insights**
 - Provide evidence-based answers to foundational questions such as:
   - Why traditional scaling laws (e.g., K41) fail in decaying turbulence.
@@ -66,7 +68,8 @@ This assistant combines **natural language understanding (NLU)** with **Mathemat
 
 ### **1. Define Core Components**
 - **Natural Language Understanding (NLU)**:
-  - Use AI (e.g., OpenAI GPT-4) fine-tuned on turbulence-related queries.
+  - Use Hugging Face Open-R1 for fine-tuned symbolic reasoning on turbulence-related queries.
+  - Parse complex equations and scientific terminology with tunable AI models.
 - **Integration with Mathematica**:
   - Execute Mathematica commands via Wolfram Cloud APIs for real-time computations.
 - **Publication Monitoring**:
@@ -81,15 +84,17 @@ This assistant combines **natural language understanding (NLU)** with **Mathemat
    - Organize Mathematica notebooks and PDFs for easy access.
    - Annotate key formulas with metadata for efficient retrieval.
 2. **Build AI Query Processor**:
-   - Train AI to interpret turbulence-related queries and map inputs to Mathematica commands.
+   - Train Hugging Face Open-R1 models on turbulence datasets and equations.
+   - Develop AI tools to map user inputs to Mathematica or Python commands.
 3. **Automate Publication Monitoring**:
    - Develop scripts to detect relevant papers and extract data.
    - Automate emails to authors inviting collaboration.
 4. **Develop Interactive Front-End**:
-   - Create a conversational interface using frameworks like React.js or GitHub Actions.
+   - Use Streamlit or Gradio to create a user-friendly interface for interacting with the AI tools.
+   - Integrate query handling, data upload, and visualization capabilities.
 5. **Testing and Iteration**:
    - Test the system with sample queries and datasets.
-   - Refine based on user feedback.
+   - Refine based on user feedback and results.
 
 ---
 
@@ -112,7 +117,7 @@ This assistant combines **natural language understanding (NLU)** with **Mathemat
 
 ### **Technologies**
 - **Programming Languages**: Python, Wolfram Language
-- **APIs**: Wolfram Cloud API, OpenAI GPT API
+- **APIs**: Hugging Face Transformers, Wolfram Cloud API
 - **Libraries**: `transformers` for NLU, `PyPDF2` or `PDFPlumber` for PDF parsing
 - **Hosting**: GitHub Actions, AWS, or Vercel
 
@@ -131,3 +136,4 @@ To contribute:
 - Expand AI functionality to monitor publications and engage researchers dynamically.
 - Develop a user-friendly interface for real-time interaction with DNS and experimental data.
 - Collaborate with the community to refine and extend the number-theoretic framework for turbulence.
+
