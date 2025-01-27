@@ -1,3 +1,4 @@
+![Project Logo](./TDLogo.png)
 # **AI-Powered Interactive Assistant for Turbulence Research**
 
 Welcome to the **Turbulence Duality Open Project**, where we aim to revolutionize turbulence research by providing tools and insights into decaying turbulence using the Euler ensemble and string theory duality. This project includes a specialized **AI-powered assistant** designed to enhance user interaction by dynamically answering queries about turbulence formulas, computations, and visualizations.
