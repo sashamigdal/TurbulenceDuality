@@ -102,11 +102,15 @@
     }
     .content {
       display: none;
+      overflow: hidden; /* Ensures no clipping occurs */
       padding: 15px;
       background: #181818;
       color: #DDDDDD;
       border-radius: 5px;
       margin-bottom: 10px;
+    }
+    .content.open {
+      display: block; /* Ensure full content displays when expanded */
     }
 
     /* Footer */
@@ -195,11 +199,7 @@
       collapsible.addEventListener('click', function () {
         this.classList.toggle('active');
         const content = this.nextElementSibling;
-        if (content.style.display === 'block') {
-          content.style.display = 'none';
-        } else {
-          content.style.display = 'block';
-        }
+        content.classList.toggle('open');
       });
     });
   </script>
