@@ -62,20 +62,22 @@
 
     /* Presentation Section */
     .presentation-container {
-      max-width: 80%;
+      max-width: 80%; /* Define the width of the presentation area */
       margin: 0 auto; /* Center the content */
       text-align: center;
     }
     iframe {
-      width: 100%; /* Matches the container width */
+      width: 100%; /* Make the iframe take up the entire container */
       height: 500px;
       border: none;
     }
     .slider-text {
-      max-width: 100%; /* Matches iframe width (container width) */
-      margin: 10px auto;
+      width: 100%; /* Match the iframe width (100% of the container) */
+      max-width: 100%; /* Prevent overflow */
+      margin: 10px auto 0 auto; /* Center the text under the iframe */
       font-size: 1.1rem;
       color: #DDDDDD;
+      text-align: center;
     }
 
     /* Footer */
