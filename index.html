@@ -17,6 +17,8 @@
       background: #101010;
       color: white;
       line-height: 1.6;
+      scroll-behavior: smooth; /* Smooth scrolling */
+      transition: background 0.3s, color 0.3s;
     }
     h1, h2, h3 {
       font-family: 'Poppins', sans-serif;
@@ -29,6 +31,7 @@
       background: linear-gradient(135deg, #0066FF, #00FF88, #FF0044);
       color: white;
       clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+      animation: fadeIn 1s ease-in-out; /* Fade-in effect */
     }
     .hero img {
       max-width: 250px;
@@ -41,6 +44,27 @@
     .hero p {
       font-size: 1.2rem;
       margin-top: 10px;
+    }
+
+    /* Sticky Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #000000;
+      padding: 10px;
+      z-index: 1000;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #00FF88;
+      text-decoration: none;
     }
 
     /* Main Section */
@@ -60,6 +84,18 @@
       color: #DDDDDD;
     }
 
+    /* Testimonials Section */
+    .testimonials {
+      text-align: center;
+      margin: 40px;
+    }
+    .testimonials blockquote {
+      font-style: italic;
+      color: #DDDDDD;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+
     /* Footer */
     footer {
       text-align: center;
@@ -68,59 +104,76 @@
       color: white;
       font-size: 0.9rem;
     }
+
+    /* Light Mode */
+    body.light-mode {
+      background: white;
+      color: black;
+    }
+    body.light-mode a {
+      color: #0066FF;
+    }
+
+    /* Fade-in Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Sticky Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#guide">Interactive Guide</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#footer">Footer</a></li>
+    </ul>
+  </nav>
+
   <!-- Hero Section -->
   <header class="hero">
     <img src="logo.png" alt="Turbulence Duality Logo">
     <h1>Turbulence Duality</h1>
-    <p style="color: #FF00FF; font-weight: bold; font-size: 1.5rem; margin-top: 10px;">
-      Reveal the Beauty of Primes Under the Ugly Mask of Chaos.
-    </p>
-    <p style="margin-top: 20px; font-size: 1.3rem; line-height: 1.8; color: #0044CC; max-width: 800px; margin-left: auto; margin-right: auto;">
-      The turbulence problem has stood unsolved for centuries for a good reason — a direct approach is virtually impossible, as the vorticity in a turbulent fluid does not exist as a smooth vector field. 
-      The breakthrough described here introduces a new concept of turbulence duality, reducing strong fluctuations of the classical vector field in 3D to a weakly fluctuating dual quantum problem in one dimension.
-    </p>
+    <p>Reveal the Beauty of Primes Under the Ugly Mask of Chaos.</p>
   </header>
 
-  <!-- Combined Section: Slides and Interactive Map -->
-  <div class="section" style="display: flex; flex-direction: column; align-items: center; padding: 40px;">
-    <h2 style="color: #00FF88;">Duality: A Visual and Interactive Guide</h2>
-    <p style="color: #DDDDDD; text-align: center; max-width: 800px; margin-bottom: 20px;">
-      Explore the groundbreaking concept of turbulence duality through a combination of visual slides and an interactive map. 
-      The slides explain the core ideas step by step, while the map offers a hierarchical view of the theory’s structure.
-    </p>
+  <!-- Main Section -->
+  <div id="guide" class="section">
+    <h2>Duality: A Visual and Interactive Guide</h2>
+    <p>Explore the groundbreaking concept of turbulence duality...</p>
+  </div>
 
-    <!-- Two Columns -->
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: flex-start; max-width: 1200px; margin: 20px 0;">
-      <!-- Google Slides -->
-      <div style="flex: 1; min-width: 400px; max-width: 600px;">
-        <iframe 
-          src="https://docs.google.com/presentation/d/1xjtXvLghN8gBwGUTFymMQ4SZaAjp5PGWS8mcWrYVhMw/embed?start=true&loop=true&delayms=3000" 
-          style="width: 100%; height: 500px; border: none; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);">
-        </iframe>
-        <p style="color: #DDDDDD; font-size: 1rem; text-align: center; margin-top: 10px;">
-          <strong>Google Slides:</strong> Step-by-step explanation of turbulence duality.
-        </p>
-      </div>
-
-      <!-- Interactive Map -->
-      <div style="flex: 1; min-width: 400px; max-width: 600px;">
-        <iframe 
-          src="https://sashamigdal.github.io/QuantumSolution/" 
-          style="width: 100%; height: 500px; border: none; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);">
-        </iframe>
-        <p style="color: #DDDDDD; font-size: 1rem; text-align: center; margin-top: 10px;">
-          <strong>Interactive Map:</strong> Hierarchical navigation through the theory.
-        </p>
-      </div>
-    </div>
+  <!-- Testimonials -->
+  <div id="testimonials" class="testimonials">
+    <h2>What People Are Saying</h2>
+    <blockquote>"The concept of turbulence duality is groundbreaking!"</blockquote>
   </div>
 
   <!-- Footer -->
-  <footer>
+  <footer id="footer">
     <p>&copy; 2025 Turbulence Duality | Built with curiosity and creativity.</p>
+    <div>
+      <a href="#about">About</a> | <a href="#guide">Guide</a>
+    </div>
   </footer>
+
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" style="position: fixed; bottom: 20px; right: 20px; padding: 10px;">Switch to Light Mode</button>
+
+  <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      toggleButton.textContent = document.body.classList.contains('light-mode') ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+    });
+  </script>
 </body>
 </html>
