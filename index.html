@@ -77,40 +77,22 @@
       color: #00FF88;
       margin-bottom: 20px;
     }
-    .collapsible {
+    blockquote {
       background: #202020;
-      color: #00FF88;
-      cursor: pointer;
-      padding: 15px;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 1.1rem;
-      width: 100%;
-      margin-bottom: 10px;
+      padding: 15px 20px;
+      border-left: 5px solid #00FF88;
+      margin: 20px 0;
       border-radius: 5px;
     }
-    .collapsible:hover {
-      background: #303030;
+    blockquote strong {
+      color: #FF0044;
     }
-    .collapsible:after {
-      content: '\002B'; /* Plus sign */
-      float: right;
-    }
-    .collapsible.active:after {
-      content: '\2212'; /* Minus sign */
-    }
-    .content {
-      display: none;
-      overflow: hidden; /* Ensures no clipping occurs */
-      padding: 15px;
-      background: #181818;
+    blockquote cite {
+      display: block;
+      text-align: right;
       color: #DDDDDD;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
-    .content.open {
-      display: block; /* Ensure full content displays when expanded */
+      font-size: 0.9rem;
+      margin-top: 10px;
     }
 
     /* Footer */
@@ -170,38 +152,34 @@
   <div id="testimonials" class="testimonials">
     <h2>What People Are Saying</h2>
 
-    <!-- Collapsible Q&A -->
-    <button class="collapsible">"The decay of hydrodynamic turbulence is a very fundamental problem..."</button>
-    <div class="content">
-      <p><strong>Response:</strong> Since the publication of this paper in <em>Physics of Fluids</em>, the basic equations were mathematically verified...</p>
-    </div>
+    <!-- Positive Review -->
+    <blockquote>
+      "The decay of hydrodynamic turbulence is a very fundamental problem. There have been no serious theoretical developments on the subject in the last seventy-five years or so. This paper presents a comprehensive and refreshing theory whose results are supposed to supersede most known results traditionally (K41, Heisenberg, and multifractal)..."
+      <cite>— Anonymous Referee, *Physics of Fluids*</cite>
+    </blockquote>
 
-    <button class="collapsible">"I see, where is the miracle happening: when momentum loop equation becomes one-dimensional..."</button>
-    <div class="content">
-      <p><strong>Response:</strong> No, Peter, these are analytical computations using multiple complex integrals with zeta functions...</p>
-    </div>
+    <!-- Author's Response -->
+    <blockquote>
+      <strong>Response:</strong> "Since the publication of this paper in *Physics of Fluids*, the basic equations (Euler ensemble as a solution of the Navier-Stokes loop equation) were mathematically verified at the Institute for Advanced Study (IAS)..."
+      <cite>— Author's Response</cite>
+    </blockquote>
 
-    <button class="collapsible">"With our turbulence theories so stagnant, maybe this crazy theory is what we need..."</button>
-    <div class="content">
-      <p><cite>— Attendee at a Recent Lecture</cite></p>
-    </div>
+    <!-- Number Theorist Review -->
+    <blockquote>
+      "These green curves at your plots—what are they: some simulations of the Euler ensemble?"
+      <cite>— Number Theorist, IAS</cite>
+    </blockquote>
+
+    <!-- Response to Number Theorist -->
+    <blockquote>
+      <strong>Response:</strong> "No, Peter, these are analytical computations using Mellin integrals with zeta functions. I did them with Mathematica using Gauss-Kronrod method for oscillating integrals along an imaginary line..."
+      <cite>— Author's Response</cite>
+    </blockquote>
   </div>
 
   <!-- Footer -->
   <footer id="footer">
     <p>&copy; 2025 Turbulence Duality | Built with curiosity and creativity.</p>
   </footer>
-
-  <script>
-    // Collapsible functionality
-    const collapsibles = document.querySelectorAll('.collapsible');
-    collapsibles.forEach((collapsible) => {
-      collapsible.addEventListener('click', function () {
-        this.classList.toggle('active');
-        const content = this.nextElementSibling;
-        content.classList.toggle('open');
-      });
-    });
-  </script>
 </body>
 </html>
