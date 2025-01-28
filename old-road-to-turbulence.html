@@ -4,112 +4,120 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Old Road to Turbulence</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;300&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: Arial, sans-serif;
       background: #101010;
       color: white;
-      line-height: 1.6;
+      margin: 0;
       padding: 20px;
     }
     h1 {
       text-align: center;
-      font-family: 'Poppins', sans-serif;
+      font-size: 3rem;
       color: #00FF88;
-      margin-bottom: 20px;
+    }
+    .table-container {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
     }
     table {
-      width: 100%;
       border-collapse: collapse;
-      margin: 20px auto;
-      background: #202020;
-      border: 1px solid #444;
+      width: 90%; /* Increase table width */
+      font-size: 1.5rem; /* 50% larger font size */
     }
     th, td {
+      border: 1px solid #555;
+      padding: 20px; /* Increase padding for better spacing */
       text-align: left;
-      padding: 10px;
-      border: 1px solid #444;
-      font-size: 0.9rem;
     }
     th {
-      background: #303030;
+      background-color: #202020;
       color: #00FF88;
+      font-size: 1.8rem; /* Slightly larger for headers */
     }
     td img {
-      display: block;
-      max-width: 50px;
+      width: 75px; /* Increase image size to 50% larger */
       height: auto;
+      display: block;
       margin: 0 auto;
     }
-    td p {
-      color: #DDDDDD;
-      margin: 0;
+    .centered {
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <h1>The Old Road to Turbulence</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Discovery Year</th>
-        <th>Portrait</th>
-        <th>Key Contribution</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1500s</td>
-        <td><img src="Giants of Turbulence/Leonardo.jpg" alt="Leonardo da Vinci"></td>
-        <td><p><strong>Leonardo da Vinci:</strong> Documented early observations of turbulent flow.</p></td>
-      </tr>
-      <tr>
-        <td>1820s</td>
-        <td><img src="Giants of Turbulence/Navier.jpg" alt="Navier"><img src="Giants of Turbulence/Stokes.jpg" alt="Stokes"></td>
-        <td><p><strong>Claude-Louis Navier</strong> and <strong>George Gabriel Stokes:</strong> Formulated the foundational NS equations.</p></td>
-      </tr>
-      <tr>
-        <td>1883</td>
-        <td><img src="Giants of Turbulence/Reynolds.jpg" alt="Reynolds"></td>
-        <td><p><strong>Osborne Reynolds:</strong> Characterized the transition to turbulence.</p></td>
-      </tr>
-      <tr>
-        <td>1941</td>
-        <td><img src="Giants of Turbulence/Kolmogorov.jpg" alt="Kolmogorov"></td>
-        <td><p><strong>Andrey Kolmogorov:</strong> Proposed scaling laws of turbulence (<strong>K41</strong>).</p></td>
-      </tr>
-      <tr>
-        <td>1944</td>
-        <td><img src="Giants of Turbulence/Heisenberg.jpg" alt="Heisenberg"></td>
-        <td><p><strong>Werner Heisenberg:</strong> Theoretical contributions to stability and dissipation models.</p></td>
-      </tr>
-      <tr>
-        <td>1946</td>
-        <td><img src="Giants of Turbulence/Onsager.jpg" alt="Onsager"></td>
-        <td><p><strong>Lars Onsager:</strong> Introduced insights into fractal velocity fields and vortex structures.</p></td>
-      </tr>
-      <tr>
-        <td>1948-1952</td>
-        <td><img src="Giants of Turbulence/Hopf.jpg" alt="Hopf"></td>
-        <td><p><strong>Eberhard Hopf:</strong> The functional equation for statistics of turbulence.</p></td>
-      </tr>
-      <tr>
-        <td>1956</td>
-        <td><img src="Giants of Turbulence/landau.jpg" alt="Landau"></td>
-        <td><p><strong>Lev Landau:</strong> Advanced the understanding of hydrodynamic stability.</p></td>
-      </tr>
-      <tr>
-        <td>1985</td>
-        <td><img src="Giants of Turbulence/Parisi.jpg" alt="Parisi"><img src="Giants of Turbulence/Frisch.jpg" alt="Frisch"></td>
-        <td><p><strong>Giorgio Parisi</strong> and <strong>Uriel Frisch:</strong> Proposed multifractal models for turbulence.</p></td>
-      </tr>
-      <tr>
-        <td>2000-2022</td>
-        <td><img src="Giants of Turbulence/Sreeni.jpg" alt="Sreeni"></td>
-        <td><p><strong>K.R. Sreenivasan:</strong> DNS studies uncovering <strong>scaling law violations</strong>.</p></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Discovery Year</th>
+          <th>Portrait</th>
+          <th>Key Contribution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="centered">1500s</td>
+          <td><img src="GiantsOfTurbulence/Leonardo.jpg" alt="Leonardo da Vinci"></td>
+          <td>Leonardo da Vinci: Documented early observations of turbulent flow.</td>
+        </tr>
+        <tr>
+          <td class="centered">1820s</td>
+          <td>
+            <img src="GiantsOfTurbulence/Navier.jpg" alt="Navier">
+            <img src="GiantsOfTurbulence/Stokes.jpg" alt="Stokes">
+          </td>
+          <td>Claude-Louis Navier and George Gabriel Stokes: Formulated the foundational NS equations.</td>
+        </tr>
+        <tr>
+          <td class="centered">1883</td>
+          <td><img src="GiantsOfTurbulence/Reynolds.jpg" alt="Reynolds"></td>
+          <td>Osborne Reynolds: Characterized the transition to turbulence.</td>
+        </tr>
+        <tr>
+          <td class="centered">1941</td>
+          <td><img src="GiantsOfTurbulence/Kolmogorov.jpg" alt="Kolmogorov"></td>
+          <td>Andrey Kolmogorov: Proposed scaling laws of turbulence (K41).</td>
+        </tr>
+        <tr>
+          <td class="centered">1944</td>
+          <td><img src="GiantsOfTurbulence/Heisenberg.jpg" alt="Heisenberg"></td>
+          <td>Werner Heisenberg: Theoretical contributions to stability and dissipation models.</td>
+        </tr>
+        <tr>
+          <td class="centered">1946</td>
+          <td><img src="GiantsOfTurbulence/Onsager.jpg" alt="Onsager"></td>
+          <td>Lars Onsager: Introduced insights into fractal velocity fields and vortex structures.</td>
+        </tr>
+        <tr>
+          <td class="centered">1948-1952</td>
+          <td><img src="GiantsOfTurbulence/Hopf.jpg" alt="Hopf"></td>
+          <td>Eberhard Hopf: The functional equation for statistics of turbulence.</td>
+        </tr>
+        <tr>
+          <td class="centered">1956</td>
+          <td><img src="GiantsOfTurbulence/Landau.jpg" alt="Landau"></td>
+          <td>Lev Landau: Advanced the understanding of hydrodynamic stability.</td>
+        </tr>
+        <tr>
+          <td class="centered">1985</td>
+          <td>
+            <img src="GiantsOfTurbulence/Parisi.jpg" alt="Parisi">
+            <img src="GiantsOfTurbulence/Frisch.jpg" alt="Frisch">
+          </td>
+          <td>Giorgio Parisi and Uriel Frisch: Proposed multifractal models for turbulence.</td>
+        </tr>
+        <tr>
+          <td class="centered">2000-2022</td>
+          <td><img src="GiantsOfTurbulence/Sreeni.jpg" alt="Sreeni"></td>
+          <td>K.R. Sreenivasan: DNS studies uncovering scaling law violations.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
