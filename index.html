@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -133,219 +134,78 @@
     </ul>
   </nav>
 
-<!-- Hero Section -->
-<header class="hero">
-  <img src="logo.png" alt="Turbulence Duality Logo">
-  <h1>Turbulence Duality</h1>
-  <p>Reveal the Beauty of Primes Under the Ugly Mask of Chaos.</p>
-  <p style="color: yellow; font-size: 1.2rem; font-weight: bold; margin-top: 20px;">🚧 Under Construction 🚧</p>
-</header>
-l the Beauty of Primes Under the Ugly Mask of Chaos.</p>
+  <!-- Hero Section -->
+  <header class="hero">
+    <img src="logo.png" alt="Turbulence Duality Logo">
+    <h1>Turbulence Duality</h1>
+    <p>Reveal the Beauty of Primes Under the Ugly Mask of Chaos.</p>
   </header>
 
   <!-- Interactive Guide Section -->
   <div id="guide" class="section">
-  <h2>Duality: A Visual and Interactive Guide</h2>
-  <p>Explore the groundbreaking concept of turbulence duality through a combination of visual slides and an interactive map.</p>
+    <h2>Duality: A Visual and Interactive Guide</h2>
+    <p>Explore the groundbreaking concept of turbulence duality through a combination of visual slides and an interactive map.</p>
 
-  <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-    <!-- Google Slides -->
-    <div style="flex: 1; min-width: 400px; max-width: 600px;">
-      <iframe 
-        src="https://docs.google.com/presentation/d/1xjtXvLghN8gBwGUTFymMQ4SZaAjp5PGWS8mcWrYVhMw/embed?start=true&loop=true&delayms=3000" 
-        style="width: 100%; height: 400px; border: none; border-radius: 10px;">
-      </iframe>
-      <p style="color: #DDDDDD; text-align: center;">Google Slides: Step-by-step explanation of turbulence duality.</p>
-    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+      <!-- Google Slides -->
+      <div style="flex: 1; min-width: 400px; max-width: 600px;">
+        <iframe 
+          src="https://docs.google.com/presentation/d/1xjtXvLghN8gBwGUTFymMQ4SZaAjp5PGWS8mcWrYVhMw/embed?start=true&loop=true&delayms=3000" 
+          style="width: 100%; height: 400px; border: none; border-radius: 10px;">
+        </iframe>
+        <p style="color: #DDDDDD; text-align: center;">Google Slides: Step-by-step explanation of turbulence duality.</p>
+      </div>
 
-    <!-- Interactive Map with Expand Button -->
-    <div style="flex: 2; min-width: 800px; max-width: 1200px; position: relative;">
-      <iframe 
-        id="interactive-map" 
-        src="https://sashamigdal.github.io/QuantumSolution/" 
-        style="width: 100%; height: 600px; border: none; border-radius: 10px;">
-      </iframe>
-      <button 
-        id="expand-map-btn" 
-        style="position: absolute; bottom: 10px; right: 10px; padding: 10px 15px; background: #00FF88; color: black; border: none; border-radius: 5px; cursor: pointer; z-index: 10;">
-        Expand
-      </button>
-      <p style="color: #DDDDDD; text-align: center;">Interactive Map: Navigate the theory’s structure.</p>
-    </div>
-  </div>
-</div>
-
-<script>
-  // Handle Full-Screen Toggle for the Interactive Map
-  const expandBtn = document.getElementById('expand-map-btn');
-  const iframe = document.getElementById('interactive-map');
-
-  expandBtn.addEventListener('click', () => {
-    if (!document.fullscreenElement) {
-      iframe.requestFullscreen().catch
-
-
-
-  <!-- Testimonials Section -->
-<div id="testimonials" class="testimonials">
-  <h2>What People Are Saying</h2>
-
-  <!-- Testimonial 1: Positive Review -->
-  <button class="collapsible">"The decay of hydrodynamic turbulence is a very fundamental problem..."</button>
-  <div class="content">
-    <p>"The decay of hydrodynamic turbulence is a very fundamental problem. There have been no serious theoretical developments on the subject in the last seventy-five years or so. This paper presents a comprehensive and refreshing theory whose results are supposed to supersede most known results traditionally (K41, Heisenberg, and multifractal). If true, this is a major step in the field.*  
-
-    *But is it true? The paper is based on a quantum ergodic hypothesis that stipulates an exact equivalence between the loop functional (the Fourier transform of the probability distribution) and the quantum trace of an evolution operator for the one-dimensional ring of Fermi particles. This appears plausible but there is no proof yet. But as the author points out, a plausible approach of theoretical physics does not wait for that proof.*  
-
-    *The paper combines results from quantum field theory, concepts of classical hydrodynamics, number theory, etc., woven together in a very interesting way. The notion that classical power laws should be replaced by universal functions appears to be entirely correct. The comparison with experimental and DNS data (especially the length scale and the spectrum) is incomplete, as the author recognizes himself, partly because the experimental data are incomplete at present. The results of the paper may not be the final word on the problem, but it has so many interesting ideas in it that at least some of which will lead to a better understanding of the problem.*  
-
-    *For that to happen, however, this paper has to be published first, and there is no better venue for it than this special issue. Thus, I strongly recommend the publication of the paper."</p>
-    <cite>— Anonymous Referee, *Physics of Fluids*</cite>
-  </div>
-
-  <!-- Author's Response to Positive Review -->
-  <button class="collapsible">"Author's Response to Positive Review"</button>
-  <div class="content">
-    <p>"Since the publication of this paper in *Physics of Fluids*, the basic equations (Euler ensemble as a solution of the Navier-Stokes loop equation) were mathematically verified at the Institute for Advanced Study (IAS). Additionally, new DNS simulations at a 4096<sup>3</sup> lattice confirmed my predictions within the statistical margin of error. Recent physical experiments have also observed the energy decay index of 1.25, in complete agreement with my theoretical prediction.  
-
-    What is left is a confirmation at very large-scale DNS, which I am awaiting to appear sometime this winter."</p>
-    <cite>— Author's Response</cite>
-  </div>
-
-  <!-- Testimonial 2: Critical Review -->
-  <button class="collapsible">"The proposed approach captures the energy decays well..."</button>
-  <div class="content">
-    <p>"The paper primarily focuses on the slope of energy spectra and its decay. The proposed approach captures the energy decays well, but the author proposes a steeper -7/2 spectra than K41. Kolmogorov spectra has been well documented in the literature, so this reviewer is very skeptical of the results.*  
-
-    *Overall, this reviewer finds this paper too narrow in scope. Even if the mathematics is correct, and the proposed spectra is correct, this reviewer as a turbulence modeling and application engineer finds very little information that can be used to advance CFD."</p>
-    <cite>— Anonymous Referee, *Physics of Fluids*</cite>
-  </div>
-
-  <!-- Author's Response to Critical Review -->
-  <button class="collapsible">"Author's Response to Critical Review"</button>
-  <div class="content">
-    <p>"I appreciate the reviewer's extensive experience and dedication to understanding the physics of turbulence. Having spent over three decades on this problem myself, I deeply respect the historical role of traditional approaches, including the Kolmogorov -5/3 law (or the equivalent 2/3 law for the second moment of velocity difference). However, I believe it is essential to verify phenomenological assumptions with real and numerical experiments continually.  
-
-    While older experiments for forced turbulence approximately confirmed this law, recent DNS studies over the past decade have shown small but significant deviations from K41 in forced turbulence. The multifractal model was developed to explain these deviations. My paper discusses these experiments in detail, particularly in section X.A (Discussion: The myths and reality of turbulent scaling laws). In decaying turbulence, these deviations are not minor—they are substantial. My theory explains these deviations within two standard errors of experimental data, without any fitting parameters. The lack of the 2/3 law is evident from the experimental data (see section VIII: Comparing our theory with DNS, Figs. 14 and 15). Recognized experts such as K.R. Sreenivasan and Gregory P. Bewley have reached similarly negative conclusions about K41 laws in decaying turbulence, which I cite in my paper.  
-
-    Therefore, I must respectfully disagree with the reviewer on this aspect."</p>
-    <cite>— Author's Response</cite>
-  </div>
-
-  <!-- Testimonial 3 -->
-  <button class="collapsible">"With our turbulence theories so stagnant, maybe this crazy theory is what we need..."</button>
-  <div class="content">
-    <p>"With our turbulence theories so stagnant, maybe this crazy theory is what we need..."</p>
-    <cite>— Attendee at the Lecture in Simons Foundation, Summer 2024</cite>
-  </div>
-
-  <!-- Testimonial 4 -->
-  <button class="collapsible">"These green curves at your plots..."</button>
-  <div class="content">
-    <p>"These green curves at your plots—what are they: some simulations of the Euler ensemble?"</p>
-    <cite>— Number Theorist, IAS, Talk in November 2024</cite>
-  </div>
-
-  <!-- Author's Response to Green Curve Question -->
-  <button class="collapsible">"Author's Response to Green Curve Question"</button>
-  <div class="content">
-    <p>"No, Peter, these are analytical computations using Mellin integrals with zeta functions. I did them with Mathematica using Gauss-Kronrod method for oscillating integrals along an imaginary line. These functions in the energy spectrum being universal, they need to be computed only once, and I am sure that the number theorists will compute them with all the necessary precision and more."</p>
-    <cite>— Author's Response</cite>
-  </div>
-</div>
-<div id="q-and-a" class="q-and-a">
-  <h2>Questions and Comments</h2>
-  <p>Have a question or comment about turbulence duality? Leave it below, and I'll get back to you!</p>
-
-  <!-- Submission Form -->
-  <form id="qa-form" class="qa-form">
-    <label for="question">Your Question/Comment:</label>
-    <textarea id="question" name="question" rows="5" placeholder="Type your question or comment here..." required></textarea>
-    <br>
-    <button type="submit">Submit</button>
-  </form>
-
-  <!-- Display Submitted Questions -->
-  <div id="qa-display" class="qa-display">
-    <h3>Questions & Answers</h3>
-    <!-- Example of a prefilled Q&A -->
-    <div id="qa-list">
-      <div class="qa-item">
-        <p><strong>Q:</strong> What is turbulence duality?</p>
-        <p><strong>A:</strong> Turbulence duality reinterprets hydrodynamic turbulence as a problem in string theory, particularly using regular star polygons as the target space.</p>
+      <!-- Interactive Map -->
+      <div style="flex: 1; min-width: 400px; max-width: 600px;">
+        <iframe 
+          src="https://sashamigdal.github.io/QuantumSolution/" 
+          style="width: 100%; height: 400px; border: none; border-radius: 10px;">
+        </iframe>
+        <p style="color: #DDDDDD; text-align: center;">Interactive Map: Navigate the theory’s structure.</p>
       </div>
     </div>
   </div>
-</div>
 
-<style>
-  .q-and-a {
-    margin: 40px auto;
-    padding: 20px;
-    max-width: 800px;
-    background: #202020;
-    color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  }
-  .qa-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #444;
-    border-radius: 5px;
-    background: #101010;
-    color: white;
-    resize: none;
-  }
-  .qa-form button {
-    background: #00FF88;
-    color: #000;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  .qa-form button:hover {
-    background: #00cc6f;
-  }
-  .qa-display {
-    margin-top: 30px;
-  }
-  .qa-item {
-    background: #181818;
-    padding: 15px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-</style>
+  <!-- Testimonials Section -->
+  <div id="testimonials" class="testimonials">
+    <h2>What People Are Saying</h2>
 
-<script>
-  // Handle Form Submission
-  const form = document.getElementById('qa-form');
-  const qaList = document.getElementById('qa-list');
+    <!-- Testimonial 1 -->
+    <button class="collapsible">"The decay of hydrodynamic turbulence is a very fundamental problem..."</button>
+    <div class="content">
+      <p>"The decay of hydrodynamic turbulence is a very fundamental problem. There have been no serious theoretical developments on the subject in the last seventy-five years or so... [full text here]"</p>
+      <cite>— Anonymous Referee, *Physics of Fluids*</cite>
+    </div>
 
-  form.addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevent page reload
-    const question = document.getElementById('question').value;
+    <!-- Testimonial 2 -->
+    <button class="collapsible">"The proposed approach captures the energy decays well..."</button>
+    <div class="content">
+      <p>"The paper primarily focuses on the slope of energy spectra and its decay... [full text here]"</p>
+      <cite>— Anonymous Referee, *Physics of Fluids*</cite>
+    </div>
 
-    // Create a new Q&A item
-    const newQaItem = document.createElement('div');
-    newQaItem.classList.add('qa-item');
-    newQaItem.innerHTML = `
-      <p><strong>Q:</strong> ${question}</p>
-      <p><strong>A:</strong> Thank you for your question! I'll review it and respond shortly.</p>
-    `;
+    <!-- Testimonial 3 -->
+    <button class="collapsible">"With our turbulence theories so stagnant, maybe this crazy theory is what we need..."</button>
+    <div class="content">
+      <p>"With our turbulence theories so stagnant, maybe this crazy theory is what we need..."</p>
+      <cite>— Attendee at the Lecture in Simons Foundation, Summer 2024</cite>
+    </div>
 
-    // Add it to the list
-    qaList.appendChild(newQaItem);
+    <!-- Testimonial 4 -->
+    <button class="collapsible">"These green curves at your plots..."</button>
+    <div class="content">
+      <p>"These green curves at your plots—what are they: some simulations of the Euler ensemble?"</p>
+      <cite>— Number Theorist, IAS, Talk in November 2024</cite>
+    </div>
 
-    // Clear the form
-    form.reset();
-  });
-</script>
-
+    <!-- Author's Response -->
+    <button class="collapsible">"Author's Response to Green Curve Question"</button>
+    <div class="content">
+      <p>"No, Peter, these are analytical computations using Mellin integrals with zeta functions... [full text here]"</p>
+      <cite>— Author's Response</cite>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer id="footer">
