@@ -98,24 +98,33 @@
     </table>
   </div>
 
-  <!-- Right Side: Scaling Law Violations -->
-  <!-- Right Side: Scaling Law Violations -->
+<!-- Load MathJax in <head> for LaTeX support -->
+<script type="text/javascript" async
+  src="https://polyfill.io/v3/polyfill.min.js?features=es6">
+</script>
+<script type="text/javascript" async
+  id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<!-- Right Side: Scaling Law Violations -->
 <div style="flex: 1; max-width: 45%; text-align: center;">
-<h3>Scaling Law Violations: The Dead End of the Old Road</h3>
-
-<!-- DNS Scaling Mismatch Image -->
-<img src="DNSScalingMismatch.jpg" alt="Graph showing DNS scaling mismatch" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
-
-<!-- Text Content -->
-<div style="margin-top: 20px; color: white; font-size: 1.1rem; text-align: left; padding: 15px; background: rgba(0, 0, 0, 0.5); border-radius: 10px;">
-  <h4 style="color: #FFA500;">Key Findings:</h4>
-  <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.6;">
-    <li><strong style="color: #00FFFF;">Kolmogorov's K41 model theory:</strong> Predicted universal scaling laws for velocity difference moments, including an index of <span style="font-style: italic;">2/3</span> for the second moment.</li>
-    <li>This figure shows the effective index = logarithmic derivative of the second moment 
-      <span style="font-style: italic;">⟨ Δ v²(r, t) ⟩</span> plotted against <span style="font-style: italic;">log(r/√t)</span>.
-    </li>
-    <li>DNS simulations (<strong style="color: #FFA500;">4096³ lattice</strong>) using a novel method to extract effective indices from observed energy spectra 
-      <strong style="color: #FF3333;">contradicted any scaling law</strong> (a horizontal line on this plot).
-    </li>
-  </ul>
+  <h3>Scaling Law Violations: The Dead End of the Old Road</h3>
+  
+  <!-- DNS Scaling Mismatch Image -->
+  <img src="DNSScalingMismatch.jpg" alt="Graph showing DNS scaling mismatch" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
+  
+  <!-- Text Content -->
+  <div style="margin-top: 20px; color: white; font-size: 1.1rem; text-align: left; padding: 15px; background: rgba(0, 0, 0, 0.5); border-radius: 10px;">
+    <h4 style="color: #FFA500;">Key Findings:</h4>
+    <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.6;">
+      <li><strong style="color: #00FFFF;">Kolmogorov's K41 model theory:</strong> Predicted universal scaling laws for velocity difference moments, including an index of \( \frac{2}{3} \) for the second moment.</li>
+      <li>This figure shows the effective index = logarithmic derivative of the second moment 
+        \( \langle \Delta v^2(r,t) \rangle \) plotted against \( \log(r/\sqrt{t}) \).
+      </li>
+      <li>DNS simulations (<strong style="color: #FFA500;">\( 4096^3 \) lattice</strong>) using a novel method to extract effective indices from observed energy spectra 
+        <strong style="color: #FF3333;">contradicted any scaling law</strong> (a horizontal line on this plot).
+      </li>
+    </ul>
+  </div>
 </div>
+
