@@ -1,177 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Euler Ensemble Proof - Turbulence Duality</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;300&display=swap" rel="stylesheet">
-  <script type="text/javascript" async
-    src="https://polyfill.io/v3/polyfill.min.js?features=es6">
-  </script>
-  <script type="text/javascript" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-  <style>
-    /* Copying your existing styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: #101010;
-      color: white;
-      line-height: 1.6;
-    }
-    h1, h2, h3 {
-      font-family: 'Poppins', sans-serif;
-      margin: 1.5em 0 0.5em 0;
-    }
-    
-    /* Navigation */
-    nav {
-      position: sticky;
-      top: 0;
-      background: #000000;
-      padding: 10px;
-      z-index: 1000;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-    }
-    nav ul li {
-      margin: 0 15px;
-    }
-    nav ul li a {
-      color: #00FF88;
-      text-decoration: none;
-    }
-
-    /* Main Content */
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    /* Proof Content Styles */
-    .proof-content {
-      background: #181818;
-      padding: 30px;
-      border-radius: 10px;
-      margin: 20px 0;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    .theorem {
-      background: #202020;
-      padding: 20px;
-      border-left: 4px solid #00FF88;
-      margin: 20px 0;
-      border-radius: 0 10px 10px 0;
-    }
-
-    .proof {
-      margin: 20px 0;
-      padding-left: 20px;
-      border-left: 2px solid #444;
-    }
-
-    /* Equation Styles */
-    .equation {
-      margin: 1.5em 0;
-      overflow-x: auto;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #000000;
-      color: white;
-      margin-top: 40px;
-    }
-  </style>
+    <title>Universality, Scaling, and Euler Ensemble Proof</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            TeX: {
+                extensions: ["AMSmath.js", "AMSsymbols.js"],
+                equationNumbers: { autoNumber: "AMS" },
+                Macros: {
+                    I: "\\imath",
+                    8: "\\infty",
+                    VEV: ["\\left\\langle #1\\right\\rangle", 1]
+                }
+            }
+        });
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        .theorem {
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-left: 4px solid #2c3e50;
+        }
+        .proof {
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: #fff;
+            border: 1px solid #eee;
+        }
+        .equation {
+            margin: 1rem 0;
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#guide">Interactive Guide</a></li>
-      <li><a href="talks.html">Talks</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="old-road-to-turbulence.html">The Old Road to Turbulence</a></li>
-    </ul>
-  </nav>
+    <h2>Universality and Scaling of MLE</h2>
+    <p>Various symmetry properties affect solutions' space, especially their fixed trajectories.</p>
 
-  <main>
-    <h1>Euler Ensemble Proof</h1>
-    
-    <div class="proof-content">
-      <div class="theorem">
-        <h2>Theorem</h2>
-        <p>The Euler ensemble solves the discrete Momentum Loop Equation (MLE).</p>
-      </div>
-
-      <div class="proof">
-        <h3>Proof</h3>
-        <p>We start from the general Ansatz with real vectors \(\vec A, \vec f_k\), corresponding to the real circulation:</p>
-        
-        <div class="equation">
-          \[\vec F_k = \I \vec A + (\vec f_{k -1} + \vec f_k)/2\]
-          \[\Delta \vec F_k = \vec f_{k} - \vec f_{k-1}\]
-          \[(\vec f_{k} - \vec f_{k-1})^2=1\]
-        </div>
-
-        <p>Analyzing the imaginary and real parts of the second equation in the system, we observe that the imaginary part will vanish provided:</p>
-        
-        <div class="equation">
-          \[\vec A \cdot \vec f_k =0 \;\forall k\]
-          \[\vec f_k^2 = \vec f_{k-1}^2 \;\forall k\]
-        </div>
-
-        <p>We conclude that \(\vec f_k\) belongs to a circle with some radius \(R\) in the origin of the plane, which plane is orthogonal to \(\vec A\).</p>
-        
-        <p>In the coordinate frame where \(\vec A = \{0,0,A\}\):</p>
-        
-        <div class="equation">
-          \[\vec f_k = R \left\{\cos(\alpha_k), \sin(\alpha_k), 0\right\}\]
-        </div>
-
-        <p>The \(SO(3)\) matrix needed to rotate our vectors to this coordinate frame can be absorbed into the rotation matrix \(\Omega\) we have in our solution.</p>
-
-        <p>The radius \(R\) and \(A\) are determined by the real part of our equations as follows:</p>
-        
-        <div class="equation">
-          \[4 A^2 = 2 R^2 \left(1 + \cos(\alpha_{k} - \alpha_{k-1})\right)\]
-          \[1 = 2 R^2 \left(1 - \cos(\alpha_{k} - \alpha_{k-1})\right)\]
-        </div>
-
-        <p>Solving these equations, we find the \(\mathbb{Z}_2\) variables at every step:</p>
-        
-        <div class="equation">
-          \[\alpha_{k} = \alpha_{k-1} + \beta \sigma_k,\; \sigma_k^2 =1\]
-        </div>
-
-        <p>The radius \(R\) and the length \(A = |\vec A|\) are related to this angular step \(\beta\):</p>
-        
-        <div class="equation">
-          \[R = \frac{1}{2 \sin \left(\frac{\beta}{2}\right)}\]
-          \[A = \frac{1}{2 \tan \left(\frac{\beta}{2}\right)}\]
-        </div>
-
-        <p>The periodicity of the sequence \(\vec f_k\) requires the angular step to be a fraction of \(2\pi\), which brings us to the Euler ensemble.</p>
-      </div>
+    <p>First of all, this equation is parametric invariant:</p>
+    <div class="equation">
+        \begin{eqnarray}
+        \vec P(\theta, t) \Rightarrow \vec P(f(\theta), t);\; f'(\theta) >0;
+        \end{eqnarray}
     </div>
-  </main>
+    <p>Naturally, any initial condition $\vec P(\theta, 0) = \vec P_0(\theta)$ will break this invariance; each such initial data will generate a family of solutions corresponding to initial data $\vec P_0(f(\theta))$.</p>
 
-  <footer>
-    <p>&copy; 2025 Turbulence Duality | Built with curiosity and creativity.</p>
-  </footer>
+    <p>The lack of explicit time dependence on the right side leads to time translation invariance:</p>
+    <div class="equation">
+        \begin{eqnarray}
+        \vec P(\theta, t) \Rightarrow \vec P(\theta, t+ a)
+        \end{eqnarray}
+    </div>
+    <p>Less trivial but also very significant is the time-rescaling symmetry:</p>
+    <div class="equation">
+        \begin{eqnarray}
+        \vec P(\theta, t) \Rightarrow \sqrt{\lambda}  \vec P(\theta, \lambda t),
+        \end{eqnarray}
+    </div>
+    <p>This symmetry follows because the right side is a homogeneous functional of the third degree in $\vec P$ without explicit time dependence.</p>
+
+    <p>This scale transformation is quite different from the scale transformation in the Navier-Stokes equation, which involves rescaling of the viscosity parameter:</p>
+    <div class="equation">
+        \begin{eqnarray}
+        && \vec v(\vec r, t) \Rightarrow \frac{\vec v(\alpha \vec r, \lambda t)}{\alpha\lambda} ;\\
+        && \nu \Rightarrow \nu \frac{\alpha^2}{\lambda} 
+        \end{eqnarray}
+    </div>
+    <p>In our case, there is a genuine scale invariance without parameter changes; in other words, no dimensional parameters are left in MLE.</p>
+
+    <p>Using this invariance, one can make the following transformation of the momentum loop and its variables:</p>
+    <div class="equation">
+        \begin{eqnarray}
+        \vec{P} = \sqrt{\frac{\nu}{2(t+ t_0)}} \frac{ \vec{F}}{\gamma}
+        \end{eqnarray}
+    </div>
+    <p>The new vector function $\vec{F}$ satisfies the following dimensionless equation:</p>
+    <div class="equation">
+        \begin{eqnarray}
+        &&2\partial_\tau \vec{F} = \left(1- (\Delta \vec{F})^2\right) \vec{F}  +\Delta \vec{F} \left(\gamma^2 \vec{F} \cdot \Delta \vec{F} +\I \gamma \left( \frac{(\vec{F} \cdot \Delta \vec{F})^2}{\Delta \vec{F}^2}- \vec{F}^2\right)\right);\\
+        && \tau = \log \frac{t + t_0}{t_0};
+        \end{eqnarray}
+    </div>
+    <p>The <strong>viscosity disappeared from this equation</strong>; now it only enters the initial data:</p>
+    <div class="equation">
+        \begin{eqnarray}
+        \vec F(\theta, 0) = \sqrt{\frac{2 t_0}{\nu}} \vec P_0(\theta)
+        \end{eqnarray}
+    </div>
+    <p>This universality property is extremely important. Note that the loop functional is now represented as:</p>
+    <div class="equation">
+        \begin{eqnarray}
+        &&\Psi(C,t) = \VEV{\exp{\frac{\displaystyle \imath \oint  d\vec C(\theta) \cdot \vec F\left(\theta, \log \frac{t + t_0}{t_0}\right)}{\sqrt{2 \nu (t + t_0)}}}} 
+        \end{eqnarray}
+    </div>
+    <p>with the square root of viscosity in the denominator as a coupling constant in nonlinear QFT. The averaging $\VEV{\dots}$ goes over the manifold of solutions $\vec F(\theta,\tau)$ of the ODE.</p>
+
+    <p>This formula immediately suggests that turbulence is a quasiclassical phenomenon in our quantum mechanical system that can be studied by the well-known WKB method (or corresponding methods developed by Kolmogorov and Maslov in the mathematical literature).</p>
+
+    <p>In the conventional approach to fluid mechanics, based on the Navier-Stokes equation, the Reynolds number distinguishing between the laminar and turbulent flow enters the equation and controls the relative magnitude of nonlinearity. One has to study various regimes in that equation, including the inviscid limit presumably related to the turbulence, but different from the Euler equation due to the dissipation anomaly.</p>
+
+    <p>In our dual theory, representing the same Navier-Stokes dynamics as a quantum system, the dynamical equation is universal; it does not depend upon the Reynolds number. This number enters initial data and the relation between our solution for $\vec F$ and the loop functional (i.e., the PDF for the circulation as a functional of the shape of the loop).</p>
+
+    <p>The evolution of the loop functional $\Psi$ inside the unit circle goes by universal trajectories. The Reynolds number describes the initial position of this $\Psi$ inside the circle. The distance $|\Psi-1|$ from the fixed point $\Psi_* =1$ is the true measure of turbulence. One could expect a laminar flow solution in some small vicinity of this fixed point (corresponding to potential flow).</p>
+
+    <h2>Decaying turbulence</h2>
+    <p>
+        The solutions originating deep inside the unit circle, far from $\Psi=1$, can become turbulent and eventually decay to $\Psi \to 1$ due to energy dissipation by vorticity micro-structures. This decay for $\vec P(\theta,t)$ corresponds to the fixed point equation for $\vec F$:
+    </p>
+    <div class="equation">
+        \begin{eqnarray}
+        && \left((\Delta \vec{F})^2 -1\right)\vec F = \Delta \vec{F} \left(\gamma^2 \vec{F} \cdot \Delta \vec{F} +\I \gamma \left( \frac{(\vec{F} \cdot \Delta \vec{F})^2}{\Delta \vec{F}^2}- \vec{F}^2\right)\right)
+        \end{eqnarray}
+    </div>
+    <p>
+        This fixed point $\vec F(\theta)$ is not a solution of the Cauchy problem for the loop functional, though we expect the solution of some Cauchy problems to asymptotically approach this fixed point at a large time.
+    </p>
+    <p>
+        This fixed point represents the solution of the loop equation with the boundary condition $\Psi(\theta,+\8) =1$. This boundary condition describes the flow eventually stopping as a result of dissipation of kinetic energy:
+    </p>
+    <div class="equation">
+        $$E =\int d^3 r \frac{\vec v^2}{2}, \;  \partial_t E = - \nu \int d^3r \vec \omega^2 <0.$$
+    </div>
+
+    <h2>Fixed point solution</h2>
+    <p>
+        The saddle point equation (1) was solved and investigated in previous papers [1,2]. 
+        The solution for $\vec F(\theta)$ is a fractal curve defined as a limit $N \to \infty$ of the polygon $\vec{F}_0\dots \vec{F}_N= \vec{F}_0$ with the following vertices:
+    </p>
+    <div class="equation">
+        \begin{eqnarray}
+        && \vec{F}_k =\Omega \cdot \frac{\left\{\cos (\alpha_k), \sin (\alpha_k), \I\cos \left(\frac{\beta }{2}\right)\right\}}{2 \sin \left(\frac{\beta }{2}\right)} ;\\
+        && \theta_k = \frac{k}{N}; \; \beta = \frac{2 \pi p}{q};\; N \to \infty;\\
+        &&\alpha_{k} = \alpha_{k-1} + \sigma_k \beta;\; \sigma_k =\pm 1,\;\beta \sum\sigma_k = 2 \pi p r;\\
+        && \Omega \in SO(3)
+        \end{eqnarray}
+    </div>
+    <p>
+        The parameters $ \hat{\Omega},p,q,r,\sigma_0\dots\sigma_{N}= \sigma_0$ are random, making this solution for $\vec{F}(\theta)$ a fixed manifold rather than a fixed point.
+        We suggested in [1] calling this manifold the big Euler ensemble or just the Euler ensemble.
+    </p>
+    <p>
+        It is a fixed point of (1) with the discrete version of discontinuity and principal value:
+    </p>
+    <div class="equation">
+        \begin{eqnarray}
+        &&\Delta \vec{F} \equiv \vec{F}_{k} - \vec{F}_{k-1};\\
+        && \vec{F} \equiv \frac{ \vec{F}_{k} + \vec{F}_{k-1}}{2}
+        \end{eqnarray}
+    </div>
+    <p>
+        Both terms of the right side vanish; the coefficient in front of $\Delta \vec{F}$ and the one in front of $\vec{F}$ are both equal zero.
+        Otherwise, we would have $\vec{F} \parallel \Delta \vec{F}$, leading to zero vorticity [1].
+    </p>
+    <p>
+        This requirement leads to two scalar equations:
+    </p>
+    <div class="equation">
+        \begin{eqnarray}
+        && (\Delta \vec{F})^2 =1;\\
+        && \vec{F}^2 - \frac{\gamma^2}{4} =  \left(\vec{F} \cdot \Delta \vec{F}- \frac{\I \gamma}{2}\right)^2;
+        \end{eqnarray}
+    </div>
+
+    <h2>The proof of the Euler ensemble as a fixed point of MLE</h2>
+    <div class="theorem">
+        <strong>Theorem:</strong> The Euler ensemble solves the discrete MLE.
+    </div>
+    <div class="proof">
+        <strong>Proof:</strong>
+        <p>
+            We start from the general Anzatz with real vectors $\vec A, \vec f_k$, corresponding to the real circulation in (2):
+        </p>
+        <div class="equation">
+            \begin{eqnarray}
+            &&\vec F_k = \I \vec A + (\vec f_{k -1} + \vec f_k)/2;\\
+            &&\Delta \vec F_k = \vec f_{k} - \vec f_{k-1};\\
+            && (\vec f_{k} - \vec f_{k-1})^2=1
+            \end{eqnarray}
+        </div>
+        <p>
+            Analyzing the imaginary and parts of the second equation above, we observe that the imaginary part will vanish provided:
+        </p>
+        <div class="equation">
+            \begin{eqnarray}
+            &&\vec A \cdot \vec f_k =0 \forall{k};\\
+            && \vec f_k^2 = \vec f_{k-1}^2 \forall{k};
+            \end{eqnarray}
+        </div>
+        <p>
+            We conclude that $\vec f_k$ belongs to a circle with some radius $R$ in the origin of the plane, which plane is orthogonal to $\vec A$.
+            In the coordinate frame where $\vec A = \{0,0,A\}$:
+        </p>
+        <div class="equation">
+            \begin{eqnarray}
+            \vec f_k = R \left\{\cos(\alpha_k), \sin(\alpha_k), 0\right\}
+            \end{eqnarray}
+        </div>
+        <p>
+            The $SO(3)$ matrix needed to rotate our vectors to this coordinate frame can be absorbed into the rotation matrix $\Omega$ we have in our solution.
+        </p>
+        <p>
+            The radius $R$ and $A$ are determined by the real part of our equations as follows:
+        </p>
+        <div class="equation">
+            \begin{eqnarray}
+            &&4 A^2 = 2 R^2 \left(1 + \cos(\alpha_{k} - \alpha_{k-1})\right);\\
+            && 1 = 2 R^2 \left(1 - \cos(\alpha_{k} - \alpha_{k-1})\right);
+            \end{eqnarray}
+        </div>
+        <p>
+            Solving these two equations, we find the $\mathbb{Z}_2$ variables at every step:
+        </p>
+        <div class="equation">
+            \begin{eqnarray}
+            \alpha_{k} = \alpha_{k-1} + \beta \sigma_k,\; \sigma_k^2 =1;
+            \end{eqnarray}
+        </div>
+        <p>
+            The radius $R$ and the length $A= |\vec A|$ are related to this angular step $\beta$:
+        </p>
+        <div class="equation">
+            \begin{eqnarray}
+            &&R =  \frac{1}{2 \sin \left(\frac{\beta }{2}\right)};\\
+            && A = \frac{1}{2 \tan \left(\frac{\beta }{2}\right)};
+            \end{eqnarray}
+        </div>
+        <p>
+            The periodicity of the sequence $\vec f_k$ requires the angular step to be a fraction of $2 \pi$, which brings us to the Euler ensemble (2).
+        </p>
+    </div>
+
+    <h2>References</h2>
+    <div style="padding: 1rem">
+        <p style="margin-bottom: 1rem">
+            [1] Migdal, A. (2023). "To the Theory of Decaying Turbulence." <i>Fractal and Fractional</i> 7(10), p. 754. ISSN: 2504-3110. DOI: 10.3390/fractalfract7100754. arXiv: 2304.13719 [physics.flu-dyn]. Available at: http://dx.doi.org/10.3390/fractalfract7100754
+        </p>
+        <p>
+            [2] Migdal, A. (2024). "Quantum solution of classical turbulence: Decaying energy spectrum." <i>Physics of Fluids</i> 36(9), p. 095161. DOI: 10.1063/5.0228660
+        </p>
+    </div>
 </body>
 </html>
