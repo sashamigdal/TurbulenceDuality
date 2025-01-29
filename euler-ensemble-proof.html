@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Euler Ensemble Proof - Turbulence Duality</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;300&display=swap" rel="stylesheet">
+  <script type="text/javascript" async
+    src="https://polyfill.io/v3/polyfill.min.js?features=es6">
+  </script>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    /* Copying your existing styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #101010;
+      color: white;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      margin: 1.5em 0 0.5em 0;
+    }
+    
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #000000;
+      padding: 10px;
+      z-index: 1000;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #00FF88;
+      text-decoration: none;
+    }
+
+    /* Main Content */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Proof Content Styles */
+    .proof-content {
+      background: #181818;
+      padding: 30px;
+      border-radius: 10px;
+      margin: 20px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .theorem {
+      background: #202020;
+      padding: 20px;
+      border-left: 4px solid #00FF88;
+      margin: 20px 0;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .proof {
+      margin: 20px 0;
+      padding-left: 20px;
+      border-left: 2px solid #444;
+    }
+
+    /* Equation Styles */
+    .equation {
+      margin: 1.5em 0;
+      overflow-x: auto;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000000;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#guide">Interactive Guide</a></li>
+      <li><a href="talks.html">Talks</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="old-road-to-turbulence.html">The Old Road to Turbulence</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Euler Ensemble Proof</h1>
+    
+    <div class="proof-content">
+      <div class="theorem">
+        <h2>Theorem</h2>
+        <p>The Euler ensemble solves the discrete Momentum Loop Equation (MLE).</p>
+      </div>
+
+      <div class="proof">
+        <h3>Proof</h3>
+        <p>We start from the general Ansatz with real vectors \(\vec A, \vec f_k\), corresponding to the real circulation:</p>
+        
+        <div class="equation">
+          \[\vec F_k = \I \vec A + (\vec f_{k -1} + \vec f_k)/2\]
+          \[\Delta \vec F_k = \vec f_{k} - \vec f_{k-1}\]
+          \[(\vec f_{k} - \vec f_{k-1})^2=1\]
+        </div>
+
+        <p>Analyzing the imaginary and real parts of the second equation in the system, we observe that the imaginary part will vanish provided:</p>
+        
+        <div class="equation">
+          \[\vec A \cdot \vec f_k =0 \;\forall k\]
+          \[\vec f_k^2 = \vec f_{k-1}^2 \;\forall k\]
+        </div>
+
+        <p>We conclude that \(\vec f_k\) belongs to a circle with some radius \(R\) in the origin of the plane, which plane is orthogonal to \(\vec A\).</p>
+        
+        <p>In the coordinate frame where \(\vec A = \{0,0,A\}\):</p>
+        
+        <div class="equation">
+          \[\vec f_k = R \left\{\cos(\alpha_k), \sin(\alpha_k), 0\right\}\]
+        </div>
+
+        <p>The \(SO(3)\) matrix needed to rotate our vectors to this coordinate frame can be absorbed into the rotation matrix \(\Omega\) we have in our solution.</p>
+
+        <p>The radius \(R\) and \(A\) are determined by the real part of our equations as follows:</p>
+        
+        <div class="equation">
+          \[4 A^2 = 2 R^2 \left(1 + \cos(\alpha_{k} - \alpha_{k-1})\right)\]
+          \[1 = 2 R^2 \left(1 - \cos(\alpha_{k} - \alpha_{k-1})\right)\]
+        </div>
+
+        <p>Solving these equations, we find the \(\mathbb{Z}_2\) variables at every step:</p>
+        
+        <div class="equation">
+          \[\alpha_{k} = \alpha_{k-1} + \beta \sigma_k,\; \sigma_k^2 =1\]
+        </div>
+
+        <p>The radius \(R\) and the length \(A = |\vec A|\) are related to this angular step \(\beta\):</p>
+        
+        <div class="equation">
+          \[R = \frac{1}{2 \sin \left(\frac{\beta}{2}\right)}\]
+          \[A = \frac{1}{2 \tan \left(\frac{\beta}{2}\right)}\]
+        </div>
+
+        <p>The periodicity of the sequence \(\vec f_k\) requires the angular step to be a fraction of \(2\pi\), which brings us to the Euler ensemble.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Turbulence Duality | Built with curiosity and creativity.</p>
+  </footer>
+</body>
+</html>
