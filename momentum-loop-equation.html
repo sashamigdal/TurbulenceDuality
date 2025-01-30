@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loop Equations and Schrödinger Equation in Loop Space</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$']],
+                displayMath: [['\\[','\\]']],
+                processEscapes: true
+            },
+            TeX: {
+                extensions: ["AMSmath.js", "AMSsymbols.js"],
+                Macros: {
+                    I: "\\imath",
+                    VEV: ["\\left\\langle #1\\right\\rangle", 1],
+                    NS: "\\text{Navier-Stokes}"
+                }
+            },
+            "HTML-CSS": {
+                scale: 100,
+                styles: {
+                    ".MathJax_Display": {
+                        margin: "0.5em 0"
+                    }
+                }
+            }
+        });
+    </script>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        h1 {
+            font-size: 1.5em;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .section {
+            margin-bottom: 2em;
+        }
+        p {
+            margin: 1em 0;
+            text-align: justify;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .math-display {
+            overflow-x: auto;
+            margin: 1em 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="section">
+    <h1>Loop equation</h1>
+    <p>The first step is to write down the loop equation by projecting the Hopf equation to the loop space.</p>
+
+    <p>Before doing that, we have to specify certain boundary conditions which we assume in our fluid dynamics. Namely, we consider infinite space $\mathbb{R}_3$, with boundary condition of vanishing or constant velocity at infinity.</p>
+
+    <p>Vorticity can exist throughout the entire spatial domain, but it vanishes at infinity, as required by our boundary conditions, where velocity gradients diminish. We also assume the absence of internal boundaries, such as solid surfaces that the fluid flows around. However, we allow for the presence of singular regions of vorticity, such as vortex lines and sheets, in the inviscid limit, provided these regions are confined to a finite portion of the volume, consistent with our boundary conditions.</p>
+
+    <p>At finite viscosity, these singular regions acquire a finite thickness proportional to $\sqrt{\nu}$, leading to anomalous dissipation in turbulent flows.</p>
+
+    <p>An alternative, simpler mechanism for anomalous dissipation arises when velocity increases as viscosity vanishes, even in the absence of singular vortex structures like Burgers vortices. In this scenario, the turbulent energy grows as viscosity decreases, while the spatial distribution of vorticity remains homogeneous and non-singular.</p>
+
+    <p>As we will demonstrate below, this is the mechanism realized in our solution for decaying turbulence.</p>
+
+    <p>The computations leading to the loop equation were performed in the old papers. For the reader's convenience, we repeat them here using another language, hopefully more clear for mathematicians.</p>
+
+    <div class="math-display">
+    \[
+    \begin{aligned}
+    \partial_t \Psi(\gamma,\vec{C}) &= \VEV{\frac{\I \gamma}{\nu}\oint d \vec{C}(\theta) \cdot \vec{L}(\vec{C}(\theta))\exp{\frac{\I \gamma}{\nu}\Gamma(\vec{v}, \vec{C})}}_{sol} \\
+    \vec{L}(\vec{r}) &= -\nu \vec{\nabla} \times \vec{\omega}(\vec{r}) + \vec{\omega}(\vec{r})\times\vec{v}(\vec{r})
+    \end{aligned}
+    \]
+    </div>
+
+    <p>The averaging $\VEV{}_{sol}$ goes, as before, over time-dependent $\NS$ solutions $\vec{v}(\vec{r})$ with a given set of initial values $\vec{v}_0(\vec{r})$. It is implied that a probability measure is supplied for this set of initial velocity fields. The phase factor of circulation is averaged over initial data using this measure.</p>
+
+    <p>The gradient terms $\vec{\nabla}(p + \frac{\vec{v}^2}{2})$ dropped in the time derivative of the circulation as the integral of a gradient of some single-valued function of coordinate $H(\vec{r}) = p(\vec{r}) + \frac{\vec{v}^2(\vec{r})}{2}$ around the closed loop:</p>
+
+    <div class="math-display">
+    \[
+    \oint d\vec{C}(\theta) \cdot \vec{\nabla}H(\vec{C}(\theta)) = \oint dH(\vec{C}(\theta)) = 0
+    \]
+    </div>
+
+    <p>The velocity field $\vec{v}$ is a solution of the Poisson equation, relating it to vorticity by incompressibility condition:</p>
+
+    <div class="math-display">
+    \[
+    \vec{v}(\vec{r}) = \frac{-1}{\vec{\nabla}^2}\vec{\nabla}\times \vec{\omega}(\vec{r})
+    \]
+    </div>
+</div>
+
+<div class="section">
+    <h1>The definitions of the loop operators and the proof of the loop equation</h1>
+
+    <p>The operators in the loop equation were introduced previously and explained at length in review papers. In this paper, we do not assume any knowledge of the previous work; instead, we derive the loop operators from scratch using a simpler method.</p>
+
+    <p>First, we approximate the smooth loop $C(\theta)$ by a polygon with $N$ vertices $\vec{C}_k = \vec{C}(2\pi k/N)$ in the limit $N \to \infty$. We postpone this local limit until we solve the discrete loop equation. This limit will define the continuum theory in the same way as in the QFT; the functional integral is discretized using a lattice with the lattice spacing going to zero at the end of the calculation. In this limit, the theory's parameters vary with the lattice spacing to provide a finite result for the physical observables.</p>
+
+    <p>The first observation is that with smooth velocity and vorticity fields, the discrete circulation around the polygon $\vec{C}_k, k = 0,\dots N-1, \vec{C}_N = \vec{C}_0$ converges to the circulation around the smooth loop:</p>
+
+    <div class="math-display">
+    \[
+    \begin{aligned}
+    \Gamma &\equiv \sum_k \Delta C_k \cdot \vec{v}(\vec{C}_k) \to \oint d\vec{C}(\theta) \cdot \vec{v}(\vec{C}(\theta)) \\
+    \Delta C_k &= \vec{C}_{k+1} - \vec{C}_k
+    \end{aligned}
+    \]
+    </div>
+
+    <p class="bold">In the rest of the paper, we shall use the language of the continuum theory, implying the limit $N\to \infty$ of a polygon $\vec{C}$ with $N$ sides. While the lengths of the sides of $\vec{C}$ vanish in the local limit $N \to \infty$, the sides of $\vec{P}$ polygon are not at our disposal, so they may stay finite (this will happen in the decaying turbulence below).</p>
+</div>
+
+<div class="section">
+    <h1>Schrödinger equation in loop space</h1>
+
+    <p>Before we investigate the solutions of the loop equation, let us consider its physical and mathematical meaning and its relation to the geometry of the incompressible flow.</p>
+
+    <p>By definition, the loop functional $\Psi(\gamma,\vec{C})$ is a superposition of the phase factors $\exp{\frac{\I\gamma}{\nu}\Gamma(\vec{v}, \vec{C})}$ with the circulation $\Gamma$ of a particular solution $\vec{v}(\vec{r}, t)$ of the $\NS$ equation. These solutions have initial values $\vec{v}(\vec{r}, 0) = \vec{v}_0(\vec{r})$, distributed by some distribution $P[\vec{v}]$ which we assume Gaussian with the mean given by some smooth initial field and some coordinate-independent variance $\sigma$.</p>
+
+    <p>In the turbulent scenario, the $\NS$ trajectories initiated from a narrow vicinity of some smooth velocity field eventually expand and cover some attractor, slowly varying with time and asymptotically converging to $\vec{v} = 0, \Psi = 1$.</p>
+
+    <p>The alternative smooth solution of the $\NS$ equation, sought after in numerous mathematical papers, would correspond to these trajectories staying close and converging to a single trajectory in the limit $\sigma \to 0$. This single trajectory would go along the unit circle, bounding our disk.</p>
+
+    <p>With this generalization of a definition of the Cauchy problem for the $\NS$ equation, we can address the existence of smooth, explosive, or stochastic (i.e., turbulent) solutions within the loop equation's framework.</p>
+
+    <p>The transformation from the $\NS$ equation to the loop equation is similar to that from the Newton equation of the particle in random media to the diffusion equation. We add dimension to the problem, switching to the probability distribution in $\mathbb{R}_d$, after which the particle's infinitesimal time steps translate into probability derivatives by coordinates.</p>
+
+    <p>There are two essential differences, however. Our loop space is not just higher-dimensional; in the local limit $N \to \infty$, it is infinite-dimensional. The second difference is that in addition to diffusion terms $\nu \hat{\nabla} \times \hat{\omega}$, we have nonlocal advection terms $\hat{v} \times \hat{\omega}$ affecting the evolution of the distribution in loop space.</p>
+
+    <p>Our definition of the loop functional already by construction has superficial similarities with quantum mechanics. We are summing phase factor over a manifold of solutions of the $\NS$ equations. The circulation plays the role of classical Action, and viscosity plays the role of Planck's constant.</p>
+
+    <p>This analogy becomes a complete equivalence when the time derivative of the loop functional is represented as an operator $\vec{L}(\vec{C}(\theta)) \Rightarrow \hat{L}(\theta)$ in the loop space acting on this functional.</p>
+
+    <p>Now we have quantum mechanics in loop space, with the Hamiltonian:</p>
+    <div class="math-display">
+    \[
+    \hat{H} \propto \oint d\vec{C}(\theta) \cdot \hat{L}(\theta)
+    \]
+    </div>
+</div>
+
+</body>
+</html>
