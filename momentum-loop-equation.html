@@ -15,7 +15,9 @@
                 Macros: {
                     I: "\\imath",
                     VEV: ["\\left\\langle #1\\right\\rangle", 1],
-                    NS: "\\text{Navier-Stokes}"
+                    NS: "\\text{Navier-Stokes}",
+                    abs: ["\\left|#1\\right|", 1],
+                    8: "\\infty"
                 }
             },
             "HTML-CSS": {
@@ -56,10 +58,101 @@
             overflow-x: auto;
             margin: 1em 0;
         }
+        ol {
+            padding-left: 2em;
+        }
+        li {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+        .footnote {
+            font-size: 0.9em;
+            margin-top: 2em;
+            border-top: 1px solid #ccc;
+            padding-top: 1em;
+        }
+        .references {
+            margin-top: 2em;
+            border-top: 1px solid #ccc;
+            padding-top: 1em;
+        }
     </style>
 </head>
 <body>
+    <div class="section">
+    <h1>Loop functional and its general properties</h1>
+    <p>The loop functional is defined as a phase factor associated with velocity circulation, averaged over the initial distribution $\vec{v}_0$ of the velocity field</p>
+    
+    <div class="math-display">
+    \[
+    \begin{aligned}
+    \Psi(\gamma, C) &= \VEV{\exp{\frac{\I \gamma}{\nu}\Gamma }}_{\vec{v}_0} \\
+    \Gamma &= \oint_C \vec{v}(\vec{r}) \cdot d \vec{r}
+    \end{aligned}
+    \]
+    </div>
 
+    <p>We use viscosity $\nu$ as a unit of circulation. Both have the same dimension $L^2/T$ as the Planck's constant $\hbar$. The viscosity will play the same role in our theory as Planck's constant in quantum mechanics. The variable $\gamma$ with this definition is dimensionless.</p>
+
+    <p>This loop functional is the Fourier transform of the PDF for the circulation over fixed loop $C$</p>
+
+    <div class="math-display">
+    \[
+    \begin{aligned}
+    \Psi(\gamma, C) &= \int_{-\8}^\8 d \Gamma P(\Gamma, C) \exp{ \frac{\I \gamma}{\nu} \Gamma } \\
+    P(\Gamma, C) &= \int_{-\8}^\8 \frac{d \gamma}{2 \pi\nu} \Psi(\gamma, C) \exp{ -\frac{\I \gamma}{\nu}\Gamma }
+    \end{aligned}
+    \]
+    </div>
+
+    <p>There is an implicit dependence of time, coming from the evolution of the velocity field by the $\NS$ equation</p>
+
+    <div class="math-display">
+    \[
+    \begin{aligned}
+    \partial_t \vec{v} &= -\nu \nabla \times \vec{\omega} - \vec{v}\times \vec{\omega} - \vec{\nabla} \left( p + \frac{\vec{v}^2}{2} \right) \\
+    \nabla \cdot \vec{v} &= 0 \\
+    \vec{\omega} &= \vec{\nabla} \times \vec{v}
+    \end{aligned}
+    \]
+    </div>
+
+    <p>We restrict ourselves to three-dimensional Euclidean space, the most interesting case for physics applications. The generalization to arbitrary dimension is straightforward, as discussed in previous papers [1,2,3].</p>
+
+    <p>In the next sections, we shall study the Cauchy problem for the loop equation [1,2], which follows from the $\NS$ equation. Here, we state some general properties of the loop function and various scenarios of its evolution.</p>
+
+    <p>[Figure: Asymptotic trajectories of the time evolution for the loop functional inside the unit circle in the complex plane. The laminar flow is the yellow region on the circle close to $\Psi =1$. Three other flows are 1) hypothetical explosion, 2) decaying turbulence, and 3) special fixed point.]</p>
+
+    <p>The first obvious property is that this evolution goes inside the unit circle</p>
+
+    <div class="math-display">
+    \[
+    \abs{\Psi(\gamma, C)} \le 1 \;\; \forall t
+    \]
+    </div>
+
+    <p>At a small enough time passed from initial data, $t < t_c$, turning off the noise would bring us to the usual unique laminar solution of the $\NS$ equation, corresponding to the loop functional at the unit circle with a small enough phase.</p>
+
+    <div class="math-display">
+    \[
+    \lim_{\sigma\to 0}\abs{\Psi(\gamma, C)} = 1 \;\; \forall t < t_c
+    \]
+    </div>
+
+    <p>Here, $\sigma$ denotes the variance of the Gaussian distribution of the velocity field around some smooth initial value. Generally speaking, we could expect the following fixed points (see Figure) of the time evolution for the loop functional<sup>1</sup>.</p>
+
+    <ol>
+        <li><strong>Special solution</strong>. There is a fixed point corresponding to the global random rotation of the fluid (see [1,2,3]).</li>
+        <li><strong>Decaying Turbulence</strong>. The evolution of loop average reaches some <strong>fixed trajectory</strong>, independent of initial data, and covers some nontrivial manifold (see [3,4]). At infinite time, this fixed trajectory leads to zero velocity, corresponding to all the kinetic energy dissipated by viscous effects.</li>
+        <li><strong>Finite-time explosion?</strong> The vorticity could blow up at some finite or infinite point in time, leading to infinite circulation. In this case, the loop functional would cover the unit circle at this moment of singularity.</li>
+    </ol>
+
+    <p>In the following sections, we elaborate on each of these possible regimes. The finite-time explosion is proven to be inconsistent and is therefore ruled out.</p>
+
+    <div class="footnote">
+        <sup>1</sup>We do not count deterministic fixed points corresponding to potential flows. They correspond to isolated points on the unit circle.
+    </div>
+</div>
 <div class="section">
     <h1>Loop equation</h1>
     <p>The first step is to write down the loop equation by projecting the Hopf equation to the loop space.</p>
@@ -102,9 +195,7 @@
     \vec{v}(\vec{r}) = \frac{-1}{\vec{\nabla}^2}\vec{\nabla}\times \vec{\omega}(\vec{r})
     \]
     </div>
-</div>
-
-<div class="section">
+</div><div class="section">
     <h1>The definitions of the loop operators and the proof of the loop equation</h1>
 
     <p>The operators in the loop equation were introduced previously and explained at length in review papers. In this paper, we do not assume any knowledge of the previous work; instead, we derive the loop operators from scratch using a simpler method.</p>
@@ -123,9 +214,7 @@
     </div>
 
     <p class="bold">In the rest of the paper, we shall use the language of the continuum theory, implying the limit $N\to \infty$ of a polygon $\vec{C}$ with $N$ sides. While the lengths of the sides of $\vec{C}$ vanish in the local limit $N \to \infty$, the sides of $\vec{P}$ polygon are not at our disposal, so they may stay finite (this will happen in the decaying turbulence below).</p>
-</div>
-
-<div class="section">
+</div><div class="section">
     <h1>Schrödinger equation in loop space</h1>
 
     <p>Before we investigate the solutions of the loop equation, let us consider its physical and mathematical meaning and its relation to the geometry of the incompressible flow.</p>
