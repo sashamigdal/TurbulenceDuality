@@ -184,10 +184,26 @@ G_{1,2} = \left\langle\alpha(\xi_1) \alpha(\xi_2)\right\rangle;
 <p>The next Appendix will compute this Green's function \(G_{1,2}=G(\xi_1, \xi_2)\).</p>
 
 <p>Thus, we arrive at the following path integral in the continuum limit</p>
-<div class="eqn">\[
-\Psi[C] = \frac{\sum_{p<q; (p,q)} \int_{O(3)} d \Omega\int [D \alpha]}{\sum_{p<q; (p,q)}|O(3)|\int [D\alpha]} 
-\exp\left\{ \frac{i}{2 \sin(\pi p/q) \sqrt{2\nu (t+ t_0)}} \int_0^1 d \xi \,\text{Im}\left( \mathcal C'_\Omega(\xi) e^{i\alpha(\xi)}\right)\right\}
-\]</div>
+<div class="math">
+    Ψ[C] =
+    <span class="line-break"></span>
+    <span class="frac">
+      <span>
+        ∑<sub>p&lt;q; (p,q)</sub> ∫<sub>Ω ∈ O(3)</sub> dΩ ∫ [Dα] 
+        exp
+        <span class="paren">(</span>
+        <span class="frac">
+          <span>i ∫<sub>0</sub><sup>1</sup> dξ ℑ(𝒞′<sub>Ω</sub>(ξ) exp(iα(ξ)))</span>
+          <span class="bottom">2 sin(πp/q) √(2ν(t + t<sub>0</sub>))</span>
+        </span>
+        <span class="paren">)</span>
+      </span>
+      <span class="bottom">∑<sub>p&lt;q; (p,q)</sub> |O(3)| ∫ [Dα]</span>
+    </span>;
+  </div>
+  <div class="math">
+    𝒞<sub>Ω</sub>(θ) = <span style="text-decoration: overline">C</span>(θ) · <span style="text-decoration: overline">Ω̂</span> · {i, 1, 0};
+  </div>
 <div class="eqn">\[
 \mathcal C_\Omega(\theta) = \vec{C}(\theta) \cdot \hat{\Omega} \cdot\{i,1,0\};
 \]</div>
