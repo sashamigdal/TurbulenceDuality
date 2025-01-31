@@ -109,9 +109,8 @@ f_\pm(\xi) = \frac{1}{2} \left(\xi \pm \phi(\xi)\right);
 <div class="eqn">\[
 f_\pm(\xi) \ge 0;
 \]</div>
-</body>
-</html>
-  <p>This problem is, however, a degenerate one, as the functional reduces to the integral of the total derivative:</p>
+
+<p>This problem is, however, a degenerate one, as the functional reduces to the integral of the total derivative:</p>
 
 <div class="eqn">\[
 \frac{\delta\Lambda_N[\phi]}{\delta\phi(\xi)} =0;
@@ -156,13 +155,13 @@ f_\pm(\xi) \ge 0;
 <p>As we demonstrate below, in continuum theory, this discrete distribution can be replaced by a Gaussian distribution with the same mean square</p>
 
 <div class="eqn">\[
-\sum\displaylimits_{\alpha' = \pm N\beta} \leftrightarrow \int d  \alpha' \exp{ -  \frac{(\alpha')^2}{2 N^2 \beta^2}}
+\sum_{\alpha' = \pm N\beta} \leftrightarrow \int d  \alpha' \exp{ -  \frac{(\alpha')^2}{2 N^2 \beta^2}}
 \]</div>
 
 <p>To demonstrate that, we consider in the critical region \(\beta^2 \sim N^{-1} \to 0\) the most general term that arises in the moments of the circulation (see [BZ23] for some exact computations of these moments)</p>
 
 <div class="eqn">\[
-2^{-N}\sum\displaylimits_{\sigma_i = \pm 1} \exp{ \imath \beta \sum_i  k_i  \sigma_i}
+2^{-N}\sum_{\sigma_i = \pm 1} \exp{ \imath \beta \sum_i  k_i  \sigma_i}
 =\prod_i \cos \beta  k_i \to  \exp{ -  \beta^2/2\sum_i k_i^2}
 \]</div>
 
@@ -194,9 +193,8 @@ G_{1,2} = \left\langle\alpha(\xi_1) \alpha(\xi_2)\right\rangle;
 <p>Thus, we arrive at the following path integral in the continuum limit</p>
 
 <div class="eqn">\[
-\Psi[C] = \frac{\displaystyle\sum\displaylimits_{p<q; (p,q)} \int\displaylimits_{\Omega \in O(3)} d \Omega\int [D \alpha]}{\displaystyle\sum\displaylimits_{p<q; (p,q)}|O(3)|\int [D\alpha]}
-\exp{ \imath\frac{\int_0^1 d \xi \Im\left( \mathcal C'_\Omega(\xi)
-\exp{\imath\alpha(\xi)}\right)}{2 \sin(\pi p/q) \sqrt{2\nu (t+ t_0)}}};
+\Psi[C] = \frac{\displaystyle\sum_{\substack{p<q\\ (p,q)}} \int\limits_{O(3)} d \Omega\int [D \alpha]}{\displaystyle\sum_{\substack{p<q\\ (p,q)}}|O(3)|\int [D\alpha]} 
+\exp\left\{ \frac{i}{2 \sin(\pi p/q) \sqrt{2\nu (t+ t_0)}} \int_0^1 d \xi \,\text{Im}\left( \mathcal C'_\Omega(\xi) e^{i\alpha(\xi)}\right)\right\}
 \]</div>
 
 <div class="eqn">\[
