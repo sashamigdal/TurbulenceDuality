@@ -1,132 +1,195 @@
-<div id="markov-fermi">
-  <h2>The Markov Chain and its Fermionic Representation</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Markov chain and its Fermionic representation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"></script>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: "Computer Modern", serif;
+            line-height: 1.6;
+        }
+        .theorem, .lemma {
+            margin: 1em 0;
+            padding: 1em;
+            background-color: #f9f9f9;
+            border-left: 3px solid #666;
+        }
+        .proof {
+            margin: 1em 0;
+        }
+        .proof:after {
+            content: "□";
+            float: right;
+        }
+        .eqn {
+            margin: 1em 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>The Markov chain and its Fermionic representation</h1>
 
-  <p>Here is a new representation of the Euler ensemble, leading us to the exact analytic solution below.</p>
+<p>Here is a new representation of the Euler ensemble, leading us to the exact analytic solution below.</p>
 
-  <p>We start by replacing independent random variables \( \sigma \) with fixed sum by a Markov process, as suggested in <a href="#migdal2023exact">[Migdal, 2023]</a>.
-  We start with \( n \) random values of \( \sigma_i = 1 \) and remaining \( N-n \) values of \( \sigma_i = -1 \).
-  Instead of averaging over all of these values simultaneously, we follow a Markov process of picking \( \sigma_N, \dots, \sigma_1 \) one after another.</p>
+<p>We start by replacing independent random variables \(\sigma\) with fixed sum by a Markov process, as suggested in [migdal2023exact]. 
+We start with \(n\) random values of \(\sigma_i = 1\) and remaining \(N-n\) values of \(\sigma_i = -1\).
+Instead of averaging over all of these values simultaneously, we follow a Markov process of picking \(\sigma_N,\dots \sigma_1\) one after another. At each step, there will be \(M = N,\dots 0\) remaining \(\sigma\). We get a transition \(n \Rightarrow n-1\) with probability \(\frac{n}{M}\) and \(n \Rightarrow n\) with complementary probability.</p>
 
-  <p>At each step, there will be \( M = N,\dots, 0 \) remaining \( \sigma \). We get a transition \( n \Rightarrow n-1 \) with probability \( \frac{n}{M} \) and \( n \Rightarrow n \) with complementary probability.</p>
+<p>Multiplying these probabilities and summing all histories of the Markov process is equivalent to the computation of the product of the Markov matrices</p>
 
-  <p>Multiplying these probabilities and summing all histories of the Markov process is equivalent to computing the product of the Markov matrices:</p>
+<div class="eqn">\[
+\prod_{M=1}^{N} Q(M);
+\]</div>
 
-  \[
-      \prod_{M=1}^{N} Q(M);
-  \]
+<div class="eqn">\[
+Q(M) |n\rangle = \frac{M-n}{M} |n\rangle + \frac{n}{M}|n-1\rangle;
+\]</div>
 
-  \[
-      Q(M) \lvert n\rangle = \frac{M-n}{M} \lvert n\rangle + \frac{n}{M}\lvert n-1\rangle;
-  \]
+<p>This Markov process will be random until \(n=0\). After that, all remaining \(\sigma_k\) will have negative signs and be taken with probability 1, keeping \(n=0\).</p>
 
-  <p>The expectation value of some function \( \hat{X}(\left\{\sigma\right\}) \) reduces to the matrix product:</p>
+<p>The expectation value of some function \(\hat{X}(\{\sigma\})\) reduces to the matrix product</p>
 
-  \[
-      \mathbb{P}[\hat{X}] = \sum_{n=0}^{N_+} \left\langle n \right\rvert \left(\prod_{M=1}^{N} \hat{Q}(M)\right)\cdot \hat{X} \cdot \left \lvert N_+\right\rangle;
-  \]
+<div class="eqn">\[
+\mathbb{P}[\hat{X}] = \sum_{n=0}^{N_+} \left\langle n \right| \left(\prod_{M=1}^{N} \hat{Q}(M)\right)\cdot \hat{X} \cdot \left|N_+\right\rangle;
+\]</div>
 
-  \[
-      \hat{Q}(M)\cdot \hat{X}\lvert n\rangle = \frac{n}{M} \hat{X}(\sigma_{M}\to 1)\lvert n-1\rangle +
-      \frac{M-n}{M} \hat{X}(\sigma_{M}\to -1)\lvert n\rangle.
-  \]
+<div class="eqn">\[
+\hat{Q}(M)\cdot \hat{X}|n\rangle = \frac{n}{M} \hat{X}(\sigma_{M}\to 1)|n-1\rangle + \frac{M-n}{M} \hat{X}(\sigma_{M}\to -1)|n\rangle
+\]</div>
 
-  <p>Now, we introduce the Fermionic representation, where we define the following commutation relations:</p>
+<p>Here \(N_+ = (N + \sum \sigma_l)/2 = (N + q r)/2\) is the number of positive sigmas.
+The operator \(\hat{Q}(M)\) sets in \(\hat{X}|n\rangle\) the variable \(\sigma_{M}\) to \(1\) with probability \(\frac{n}{M}\) and to \(-1\) with complementary probability. The generalization of the Markov matrix \(Q(M)\) to the operator \(\hat{Q}(M)\) will be presented shortly.</p>
 
-  \[
-      \left[a_i, a^\dagger_j\right]_+ = \delta_{i j};
-  \]
+<p>Once the whole product is applied to \(\hat{X}\), all the sigma variables in all terms will be specified so that the result will be a number.</p>
 
-  \[
-      \left[a_i, a_j\right]_+ =\left[a^\dagger_i, a^\dagger_j\right]_+ =0.
-  \]
+<p>This Markov process is implemented as a computer code in [BulMig], leading to a fast simulation with \(O(N^0)\) memory requirement.</p>
 
-  <p>The number \( n(M) \) of positive sigmas \( \sum_{l=1}^M\delta[\sigma_l -1] \) coincides with the occupation number of these Fermi particles:</p>
+<p>Now, we observe that quantum Fermi statistics can represent the Markov chain of Ising variables.
+Let us construct the operator \(\hat{Q}(M)\) with Fermionic creation and annihilation operators, with occupation numbers \(\nu_k = (1 + \sigma_k)/2 = (0,1)\). These operators obey (anti)commutation relations, and they create/annihilate \(\sigma=1\) state as follows (with Kronecker delta \(\delta[n] \equiv \delta_{n,0}\)):</p>
 
-  \[
-      \hat n(M) = \sum_{l=1}^M \hat{\nu}_l.
-  \]
+<div class="eqn">\[
+[a_i, a^\dagger_j]_+ = \delta_{i j};
+\]</div>
 
-  <p>This leads to the representation:</p>
+<div class="eqn">\[
+[a_i, a_j]_+ =[a^\dagger_i, a^\dagger_j]_+ =0;
+\]</div>
 
-  \[
-      \hat{Q}(M) = \hat{\nu}_M \frac{\hat n(M)}{M}  + (1 - \hat{\nu}_M)\frac{M-\hat n(M)}{M}.
-  \]
+<div class="eqn">\[
+a^\dagger_n|\sigma_1,\dots,\sigma_N\rangle = \delta[\sigma_n+1]|\sigma_1,\dots, \sigma_n \to 1,\dots\sigma_N\rangle;
+\]</div>
 
-  <p>Next, we define the Wilson loop:</p>
+<div class="eqn">\[
+a_n|\sigma_1,\dots,\sigma_N\rangle = \delta[\sigma_n-1]|\sigma_1,\dots, \sigma_n \to -1,\dots\sigma_N\rangle;
+\]</div>
 
-  \[
-      \Psi(\gamma, C) = \frac{\langle \hat{W}[C] \rangle_{\mathcal{E}(N)}}{\langle \hat{W}[0] \rangle_{\mathcal{E}(N)}};
-  \]
+<div class="eqn">\[
+\hat{\nu}_n  = a^\dagger_n a_n;
+\]</div>
 
-  \[
-      \hat{W}[C] = \text{tr} \left(\hat Z(q r)\exp{\frac{i \gamma \hat \Gamma}{\nu} } \prod_{M=1}^{N} \hat{Q}(M)\right).
-  \]
+<div class="eqn">\[
+\hat{\nu}_n|\sigma_1,\dots,\sigma_N\rangle =\delta[\sigma_n-1]|\sigma_1,\dots,\sigma_N\rangle 
+\]</div>
 
-  <p>Using the lemma:</p>
+<p>The number \(n(M)\) of positive sigmas \(\sum_{l=1}^M\delta[\sigma_l -1]\) coincides with the occupation number of these Fermi particles.</p>
 
-  <blockquote>
-    The operators \( \hat{\nu}_l \) all commute with each other.
-  </blockquote>
+<div class="eqn">\[
+\hat n(M) = \sum_{l=1}^M \hat{\nu}_l;
+\]</div>
 
-  <p>We can now prove the theorem:</p>
+<p>This relation leads to the representation</p>
 
-  <blockquote>
-    The trace formula equals the expectation value of the momentum loop ansatz in the Euler ensemble.
-  </blockquote>
+<div class="eqn">\[
+\hat{Q}(M) = \hat{\nu}_M \frac{\hat n(M)}{M}  + (1 - \hat{\nu}_M)\frac{M-\hat n(M)}{M} ;
+\]</div>
 
+<p>The variables \(\sigma_l\) can also be expressed in terms of this operator algebra by using</p>
+
+<div class="eqn">\[
+\hat\sigma_l = 2 \hat{\nu}_l -1.
+\]</div>
+
+<p>The Wilson loop can now be represented as an average over the small Euler ensemble \(\mathcal{E}(N)\) of a quantum trace expression</p>
+
+<div class="eqn">\[
+\Psi(\gamma, C)= \frac{\left\langle\hat{W}[C]\right\rangle_{\hat{\Omega} ,\mathcal{E}(N)}}{\left\langle\hat{W}[0]\right\rangle_{\hat{\Omega} ,\mathcal{E}(N)}};
+\]</div>
+
+<div class="eqn">\[
+\hat{W}[C] =\text{tr}\left(\hat Z(q r)\exp{\frac{i \gamma \hat \Gamma}{\nu} } \prod_{M=1}^{N} \hat{Q}(M)\right),
+\]</div>
+
+<div class="eqn">\[
+\hat \Gamma = \sum_l\Delta\vec{C}_l \cdot \hat{\Omega} \cdot  \vec{\mathcal P}_l(t);
+\]</div>
+
+<div class="eqn">\[
+\hat Z(s) =\oint \frac{d \omega}{2 \pi} \exp{\imath \omega\left(\sum_l \hat\sigma_l - s\right)};
+\]</div>
+
+<div class="eqn">\[
+\Delta\vec{C}_l = \vec{C}\left(\frac{l+1}{N}\right) -\vec{C}\left(\frac{l}{N}\right),
+\]</div>
+
+<div class="eqn">\[
+\vec{\mathcal P}_l(t)=\sqrt{\frac{\nu}{2\left(t+t_0\right)}} \frac{\vec{\mathcal F}_l}{\gamma} , \quad \hat{\Omega} \in O(3) ,
+\]</div>
+
+<div class="eqn">\[
+\vec{\mathcal F}_l=\frac{\left\{\cos \left(\hat \alpha_l\right), \sin \left(\hat\alpha_l\right), 0\right\}}{2 \sin \left(\frac{\beta}{2}\right)} ,
+\]</div>
+
+<p>\(\mathcal{E}(N)\): \(p,q,r \in \mathbb{Z}\) \(-N\leq qr\leq N\),
+with \(0<p<q<N\), \(\text{gcd}(p,q) =1\),</p>
+
+<div class="eqn">\[
+\hat\alpha_{l}= \beta\sum_{k=1}^{l-1} (2 \hat{\nu}_k -1);
+\]</div>
+
+<p>The last component of the vector \(\vec{\mathcal F}_l\) is set to \(0\) as this component does not depend on \(l\) and yields zero in the sum over the loop \(\sum_l \Delta \vec{C}_l =0\).</p>
+
+<p>The proof of equivalence to the combinatorial formula with an average over \(\sigma_l = \pm 1\) can be given using the following Lemma (obvious for a physicist).</p>
+
+<div class="lemma">
+    <strong>Lemma.</strong> The operators \(\hat{\nu}_l\) all commute with each other.
 </div>
 
-<hr>
-
-<div id="path-integral">
-  <h2>Path Integral Over Markov Histories</h2>
-
-  <p>The product \( \Pi_N \) of the transition probabilities of a given Markov process history can be written as:</p>
-
-  \[
-      \Pi_N = \exp{ N \Lambda_N};
-  \]
-
-  \[
-      \Lambda_N = \frac{1}{N}\sum_l  G_l;
-  \]
-
-  <p>where:</p>
-
-  \[
-      G_l = \Delta n_+ \log\left(\frac{n_+}{n_+ + n_-}\right) +
-      \Delta n_- \log\left(\frac{n_-}{n_+ + n_-}\right).
-  \]
-
-  <p>We redefine \( n_\pm \) in terms of continuous functions:</p>
-
-  \[
-      n_\pm = N f_\pm(\xi), \quad f_\pm(\xi) = \sum_{k =1}^{\lfloor N \xi \rfloor} \frac{\nu_k}{N}.
-  \]
-
-  <p>The transition to a path integral formulation gives:</p>
-
-  \[
-      \sum_{\eta=\pm1}\exp{ N (\Lambda_N + \imath \Lambda_N^{(1)}) } 
-      \to\int D\phi \exp{ N (\Lambda_N + \imath \Lambda_N^{(1)}) }.
-  \]
-
-  <p>Solving the variational problem:</p>
-
-  \[
-      \max_{\phi} \Lambda_N[\phi], \quad
-      \Lambda_N[\phi] =\int_0^1 d \xi 
-      \left(\frac{d f_+}{d \xi} \log\left(\frac{f_+}{\xi}\right) 
-      + \frac{d f_-}{d \xi}  \log\left(\frac{f_-}{\xi}\right) \right).
-  \]
-
-  <p>We obtain the final path integral formulation:</p>
-
-  \[
-      \Psi[C] = \frac{\sum\limits_{p<q; (p,q)} \int\limits_{\Omega \in O(3)} d \Omega\int [D \alpha]}
-      {\sum\limits_{p<q; (p,q)} |O(3)| \int [D\alpha]}
-      \exp{ \imath\frac{\int_0^1 d \xi \Im\left( \mathcal C'_\Omega(\xi)
-      \exp{\imath\alpha(\xi)}\right)}{2 \sin(\pi p/q) \sqrt{2\nu (t+ t_0)}}}.
-  \]
-
+<div class="proof">
+    <strong>Proof.</strong> Using commutation relations, we can write 
+    <div class="eqn">\[
+    \hat{\nu}_l \hat{\nu}_n = a^\dagger_l (\delta_{l n} - a^\dagger_n a_l) a_n =
+    a^\dagger_l a_n \delta_{l n} - a^\dagger_l  a^\dagger_n  a_l  a_n 
+    \]</div>
+    
+    <p>Interchanging indexes \(l, n\) in this relation, we see that the first term does not change due to Kronecker delta, and the second term does not change because \(a^\dagger_l, a^\dagger_n\) anti-commute, as well as \(a_l, a_n\), so the second term is symmetric as well.
+    Therefore, \(\hat{\nu}_l \hat{\nu}_n = \hat{\nu}_n \hat{\nu}_l\)</p>
 </div>
+<div class="theorem">
+    <strong>Theorem.</strong> The trace formula equals the expectation value of the momentum loop ansatz in the big Euler ensemble.
+</div>
+
+<div class="proof">
+    <strong>Proof.</strong> As all the operators \(\hat{\nu}_l\) commute with each other, the operators \(\hat{Q}(M)\) can be applied in arbitrary order to the states \(\Sigma =|\sigma_1,\dots \sigma_N\rangle\) involved in the trace. The same is true about individual terms in the circulation in the exponential of the Wilson loop. These terms \(\vec{\mathcal F}_l\) involve the operators \(\hat \alpha_l\), which commute with each other and with each \(\hat{Q}(M)\). Thus, we can use the ordered product of the operators \(\hat G_l =\hat{Q}(l) \exp{\imath \omega \hat\sigma_l + \frac{i \gamma}{\nu} \Delta \vec{C}_l \cdot \vec{\mathcal P}_l(t)}\).
+
+    <p>Each of the operators \(\hat G_l\) acting in turn on arbitrary state \(\Sigma\) will create two terms with \(\delta[\sigma_l\pm 1]\).
+    The exponential in \(\hat G_l\) will involve \(\hat \sigma_k , k \le l\).
+    As a result of the application of the operator \(\hat Z_l =\prod_{k=1}^l \hat G_k\) to the state vector \(\Sigma\) we get \(2^l\) terms with \(\Sigma\prod_{k=1}^l \delta[\sigma_k- \eta_k], \eta_k = \pm 1\). The factors \(\hat Z_l\) will involve only \(\hat \sigma_k, k \le l\), which are all reduced to \(\eta_k, k \le l\) in virtue of the product of the Kronecker deltas.</p>
+
+    <p>Multiplying all operators \(\hat G_M\) will lead to superposition \(\hat \Pi_N\) of \(2^N\) terms, each with product \(\prod_{M=1}^N \delta[\sigma_M-\eta_M]\) with various choices of the signs \(\eta_i=\pm 1\) for each \(i\).
+    Furthermore, the product of Kronecker deltas will project the total sum of \(2^N\) combinations of the states \(\Sigma\) in the trace \(\text{tr}{\dots}\) to a single term corresponding to a particular history \(\eta_1,\dots\eta_N\) of the Markov process.</p>
+
+    <p>The product of Kronecker deltas in each history will be multiplied by the same state vector \(\Sigma\), by the product of Markov transition probabilities, and by the exponential \(\exp{ \frac{i \gamma}{\nu} \sum_l\Delta \vec{C}_l \cdot \hat{\Omega} \cdot \vec{P}_l(t)}\) with the operators \(\hat \sigma\) in \(\vec{\mathcal P}_k(t)\) replaced by numbers \(\eta\) leading to the usual numeric \(\vec{P}_l(t)\).
+    The transition probabilities of the Markov process are designed to reproduce combinatorial probabilities of random sigmas, adding up to one after summation over histories [Norris_2007].
+    The integration over \(\omega\) will produce \(\delta\left[\sum_l \hat\eta_l - s\right]\).
+    This delta function will reduce the trace to the required sum over all histories of the Markov process with a fixed \(\sum_l \eta_l\).</p>
+</div>
+
+<p>We have found a third vertex of the triangle of equivalent theories: the decaying turbulence in three-dimensional space, the fractal curve in complex space, and Fermi particles on a ring. 
+By degrees of freedom, this is a one-dimensional Fermi-gas in the statistical limit \(N \to \infty\). However, there is no local Hamiltonian in this quantum partition function, just a trace of certain products of operators in Fock space. So, an algebraic (or quantum statistical) problem remains to find the continuum limit of this theory of the Fermion ring.</p>
+
+</body>
+</html>
