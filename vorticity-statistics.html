@@ -9,10 +9,12 @@
           src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <style>
+    /* Ensure the whole document is scrollable */
     body {
       font-family: sans-serif;
       line-height: 1.6;
       margin: 20px;
+      overflow: auto;
     }
     .equation {
       text-align: center;
@@ -45,29 +47,33 @@
     <h2>Vorticity Statistics and Momentum Loop</h2>
 
     <p>
-      The multiple area derivatives of \( \Psi \) yield the formula
+      The multiple area derivatives of \( \Psi \) yield the formula:
     </p>
 
     <div class="equation">
       <p>
         \[
         \begin{aligned}
-        \langle\exp\bigl(i\, \Gamma_C[v]\bigr) \, \omega(r_1)\otimes \omega(r_2) \dots \otimes\omega(r_n)\rangle_v
-         &= \\
-        \frac{n!}{(2 \pi)^n}\Biggl\langle\exp\Bigl(i\, \Gamma_{\tilde C}[P]\Bigr)
-        &\int_{0<\theta_1<\dots<\theta_n<2\pi}\!\!d\theta_1\, \hat \omega(\theta_1)
-        \otimes d\theta_2\, \hat \omega(\theta_2)
-        \\
-        &\qquad\qquad\dots\otimes d\theta_n\,\hat \omega(\theta_n)
+        \Bigl\langle \exp\bigl(i\, \Gamma_C[v]\bigr) \, \omega(r_1)\otimes \omega(r_2) &\otimes \dots \otimes \omega(r_n) \Bigr\rangle_v = \\
+        &\frac{n!}{(2 \pi)^n} \Biggl\langle \exp\Bigl(i\, \Gamma_{\tilde C}[P]\Bigr) \times \\
+        &\quad \int_{0<\theta_1<\dots<\theta_n<2\pi} d\theta_1\, \hat \omega(\theta_1) \\
+        &\quad \otimes\, d\theta_2\, \hat \omega(\theta_2) \\
+        &\quad \otimes\, \dots \otimes\, d\theta_n\, \hat \omega(\theta_n)
         \Biggr\rangle_P;
         \end{aligned}
         \]
       </p>
+    </div>
+
+    <div class="equation">
       <p>
         \[
-        \hat \omega(\theta) \propto i\,\vec P(\theta)\times \Delta\vec P(\theta);
+        \hat \omega(\theta) \propto i\, \vec P(\theta) \times \Delta\vec P(\theta);
         \]
       </p>
+    </div>
+
+    <div class="equation">
       <p>
         \[
         \tilde C = \bigoplus_k L(r_C, r_k, r_C);
@@ -106,7 +112,7 @@
     </div>
 
     <p>
-      but not in the momentum loop representation. This occurs because, in the momentum loop integral
+      but not in the momentum loop representation. This occurs because, in the momentum loop integral,
     </p>
 
     <div class="equation">
@@ -148,26 +154,37 @@
       <p>
         \[
         \begin{aligned}
-        \langle \omega(r_1)\otimes \omega(r_2) \dots \otimes\omega(r_n) \rangle_v
-        &= \frac{n!}{(2 \pi)^n}\Biggl\langle\exp\Bigl(i\, \Gamma_{\tilde C}[P]\Bigr) \\
-        &\quad \times \int_{0<\theta_1<\dots<\theta_n<2\pi}\!\!d\theta_1\, \hat \omega(\theta_1)
-        \otimes d\theta_2\, \hat \omega(\theta_2)
-        \\
-        &\quad \quad \otimes \dots\otimes d\theta_n\, \hat \omega(\theta_n)
+        \langle \omega(r_1)\otimes \omega(r_2) \otimes \dots \otimes \omega(r_n) \rangle_v = 
+        \frac{n!}{(2 \pi)^n} \Biggl\langle \exp\Bigl(i\, \Gamma_{\tilde C}[P]\Bigr) \times \\
+        \quad \int_{0<\theta_1<\dots<\theta_n<2\pi} d\theta_1\, \hat \omega(\theta_1) \\
+        \quad \otimes\, d\theta_2\, \hat \omega(\theta_2) \\
+        \quad \otimes\, \dots \otimes\, d\theta_n\, \hat \omega(\theta_n)
         \Biggr\rangle_P;
         \end{aligned}
         \]
       </p>
+    </div>
+
+    <div class="equation">
       <p>
         \[
         \Gamma_{\tilde C}[P] = \sum_{k=1}^n \int_0^1 d\eta\, (\vec r_k - \vec r_C) \cdot \vec Q_k(\eta);
         \]
       </p>
+    </div>
+
+    <div class="equation">
       <p>
         \[
-        \vec Q_k(\eta) = \vec P\Bigl(\tilde\theta_k(1-\eta) + \theta_k\eta\Bigr) - \vec P\Bigl(\tilde\theta_{k+1}\eta + \theta_k(1-\eta)\Bigr);
+        \begin{aligned}
+        \vec Q_k(\eta) =\ &\vec P\Bigl(\tilde\theta_k(1-\eta) + \theta_k\eta\Bigr) \\
+        &- \vec P\Bigl(\tilde\theta_{k+1}\eta + \theta_k(1-\eta)\Bigr);
+        \end{aligned}
         \]
       </p>
+    </div>
+
+    <div class="equation">
       <p>
         \[
         \tilde\theta_k = \frac{\theta_{k-1} + \theta_k}{2} \mod 2\pi.
@@ -177,7 +194,7 @@
 
     <p>
       This formula expresses the multiple correlation functions in terms of expectation values within the Euler ensemble. In 
-      <a href="#ref-migdal2024quantum"><cite>migdal2024quantum</cite></a>, we use this approach to compute the two-point correlation function, 
+      <a href="#ref-migdal2024quantum">[1]</a>, we use this approach to compute the two-point correlation function, 
       \( \langle \omega \omega \rangle \), as a function of relative distance for \( n=2 \). The Fourier-space correlation 
       function,
     </p>
@@ -213,14 +230,14 @@
     </p>
 
     <p>
-      This results in the identity
+      This results in the identity:
     </p>
 
     <div class="equation">
       <p>
         \[
-        \langle \omega(r_1)\otimes \omega(r_2) \dots \otimes\omega(r_n) \rangle_v 
-        = (-1)^n \langle \omega(-r_1)\otimes \omega(-r_2) \dots \otimes\omega(-r_n) \rangle_v,
+        \langle \omega(r_1)\otimes \omega(r_2) \otimes \dots \otimes \omega(r_n) \rangle_v 
+        = (-1)^n \langle \omega(-r_1)\otimes \omega(-r_2) \otimes \dots \otimes \omega(-r_n) \rangle_v,
         \]
       </p>
     </div>
@@ -238,13 +255,14 @@
     <div class="equation">
       <p>
         \[
-        \langle \omega(r_1)\otimes \omega(r_2) \dots \otimes\omega(r_n) \rangle_v =
-        \frac{n!}{(2 \pi)^n}\,
-        \Re \Biggl\langle\exp\Bigl(i\, \Gamma_{\tilde C}[P]\Bigr)
-        \int_{0<\theta_1<\dots<\theta_n<2\pi}\!\!d\theta_1\, \hat \omega(\theta_1)
-        \otimes d\theta_2\, \hat \omega(\theta_2)
-        \otimes \dots\otimes d\theta_n\, \hat \omega(\theta_n)
+        \begin{aligned}
+        \langle \omega(r_1)\otimes \omega(r_2) \otimes \dots \otimes \omega(r_n) \rangle_v =
+        \frac{n!}{(2 \pi)^n}\, \Re \Biggl\langle \exp\Bigl(i\, \Gamma_{\tilde C}[P]\Bigr) \times \\
+        \quad \int_{0<\theta_1<\dots<\theta_n<2\pi} d\theta_1\, \hat \omega(\theta_1)
+        \otimes\, d\theta_2\, \hat \omega(\theta_2)
+        \otimes\, \dots \otimes\, d\theta_n\, \hat \omega(\theta_n)
         \Biggr\rangle_P.
+        \end{aligned}
         \]
       </p>
     </div>
@@ -253,7 +271,7 @@
       The absence of reflection symmetry in the momentum loop distribution results in explicit time-reversal symmetry violation, 
       manifesting as nonzero odd-order vorticity correlations. Specifically, the triple correlation function (\( n=3 \)) is an odd 
       function of the coordinates, similar to the K41 identity for the triple velocity correlation. However, as discussed in 
-      <a href="#ref-migdal2024quantum"><cite>migdal2024quantum</cite></a>, the K41 relation applies only to the potential part of the velocity correlation and does not constrain 
+      <a href="#ref-migdal2024quantum">[1]</a>, the K41 relation applies only to the potential part of the velocity correlation and does not constrain 
       the rotational part analyzed here.
     </p>
 
