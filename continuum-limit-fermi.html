@@ -1,306 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Path Integral over Markov Histories</title>
-  <!-- MathJax configuration with any desired macros -->
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        macros: {
-          VEV: ["\\left\\langle #1\\right\\rangle", 1],
-          dbyd: ["\\frac{d #1}{d #2}", 2],
-          fbyf: ["\\frac{\\delta #1}{\\delta #2}", 2]
+  <head>
+    <meta charset="UTF-8">
+    <title>Path Integral over Markov Histories</title>
+    <!-- MathJax configuration with desired macros -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          macros: {
+            VEV: ["\\left\\langle #1\\right\\rangle", 1],
+            dbyd: ["\\frac{d #1}{d #2}", 2],
+            fbyf: ["\\frac{\\delta #1}{\\delta #2}", 2]
+          }
         }
+      };
+    </script>
+    <!-- Load MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+      /* Basic styling for the document */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: #f9f9f9;
       }
-    };
-  </script>
-  <!-- Load MathJax -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-  <style>
-    /* General styling */
-    html, body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      background-color: #f9f9f9;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      padding: 20px;
-    }
-    /* Container to center content */
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 1em;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      box-sizing: border-box;
-    }
-    h2, h3 {
-      text-align: center;
-    }
-    .equation {
-      text-align: center;
-      margin: 1em 0;
-      word-wrap: break-word;
-    }
-    p {
-      word-wrap: break-word;
-      text-align: justify;
-    }
-    /* Style for the References section */
-    .references {
-      margin-top: 2em;
-      font-size: 0.9em;
-    }
-    .references h3 {
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 0.2em;
-    }
-    .references li {
-      margin-bottom: 0.5em;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <!-- Title and Citation Info -->
-    <p style="text-align:right;font-style: italic;">[1] Migdal, Alexander, “To the Theory of Decaying Turbulence”, <em>Fractal and Fractional</em>, vol. 7, no. 10, pp. 754, Oct 2023. DOI: <a href="http://dx.doi.org/10.3390/fractalfract7100754" target="_blank">10.3390/fractalfract7100754</a></p>
-    
-    <h2>Path Integral over Markov Histories</h2>
-    <p>
-      Let us represent the product \( \Pi_N \) of the transitional probabilities of the particular history of the Markov processes as follows (with \( n_\pm \equiv n_\pm(l), \Delta n_\pm = -1 \)):
-    </p>
-    
-    <div class="equation">
-      $$\Pi_N = \exp\left( N \Lambda_N\right);$$
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1em;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h2,
+      h3 {
+        text-align: center;
+      }
+      .equation {
+        text-align: center;
+        margin: 1em 0;
+        word-wrap: break-word;
+      }
+      p {
+        text-align: justify;
+        word-wrap: break-word;
+      }
+      .references {
+        margin-top: 2em;
+        font-size: 0.9em;
+      }
+      .references h3 {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 0.2em;
+      }
+      .references li {
+        margin-bottom: 0.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Title and citation -->
+      <p style="text-align:right; font-style: italic;">
+        [1] Migdal, Alexander, “To the Theory of Decaying Turbulence”, 
+        <em>Fractal and Fractional</em>, vol. 7, no. 10, pp. 754, Oct 2023. DOI: 
+        <a href="http://dx.doi.org/10.3390/fractalfract7100754" target="_blank">
+          10.3390/fractalfract7100754
+        </a>
+      </p>
+      <h2>Path Integral over Markov Histories</h2>
+      <p>
+        Let us represent the product \( \Pi_N \) of the transitional probabilities
+        of the particular history of the Markov processes as follows (with 
+        \( n_\pm \equiv n_\pm(l), \Delta n_\pm = -1 \)):
+      </p>
+      <div class="equation">
+        $$\Pi_N = \exp\left( N \Lambda_N\right);$$
+      </div>
+      <div class="equation">
+        $$\Lambda_N = \frac{1}{N}\sum_l  G_l;$$
+      </div>
+      <div class="equation">
+        $$G_l = \Delta n_+ \log\left(\frac{n_+}{n_+ + n_-}\right)
+        + \Delta n_- \log\left(\frac{n_-}{n_+ + n_-}\right);$$
+      </div>
+      <div class="equation">
+        $$n_+ = \sum_{k \le l} \nu_k;$$
+      </div>
+      <div class="equation">
+        $$n_- = \sum_{k \le l} (1-\nu_k);$$
+      </div>
+      <p>
+        These \( n_\pm \) are net numbers of \( \eta = \pm1 \) in terms of Ising spins
+        or occupation numbers \( \nu_k = (1,0) \) in the Fermi representation.
+        There is an extra constraint on the Markov process:
+      </p>
+      <div class="equation">
+        $$n_+ + n_- = l \quad ;\; \forall l$$
+      </div>
+      <p>
+        which follows from the above definition in terms of the occupation numbers.
+        We can redefine \( n_\pm \) as \( N \) times piecewise constant functions.
+      </p>
+      <div class="equation">
+        $$n_\pm = N f_\pm(\xi);$$
+      </div>
+      <div class="equation">
+        $$f_\pm(\xi) = \sum_{k =1}^{\lfloor N \xi \rfloor} \frac{\nu_k}{N};$$
+      </div>
+      <div class="equation">
+        $$f'_\pm(\xi) = \sum_{l=1}^N \delta\!\left(\xi -\frac{l}{N}\right)
+        \sum_{k =1}^{l} \frac{\nu_k}{N} ;$$
+      </div>
+      <div class="equation">
+        $$0 < \xi < 1;$$
+      </div>
+      <p>
+        The sums can be rewritten as Lebesgue integrals:
+      </p>
+      <div class="equation">
+        $$\Lambda_N = \int_1^0 \Bigl( d f_+(\xi) \log\!\left(\frac{f_+(\xi)}{\xi}\right)
+        + d f_-(\xi) \log\!\left(\frac{f_-(\xi)}{\xi}\right) \Bigr)$$
+      </div>
+      <p>
+        The sum over histories of the Markov process will become a 
+        <strong>path integral</strong> over the difference 
+        \( \phi = f_+(\xi)-f_-(\xi) \):
+      </p>
+      <div class="equation">
+        $$\sum_{\eta_.=\pm1}\exp\Big( N (\Lambda_N + \imath \Lambda_N^{(1)}) \Big)
+        \to \int D\phi \exp\Big( N (\Lambda_N + \imath \Lambda_N^{(1)}) \Big)$$
+      </div>
+      <p>
+        This path integral will be dominated by the “classical history,”
+        maximizing the product of transitional probabilities if such a classical
+        trajectory exists.
+      </p>
+      <p>
+        The first term (without the circulation term) brings the variational problem:
+      </p>
+      <div class="equation">
+        $$\max_{\phi}\Lambda_N[\phi];$$
+      </div>
+      <div class="equation">
+        $$\Lambda_N[\phi] = \int_1^0 d \xi \Biggl(
+        \frac{d f_+}{d \xi} \log\!\left(\frac{f_+}{\xi}\right)
+        + \frac{d f_-}{d \xi} \log\!\left(\frac{f_-}{\xi}\right)
+        \Biggr);$$
+      </div>
+      <div class="equation">
+        $$f_\pm(\xi) = \frac{1}{2}\Bigl(\xi \pm \phi(\xi)\Bigr);$$
+      </div>
+      <div class="equation">
+        $$f_\pm(\xi) \ge 0;$$
+      </div>
+      <p>
+        This problem is, however, a degenerate one, as the functional reduces to
+        the integral of a total derivative:
+      </p>
+      <div class="equation">
+        $$\frac{\delta \Lambda_N[\phi]}{\delta \phi(\xi)} = 0;$$
+      </div>
+      <div class="equation">
+        $$\Lambda_N[\phi] = \int_1^0 d \Bigl(f_+\log f_+ + f_-\log f_-\Bigr)
+        + 1 + \int_0^1 d \xi \log\xi \\
+        = -\frac{1}{2} (1-s) \log (1-s)
+        - \frac{1}{2} (1+s) \log (1+s) + \log (2);$$
+      </div>
+      <p>
+        It depends on the boundary condition \( \phi(0)=0,\; \phi(1)=s \) but not on the shape
+        of \( \phi(\xi) \). This expression matches the Stirling formula for the logarithm
+        of the binomial coefficient in the combinatorial solution [1] for the Euler ensemble:
+      </p>
+      <div class="equation">
+        $$\lim_{N \to \infty}\frac{\log \binom{N}{N(1+s)/2}}{N}
+        = \log (2) - \frac{1}{2} (1-s) \log (1-s)
+        - \frac{1}{2} (1+s) \log (1+s);$$
+      </div>
+      <p>
+        This \( \Lambda(s) = \Lambda_\infty(s) \) is a smooth even function of \( s \)
+        taking positive values from \( \Lambda(\pm1)=0 \) to the maximal value
+        \( \Lambda(0)=\log (2) \).
+      </p>
+      <p>
+        Now, let us add the circulation term to the exponential of the partition
+        function (see the trace formula). This term can be directly expressed in terms
+        of the difference between our two densities \( N \phi(\xi)=N f_+(\xi)-N f_-(\xi) \):
+      </p>
+      <div class="equation">
+        $$\imath N\Lambda^{(1)}_N[\phi, C_\Omega] =
+        \frac{\imath }{\sqrt{2\nu t}} \int_0^1 d\vec{C}_\Omega(\xi)
+        \cdot \vec{F}(\xi);$$
+      </div>
+      <div class="equation">
+        $$\vec{F}(\xi) = \frac{\Bigl\{\sin(\beta N\phi(\xi)),\,
+        \cos(\beta N\phi(\xi)),\, 0 \Bigr\}}{2 \sin(\beta/2)};$$
+      </div>
+      <div class="equation">
+        $$\vec{C}_\Omega(\theta) = \hat{\Omega}\cdot \vec{C}(\theta);$$
+      </div>
+      <p>
+        We remember that the last component of the vector \( \vec{F}(\xi) \)
+        does not contribute to the circulation integral in (Λ1) with the closed loop
+        \( \vec{C}_\Omega(\xi) \). This is why we replaced it with zero.
+        The key assumption is the existence of the smooth limit of the charge density
+        \( \phi(\xi) \) of these Fermions when they densely cover this loop.
+      </p>
+      <p>
+        We are working with \( \alpha(\xi)=\beta N \phi(\xi) \) in the following.
+      </p>
+      <p>
+        The measure for paths \( [D \alpha] \) is undetermined. The derivatives of these
+        alphas were quantized in the original Fermi theory: each step \( \alpha'(\xi)
+        \approx N \Delta \alpha = N\beta \sigma = \pm N\beta \).
+      </p>
+      <p>
+        As we demonstrate below, in continuum theory, this discrete distribution can be replaced
+        by a Gaussian distribution with the same mean square:
+      </p>
+      <div class="equation">
+        $$\sum_{\alpha'=\pm N\beta}\leftrightarrow\int d\alpha'
+        \exp\Big(-\frac{(\alpha')^2}{2N^2\beta^2}\Big);$$
+      </div>
+      <p>
+        To demonstrate that, we consider in the critical region \( \beta^2\sim N^{-1}\to0 \)
+        the most general term that arises in the moments of the circulation in (Λ1):
+      </p>
+      <div class="equation">
+        $$2^{-N}\sum_{\sigma_i=\pm1}\exp\Big(\imath\beta\sum_i k_i\sigma_i\Big)
+        = \prod_i\cos(\beta k_i)
+        \to \exp\Big(-\frac{\beta^2}{2}\sum_i k_i^2\Big);$$
+      </div>
+      <p>
+        where \( k_i \) are some integers. With a large number \( N \) of these integers,
+        the sum in the exponential becomes an integral, equivalent to a Gaussian integral:
+      </p>
+      <div class="equation">
+        $$\exp\Big(-\frac{\beta^2}{2}\sum_i k_i^2\Big)
+        = \prod_i\int_{-\infty}^\infty\frac{d\sigma_i}{\sqrt{2\pi}}
+        \exp\Big(-\frac{\sigma_i^2}{2}\Big)
+        \exp\Big(\imath\beta k_i\sigma_i\Big)\\
+        \to \exp\Big(-\frac{N\beta^2}{2}\int_0^1d\xi\, k(\xi)^2\Big);$$
+      </div>
+      <p>
+        We arrive at the standard path integral measure:
+      </p>
+      <div class="equation">
+        $$\int [D \alpha] = \int D\alpha(\xi)
+        \exp\Big(-\int_0^1d\xi\,\frac{(\alpha')^2}{2N\beta^2}\Big);$$
+      </div>
+      <div class="equation">
+        $$\frac{\int [D \alpha]\exp\Big(\imath N\int_0^1d\xi\,\alpha(\xi)K(\xi)\Big)}
+        {\int [D \alpha]} = \exp\Big(-\frac{N^2}{2}\iint d\xi_1d\xi_2\,
+        K(\xi_1)K(\xi_2)G_{1,2}\Big);$$
+      </div>
+      <div class="equation">
+        $$G_{1,2} = \VEV{\alpha(\xi_1)\alpha(\xi_2)};$$
+      </div>
+      <p>
+        The next Appendix will compute this Green’s function \( G_{1,2}=G(\xi_1,\xi_2) \).
+      </p>
+      <p>
+        Thus, we arrive at the following path integral in the continuum limit:
+      </p>
+      <div class="equation">
+        <strong>(a)</strong>
+        $$\Psi[C] = \frac{
+        \sum_{p<q;(p,q)}\int_{\Omega\in O(3)}d\Omega\int [D \alpha]
+        }{
+        \sum_{p<q;(p,q)}|O(3)|\int [D \alpha]
+        }\\[1ex]
+        \times \exp\Bigg(\imath\frac{
+        \int_0^1d\xi\,\Im\Bigl(\mathcal C'_\Omega(\xi)
+        \exp\bigl(\imath\alpha(\xi)\bigr)\Bigr)
+        }{
+        2\sin(\pi p/q)\sqrt{2\nu(t+t_0)}
+        } \Bigg);$$
+      </div>
+      <div class="equation">
+        <strong>(b)</strong>
+        $$\mathcal C_\Omega(\theta)=\vec{C}(\theta)\cdot\hat{\Omega}\cdot\{\imath,1,0\};$$
+      </div>
+      <p>
+        We get the \( U(1) \) statistical model with the boundary condition
+        \( \alpha(1)=\alpha(0)+\beta N s \). The period \( \beta N s=2\pi p r \)
+        is a multiple of \( 2\pi \), which is irrelevant at \( N\to\infty \). The effective
+        potential for this theory is a linear function of the loop slope \( \vec{C}'(\xi) \).
+      </p>
+      <p>
+        This model is yet another representation of the Euler ensemble, suitable for
+        the continuum limit.
+      </p>
+      <!-- References Section -->
+      <div class="references">
+        <h3>References</h3>
+        <ol>
+          <li>
+            Alexander Migdal, “To the Theory of Decaying Turbulence”, 
+            <em>Fractal and Fractional</em>, vol. 7, no. 10, pp. 754, Oct 2023.
+            DOI: <a href="http://dx.doi.org/10.3390/fractalfract7100754" target="_blank">
+            10.3390/fractalfract7100754
+            </a>.
+          </li>
+        </ol>
+      </div>
     </div>
-    
-    <div class="equation">
-      $$\Lambda_N = \frac{1}{N}\sum_l  G_l;$$
-    </div>
-    
-    <div class="equation">
-      $$G_l = \Delta n_+ \log\left(\frac{n_+}{n_+ + n_-}\right) + \Delta n_- \log\left(\frac{n_-}{n_+ + n_-}\right);$$
-    </div>
-    
-    <div class="equation">
-      $$n_+ = \sum_{k \le l} \nu_k;$$
-    </div>
-    
-    <div class="equation">
-      $$n_- = \sum_{k \le l} (1-\nu_k);$$
-    </div>
-    
-    <p>
-      These \( n_\pm \) are net numbers of \( \eta = \pm1 \) in terms of Ising spins or occupation numbers \( \nu_k = (1,0) \) in the Fermi representation.
-      There is an extra constraint on the Markov process
-    </p>
-    
-    <div class="equation" id="constraint1">
-      $$n_+ + n_- = l \quad ;\; \forall l$$
-    </div>
-    
-    <p>
-      which follows from the above definition in terms of the occupation numbers.
-      We can redefine \( n_\pm \) as \( N \) times piecewise constant functions.
-    </p>
-    
-    <div class="equation">
-      $$n_\pm = N f_\pm(\xi);$$
-    </div>
-    
-    <div class="equation">
-      $$f_\pm(\xi) = \sum_{k =1}^{\lfloor N \xi \rfloor} \frac{\nu_k}{N};$$
-    </div>
-    
-    <div class="equation">
-      $$f'_\pm(\xi) = \sum_{l=1}^N\delta\left(\xi -\frac{l}{N}\right) \sum_{k =1}^{l} \frac{\nu_k}{N} ;$$
-    </div>
-    
-    <div class="equation">
-      $$0 < \xi < 1;$$
-    </div>
-    
-    <p>
-      The sums can be rewritten as Lebesgue integrals
-    </p>
-    
-    <div class="equation">
-      $$\Lambda_N = \int_1^0 \Bigl( d f_+(\xi) \log\left(\frac{f_+(\xi)}{\xi}\right) + d f_-(\xi) \log\left(\frac{f_-(\xi)}{\xi}\right) \Bigr)$$
-    </div>
-    
-    <p>
-      The sum over histories of the Markov process will become a <strong>path integral</strong> over the difference 
-      \( \phi = f_+(\xi)-f_-(\xi) \)
-    </p>
-    
-    <div class="equation" id="func-int-phi">
-      $$\sum_{\eta_.=\pm1}\exp\Big( N (\Lambda_N + \imath \Lambda_N^{(1)}) \Big) \to \int D\phi \exp\Big( N (\Lambda_N + \imath \Lambda_N^{(1)}) \Big)$$
-    </div>
-    
-    <p>
-      This path integral will be dominated by the “classical history,” maximizing the product of transitional probabilities if such a classical trajectory exists.
-    </p>
-    
-    <p>
-      The first term (without the circulation term) brings the variational problem
-    </p>
-    
-    <div class="equation">
-      $$\max_{\phi}\Lambda_N[\phi];$$
-    </div>
-    
-    <div class="equation">
-      $$\Lambda_N[\phi] = \int_1^0 d \xi \Biggl( \dbyd{f_+}{\xi} \log\left(\frac{f_+}{\xi}\right) + \dbyd{f_-}{\xi} \log\left(\frac{f_-}{\xi}\right) \Biggr);$$
-    </div>
-    
-    <div class="equation">
-      $$f_\pm(\xi) = \frac{1}{2} \Bigl(\xi \pm \phi(\xi)\Bigr);$$
-    </div>
-    
-    <div class="equation">
-      $$f_\pm(\xi) \ge 0;$$
-    </div>
-    
-    <p>
-      This problem is, however, a degenerate one, as the functional reduces to the integral of a total derivative:
-    </p>
-    
-    <div class="equation" id="degenerate">
-      $$\fbyf{\Lambda_N[\phi]}{\phi(\xi)} =0;$$
-    </div>
-    
-    <div class="equation">
-      $$\Lambda_N[\phi] = \int_1^0 d \Bigl(f_+\log f_+ + f_-\log f_- \Bigr) + 1 + \int_0^1 d \xi \log\xi = -\frac{1}{2} (1-s) \log (1-s)-\frac{1}{2} (1+s) \log (1+s)+\log (2);$$
-    </div>
-    
-    <p>
-      It depends on the boundary condition \( \phi(0) = 0, \; \phi(1) = s \) but not on the shape of \( \phi(\xi) \).
-      This expression matches the Stirling formula for the logarithm of the binomial coefficient in the combinatorial solution [1] for the Euler ensemble:
-    </p>
-    
-    <div class="equation">
-      $$\lim_{N \to \infty}\frac{\log \binom{N}{N(1+s)/2}}{N} = \log (2) -\frac{1}{2} (1-s) \log (1-s)-\frac{1}{2} (1+s) \log (1+s)$$
-    </div>
-    
-    <p>
-      This \( \Lambda(s) = \Lambda_\infty(s) \) is a smooth even function of \( s \) taking positive values from \( \Lambda(\pm1) =0 \) to the maximal value \( \Lambda(0)= \log (2) \).
-    </p>
-    
-    <p>
-      Now, let us add the circulation term to the exponential of the partition function (see <em>trace formula</em>).
-      This term can be directly expressed in terms of the difference between our two densities \( N \phi(\xi) = N f_+(\xi) - N f_-(\xi) \):
-    </p>
-    
-    <div class="equation" id="Lambda1">
-      $$\imath N\Lambda^{(1)}_N[\phi, C_\Omega] = \frac{\imath }{\sqrt{2\nu t}} \int_0^1  d\vec{C}_\Omega(\xi) \cdot \vec{F}(\xi);$$
-    </div>
-    
-    <div class="equation">
-      $$\vec{F}(\xi) = \frac{\Bigl\{\sin(\beta N\phi(\xi)),\, \cos(\beta N\phi(\xi)),\, 0 \Bigr\}}{2 \sin(\beta/2)};$$
-    </div>
-    
-    <div class="equation">
-      $$\vec{C}_\Omega(\theta) = \hat{\Omega}\cdot \vec{C}(\theta);$$
-    </div>
-    
-    <p>
-      We remember that the last component of the vector \( \vec{F}(\xi) \) does not contribute to the circulation integral in (Λ1) with the closed loop \( \vec{C}_\Omega(\xi) \). This is why we replaced it with zero, not because it is small but because it drops.
-      The key assumption is, of course, the existence of the smooth limit of the charge density \( \phi(\xi) \) of these Fermions when they are densely covering this loop.
-    </p>
-    
-    <p>
-      We are working with \( \alpha(\xi) = \beta N \phi(\xi) \) in the following.
-    </p>
-    
-    <p>
-      The measure for paths \( [D \alpha] \) is undetermined. The derivatives of these alphas were quantized in the original Fermi theory: each step \( \alpha'(\xi) \approx N \Delta \alpha = N\beta \sigma = \pm N\beta \).
-    </p>
-    
-    <p>
-      As we demonstrate below, in continuum theory, this discrete distribution can be replaced by a Gaussian distribution with the same mean square
-    </p>
-    
-    <div class="equation">
-      $$\sum_{\alpha' = \pm N\beta} \leftrightarrow \int d  \alpha' \exp\Big( -  \frac{(\alpha')^2}{2 N^2 \beta^2}\Big)$$
-    </div>
-    
-    <p>
-      To demonstrate that, we consider in the critical region \( \beta^2 \sim N^{-1} \to 0 \) the most general term that arises in the moments of the circulation in (Λ1):
-    </p>
-    
-    <div class="equation">
-      $$2^{-N}\sum_{\sigma_i = \pm 1} \exp\Big( \imath \beta \sum_i  k_i  \sigma_i\Big) =\prod_i \cos(\beta k_i) \to  \exp\Big( -  \frac{\beta^2}{2}\sum_i k_i^2\Big)$$
-    </div>
-    
-    <p>
-      where \( k_i \) are some integers. With a large number \( N \) of these integers, the sum in the exponential becomes an integral, which is equivalent to a Gaussian integral:
-    </p>
-    
-    <div class="equation">
-      $$\exp\Big( -  \frac{\beta^2}{2}\sum_i k_i^2\Big) = \prod_i \int_{-\infty}^\infty \frac{d \sigma_i}{\sqrt{2 \pi}} \exp\Big( -\frac{\sigma_i^2}{2}\Big) \exp\Big( \imath \beta k_i  \sigma_i\Big) \to \exp\Big(  - \frac{N \beta^2}{2}\int_0^1 d \xi\, k(\xi)^2\Big)$$
-    </div>
-    
-    <p>
-      We arrive at the standard path integral measure
-    </p>
-    
-    <div class="equation" id="gaussMeasure">
-      $$\int [D \alpha]  =  \int D \alpha(\xi) \exp\Big(- \int_0^1 d \xi\, \frac{(\alpha')^2}{2 N \beta^2}\Big);$$
-    </div>
-    
-    <div class="equation">
-      $$\frac{\int [D \alpha] \exp\Big( \imath N \int_0^1 d \xi\,\alpha(\xi) K(\xi)\Big)}{\int [D \alpha]} = \exp\Big(-\frac{N^2}{2}\iint d\xi_1 d\xi_2\, K(\xi_1)K(\xi_2)G_{1,2}\Big);$$
-    </div>
-    
-    <div class="equation">
-      $$G_{1,2} = \VEV{\alpha(\xi_1) \alpha(\xi_2)};$$
-    </div>
-    
-    <p>
-      The next Appendix will compute this Green’s function \( G_{1,2}=G(\xi_1, \xi_2) \).
-    </p>
-    
-    <p>
-      Thus, we arrive at the following path integral in the continuum limit:
-    </p>
-    
-    <div class="equation">
-      <strong>(a)</strong>
-      $$\Psi[C] = \frac{\displaystyle\sum_{p<q; (p,q)} \int_{\Omega \in O(3)} d \Omega\int [D \alpha]}{\displaystyle\sum_{p<q; (p,q)} |O(3)|\int [D \alpha]} \exp\Bigg( \imath\frac{\int_0^1 d \xi\, \Im\Bigl( \mathcal C'_\Omega(\xi) \exp\bigl(\imath\alpha(\xi)\bigr)\Bigr)}{2 \sin(\pi p/q) \sqrt{2\nu (t+ t_0)}}\Bigg);$$
-    </div>
-    
-    <div class="equation">
-      <strong>(b)</strong>
-      $$\mathcal C_\Omega(\theta) =  \vec{C}(\theta) \cdot \hat{\Omega} \cdot\{\imath,1,0\};$$
-    </div>
-    
-    <p>
-      We get the \( U(1) \) statistical model with the boundary condition \( \alpha(1) = \alpha(0) + \beta N s \). The period \( \beta N s = 2 \pi p r \) is a multiple of \( 2 \pi \), which is irrelevant at \( N \to \infty \). The effective potential for this theory is a linear function of the loop slope \( \vec{C}'(\xi) \).
-    </p>
-    
-    <p>
-      This model is yet another representation of the Euler ensemble, suitable for the continuum limit.
-    </p>
-    
-    <!-- References Section -->
-    <div class="references">
-      <h3>References</h3>
-      <ol>
-        <li>
-          Alexander Migdal, “To the Theory of Decaying Turbulence”, <em>Fractal and Fractional</em>, vol. 7, no. 10, pp. 754, Oct 2023. DOI: <a href="http://dx.doi.org/10.3390/fractalfract7100754" target="_blank">10.3390/fractalfract7100754</a>.
-        </li>
-      </ol>
-    </div>
-  </div>
-</body>
+  </body>
 </html>
