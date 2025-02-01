@@ -220,7 +220,8 @@
       
       <div class="equation">
         \[
-        \mathcal{E}(N): \quad p,q,r \in \mathbb{Z}, \quad -N\le qr\le N, \quad 0<p<q<N, \quad \mathrm{gcd}(p,q)=1,
+        \mathcal{E}(N): \quad p,q,r \in \mathbb{Z},\quad -N\le qr\le N,\quad
+        0<p<q<N,\quad \mathrm{gcd}(p,q)=1,
         \]
       </div>
       
@@ -261,20 +262,20 @@
       </p>
       
       <p>
-        <strong>Proof.</strong> As all the operators \( \hat{\nu}_l \) commute with each other, the operators \( \hat{Q}(M) \) can be applied in arbitrary order to the states \( \Sigma = \lvert \sigma_1,\dots,\sigma_N \rangle \) involved in the trace. The same is true about individual terms in the circulation in the exponential of the Wilson loop. These terms \( \vec{\mathcal F}_l \) involve the operators \( \hat{\alpha}_l \), which commute with each other and with each \( \hat{Q}(M) \). Thus, we can use the ordered product
+        <strong>Proof.</strong> As all the operators \( \hat{\nu}_l \) commute with each other, the operators \( \hat{Q}(M) \) can be applied in arbitrary order to the states \( \Sigma = \lvert \sigma_1,\dots,\sigma_N \rangle \) involved in the trace. The same is true for individual terms in the circulation in the exponential of the Wilson loop. These terms \( \vec{\mathcal F}_l \) involve the operators \( \hat{\alpha}_l \), which commute with each other and with each \( \hat{Q}(M) \). Thus, we can use the ordered product 
         \[
         \hat{G}_l = \hat{Q}(l)\exp\Bigl(i\omega\hat{\sigma}_l + \frac{i\gamma}{\nu}\Delta\vec{C}_l\cdot\vec{\mathcal P}_l(t)\Bigr).
         \]
-        Each operator \( \hat{G}_l \) acting on an arbitrary state \( \Sigma \) will create two terms with \( \delta[\sigma_l \pm 1] \). The product
-        \(\hat{Z}_l = \prod_{k=1}^l \hat{G}_k\) produces \( 2^l \) terms in which each \( \sigma_k \) (for \( k \le l \)) is fixed by the Kronecker deltas. Multiplying all the operators \( \hat{G}_M \) yields a superposition \( \hat{\Pi}_N \) of \( 2^N \) terms, each with \( \prod_{M=1}^{N} \delta[\sigma_M-\eta_M] \) for various choices of signs \( \eta_i=\pm 1 \). The product of these deltas projects the total sum over the \( 2^N \) combinations in the trace to a single term corresponding to a particular history \( (\eta_1,\dots,\eta_N) \) of the Markov process. Multiplying by the Markov transition probabilities and by the exponential
+        Each operator \( \hat{G}_l \) acting on an arbitrary state \( \Sigma \) will create two terms with \( \delta[\sigma_l \pm 1] \). The product 
+        \(\hat{Z}_l = \prod_{k=1}^l \hat{G}_k\) then produces \( 2^l \) terms in which each \( \sigma_k \) (for \( k\le l \)) is fixed by the Kronecker deltas. Multiplying all the operators \( \hat{G}_M \) yields a superposition \( \hat{\Pi}_N \) of \( 2^N \) terms, each with \( \prod_{M=1}^{N} \delta[\sigma_M-\eta_M] \) for various choices of signs \( \eta_i=\pm 1 \). The product of these deltas projects the total sum over the \( 2^N \) combinations in the trace to a single term corresponding to a particular history \( (\eta_1,\dots,\eta_N) \) of the Markov process. Multiplying by the Markov transition probabilities and by the exponential 
         \[
         \exp\Bigl(\frac{i\gamma}{\nu}\sum_l\Delta\vec{C}_l\cdot\hat{\Omega}\cdot\vec{P}_l(t)\Bigr),
         \]
-        with the operators \( \hat{\sigma} \) replaced by numbers \( \eta \), reproduces the usual numeric result. Finally, integration over \( \omega \) produces a delta function
+        with the operators \( \hat{\sigma} \) replaced by the numbers \( \eta \), reproduces the usual numeric result. Finally, integration over \( \omega \) produces a delta function 
         \[
         \delta\Bigl[\sum_l \eta_l - s\Bigr],
         \]
-        which reduces the trace to the required sum over all histories of the Markov process with fixed \( \sum_l \eta_l \). \qed
+        which reduces the trace to the required sum over all histories of the Markov process with fixed \( \sum_l \eta_l \). \(\blacksquare\)
       </p>
       
       <p>
