@@ -19,123 +19,152 @@
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <style>
+    /* Prevent horizontal scrollbar */
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-color: #f9f9f9;
+    }
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
-      margin: 20px;
+      padding: 20px;
+    }
+    /* Responsive container for content */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1em;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-sizing: border-box;
     }
     .equation {
       text-align: center;
       margin: 1em 0;
+      word-wrap: break-word;
+    }
+    p {
+      word-wrap: break-word;
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+      /* Image scaled as before */
+      width: 12.5%;
+      max-width: 100%;
+      height: auto;
     }
   </style>
 </head>
 <body>
 
-  <h2>Vorticity Statistics and Momentum Loop</h2>
+  <div class="container">
+    <h2>Vorticity Statistics and Momentum Loop</h2>
 
-  <p>
-    The multiple area derivatives of \( \Psi \) yield a formula
-  </p>
+    <p>
+      The multiple area derivatives of \( \Psi \) yield a formula
+    </p>
 
-  <div class="equation">
-    \[
-      \begin{aligned}
-        &\VEV{\exp\Big(i \, \Gamma_C[v]\Big) \, \omega(r_1) \otimes \omega(r_2) \dots \otimes \omega(r_n)}_v = \\[1mm]
-        &\quad \frac{n!}{(2 \pi)^n}\,\VEV{\exp\Big(i \, \Gamma_{\tilde C}[P]\Big) \int\limits_{0<\theta_1<\dots<\theta_n<2\pi} d\theta_1\, \hat{\omega}(\theta_1) \otimes d\theta_2\, \hat{\omega}(\theta_2) \dots \otimes d\theta_n\, \hat{\omega}(\theta_n)}_P;
-      \end{aligned}
-    \]
+    <div class="equation">
+      \[
+        \begin{aligned}
+          &\VEV{\exp\Big(i \, \Gamma_C[v]\Big) \, \omega(r_1) \otimes \omega(r_2) \dots \otimes \omega(r_n)}_v = \\[1mm]
+          &\quad \frac{n!}{(2 \pi)^n}\,\VEV{\exp\Big(i \, \Gamma_{\tilde C}[P]\Big) \int\limits_{0<\theta_1<\dots<\theta_n<2\pi} d\theta_1\, \hat{\omega}(\theta_1) \otimes d\theta_2\, \hat{\omega}(\theta_2) \dots \otimes d\theta_n\, \hat{\omega}(\theta_n)}_P;
+        \end{aligned}
+      \]
+    </div>
+
+    <div class="equation">
+      \[
+        \hat{\omega}(\theta) \propto i\, \vec{P}(\theta)\times \Delta \vec{P}(\theta);
+      \]
+    </div>
+
+    <div class="equation">
+      \[
+        \tilde C = \bigoplus_k L(r_C, r_k, r_C);
+      \]
+    </div>
+
+    <p>
+      Here \( L(r_C, r_k, r_C) \) is a double line from the center of mass 
+      \( r_C = \sum_{k=1}^n r_k/n \) to each point \( r_k \) and back to \( r_C \). The whole loop \( C \) looks like bicycle spokes without a wheel. The angles \( \theta_1, \dots, \theta_n \) are ordered on the unit circle.
+    </p>
+
+    <p>
+      <img src="BykeWheel.jpg" alt="Bicycle Wheel">
+    </p>
+
+    <p>
+      These double lines cancel in the circulation 
+      \[
+        \Gamma_C[v]=0,
+      \]
+      but not in the momentum loop representation. This happens because in the momentum loop 
+      \[
+        \int d\theta\, \vec{C}'(\theta)\cdot \vec{P}(\theta)
+      \]
+      the momentum variable depends on \( \theta \) directly, so the two line integrals in a double line do not cancel.
+    </p>
+
+    <p>
+      The factor \( \frac{n!}{(2 \pi)^n} \) comes about as follows. In the velocity representation, the circulation is zero, and the vorticities 
+      \[
+        \vec{\omega}(\vec{C}(\theta_k)) = \vec{\omega}(\vec{r}_k)
+      \]
+      depend directly on \( \vec{r}_k \) but not on the angles \( \theta_k \). Thus, the integral over ordered thetas yields the factor 
+      \[
+        \frac{(2 \pi)^n}{n!},
+      \]
+      which we have to compensate by the inverse factor.
+    </p>
+
+    <p>
+      This leads to the basic formula for the multiple correlation functions of vorticity:
+    </p>
+
+    <div class="equation">
+      \[
+        \begin{aligned}
+          &\VEV{\omega(r_1) \otimes \omega(r_2) \dots \otimes \omega(r_n)}_v = \\[1mm]
+          &\quad \frac{n!}{(2 \pi)^n}\,\VEV{\exp\Big(i \, \Gamma_{\tilde C}[P]\Big) \int\limits_{0<\theta_1<\dots<\theta_n<2\pi} d\theta_1\, \hat{\omega}(\theta_1) \otimes d\theta_2\, \hat{\omega}(\theta_2) \dots \otimes d\theta_n\, \hat{\omega}(\theta_n)}_P;
+        \end{aligned}
+      \]
+    </div>
+
+    <div class="equation">
+      \[
+        \Gamma_{\tilde C}[P] = \sum_{k=1}^n \int_0^1 d\eta\, (\vec{r}_k - \vec{r}_C) \cdot \vec{Q}_k(\eta);
+      \]
+    </div>
+
+    <div class="equation">
+      \[
+        \vec{Q}_k(\eta) = \vec{P}\Big(\tilde{\theta}_k(1-\eta) + \theta_k\, \eta\Big) - \vec{P}\Big(\tilde{\theta}_{k+1}\eta + \theta_k (1-\eta)\Big);
+      \]
+    </div>
+
+    <div class="equation">
+      \[
+        \tilde{\theta}_k = \frac{\theta_{k-1} + \theta_k}{2} \pmod{2\pi}.
+      \]
+    </div>
+
+    <p>
+      This formula expresses the multiple correlation functions in terms of the expectation value of the Euler ensemble. This is how we compute in <cite>migdal2024quantum</cite> the \( \VEV{\omega\, \omega} \) correlation as a function of relative distance in the case \( n=2 \). The correlation function in Fourier space 
+      \[
+        \VEV{\vec{\omega}(k)\cdot\vec{\omega}(-k)}
+      \]
+      (the energy spectrum) came out positive and real.
+    </p>
+
+    <p>
+      We conclude that the whole statistics of the rotational part of the velocity field (i.e., vorticity) is related to the statistics of the solutions 
+      \(\vec{P}(\theta, t)\) of the MLE.
+    </p>
   </div>
-
-  <div class="equation">
-    \[
-      \hat{\omega}(\theta) \propto i\, \vec{P}(\theta)\times \Delta \vec{P}(\theta);
-    \]
-  </div>
-
-  <div class="equation">
-    \[
-      \tilde C = \bigoplus_k L(r_C, r_k, r_C);
-    \]
-  </div>
-
-  <p>
-    Here \( L(r_C, r_k, r_C) \) is a double line from the center of mass 
-    \( r_C = \sum_{k=1}^n r_k/n \) to each point \( r_k \) and back to \( r_C \). The whole loop \( C \) looks like bicycle spokes without a wheel. The angles \( \theta_1, \dots, \theta_n \) are ordered on the unit circle.
-  </p>
-
-  <p>
-    <!-- The image is now scaled down by a factor of 4 (from 50% to 12.5%) -->
-    <img src="BykeWheel.jpg" alt="Bicycle Wheel" style="width:12.5%;">
-  </p>
-
-  <p>
-    These double lines cancel in the circulation 
-    \[
-      \Gamma_C[v]=0,
-    \]
-    but not in the momentum loop representation. This happens because in the momentum loop 
-    \[
-      \int d\theta\, \vec{C}'(\theta)\cdot \vec{P}(\theta)
-    \]
-    the momentum variable depends on \( \theta \) directly, so the two line integrals in a double line do not cancel.
-  </p>
-
-  <p>
-    The factor \( \frac{n!}{(2 \pi)^n} \) comes about as follows. In the velocity representation, the circulation is zero, and the vorticities 
-    \[
-      \vec{\omega}(\vec{C}(\theta_k)) = \vec{\omega}(\vec{r}_k)
-    \]
-    depend directly on \( \vec{r}_k \) but not on the angles \( \theta_k \). Thus, the integral over ordered thetas yields the factor 
-    \[
-      \frac{(2 \pi)^n}{n!},
-    \]
-    which we have to compensate by the inverse factor.
-  </p>
-
-  <p>
-    This leads to the basic formula for the multiple correlation functions of vorticity:
-  </p>
-
-  <div class="equation">
-    \[
-      \begin{aligned}
-        &\VEV{\omega(r_1) \otimes \omega(r_2) \dots \otimes \omega(r_n)}_v = \\[1mm]
-        &\quad \frac{n!}{(2 \pi)^n}\,\VEV{\exp\Big(i \, \Gamma_{\tilde C}[P]\Big) \int\limits_{0<\theta_1<\dots<\theta_n<2\pi} d\theta_1\, \hat{\omega}(\theta_1) \otimes d\theta_2\, \hat{\omega}(\theta_2) \dots \otimes d\theta_n\, \hat{\omega}(\theta_n)}_P;
-      \end{aligned}
-    \]
-  </div>
-
-  <div class="equation">
-    \[
-      \Gamma_{\tilde C}[P] = \sum_{k=1}^n \int_0^1 d\eta\, (\vec{r}_k - \vec{r}_C) \cdot \vec{Q}_k(\eta);
-    \]
-  </div>
-
-  <div class="equation">
-    \[
-      \vec{Q}_k(\eta) = \vec{P}\Big(\tilde{\theta}_k(1-\eta) + \theta_k\, \eta\Big) - \vec{P}\Big(\tilde{\theta}_{k+1}\eta + \theta_k (1-\eta)\Big);
-    \]
-  </div>
-
-  <div class="equation">
-    \[
-      \tilde{\theta}_k = \frac{\theta_{k-1} + \theta_k}{2} \pmod{2\pi}.
-    \]
-  </div>
-
-  <p>
-    This formula expresses the multiple correlation functions in terms of the expectation value of the Euler ensemble. This is how we compute in <cite>migdal2024quantum</cite> the \( \VEV{\omega\, \omega} \) correlation as a function of relative distance in the case \( n=2 \). The correlation function in Fourier space 
-    \[
-      \VEV{\vec{\omega}(k)\cdot\vec{\omega}(-k)}
-    \]
-    (the energy spectrum) came out positive and real.
-  </p>
-
-  <p>
-    We conclude that the whole statistics of the rotational part of the velocity field (i.e., vorticity) is related to the statistics of the solutions 
-    \(\vec{P}(\theta, t)\) of the MLE.
-  </p>
 
 </body>
 </html>
