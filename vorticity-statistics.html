@@ -3,190 +3,273 @@
 <head>
   <meta charset="UTF-8">
   <title>Vorticity Statistics and Momentum Loop</title>
-  <!-- MathJax configuration to define the macro \VEV -->
-  <script>
-    window.MathJax = {
-      tex: {
-        macros: {
-          VEV: ["\\left\\langle #1\\right\\rangle", 1]
-        }
-      }
-    };
-  </script>
-  <!-- Load MathJax -->
+  <!-- Load MathJax for rendering LaTeX math -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <style>
-    /* Prevent horizontal scrollbar */
-    html, body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      background-color: #f9f9f9;
-    }
     body {
-      font-family: Arial, sans-serif;
+      font-family: sans-serif;
       line-height: 1.6;
-      padding: 20px;
-    }
-    /* Responsive container for content */
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 1em;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      box-sizing: border-box;
+      margin: 20px;
     }
     .equation {
       text-align: center;
       margin: 1em 0;
-      word-wrap: break-word;
     }
-    p {
-      word-wrap: break-word;
+    figure {
+      text-align: center;
     }
-    img {
-      display: block;
-      margin: 0 auto;
-      /* Set image width to 50% of container */
-      width: 50%;
-      max-width: 100%;
-      height: auto;
-    }
-    /* Style for the references section */
-    .references {
-      margin-top: 2em;
+    figcaption {
+      font-style: italic;
       font-size: 0.9em;
     }
-    .references h3 {
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 0.2em;
+    a {
+      color: blue;
+      text-decoration: none;
     }
-    .references li {
-      margin-bottom: 0.5em;
+    a:hover {
+      text-decoration: underline;
+    }
+    #references {
+      margin-top: 2em;
+      border-top: 1px solid #ccc;
+      padding-top: 1em;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <section id="vorticity-statistics-and-momentum-loop">
     <h2>Vorticity Statistics and Momentum Loop</h2>
 
     <p>
-      The multiple area derivatives of \( \Psi \) yield a formula
+      The multiple area derivatives of \( \Psi \) yield the formula
     </p>
 
     <div class="equation">
-      \[
+      <p>
+        \[
         \begin{aligned}
-          &\VEV{\exp\Big(i \, \Gamma_C[v]\Big) \, \omega(r_1) \otimes \omega(r_2) \dots \otimes \omega(r_n)}_v = \\[1mm]
-          &\quad \frac{n!}{(2 \pi)^n}\,\VEV{\exp\Big(i \, \Gamma_{\tilde C}[P]\Big) \int\limits_{0<\theta_1<\dots<\theta_n<2\pi} d\theta_1\, \hat{\omega}(\theta_1) \otimes d\theta_2\, \hat{\omega}(\theta_2) \dots \otimes d\theta_n\, \hat{\omega}(\theta_n)}_P;
+        \langle\exp\bigl(i\, \Gamma_C[v]\bigr) \, \omega(r_1)\otimes \omega(r_2) \dots \otimes\omega(r_n)\rangle_v
+         &= \\
+        \frac{n!}{(2 \pi)^n}\Biggl\langle\exp\Bigl(i\, \Gamma_{\tilde C}[P]\Bigr)
+        &\int_{0<\theta_1<\dots<\theta_n<2\pi}\!\!d\theta_1\, \hat \omega(\theta_1)
+        \otimes d\theta_2\, \hat \omega(\theta_2)
+        \\
+        &\qquad\qquad\dots\otimes d\theta_n\,\hat \omega(\theta_n)
+        \Biggr\rangle_P;
         \end{aligned}
-      \]
-    </div>
-
-    <div class="equation">
-      \[
-        \hat{\omega}(\theta) \propto i\, \vec{P}(\theta)\times \Delta \vec{P}(\theta);
-      \]
-    </div>
-
-    <div class="equation">
-      \[
+        \]
+      </p>
+      <p>
+        \[
+        \hat \omega(\theta) \propto i\,\vec P(\theta)\times \Delta\vec P(\theta);
+        \]
+      </p>
+      <p>
+        \[
         \tilde C = \bigoplus_k L(r_C, r_k, r_C);
-      \]
+        \]
+      </p>
     </div>
 
     <p>
-      Here \( L(r_C, r_k, r_C) \) is a double line from the center of mass 
-      \( r_C = \sum_{k=1}^n r_k/n \) to each point \( r_k \) and back to \( r_C \). The whole loop \( C \) looks like bicycle spokes without a wheel. The angles \( \theta_1, \dots, \theta_n \) are ordered on the unit circle.
+      where \( L(r_C, r_k, r_C) \) is a double line from the center of mass, 
+      \( r_C = \frac{1}{n}\sum_{k=1}^n r_k \), to each point \( r_k \) and back to \( r_C \). 
+      The entire loop \( C \) resembles bicycle spokes without a wheel (see 
+      <a href="#fig-BykeWheel">Fig. 1</a>). The angles \( \theta_1, \dots, \theta_n \) are ordered on the unit circle.
     </p>
 
-    <p>
-      <img src="BykeWheel.jpg" alt="Bicycle Wheel">
-    </p>
+    <figure id="fig-BykeWheel">
+      <img src="BykeWheel.pdf" alt="The loop C used to compute vorticity correlation functions" style="width:50%;">
+      <figcaption>
+        The loop \( C \) used to compute vorticity correlation functions. The endpoints of each spoke correspond to 
+        \( \vec C(\theta_k) = \vec r_k \), while the center represents the center of mass, 
+        \( \vec r_C = \frac{\sum_{k=1}^n \vec r_k}{n} \). Each spoke consists of two segments: one from the center to 
+        \( \vec r_k \), and another returning to the center. Since the area enclosed by the loop is zero, the circulation 
+        vanishes, i.e., \( \Gamma_C[v]=0 \).
+      </figcaption>
+    </figure>
 
     <p>
-      These double lines cancel in the circulation 
-      \[
+      These double lines cancel in the circulation,
+    </p>
+
+    <div class="equation">
+      <p>
+        \[
         \Gamma_C[v]=0,
-      \]
-      but not in the momentum loop representation. This happens because in the momentum loop 
-      \[
-        \int d\theta\, \vec{C}'(\theta)\cdot \vec{P}(\theta)
-      \]
-      the momentum variable depends on \( \theta \) directly, so the two line integrals in a double line do not cancel.
-    </p>
+        \]
+      </p>
+    </div>
 
     <p>
-      The factor \( \frac{n!}{(2 \pi)^n} \) comes about as follows. In the velocity representation, the circulation is zero, and the vorticities 
-      \[
-        \vec{\omega}(\vec{C}(\theta_k)) = \vec{\omega}(\vec{r}_k)
-      \]
-      depend directly on \( \vec{r}_k \) but not on the angles \( \theta_k \). Thus, the integral over ordered thetas yields the factor 
-      \[
-        \frac{(2 \pi)^n}{n!},
-      \]
-      which we have to compensate by the inverse factor.
-    </p>
-
-    <p>
-      This leads to the basic formula for the multiple correlation functions of vorticity:
+      but not in the momentum loop representation. This occurs because, in the momentum loop integral
     </p>
 
     <div class="equation">
-      \[
+      <p>
+        \[
+        \int d\theta\, \vec C'(\theta)\cdot \vec P(\theta),
+        \]
+      </p>
+    </div>
+
+    <p>
+      the momentum variable \( \vec P(\theta) \) depends explicitly on \( \theta \), preventing the cancellation of the two 
+      line integrals in a double line.
+    </p>
+
+    <p>
+      The factor \( \frac{n!}{(2 \pi)^n} \) arises as follows. In the velocity representation, where the circulation is zero, 
+      the vorticities
+    </p>
+
+    <div class="equation">
+      <p>
+        \[
+        \vec\omega(\vec C(\theta_k)) = \vec \omega(\vec r_k)
+        \]
+      </p>
+    </div>
+
+    <p>
+      depend directly on \( \vec r_k \), rather than on the angles \( \theta_k \). Consequently, the integral over ordered angles 
+      \( \theta_k \) yields the factor \( \frac{(2 \pi)^n}{n!} \), which we must compensate with the inverse factor.
+    </p>
+
+    <p>
+      This leads to the fundamental formula for multiple vorticity correlation functions:
+    </p>
+
+    <div class="equation" id="MomLoopCorr">
+      <p>
+        \[
         \begin{aligned}
-          &\VEV{\omega(r_1) \otimes \omega(r_2) \dots \otimes \omega(r_n)}_v = \\[1mm]
-          &\quad \frac{n!}{(2 \pi)^n}\,\VEV{\exp\Big(i \, \Gamma_{\tilde C}[P]\Big) \int\limits_{0<\theta_1<\dots<\theta_n<2\pi} d\theta_1\, \hat{\omega}(\theta_1) \otimes d\theta_2\, \hat{\omega}(\theta_2) \dots \otimes d\theta_n\, \hat{\omega}(\theta_n)}_P;
+        \langle \omega(r_1)\otimes \omega(r_2) \dots \otimes\omega(r_n) \rangle_v
+        &= \frac{n!}{(2 \pi)^n}\Biggl\langle\exp\Bigl(i\, \Gamma_{\tilde C}[P]\Bigr) \\
+        &\quad \times \int_{0<\theta_1<\dots<\theta_n<2\pi}\!\!d\theta_1\, \hat \omega(\theta_1)
+        \otimes d\theta_2\, \hat \omega(\theta_2)
+        \\
+        &\quad \quad \otimes \dots\otimes d\theta_n\, \hat \omega(\theta_n)
+        \Biggr\rangle_P;
         \end{aligned}
-      \]
-    </div>
-
-    <div class="equation">
-      \[
-        \Gamma_{\tilde C}[P] = \sum_{k=1}^n \int_0^1 d\eta\, (\vec{r}_k - \vec{r}_C) \cdot \vec{Q}_k(\eta);
-      \]
-    </div>
-
-    <div class="equation">
-      \[
-        \vec{Q}_k(\eta) = \vec{P}\Big(\tilde{\theta}_k(1-\eta) + \theta_k\, \eta\Big) - \vec{P}\Big(\tilde{\theta}_{k+1}\eta + \theta_k (1-\eta)\Big);
-      \]
-    </div>
-
-    <div class="equation">
-      \[
-        \tilde{\theta}_k = \frac{\theta_{k-1} + \theta_k}{2} \pmod{2\pi}.
-      \]
+        \]
+      </p>
+      <p>
+        \[
+        \Gamma_{\tilde C}[P] = \sum_{k=1}^n \int_0^1 d\eta\, (\vec r_k - \vec r_C) \cdot \vec Q_k(\eta);
+        \]
+      </p>
+      <p>
+        \[
+        \vec Q_k(\eta) = \vec P\Bigl(\tilde\theta_k(1-\eta) + \theta_k\eta\Bigr) - \vec P\Bigl(\tilde\theta_{k+1}\eta + \theta_k(1-\eta)\Bigr);
+        \]
+      </p>
+      <p>
+        \[
+        \tilde\theta_k = \frac{\theta_{k-1} + \theta_k}{2} \mod 2\pi.
+        \]
+      </p>
     </div>
 
     <p>
-      This formula expresses the multiple correlation functions in terms of the expectation value of the Euler ensemble. This is how we compute in [1] the \( \VEV{\omega\, \omega} \) correlation as a function of relative distance in the case \( n=2 \). The correlation function in Fourier space 
-      \[
-        \VEV{\vec{\omega}(k)\cdot\vec{\omega}(-k)}
-      \]
-      (the energy spectrum) came out positive and real.
+      This formula expresses the multiple correlation functions in terms of expectation values within the Euler ensemble. In 
+      <a href="#ref-migdal2024quantum"><cite>migdal2024quantum</cite></a>, we use this approach to compute the two-point correlation function, 
+      \( \langle \omega \omega \rangle \), as a function of relative distance for \( n=2 \). The Fourier-space correlation 
+      function,
+    </p>
+
+    <div class="equation">
+      <p>
+        \[
+        \langle \vec \omega(k)\cdot\vec \omega(-k) \rangle,
+        \]
+      </p>
+    </div>
+
+    <p>
+      (i.e., the energy spectrum), is found to be real and positive.
     </p>
 
     <p>
-      We conclude that the whole statistics of the rotational part of the velocity field (i.e., vorticity) is related to the statistics of the solutions 
-      \(\vec{P}(\theta, t)\) of the MLE.
+      We conclude that the full statistical description of the rotational part of the velocity field (i.e., vorticity) is related 
+      to the statistics of the solutions \( \vec P(\theta, t) \) of the MLE.
     </p>
 
-    <!-- References Section -->
-    <div class="references">
-      <h3>References</h3>
-      <ol>
-        <li>
-          Alexander Migdal, “Quantum solution of classical turbulence: Decaying energy spectrum,” <em>Physics of Fluids</em>, vol. 36, no. 9, p. 095161, 2024. doi: <a href="https://doi.org/10.1063/5.0228660" target="_blank">10.1063/5.0228660</a>
-        </li>
-      </ol>
+    <p>
+      A crucial aspect of this relation is the violation of time-reversal symmetry. Under time reversal, vorticity changes sign, 
+      which would typically eliminate vorticity correlations for an odd number of points (\( n \)). However, this is not the case 
+      in the momentum loop representation <span class="math inline">\( \eqref{MomLoopCorr} \)</span>.
+    </p>
+
+    <p>
+      To see why, consider the complex conjugation of the loop functional, which corresponds to time reversal in the original 
+      velocity representation. The vorticity operator \( \hat \omega(\theta) \) in <span class="math inline">\( \eqref{omegadef} \)</span> 
+      contains an imaginary unit, so it changes sign. The \( P \)-circulation term in the exponential is real but changes sign under 
+      the coordinate reversal \( \vec r_k \Rightarrow -\vec r_k \), thereby compensating for the complex conjugation effect.
+    </p>
+
+    <p>
+      This results in the identity
+    </p>
+
+    <div class="equation">
+      <p>
+        \[
+        \langle \omega(r_1)\otimes \omega(r_2) \dots \otimes\omega(r_n) \rangle_v 
+        = (-1)^n \langle \omega(-r_1)\otimes \omega(-r_2) \dots \otimes\omega(-r_n) \rangle_v,
+        \]
+      </p>
     </div>
-  </div>
+
+    <p>
+      which reflects parity conservation but does not enforce time-reversal symmetry. As a consequence, the expectation value of an odd number 
+      of vorticities remains an odd function of the coordinates.
+    </p>
+
+    <p>
+      More precisely, in both even and odd cases, the expectation values remain real, but they are linked to the real and imaginary parts 
+      of the exponential, depending on the number of imaginary units (\( i \)) in the product of vorticities:
+    </p>
+
+    <div class="equation">
+      <p>
+        \[
+        \langle \omega(r_1)\otimes \omega(r_2) \dots \otimes\omega(r_n) \rangle_v =
+        \frac{n!}{(2 \pi)^n}\,
+        \Re \Biggl\langle\exp\Bigl(i\, \Gamma_{\tilde C}[P]\Bigr)
+        \int_{0<\theta_1<\dots<\theta_n<2\pi}\!\!d\theta_1\, \hat \omega(\theta_1)
+        \otimes d\theta_2\, \hat \omega(\theta_2)
+        \otimes \dots\otimes d\theta_n\, \hat \omega(\theta_n)
+        \Biggr\rangle_P.
+        \]
+      </p>
+    </div>
+
+    <p>
+      The absence of reflection symmetry in the momentum loop distribution results in explicit time-reversal symmetry violation, 
+      manifesting as nonzero odd-order vorticity correlations. Specifically, the triple correlation function (\( n=3 \)) is an odd 
+      function of the coordinates, similar to the K41 identity for the triple velocity correlation. However, as discussed in 
+      <a href="#ref-migdal2024quantum"><cite>migdal2024quantum</cite></a>, the K41 relation applies only to the potential part of the velocity correlation and does not constrain 
+      the rotational part analyzed here.
+    </p>
+
+  </section>
+
+  <!-- References Section -->
+  <section id="references">
+    <h2>References</h2>
+    <ol>
+      <li id="ref-migdal2024quantum">
+        Migdal, A. (2024). <em>Quantum solution of classical turbulence: Decaying energy spectrum</em>. 
+        <em>Physics of Fluids</em>, 36(9), 095161. 
+        doi: <a href="https://doi.org/10.1063/5.0228660" target="_blank">10.1063/5.0228660</a>.
+      </li>
+    </ol>
+  </section>
 
 </body>
 </html>
