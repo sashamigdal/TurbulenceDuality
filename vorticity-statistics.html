@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Vorticity Statistics and Momentum Loop</title>
-  <!-- Define MathJax macros and include MathJax for rendering LaTeX math -->
+  <!-- MathJax configuration to define the macro \VEV -->
   <script>
     window.MathJax = {
       tex: {
         macros: {
-          VEVal: ["\\left\\langle #1\\right\\rangle", 1], // alternative name if desired
           VEV: ["\\left\\langle #1\\right\\rangle", 1]
         }
       }
     };
   </script>
+  <!-- Load MathJax -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
@@ -27,9 +27,6 @@
     .equation {
       text-align: center;
       margin: 1em 0;
-    }
-    .inline-math {
-      font-style: italic;
     }
   </style>
 </head>
@@ -68,7 +65,8 @@
   </p>
 
   <p>
-    <img src="BykeWheel.jpg" alt="Bicycle Wheel" style="width:50%;">
+    <!-- The image is now scaled down by a factor of 4 (from 50% to 12.5%) -->
+    <img src="BykeWheel.jpg" alt="Bicycle Wheel" style="width:12.5%;">
   </p>
 
   <p>
