@@ -282,18 +282,27 @@
       <p>
         Thus, we arrive at the following path integral in the continuum limit:
       </p>
-     <div class="equation">
+         <div class="equation">
   \[
   \begin{aligned}
-  \textbf{(a)}\quad \Psi[C] &= \frac{\displaystyle \sum_{p<q;(p,q)} \int_{\Omega\in O(3)} d\Omega \int [D\alpha]}
-  {\displaystyle \sum_{p<q;(p,q)} |O(3)| \int [D\alpha]} \\[1ex]
-  &\quad \times \exp\Biggl(\imath \frac{
-  \displaystyle \int_0^1 d\xi\, \Im\Bigl(\mathcal C'_\Omega(\xi)
-  \exp\bigl(\imath\alpha(\xi)\bigr)\Bigr)
-  }{\displaystyle 2\sin(\pi p/q)\sqrt{2\nu(t+t_0)}}\Biggr);
+  \textbf{(a)}\quad \Psi[C] &= \frac{
+    \sum_{p<q;(p,q)} \int_{\Omega\in O(3)} d\Omega \int [D\alpha]
+  }{
+    \sum_{p<q;(p,q)} |O(3)| \int [D\alpha]
+  } \\[1ex]
+  &\quad \times \exp\Biggl(
+    \imath\,\frac{
+      \int_0^1 d\xi\, \Im\Bigl(
+        \mathcal C'_\Omega(\xi)\exp\bigl(\imath\alpha(\xi)\bigr)
+      \Bigr)
+    }{
+      2\sin(\pi p/q)\sqrt{2\nu(t+t_0)}
+    }
+  \Biggr);
   \end{aligned}
   \]
 </div>
+
 
       <div class="equation">
         $$\textbf{(b)}\quad \mathcal C_\Omega(\theta)=\vec{C}(\theta)\cdot\hat{\Omega}\cdot\{\imath,1,0\};$$
