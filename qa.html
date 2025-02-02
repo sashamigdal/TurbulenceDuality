@@ -4,12 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Q&amp;A - Turbulence Duality</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;300&display=swap" 
-        rel="stylesheet">
-  <script type="text/javascript" async 
-          src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script type="text/javascript" async 
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;300&display=swap" rel="stylesheet">
+  <script type="text/javascript" async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
     /* General Styles */
     * {
@@ -97,6 +94,14 @@
     .content.open {
       display: block;
     }
+    /* QA Item (non-collapsible example) */
+    .qa-item {
+      background: #181818;
+      padding: 15px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
     /* Submission Form */
     .qa-form textarea {
       width: 100%;
@@ -122,12 +127,12 @@
     .qa-display {
       margin-top: 30px;
     }
-    .qa-item {
-      background: #181818;
-      padding: 15px;
-      border: 1px solid #333;
-      border-radius: 5px;
-      margin-bottom: 10px;
+    /* Attribution Note */
+    .attribution {
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 20px;
+      text-align: center;
     }
     /* Footer */
     footer {
@@ -157,67 +162,103 @@
     <h2>Questions and Comments</h2>
     <p>Have a question or comment about turbulence duality? Leave it below, and I'll get back to you!</p>
     
-    <!-- Q&A Item 1: How did Dr. Migdal use the Hopf equation? -->
+    <!-- Old Q&A Items -->
+    <!-- Q&A Item 1: Euler Ensemble Proof -->
     <button class="collapsible">
-      How did Dr. Migdal use the Hopf equation?
+      Is the Euler ensemble proven as the solution of the Momentum Loop Equation?
     </button>
     <div class="content">
       <p>
-        Dr. Migdal’s approach starts with the Hopf equation—a functional differential 
-        equation that governs the evolution of the characteristic functional (or generating 
-        functional) of the velocity field in turbulence. He takes multiple derivatives (in effect, 
-        area derivatives) of the Hopf functional to extract vorticity correlation functions. This 
-        process recasts the nonlinear Navier–Stokes problem into a linear problem in loop space, 
-        leading to the momentum loop equation. This reformulation is key to establishing the duality 
-        between fluid dynamics and quantum mechanics in loop space.
+        Our proof of the Euler ensemble as a solution of the Momentum Loop Equation (MLE) is presented within the formal 
+        framework of our theory. In the derivation, we show that by constructing the Euler ensemble as the limit (as N → ∞) 
+        of a polygonal approximation, the ensemble satisfies a fixed point equation for the variable <em>𝑭</em> (see Equation (FP)). 
+        Specifically, we define the discrete difference <em>Δ𝑭 = 𝑭ₖ − 𝑭ₖ₋₁</em> and the average <em>𝑭 = (𝑭ₖ + 𝑭ₖ₋₁)/2</em>. Requiring that the 
+        coefficients in front of both <em>Δ𝑭</em> and <em>𝑭</em> vanish (to avoid the trivial case where <em>𝑭 ∥ Δ𝑭</em> and vorticity would vanish) 
+        leads to two scalar conditions. Solving these conditions, we obtain a representation of <em>𝑭(θ)</em> as a fractal (closed polygon) 
+        whose vertices are determined by a rational angular increment. This construction naturally enforces the periodicity and symmetry needed 
+        to reproduce the correct physical properties—such as the cancellation of the imaginary parts in the circulation integral.
       </p>
-    </div>
-    
-    <!-- Q&A Item 2: Explain the Euler ensemble. -->
-    <button class="collapsible">
-      Explain the Euler ensemble.
-    </button>
-    <div class="content">
       <p>
-        The Euler ensemble is a fixed point solution of the momentum loop equation derived from the 
-        Hopf functional. Rather than working directly in physical space, the turbulence problem is 
-        recast in loop space, where the Euler ensemble is constructed as the limit (N → ∞) of a 
-        polygonal approximation of a closed loop. Its vertices are determined by a set of rotation 
-        parameters and angular increments that enforce periodicity and symmetry. Remarkably, this 
-        construction is equivalent to a random walk on regular star polygons and can be interpreted 
-        as a fermionic string theory. This duality underpins an exact analytic solution for decaying 
-        turbulence.
+        However, while the derivation is logically coherent and supported by extensive formal arguments and numerical evidence, it relies 
+        on techniques common in quantum field theory and string theory. In this formal sense, the Euler ensemble is proven to solve the discrete MLE. 
+        That said, a fully rigorous mathematical proof (in the conventional sense of PDE analysis) remains an open challenge and is an important 
+        direction for further research.
       </p>
     </div>
     
-    <!-- Q&A Item 3: How does the Euler ensemble theory modify the K41 scaling laws? -->
+    <!-- Q&A Item 2: Modification of K41 Scaling Laws -->
     <button class="collapsible">
       How does the Euler ensemble theory modify the K41 scaling laws?
     </button>
     <div class="content">
       <p>
-        Unlike the classical K41 scaling laws, which predict a single universal scaling exponent 
-        (for example, the second moment of velocity scaling as <em>Δv² ~ r^(2/3)</em>), the Euler 
-        ensemble theory introduces logarithmic corrections along with an infinite discrete spectrum 
-        of anomalous scaling dimensions. This means that the energy spectrum and other statistical 
-        measures are described by a universal function of <em>log k</em> rather than a simple power law. 
-        This modification accounts for the deviations observed in decaying turbulence, where log–log plots 
-        exhibit curvature that a pure power law cannot capture.
+        The Euler ensemble theory goes well beyond the classical Kolmogorov (K41) scaling laws. Rather than predicting a single universal 
+        scaling exponent (for example, the velocity second moment scaling as <em>Δv² ~ r^(2/3)</em> as in K41), the theory introduces logarithmic 
+        corrections and an infinite discrete spectrum of anomalous scaling dimensions. This means that the energy spectrum and other statistical 
+        quantities are described not by one power law, but by a universal function of <em>log k</em>. This modification captures the observed 
+        deviations in decaying turbulence—particularly the curved behavior on log–log plots—that cannot be explained by K41 alone.
       </p>
     </div>
     
-    <!-- Existing Q&A Item Example -->
+    <!-- Q&A Item 3: Experimental/DNS Verification Status -->
+    <button class="collapsible">
+      What is the status of experimental or DNS verification of predictions of this theory?
+    </button>
+    <div class="content">
+      <p>
+        The predictions of the Euler ensemble theory have been compared extensively with both high-resolution DNS and experimental data. 
+        Many studies indicate that the classical K41 scaling laws do not fully capture the behavior observed in decaying turbulence. In contrast, 
+        the predictions of our theory—such as the effective scaling exponents and the universal decaying energy spectrum—show a much closer 
+        agreement with the data. While the current numerical and experimental evidence is promising, further DNS at higher Reynolds numbers and 
+        more controlled laboratory experiments are needed to fully confirm all aspects of the theory.
+      </p>
+    </div>
+    
+    <!-- New Q&A Items -->
+    <!-- Q&A Item 4: How did Dr. Migdal use the Hopf equation? -->
+    <button class="collapsible">
+      How did Dr. Migdal use the Hopf equation?
+    </button>
+    <div class="content">
+      <p>
+        Dr. Migdal’s approach starts with the Hopf equation—a functional differential equation that governs the evolution of the characteristic 
+        functional (or generating functional) of the velocity field in turbulence. By taking multiple (area) derivatives of the Hopf functional, 
+        he extracts vorticity correlation functions and recasts the turbulence problem in loop space. This reformulation leads to the momentum 
+        loop equation, which is the foundation for establishing the duality between fluid dynamics and quantum mechanics in loop space.
+      </p>
+    </div>
+    
+    <!-- Q&A Item 5: Explain the Euler ensemble. -->
+    <button class="collapsible">
+      Explain the Euler ensemble.
+    </button>
+    <div class="content">
+      <p>
+        The Euler ensemble is a fixed point solution of the momentum loop equation derived from the Hopf functional. In this formulation, the 
+        turbulence problem is recast in loop space. The Euler ensemble is constructed as the limit (N → ∞) of a polygonal approximation of 
+        a closed loop, where the vertices are determined by rotation parameters and angular increments that enforce periodicity and symmetry. 
+        Remarkably, this construction is equivalent to a random walk on regular star polygons and can be interpreted as a fermionic string theory. 
+        This dual interpretation underpins an exact analytic solution for decaying turbulence.
+      </p>
+    </div>
+    
+    <!-- Q&A Item 6: What is turbulence duality? -->
     <div class="qa-item">
       <p><strong>Q:</strong> What is turbulence duality?</p>
-      <p><strong>A:</strong> Turbulence duality reinterprets hydrodynamic turbulence as a solvable problem 
-      in string theory, particularly using regular star polygons as the target space.</p>
+      <p><strong>A:</strong> Turbulence duality reinterprets hydrodynamic turbulence as a solvable problem in string theory, particularly 
+         using regular star polygons as the target space.</p>
+    </div>
+    
+    <!-- Attribution -->
+    <div class="attribution">
+      <p>Note: The answers provided on this page were generated by ChatGPT.</p>
     </div>
     
     <!-- Submission Form -->
     <form id="qa-form" class="qa-form">
       <label for="question">Your Question/Comment:</label>
-      <textarea id="question" name="question" rows="5" placeholder="Type your question or comment here..." 
-                required></textarea>
+      <textarea id="question" name="question" rows="5" 
+                placeholder="Type your question or comment here..." required></textarea>
       <br>
       <button type="submit">Submit</button>
     </form>
