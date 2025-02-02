@@ -1,0 +1,47 @@
+ /* Testimonials Section */
+    .testimonials {
+      margin: 40px auto;
+      padding: 20px;
+      max-width: 800px;
+    }
+    .testimonials h2 {
+      font-size: 2rem;
+      color: #00FF88;
+      margin-bottom: 20px;
+      text-align: center; /* Center-align the title */
+    }
+    .collapsible {
+      background: #202020;
+      color: #00FF88;
+      cursor: pointer;
+      padding: 15px;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.1rem;
+      width: 100%;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .collapsible:hover {
+      background: #303030;
+    }
+    .collapsible:after {
+      content: '\002B'; /* Plus sign */
+      float: right;
+    }
+    .collapsible.active:after {
+      content: '\2212'; /* Minus sign */
+    }
+    .content {
+      display: none;
+      overflow: hidden;
+      padding: 15px;
+      background: #181818;
+      color: #DDDDDD;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .content.open {
+      display: block;
+    }
