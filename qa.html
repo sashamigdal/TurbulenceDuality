@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q&A - Turbulence Duality</title>
+  <title>Q&amp;A - Turbulence Duality</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;300&display=swap" rel="stylesheet">
   <script type="text/javascript" async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -28,7 +28,7 @@
     nav {
       position: sticky;
       top: 0;
-      background: #000000;
+      background: #000;
       padding: 10px;
       z-index: 1000;
     }
@@ -43,6 +43,7 @@
     nav ul li a {
       color: #00FF88;
       text-decoration: none;
+      font-size: 1.1rem;
     }
     /* Q&A Section */
     .q-and-a {
@@ -129,7 +130,7 @@
     footer {
       text-align: center;
       padding: 20px;
-      background: #000000;
+      background: #000;
       color: white;
       margin-top: 40px;
     }
@@ -141,6 +142,9 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="old-road-to-turbulence.html">Old Road</a></li>
+      <li><a href="talks.html">Talks</a></li>
+      <li><a href="history.html">History</a></li>
       <li><a href="#footer">Footer</a></li>
     </ul>
   </nav>
@@ -156,10 +160,24 @@
     </button>
     <div class="content">
       <p>
-        Our proof of the Euler ensemble as a solution of the Momentum Loop Equation (MLE) is presented within the formal framework of our theory. In the derivation, we show that by constructing the Euler ensemble as the limit (as N → ∞) of a polygonal approximation, the ensemble satisfies a fixed point equation for the variable <em>𝑭</em> (see Equation (FP)). Specifically, we define the discrete difference <em>Δ𝑭 = 𝑭ₖ − 𝑭ₖ₋₁</em> and the average <em>𝑭 = (𝑭ₖ + 𝑭ₖ₋₁)/2</em>. Requiring that the coefficients in front of both <em>Δ𝑭</em> and <em>𝑭</em> vanish (to avoid the trivial case where <em>𝑭 ∥ Δ𝑭</em> and vorticity would vanish) leads to two scalar conditions. Solving these conditions, we obtain a representation of <em>𝑭(θ)</em> as a fractal (closed polygon) whose vertices are determined by a rational angular increment. This construction naturally enforces the periodicity and symmetry needed to reproduce the correct physical properties—such as the cancellation of the imaginary parts in the circulation integral.
+        Our proof of the Euler ensemble as a solution of the Momentum Loop Equation (MLE) is presented
+        within the formal framework of our theory. In the derivation, we show that by constructing the
+        Euler ensemble as the limit (as N → ∞) of a polygonal approximation, the ensemble satisfies a
+        fixed point equation for the variable <em>𝑭</em> (see Equation (FP)). Specifically, we define the
+        discrete difference <em>Δ𝑭 = 𝑭ₖ − 𝑭ₖ₋₁</em> and the average <em>𝑭 = (𝑭ₖ + 𝑭ₖ₋₁)/2</em>. Requiring that the
+        coefficients in front of both <em>Δ𝑭</em> and <em>𝑭</em> vanish (to avoid the trivial case where <em>𝑭 ∥ Δ𝑭</em>
+        and vorticity would vanish) leads to two scalar conditions. Solving these conditions, we obtain a
+        representation of <em>𝑭(θ)</em> as a fractal (closed polygon) whose vertices are determined by a
+        rational angular increment. This construction naturally enforces the periodicity and symmetry needed
+        to reproduce the correct physical properties—such as the cancellation of the imaginary parts in the
+        circulation integral.
       </p>
       <p>
-        However, while the derivation is logically coherent and supported by extensive formal arguments and numerical evidence, it relies on techniques common in quantum field theory and string theory. In this formal sense, the Euler ensemble is proven to solve the discrete MLE. That said, a fully rigorous mathematical proof (in the conventional sense of PDE analysis) remains an open challenge and is an important direction for further research.
+        However, while the derivation is logically coherent and supported by extensive formal arguments and
+        numerical evidence, it relies on techniques common in quantum field theory and string theory. In this
+        formal sense, the Euler ensemble is proven to solve the discrete MLE. That said, a fully rigorous
+        mathematical proof (in the conventional sense of PDE analysis) remains an open challenge and is an
+        important direction for further research.
       </p>
     </div>
     
@@ -169,7 +187,13 @@
     </button>
     <div class="content">
       <p>
-        The Euler ensemble theory goes well beyond the classical Kolmogorov (K41) scaling laws. Rather than predicting a single universal scaling exponent (for example, the velocity second moment scaling as <em>Δv² ~ r^(2/3)</em> as in K41), the theory introduces logarithmic corrections and an infinite discrete spectrum of anomalous scaling dimensions. This means that the energy spectrum and other statistical quantities are described not by one power law, but by a universal function of <em>log k</em>. This modification captures the observed deviations in decaying turbulence—particularly the curved behavior on log–log plots—that cannot be explained by K41 alone.
+        The Euler ensemble theory goes well beyond the classical Kolmogorov (K41) scaling laws. Rather than
+        predicting a single universal scaling exponent (for example, the velocity second moment scaling as
+        <em>Δv² ~ r^(2/3)</em> as in K41), the theory introduces logarithmic corrections and an infinite discrete
+        spectrum of anomalous scaling dimensions. This means that the energy spectrum and other statistical
+        quantities are described not by one power law, but by a universal function of <em>log k</em>. This
+        modification captures the observed deviations in decaying turbulence—particularly the curved behavior on
+        log–log plots—that cannot be explained by K41 alone.
       </p>
     </div>
     
@@ -179,14 +203,22 @@
     </button>
     <div class="content">
       <p>
-        The predictions of the Euler ensemble theory have been compared extensively with both high-resolution DNS and experimental data. Many studies indicate that the classical K41 scaling laws do not fully capture the behavior observed in decaying turbulence. In contrast, the predictions of our theory—such as the effective scaling exponents and the universal decaying energy spectrum—show a much closer agreement with the data. While the current numerical and experimental evidence is promising, further DNS at higher Reynolds numbers and more controlled laboratory experiments are needed to fully confirm all aspects of the theory.
+        The predictions of the Euler ensemble theory have been compared extensively with both high-resolution DNS
+        and experimental data. Many studies indicate that the classical K41 scaling laws do not fully capture the
+        behavior observed in decaying turbulence. In contrast, the predictions of our theory—such as the effective
+        scaling exponents and the universal decaying energy spectrum—show a much closer agreement with the data.
+        While the current numerical and experimental evidence is promising, further DNS at higher Reynolds
+        numbers and more controlled laboratory experiments are needed to fully confirm all aspects of the theory.
       </p>
     </div>
     
-    <!-- Existing Q&A Item -->
+    <!-- Existing Q&A Item Example -->
     <div class="qa-item">
       <p><strong>Q:</strong> What is turbulence duality?</p>
-      <p><strong>A:</strong> Turbulence duality reinterprets hydrodynamic turbulence as a solvable problem in string theory, particularly using regular star polygons as the target space.</p>
+      <p>
+        <strong>A:</strong> Turbulence duality reinterprets hydrodynamic turbulence as a solvable problem in string
+        theory, particularly using regular star polygons as the target space.
+      </p>
     </div>
     
     <!-- Submission Form -->
