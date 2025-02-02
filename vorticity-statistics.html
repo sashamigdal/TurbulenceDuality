@@ -55,7 +55,13 @@
     <div class="equation">
       <p>
         \[
-        \langle \exp(i\,\Gamma_C[v]) \, \omega(r_1)\otimes \omega(r_2)\otimes \dots \otimes \omega(r_n) \rangle_v = \frac{n!}{(2\pi)^n}\langle \exp(i\,\Gamma_{\tilde C}[P]) \int_{0<\theta_1<\dots<\theta_n<2\pi} d\theta_1\, \hat \omega(\theta_1)\otimes d\theta_2\, \hat \omega(\theta_2)\otimes \dots \otimes d\theta_n\, \hat \omega(\theta_n) \rangle_P;
+        \langle \exp(i\,\Gamma_C[v]) \, \omega(r_1)\otimes 
+        \omega(r_2)\otimes \dots \otimes \omega(r_n) \rangle_v =
+        \frac{n!}{(2\pi)^n}\langle \exp(i\,\Gamma_{\tilde C}[P]) 
+        \int_{0<\theta_1<\dots<\theta_n<2\pi} d\theta_1\, \hat \omega(\theta_1)
+        \otimes d\theta_2\, \hat \omega(\theta_2)
+        \otimes \dots \otimes d\theta_n\, \hat \omega(\theta_n)
+        \rangle_P;
         \tag{1}
         \]
       </p>
@@ -146,7 +152,12 @@
     <div class="equation" id="MomLoopCorr">
       <p>
         \[
-        \langle \omega(r_1)\otimes \omega(r_2)\otimes \dots \otimes \omega(r_n) \rangle_v = \frac{n!}{(2\pi)^n}\langle \exp(i\,\Gamma_{\tilde C}[P]) \int_{0<\theta_1<\dots<\theta_n<2\pi} d\theta_1\, \hat \omega(\theta_1)\otimes d\theta_2\, \hat \omega(\theta_2)\otimes \dots \otimes d\theta_n\, \hat \omega(\theta_n) \rangle_P;
+        \langle \omega(r_1)\otimes \omega(r_2)\otimes \dots \otimes \omega(r_n) \rangle_v =
+        \frac{n!}{(2\pi)^n}\langle \exp(i\,\Gamma_{\tilde C}[P])
+        \int_{0<\theta_1<\dots<\theta_n<2\pi} d\theta_1\, \hat \omega(\theta_1)
+        \otimes d\theta_2\, \hat \omega(\theta_2)
+        \otimes \dots \otimes d\theta_n\, \hat \omega(\theta_n)
+        \rangle_P;
         \tag{7}
         \]
       </p>
@@ -164,7 +175,8 @@
     <div class="equation">
       <p>
         \[
-        \vec Q_k(\eta) = \vec P(\tilde\theta_k(1-\eta)+\theta_k\eta) - \vec P(\tilde\theta_{k+1}\eta+\theta_k(1-\eta));
+        \vec Q_k(\eta) = \vec P(\tilde\theta_k(1-\eta)+\theta_k\eta) -
+        \vec P(\tilde\theta_{k+1}\eta+\theta_k(1-\eta));
         \tag{9}
         \]
       </p>
@@ -204,39 +216,10 @@
       A crucial aspect of this relation is the violation of time-reversal symmetry. Under time reversal, vorticity changes sign, which would typically eliminate vorticity correlations for an odd number of points (\( n \)). However, this is not the case in the momentum loop representation <a href="#MomLoopCorr">(7)</a>.
     </p>
 
+    <!-- Inserted missing paragraph immediately above the last paragraph -->
     <p>
-      To see why, consider the complex conjugation of the loop functional, which corresponds to time reversal in the original velocity representation. The vorticity operator \( \hat \omega(\theta) \) in <a href="#omegadef">(2)</a> contains an imaginary unit, so it changes sign. The \( P \)-circulation term in the exponential is real but changes sign under the coordinate reversal \( \vec r_k\Rightarrow -\vec r_k \), thereby compensating for the complex conjugation effect.
+      The distribution of the random variable \( \vec P(\theta,t) \) in general is not symmetric. In particular, the fixed trajectory for decaying turbulence we study below involves integration over rotation matrices \( \hat \Omega \in SO(3) \). These rotation matrices in three (or any odd) dimensions do not include reflections; therefore, only rotational symmetry is restored by this integration, but not the reflection symmetry \( \vec P \Rightarrow -\vec P \).
     </p>
-
-    <p>
-      This results in the identity:
-    </p>
-
-    <div class="equation">
-      <p>
-        \[
-        \langle \omega(r_1)\otimes \omega(r_2)\otimes \dots \otimes \omega(r_n) \rangle_v = (-1)^n\langle \omega(-r_1)\otimes \omega(-r_2)\otimes \dots \otimes \omega(-r_n) \rangle_v,
-        \tag{12}
-        \]
-      </p>
-    </div>
-
-    <p>
-      which reflects parity conservation but does not enforce time-reversal symmetry. As a consequence, the expectation value of an odd number of vorticities remains an odd function of the coordinates.
-    </p>
-
-    <p>
-      More precisely, in both even and odd cases, the expectation values remain real, but they are linked to the real and imaginary parts of the exponential, depending on the number of imaginary units (\( i \)) in the product of vorticities:
-    </p>
-
-    <div class="equation">
-      <p>
-        \[
-        \langle \omega(r_1)\otimes \omega(r_2)\otimes \dots \otimes \omega(r_n) \rangle_v = \frac{n!}{(2\pi)^n}\,\Re\langle \exp(i\,\Gamma_{\tilde C}[P]) \int_{0<\theta_1<\dots<\theta_n<2\pi} d\theta_1\, \hat \omega(\theta_1)\otimes d\theta_2\, \hat \omega(\theta_2)\otimes \dots \otimes d\theta_n\, \hat \omega(\theta_n) \rangle_P.
-        \tag{13}
-        \]
-      </p>
-    </div>
 
     <p>
       The absence of reflection symmetry in the momentum loop distribution results in explicit time-reversal symmetry violation, manifesting as nonzero odd-order vorticity correlations. Specifically, the triple correlation function (\( n=3 \)) is an odd function of the coordinates, similar to the K41 identity for the triple velocity correlation. However, as discussed in <a href="#ref-migdal2024quantum">[1]</a>, the K41 relation applies only to the potential part of the velocity correlation and does not constrain the rotational part analyzed here.
@@ -253,6 +236,5 @@
       </li>
     </ol>
   </section>
-
 </body>
 </html>
