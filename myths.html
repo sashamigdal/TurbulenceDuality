@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Myth and Reality of Turbulent Scaling Laws</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Load MathJax for LaTeX math rendering -->
+  <!-- Load MathJax for LaTeX rendering -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
@@ -54,7 +54,7 @@
 </head>
 <body>
 
-  <!-- Section: Myth and Reality of Turbulent Scaling Laws -->
+  <!-- Main Section -->
   <section id="scaling-laws">
     <h2>Myth and Reality of Turbulent Scaling Laws</h2>
 
@@ -88,7 +88,7 @@
     </p>
 
     <p>
-      Thus, we are challenging not only K41 scaling laws but also the concept of the "Kolmogorov energy flux" \( vv\nabla v \). Indeed, our fast decay of the energy spectrum, according to the old bounds established in <a href="#ref-Sulem_Frisch_1975">[Sulem &amp; Frisch, 1975]</a>, corresponds to a vanishing Kolmogorov energy flux in the turbulent limit. The dissipative anomaly, neglected in that old work, explains the paradox. As we argued in subsection <em>PhysIntro</em>, the energy is pumped through the boundaries and dissipated directly on viscous micro-structures (Burgers filaments). Our exact computations of the dissipation and energy spectrum in section <em>Ekt</em> are compatible with the dissipative anomaly but not with the energy cascade.
+      Thus, we are challenging not only K41 scaling laws but also the concept of the "Kolmogorov energy flux" \( vv\nabla v \). Indeed, our fast decay of the energy spectrum, according to the old bounds established in <a href="#ref-1">[1]</a>, corresponds to a vanishing Kolmogorov energy flux in the turbulent limit. The dissipative anomaly, neglected in that old work, explains the paradox. As we argued in subsection <em>PhysIntro</em>, the energy is pumped through the boundaries and dissipated directly on viscous micro-structures (Burgers filaments). Our exact computations of the dissipation and energy spectrum in section <em>Ekt</em> are compatible with the dissipative anomaly but not with the energy cascade.
     </p>
 
     <p>
@@ -96,11 +96,11 @@
     </p>
 
     <p>
-      Subsequent experiments and DNS <a href="#ref-YZ93">[YZ93]</a>, <a href="#ref-YS04">[YS04]</a>, <a href="#ref-SY21">[SY21]</a> have invalidated the K41 scaling laws (including the log-normal model) over the past thirty years. Regarding decaying turbulence, the experimental data <a href="#ref-SreeniDecaying">[SreeniDecaying]</a> have diverged even further from Kolmogorov scaling laws despite all attempts to stretch this data or discard the non-fitting region as "erosion." We highlight significant deviations—six orders of magnitude—from the \( k^{-\frac{5}{3}} \) scaling in Fig. <em>DecayingSpectrum</em>. There are also recent measurements <a href="#ref-GregXi2">[GregXi2]</a> with significant deviations of the log–log derivative of the second velocity moment \( \langle \Delta v^2 \rangle(r) \) from the \( \frac{2}{3} \) predicted by K41.
+      Subsequent experiments and DNS <a href="#ref-2">[2]</a>, <a href="#ref-3">[3]</a>, <a href="#ref-4">[4]</a> have invalidated the K41 scaling laws (including the log-normal model) over the past thirty years. Regarding decaying turbulence, the experimental data <a href="#ref-5">[5]</a> have diverged even further from Kolmogorov scaling laws despite all attempts to stretch this data or discard the non-fitting region as "erosion." We highlight significant deviations—six orders of magnitude—from the \( k^{-\frac{5}{3}} \) scaling in Fig. <em>DecayingSpectrum</em>. There are also recent measurements <a href="#ref-6">[6]</a> with significant deviations of the log–log derivative of the second velocity moment \( \langle \Delta v^2 \rangle(r) \) from the \( \frac{2}{3} \) predicted by K41.
     </p>
 
     <p>
-      A broader assumption posited that <strong>power laws with anomalous dimensions</strong> might exist in the inertial range. The assumed analogy to critical phenomena led to the proposal of multifractal scaling laws <a href="#ref-FP85">[FP85]</a>, which, as a phenomenological model, successfully described observed deviations from the K41 laws in forced turbulence <a href="#ref-YS04">[YS04]</a>, <a href="#ref-SY21">[SY21]</a>.
+      A broader assumption posited that <strong>power laws with anomalous dimensions</strong> might exist in the inertial range. The assumed analogy to critical phenomena led to the proposal of multifractal scaling laws <a href="#ref-7">[7]</a>, which, as a phenomenological model, successfully described observed deviations from the K41 laws in forced turbulence <a href="#ref-3">[3]</a>, <a href="#ref-4">[4]</a>.
     </p>
 
     <p>
@@ -108,19 +108,19 @@
     </p>
 
     <p>
-      Moreover, the anomalous dimension would not explain decaying turbulence, as the log–log plots would remain straight lines, though the slopes would become irrational numbers. We must allow nonlinear correlation functions on a log–log scale, as indicated by the data in Fig. 2 (top) in <a href="#ref-GregXi2">[GregXi2]</a>. Here, energy spectra for various parameters converge into a universal curve on the decreasing part of the spectrum—which is curved on the log–log scale—indicating that a simple power law cannot describe it. Instead, it is a nontrivial universal function of \( \log k \), spanning several decades.
+      Moreover, the anomalous dimension would not explain decaying turbulence, as the log–log plots would remain straight lines, though the slopes would become irrational numbers. We must allow nonlinear correlation functions on a log–log scale, as indicated by the data in Fig. 2 (top) in <a href="#ref-6">[6]</a>. Here, energy spectra for various parameters converge into a universal curve on the decreasing part of the spectrum—which is curved on the log–log scale—indicating that a simple power law cannot describe it. Instead, it is a nontrivial universal function of \( \log k \), spanning several decades.
     </p>
 
     <p>
-      Both the DNS and experimental papers <a href="#ref-SreeniDecaying">[SreeniDecaying]</a>, <a href="#ref-GregXi2">[GregXi2]</a> noted significant deviations from scaling laws (whether K41 or multifractal). The conclusion of <a href="#ref-SreeniDecaying">[SreeniDecaying]</a> was cautiously negative: "it is somewhat disappointing that the results are not more closely aligned with theoretical arguments." The most recent paper <a href="#ref-GregXi2">[GregXi2]</a> made a stronger negative claim: "Our results point to a Reynolds number-independent logarithmic correction to the classical power law for decaying turbulence that calls for theoretical understanding."
+      Both the DNS and experimental papers <a href="#ref-5">[5]</a>, <a href="#ref-6">[6]</a> noted significant deviations from scaling laws (whether K41 or multifractal). The conclusion of <a href="#ref-5">[5]</a> was cautiously negative: "it is somewhat disappointing that the results are not more closely aligned with theoretical arguments." The most recent paper <a href="#ref-6">[6]</a> made a stronger negative claim: "Our results point to a Reynolds number-independent logarithmic correction to the classical power law for decaying turbulence that calls for theoretical understanding."
     </p>
 
     <p>
-      Our recent paper <a href="#ref-M22">[M22]</a> presented the theoretical argument for the breaking of scaling laws due to logarithmic divergences in a dilute gas of vortex filaments. In this approximation, logarithmic terms in the effective energy for the filament lead to violations of scaling laws akin to asymptotic freedom in QCD. This approximation does not apply to decaying turbulence with a large density of vortex structures, but at least it identifies a dynamical mechanism for the deviations from the scaling laws.
+      Our recent paper <a href="#ref-11">[11]</a> presented the theoretical argument for the breaking of scaling laws due to logarithmic divergences in a dilute gas of vortex filaments. In this approximation, logarithmic terms in the effective energy for the filament lead to violations of scaling laws akin to asymptotic freedom in QCD. This approximation does not apply to decaying turbulence with a large density of vortex structures, but at least it identifies a dynamical mechanism for the deviations from the scaling laws.
     </p>
 
     <p>
-      In the present paper, we used raw data from the DNS <a href="#ref-SreeniDecaying">[SreeniDecaying]</a>, <a href="#ref-GDSM24">[GDSM24]</a> to compute the effective index of the velocity correlation by numerical Fourier transform of their energy spectrum (see Section <em>DNS</em>). Our effective index is plotted in Fig. <em>MoveIndex14</em>. The K41 scaling law \( \Delta v^2 \sim r^{\frac{2}{3}} \) is very far from reality, as is clear from these plots. Our theory is much closer, and by fitting our arbitrary length scale, we obtained a very good fit in the turbulent range within experimental errors.
+      In the present paper, we used raw data from the DNS <a href="#ref-5">[5]</a>, <a href="#ref-12">[12]</a> to compute the effective index of the velocity correlation by numerical Fourier transform of their energy spectrum (see Section <em>DNS</em>). Our effective index is plotted in Fig. <em>MoveIndex14</em>. The K41 scaling law \( \Delta v^2 \sim r^{\frac{2}{3}} \) is very far from reality, as is clear from these plots. Our theory is much closer, and by fitting our arbitrary length scale, we obtained a very good fit in the turbulent range within experimental errors.
     </p>
 
     <p>
@@ -128,7 +128,7 @@
     </p>
 
     <p>
-      In this way, <strong>our theory extends the multifractal scaling laws by accommodating an infinite discrete spectrum of scaling dimensions</strong>. According to recent DNS results <a href="#ref-DecayingTalk">[DecayingTalk]</a>, our predictions align with observed slopes, unlike conventional scaling models such as those proposed by Kolmogorov and Saffman.
+      In this way, <strong>our theory extends the multifractal scaling laws by accommodating an infinite discrete spectrum of scaling dimensions</strong>. According to recent DNS results <a href="#ref-13">[13]</a>, our predictions align with observed slopes, unlike conventional scaling models such as those proposed by Kolmogorov and Saffman.
     </p>
 
     <p>
@@ -140,11 +140,11 @@
     </p>
 
     <p>
-      Heisenberg <a href="#ref-heisenberg1971bedeutung">[heisenberg1971bedeutung]</a> and Chandrasekhar <a href="#ref-chandrasekhar1949heisenberg">[chandrasekhar1949heisenberg]</a> proposed in the middle of the last century for the "dissipative subrange" the spectrum decay \( k^{-7} \), based on a model equation by Heisenberg. At that time, there were no mathematical tools to solve the turbulence problem exactly, so model equations like that one passed as theories. The fame of two Nobel laureates involved added weight to this model assumption, so it stays alive to this day.
+      Heisenberg <a href="#ref-8">[8]</a> and Chandrasekhar <a href="#ref-9">[9]</a> proposed in the middle of the last century for the "dissipative subrange" the spectrum decay \( k^{-7} \), based on a model equation by Heisenberg. At that time, there were no mathematical tools to solve the turbulence problem exactly, so model equations like that one passed as theories. The fame of two Nobel laureates involved added weight to this model assumption, so it stays alive to this day.
     </p>
 
     <p>
-      K.R. Sreenivasan dispelled this die-hard myth in his paper <a href="#ref-SreeniChandra">[SreeniChandra]</a>.
+      K.R. Sreenivasan dispelled this die-hard myth in his paper <a href="#ref-10">[10]</a>.
     </p>
 
     <blockquote>
@@ -152,10 +152,6 @@
         Chandra's initial enthusiasm for Heisenberg's work was moderated when he learned from J. von Neumann, in a colloquium that Chandra gave at Princeton in the spring of 1949, that the \( k^{-7} \) power law in the far-dissipation range did not have experimental support.
       </p>
     </blockquote>
-
-    <p>
-      Our theory also contradicts the \( k^{-7} \) law: no pole exists between \( -\frac{13}{2} \) and \( -8 \pm i\, t_n \) in our Mellin transform spectrum \( \eqref{SpecPoles} \). Instead, we have nontrivial dynamics at this "dissipative subrange," not just in the "inertial range" between energy pumping and dissipation. The full plot of the effective index for the spectrum is shown in Fig. <em>MuIndex</em>, asymptotically approaching \( -\frac{7}{2} \). As long as enough energy is left for a turbulent flow, our theory has a universal decaying spectrum spanning several decades and a strongly curved second moment \( \langle \Delta v^2 \rangle(r) \) with effective index (log derivative) shown in Fig. <em>PlotIndex14</em>. We call the corresponding range of scales "turbulent range", combining old inertial and dissipation ranges. Our theory perfectly matches DNS/experiment in the whole turbulent range without any dimensionless fitting parameters.
-    </p>
 
     <p>
       In conclusion, single-power scaling laws cannot describe the observed critical phenomena in decaying turbulence. Instead, compare these phenomena with the microscopic theory, which goes beyond empirical laws, replacing them with universal nonlinear functions for the energy spectrum, energy decay, and velocity correlation.
@@ -166,47 +162,47 @@
   <section id="references">
     <h2>References</h2>
     <ol>
-      <li id="ref-Sulem_Frisch_1975">
+      <li id="ref-1">
         Sulem, P. L. &amp; Frisch, U. (1975). <em>Bounds on energy flux for finite energy turbulence</em>. <em>Journal of Fluid Mechanics</em>, 72(3), 417–423. doi: <a href="https://doi.org/10.1017/S0022112075003059" target="_blank">10.1017/S0022112075003059</a>.
       </li>
-      <li id="ref-YZ93">
+      <li id="ref-2">
         Yakhot, V. &amp; Zakharov, V. (1993). <em>Hidden conservation laws in hydrodynamics; energy and dissipation rate fluctuation spectra in strong turbulence</em>. <em>Physica D: Nonlinear Phenomena</em>, 64(4), 379–394. doi: <a href="https://doi.org/10.1016/0167-2789(93)90050-B" target="_blank">10.1016/0167-2789(93)90050-B</a>.
       </li>
-      <li id="ref-YS04">
+      <li id="ref-3">
         Yakhot, V. &amp; Sreenivasan, K. R. (2004). <em>Towards a dynamical theory of multifractals in turbulence</em>. <em>Physica A: Statistical Mechanics and its Applications</em>, 343, 147–155. doi: <a href="https://doi.org/10.1016/j.physa.2004.07.037" target="_blank">10.1016/j.physa.2004.07.037</a>.
       </li>
-      <li id="ref-SY21">
+      <li id="ref-4">
         Sreenivasan, K. R. &amp; Yakhot, V. (2021). <em>Dynamics of three-dimensional turbulence from Navier-Stokes equations</em>. <em>Phys. Rev. Fluids</em>, 6(10), 104604. doi: <a href="https://doi.org/10.1103/PhysRevFluids.6.104604" target="_blank">10.1103/PhysRevFluids.6.104604</a>.
       </li>
-      <li id="ref-SreeniDecaying">
+      <li id="ref-5">
         Panickacheril, J., Donzis, D. A. &amp; Sreenivasan, K. R. (2022). <em>Laws of turbulence decay from direct numerical simulations</em>. <em>Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences</em>, 380(2218), 20210089.
       </li>
-      <li id="ref-GregXi2">
+      <li id="ref-6">
         Kückler, C., Bewley, G. P. &amp; Bodenschatz, E. (2023). <em>Universal Velocity Statistics in Decaying Turbulence</em>. <em>Phys. Rev. Lett.</em>, 131(2), 024001. doi: <a href="https://doi.org/10.1103/PhysRevLett.131.024001" target="_blank">10.1103/PhysRevLett.131.024001</a>.
       </li>
-      <li id="ref-FP85">
+      <li id="ref-7">
         Parisi, G. &amp; Frisch, U. (1985). In <em>Geophysical Fluid Dynamics: Proc. Intl School of Physics E. Fermi</em> (pp. 84–88). Amsterdam: North-Holland.
       </li>
-      <li id="ref-M22">
-        Migdal, A. (2023). <em>Topological Vortexes, Asymptotic Freedom, and Multifractals</em>. MDPI Fractals and Fractional, Special Issue. Retrieved from <a href="https://arxiv.org/abs/2105.12719" target="_blank">https://arxiv.org/abs/2105.12719</a>.
-      </li>
-      <li id="ref-GDSM24">
-        Migdal, A. (2024). <em>Decaying Turbulence Experiment</em>. Retrieved from <a href="https://drive.google.com/drive/folders/1DkHOOxhbsT0prVj65wJPnHOeb_EXc7N6?usp=drive_link" target="_blank">https://drive.google.com/drive/folders/1DkHOOxhbsT0prVj65wJPnHOeb_EXc7N6?usp=drive_link</a>.
-      </li>
-      <li id="ref-DecayingTalk">
-        Sreenivasan, K. R. (2023, Dec). <em>Decaying Turbulence</em>. Retrieved from <a href="https://youtu.be/Ghr3-mZJ9I8?si=DrRdu4rDQkaUHomH" target="_blank">https://youtu.be/Ghr3-mZJ9I8?si=DrRdu4rDQkaUHomH</a>.
-      </li>
-      <li id="ref-heisenberg1971bedeutung">
+      <li id="ref-8">
         Heisenberg, W. (1971). <em>Die Bedeutung des Schönen in der exakten Naturwissenschaft</em>. <em>Physikalische Blätter</em>, 27(3), 97–197.
       </li>
-      <li id="ref-chandrasekhar1949heisenberg">
+      <li id="ref-9">
         Chandrasekhar, S. (1949). <em>On Heisenberg's elementary theory of turbulence</em>. <em>Proceedings of the Royal Society of London. Series A. Mathematical and Physical Sciences</em>, 200(1060), 20–33.
       </li>
-      <li id="ref-SreeniChandra">
+      <li id="ref-10">
         Sreenivasan, K. R. (2019). <em>Chandrasekhar’s Fluid Dynamics</em>. <em>Annual Review of Fluid Mechanics</em>, 51, 1–24. doi: <a href="https://doi.org/10.1146/annurev-fluid-010518-040537" target="_blank">10.1146/annurev-fluid-010518-040537</a>.
+      </li>
+      <li id="ref-11">
+        Migdal, A. (2023). <em>Topological Vortexes, Asymptotic Freedom, and Multifractals</em>. MDPI Fractals and Fractional, Special Issue. Retrieved from <a href="https://arxiv.org/abs/2105.12719" target="_blank">https://arxiv.org/abs/2105.12719</a>.
+      </li>
+      <li id="ref-12">
+        Migdal, A. (2024). <em>Decaying Turbulence Experiment</em>. Retrieved from <a href="https://drive.google.com/drive/folders/1DkHOOxhbsT0prVj65wJPnHOeb_EXc7N6?usp=drive_link" target="_blank">https://drive.google.com/drive/folders/1DkHOOxhbsT0prVj65wJPnHOeb_EXc7N6?usp=drive_link</a>.
+      </li>
+      <li id="ref-13">
+        Sreenivasan, K. R. (2023, Dec). <em>Decaying Turbulence</em>. Retrieved from <a href="https://youtu.be/Ghr3-mZJ9I8?si=DrRdu4rDQkaUHomH" target="_blank">https://youtu.be/Ghr3-mZJ9I8?si=DrRdu4rDQkaUHomH</a>.
       </li>
     </ol>
   </section>
-
+  
 </body>
 </html>
