@@ -28,7 +28,7 @@
     nav {
       position: sticky;
       top: 0;
-      background: #000000;
+      background: #000;
       padding: 10px;
       z-index: 1000;
     }
@@ -57,20 +57,40 @@
     }
     /* Hero Section */
     header.hero {
-      position: fixed;
-      top: 100px;
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url('your-hero-placeholder.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    header.hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
       left: 0;
       width: 100%;
-      text-align: center;
-      z-index: 1000;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
     }
-    .hero h1 {
+    header.hero h1, header.hero p {
+      position: relative;
+      z-index: 2;
+    }
+    header.hero h1 {
       font-size: 3rem;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     }
-    .hero p {
+    header.hero p {
       font-size: 1.5rem;
       color: #cce7f3;
+      max-width: 800px;
     }
     /* Main Content */
     main {
@@ -98,7 +118,7 @@
     footer {
       text-align: center;
       padding: 20px;
-      background: #000000;
+      background: #000;
       color: white;
     }
   </style>
@@ -114,7 +134,7 @@
       <li><a href="qa.html">Q&amp;A</a></li>
       <li><a href="talks.html">Talks</a></li>
       <li><a href="myths.html">Myths of Scaling Laws</a></li>
-      <li><a href="old-road-to-turbulence.html">Old Road</a></li>
+      <li><a href="history.html">History</a></li>
       <li><a href="#footer">Footer</a></li>
     </ul>
   </nav>
@@ -126,10 +146,15 @@
 
   <!-- Hero Section -->
   <header class="hero">
-    <h1>Turbulence Duality</h1>
-    <p>Reveals the Beauty of Primes Under the Ugly Mask of Chaos.</p>
-    <h1>Artificial Intelligence</h1>
-    <p>Verifies, Presents, and Explains this discovery to the Scientific Community.</p>
+    <h1>A First-Principles Analytic Solution to Turbulence</h1>
+    <p>
+      Solving the Navier–Stokes equations by mapping fluid dynamics to quantum mechanics in loop space.
+    </p>
+    <p>
+      An exact analytic solution achieved through duality to a solvable string theory.
+    </p>
+    <a href="#guide" style="margin-top:20px; padding: 10px 20px; background: #00FF88; 
+       color: #000; text-decoration: none; border-radius: 5px;">Learn More</a>
   </header>
 
   <!-- Main Content -->
@@ -137,17 +162,23 @@
     <!-- Interactive Guide Section -->
     <div id="guide" class="section">
       <h2>Duality: A Visual and Interactive Guide</h2>
-      <p>Explore the novel concept of turbulence duality through a combination of visual slides and an interactive map.</p>
+      <p>
+        Explore the novel concept of turbulence duality through a combination of visual slides and an interactive map.
+      </p>
       <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
         <!-- Google Slides -->
         <div style="flex: 1; min-width: 400px; max-width: 600px;">
           <iframe src="https://docs.google.com/presentation/d/1xjtXvLghN8gBwGUTFymMQ4SZaAjp5PGWS8mcWrYVhMw/embed?start=true&loop=true&delayms=3000"></iframe>
-          <p style="color: #DDDDDD; text-align: center;">Google Slides: Step-by-step explanation of turbulence duality.</p>
+          <p style="color: #DDDDDD; text-align: center;">
+            Google Slides: Step-by-step explanation of turbulence duality.
+          </p>
         </div>
         <!-- Interactive Map -->
         <div style="flex: 1; min-width: 400px; max-width: 600px;">
           <iframe src="https://sashamigdal.github.io/QuantumSolution/"></iframe>
-          <p style="color: #DDDDDD; text-align: center;">Interactive Map: Navigate the theory’s structure.</p>
+          <p style="color: #DDDDDD; text-align: center;">
+            Interactive Map: Navigate the theory’s structure.
+          </p>
         </div>
       </div>
     </div>
