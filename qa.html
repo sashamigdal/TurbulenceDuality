@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q&A - Turbulence Duality</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;300&display=swap" rel="stylesheet">
+  <script type="text/javascript" async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #101010;
+      color: white;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+    }
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #000000;
+      padding: 10px;
+      z-index: 1000;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #00FF88;
+      text-decoration: none;
+    }
+    /* Q&A Section */
+    .q-and-a {
+      margin: 40px auto;
+      padding: 20px;
+      max-width: 800px;
+      background: #202020;
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    .q-and-a h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .qa-item {
+      background: #181818;
+      padding: 15px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .collapsible {
+      background: #202020;
+      color: #00FF88;
+      cursor: pointer;
+      padding: 15px;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.1rem;
+      width: 100%;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .collapsible:hover {
+      background: #303030;
+    }
+    .collapsible:after {
+      content: '\002B';
+      float: right;
+    }
+    .collapsible.active:after {
+      content: '\2212';
+    }
+    .content {
+      display: none;
+      overflow: hidden;
+      padding: 15px;
+      background: #181818;
+      color: #DDDDDD;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .content.open {
+      display: block;
+    }
+    /* Submission Form */
+    .qa-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background: #101010;
+      color: white;
+      resize: none;
+    }
+    .qa-form button {
+      background: #00FF88;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .qa-form button:hover {
+      background: #00cc6f;
+    }
+    .qa-display {
+      margin-top: 30px;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000000;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="#footer">Footer</a></li>
+    </ul>
+  </nav>
+
+  <!-- Q&A Section -->
+  <div id="q-and-a" class="q-and-a">
+    <h2>Questions and Comments</h2>
+    <p>Have a question or comment about turbulence duality? Leave it below, and I'll get back to you!</p>
+    
+    <!-- Q&A Item 1: Euler Ensemble Proof -->
+    <button class="collapsible">
+      Is the Euler ensemble proven as the solution of the Momentum Loop Equation?
+    </button>
+    <div class="content">
+      <p>
+        Our proof of the Euler ensemble as a solution of the Momentum Loop Equation (MLE) is presented within the formal framework of our theory. In the derivation, we show that by constructing the Euler ensemble as the limit (as N → ∞) of a polygonal approximation, the ensemble satisfies a fixed point equation for the variable <em>𝑭</em> (see Equation (FP)). Specifically, we define the discrete difference <em>Δ𝑭 = 𝑭ₖ − 𝑭ₖ₋₁</em> and the average <em>𝑭 = (𝑭ₖ + 𝑭ₖ₋₁)/2</em>. Requiring that the coefficients in front of both <em>Δ𝑭</em> and <em>𝑭</em> vanish (to avoid the trivial case where <em>𝑭 ∥ Δ𝑭</em> and vorticity would vanish) leads to two scalar conditions. Solving these conditions, we obtain a representation of <em>𝑭(θ)</em> as a fractal (closed polygon) whose vertices are determined by a rational angular increment. This construction naturally enforces the periodicity and symmetry needed to reproduce the correct physical properties—such as the cancellation of the imaginary parts in the circulation integral.
+      </p>
+      <p>
+        However, while the derivation is logically coherent and supported by extensive formal arguments and numerical evidence, it relies on techniques common in quantum field theory and string theory. In this formal sense, the Euler ensemble is proven to solve the discrete MLE. That said, a fully rigorous mathematical proof (in the conventional sense of PDE analysis) remains an open challenge and is an important direction for further research.
+      </p>
+    </div>
+    
+    <!-- Q&A Item 2: Modification of K41 Scaling Laws -->
+    <button class="collapsible">
+      How does the Euler ensemble theory modify the K41 scaling laws?
+    </button>
+    <div class="content">
+      <p>
+        The Euler ensemble theory goes well beyond the classical Kolmogorov (K41) scaling laws. Rather than predicting a single universal scaling exponent (for example, the velocity second moment scaling as <em>Δv² ~ r^(2/3)</em> as in K41), the theory introduces logarithmic corrections and an infinite discrete spectrum of anomalous scaling dimensions. This means that the energy spectrum and other statistical quantities are described not by one power law, but by a universal function of <em>log k</em>. This modification captures the observed deviations in decaying turbulence—particularly the curved behavior on log–log plots—that cannot be explained by K41 alone.
+      </p>
+    </div>
+    
+    <!-- Q&A Item 3: Experimental/DNS Verification Status -->
+    <button class="collapsible">
+      What is the status of experimental or DNS verification of predictions of this theory?
+    </button>
+    <div class="content">
+      <p>
+        The predictions of the Euler ensemble theory have been compared extensively with both high-resolution DNS and experimental data. Many studies indicate that the classical K41 scaling laws do not fully capture the behavior observed in decaying turbulence. In contrast, the predictions of our theory—such as the effective scaling exponents and the universal decaying energy spectrum—show a much closer agreement with the data. While the current numerical and experimental evidence is promising, further DNS at higher Reynolds numbers and more controlled laboratory experiments are needed to fully confirm all aspects of the theory.
+      </p>
+    </div>
+    
+    <!-- Existing Q&A Item -->
+    <div class="qa-item">
+      <p><strong>Q:</strong> What is turbulence duality?</p>
+      <p><strong>A:</strong> Turbulence duality reinterprets hydrodynamic turbulence as a solvable problem in string theory, particularly using regular star polygons as the target space.</p>
+    </div>
+    
+    <!-- Submission Form -->
+    <form id="qa-form" class="qa-form">
+      <label for="question">Your Question/Comment:</label>
+      <textarea id="question" name="question" rows="5" placeholder="Type your question or comment here..." required></textarea>
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+    
+    <!-- Display Submitted Questions -->
+    <div id="qa-display" class="qa-display">
+      <h3>Questions &amp; Answers</h3>
+      <div id="qa-list">
+        <!-- New Q&A items will be appended here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <p>&copy; 2025 Turbulence Duality | Built with curiosity and creativity.</p>
+  </footer>
+
+  <script>
+    // Collapsible functionality
+    const collapsibles = document.querySelectorAll('.collapsible');
+    collapsibles.forEach((collapsible) => {
+      collapsible.addEventListener('click', function () {
+        this.classList.toggle('active');
+        const content = this.nextElementSibling;
+        content.classList.toggle('open');
+      });
+    });
+
+    // Q&A Form Submission
+    const form = document.getElementById('qa-form');
+    const qaList = document.getElementById('qa-list');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const question = document.getElementById('question').value;
+      const newQaItem = document.createElement('div');
+      newQaItem.classList.add('qa-item');
+      newQaItem.innerHTML = `
+        <p><strong>Q:</strong> ${question}</p>
+        <p><strong>A:</strong> Thank you for your question! I'll review it and respond shortly.</p>
+      `;
+      qaList.appendChild(newQaItem);
+      form.reset();
+    });
+  </script>
+</body>
+</html>
