@@ -1,0 +1,117 @@
+<section id="myth-and-reality">
+  <h3>Myth and Reality of Turbulent Scaling Laws</h3>
+
+  <p>
+    More than eighty years ago, Kolmogorov and Obukhov made a breakthrough in turbulence theory by establishing the relation 
+    \( \eqref{K41vvv} \) for the three-point correlation function of the velocity field in turbulent flow. This formula only selects the 
+    <strong>potential part</strong> of the triple velocity correlation function by taking two coincident points. When taking the curl, we get zero:
+  </p>
+
+  <div class="equation">
+    <p>
+      \[
+      \langle \varphi_\alpha(\vec{r}_0)\,\varphi_\beta(\vec{r}_0)\,\omega_\nu(\vec{r}+\vec{r}_0) \rangle =
+      e_{\mu\gamma\nu}\,\partial_\mu(\vec{r})\,\langle \varphi_\alpha(\vec{r}_0)\,\varphi_\beta(\vec{r}_0)\,v_\nu(\vec{r}+\vec{r}_0) \rangle
+      \propto e_{\mu\gamma\nu}\Bigl( \delta_{\alpha\gamma}\delta_{\beta\nu} + \delta_{\alpha\nu}\delta_{\beta\gamma} - \frac{2}{d}\delta_{\alpha\beta}\delta_{\mu\gamma} \Bigr) = 0;
+      \]
+    </p>
+  </div>
+
+  <p>
+    The last relation follows from the symmetry of the expression in the brackets with respect to the exchange of the indices 
+    \( \gamma \leftrightarrow \mu \).
+  </p>
+
+  <p>
+    This relation indicates no constraints on the rotational part concerning triple vorticity correlations and sheds no light on the scale invariance of turbulence theory.
+  </p>
+
+  <p>
+    Moreover, the linear term in coordinates does not have any support in the Fourier spectrum. In Fourier space, this term becomes linear combinations of gradients of delta function 
+    \( \vec\nabla\,\delta^3(\vec{k}) \), rather than some constant flow through the whole spectrum. Such a constant flow would require an 
+    \( |x|\log|x| \) term rather than a linear term in coordinates. This linear term is an example of the harmonic terms added to the 
+    <strong>BS</strong> integral for the velocity field.
+  </p>
+
+  <p>
+    Thus, we are challenging not only K41 scaling laws but also the concept of the "Kolmogorov energy flux" \( vv\nabla v \). Indeed, our fast decay of the energy spectrum, according to the old bounds established in <cite>Sulem & Frisch (1975)</cite>, corresponds to a vanishing Kolmogorov energy flux in the turbulent limit. The dissipative anomaly, neglected in that old work, explains the paradox. As we argued in subsection <em>PhysIntro</em>, the energy is pumped through the boundaries and dissipated directly on viscous micro-structures (Burgers filaments). Our exact computations of the dissipation and energy spectrum in section <em>Ekt</em> are compatible with the dissipative anomaly but not with the energy cascade.
+  </p>
+
+  <p>
+    The K41 scaling law was introduced as a phenomenological model, not intended to replace the missing microscopic theory. It was based on the assumption that the local dissipation density does not fluctuate—a limitation its creators were aware of, prompting them to propose a log-normal distribution for this variable later on. However, even this modified model lacked a microscopic justification and failed to fully correspond with empirical observations.
+  </p>
+
+  <p>
+    Subsequent experiments and DNS <cite>[YZ93, YS04, SY21]</cite> have invalidated the K41 scaling laws (including the log-normal model) over the past thirty years. 
+    Regarding decaying turbulence, the experimental data <cite>[SreeniDecaying]</cite> have diverged even further from Kolmogorov scaling laws despite all attempts to stretch this data or discard the non-fitting region as "erosion." We highlight significant deviations—six orders of magnitude—from the 
+    \( k^{-\frac{5}{3}} \) scaling in Fig. <em>DecayingSpectrum</em>. There are also recent measurements <cite>[GregXi2]</cite> with significant deviations of the log–log derivative of the second velocity moment 
+    \( \langle \Delta v^2 \rangle(r) \) from the \( \frac{2}{3} \) predicted by K41.
+  </p>
+
+  <p>
+    A broader assumption posited that <strong>power laws with anomalous dimensions</strong> might exist in the inertial range. The assumed analogy to critical phenomena led to the proposal of multifractal scaling laws <cite>[FP85]</cite>, which, as a phenomenological model, successfully described observed deviations from the K41 laws in forced turbulence <cite>[YS04, SY21]</cite>.
+  </p>
+
+  <p>
+    However, there are no theoretical grounds for conformal symmetry in turbulence; the “current conservation” conditions 
+    \( \partial_\alpha \varphi_\alpha = 0,\; \partial_\gamma \omega_\gamma = 0 \) in the CFT would prescribe both velocity and vorticity dimensions of 
+    \( d-1 = 2 \), contradicting the fact that vorticity is a curl of velocity.
+  </p>
+
+  <p>
+    Moreover, the anomalous dimension would not explain decaying turbulence, as the log–log plots would remain straight lines, though the slopes would become irrational numbers. We must allow nonlinear correlation functions on a log–log scale, as indicated by the data in Fig. 2 (top) in <cite>[GregXi2]</cite>. Here, energy spectra for various parameters converge into a universal curve on the decreasing part of the spectrum, which is curved on the log–log scale, indicating that a simple power law cannot describe it. Instead, it is a nontrivial universal function of \( \log k \), spanning several decades.
+  </p>
+
+  <p>
+    Both the DNS and experimental papers <cite>[SreeniDecaying, GregXi2]</cite> noted significant deviations from scaling laws (whether K41 or multifractal). The conclusion of <cite>[SreeniDecaying]</cite> was cautiously negative: “it is somewhat disappointing that the results are not more closely aligned with theoretical arguments.” The most recent paper <cite>[GregXi2]</cite> made a stronger negative claim: “Our results point to a Reynolds number–independent logarithmic correction to the classical power law for decaying turbulence that calls for theoretical understanding.”
+  </p>
+
+  <p>
+    Our recent paper <cite>[M22]</cite> presented the theoretical argument for the breaking of scaling laws due to logarithmic divergences in a dilute gas of vortex filaments. In this approximation, there were logarithmic terms in the effective energy for the filament, leading to violations of scaling laws akin to asymptotic freedom in QCD. This approximation does not apply to decaying turbulence with a large density of vortex structures, but at least it identifies a dynamical mechanism for the deviations from the scaling laws.
+  </p>
+
+  <p>
+    In the present paper, we used raw data from the DNS <cite>[SreeniDecaying, GDSM24]</cite> to compute the effective index of the velocity correlation by numerical Fourier transform of their energy spectrum (see Section <em>DNS</em>). Our effective index is plotted in Fig. <em>MoveIndex14</em>. The K41 scaling law 
+    \( \Delta v^2 \sim r^{\frac{2}{3}} \) is very far from reality, as it is clear from these plots. Our theory is much closer, and by fitting our arbitrary length scale, we obtained a very good fit in the turbulent range within experimental errors.
+  </p>
+
+  <p>
+    The microscopic theory developed here is not conformally invariant but retains a critical aspect of CFT. The Mellin transform of the vorticity field’s correlation function in coordinate space is a meromorphic function of the Mellin parameter \( p \). This characteristic implies some underlying scale invariance with an infinite discrete spectrum of complex anomalous dimensions 
+    \( \eqref{VVSpectrum} \).
+  </p>
+
+  <p>
+    In this way, <strong>our theory extends the multifractal scaling laws by accommodating an infinite discrete spectrum of scaling dimensions</strong>. According to recent DNS results <cite>[DecayingTalk]</cite>, our predictions align with observed slopes, unlike conventional scaling models such as those proposed by Kolmogorov and Saffman.
+  </p>
+
+  <p>
+    This result suggests that experiments and DNS in decaying turbulence should be conducted at larger scales and higher Reynolds numbers, fitting the data for logarithms of the spectrum and energy dissipation decay as nonlinear functions of the logarithm of the product of wavevector and the square root of time, as we (successfully) did in Section <em>DNS</em>.
+  </p>
+
+  <p>
+    As part of this reevaluation, one should magnify and study the decaying part of the spectrum way beyond its middle part, roughly described by the 
+    \( -\frac{5}{3} \) law with logarithmic corrections. This decaying part, the “dissipative subrange,” was discarded as an unfitting puzzle piece in conventional data fitting, but it fits well in our theory.
+  </p>
+
+  <p>
+    Heisenberg <cite>[heisenberg1971bedeutung]</cite> and Chandrasekhar <cite>[chandrasekhar1949heisenberg]</cite> proposed in the middle of the last century for the “dissipative subrange,” the spectrum decay \( k^{-7} \), based on a model equation by Heisenberg. At that time, there were no mathematical tools to solve the turbulence problem exactly, so model equations like that one passed as theories. The fame of two Nobel laureates involved added weight to this model assumption, so it stays alive to this day.
+  </p>
+
+  <blockquote>
+    <p>
+      Chandra's initial enthusiasm for Heisenberg's work was moderated when he learned from J. von Neumann, in a colloquium that Chandra gave at Princeton in the spring of 1949, that the \( k^{-7} \) power law in the far–dissipation range did not have experimental support.
+    </p>
+  </blockquote>
+
+  <p>
+    Our theory also contradicts the \( k^{-7} \) law: no pole exists between 
+    \( -\frac{13}{2} \) and \( -8 \pm i\, t_n \) in our Mellin transform spectrum 
+    \( \eqref{SpecPoles} \). Instead, we have nontrivial dynamics at this “dissipative subrange,” not just in the “inertial range” between energy pumping and dissipation. The full plot of the effective index for the spectrum is shown in Fig. <em>MuIndex</em>, asymptotically approaching 
+    \( -\frac{7}{2} \). As long as enough energy is left for a turbulent flow, our theory has a universal decaying spectrum spanning several decades and a strongly curved second moment 
+    \( \langle \Delta v^2 \rangle (r) \) with effective index (log derivative) shown in Fig. <em>PlotIndex14</em>. We call the corresponding range of scales “turbulent range”, combining old inertial and dissipation ranges. Our theory perfectly matches DNS/experiment in the whole turbulent range without any dimensionless fitting parameters.
+  </p>
+
+  <p>
+    In conclusion, single–power scaling laws cannot describe the observed critical phenomena in decaying turbulence. Instead, compare these phenomena with the microscopic theory, which goes beyond empirical laws, replacing them with universal nonlinear functions for the energy spectrum, energy decay, and velocity correlation.
+  </p>
+</section>
