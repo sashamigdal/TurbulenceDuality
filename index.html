@@ -96,6 +96,22 @@
       color: #cce7f3;
       max-width: 800px;
     }
+    /* Learn More Button */
+    .learn-more-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #00FF88;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+    }
+    .learn-more-btn span {
+      margin-left: 10px;
+      font-size: 1.2rem;
+    }
     /* Main Content */
     main {
       position: relative;
@@ -157,10 +173,10 @@
     <p>
       An exact analytic solution achieved through duality to a solvable string theory.
     </p>
-    <!-- Learn More button linking to the Interactive Guide Section -->
-    <a href="#guide" 
-       style="margin-top:20px; padding: 10px 20px; background: #00FF88; color: #000; text-decoration: none; border-radius: 5px;">
-      Learn More
+    <!-- "Scroll down to learn more" button -->
+    <a href="#guide" class="learn-more-btn">
+      Scroll down to learn more
+      <span>&#8595;</span>
     </a>
   </header>
 
