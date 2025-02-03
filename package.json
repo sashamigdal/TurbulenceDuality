@@ -13,4 +13,5 @@
   "openai": "^4.3.0",
   "axios": "^1.3.0"
  }
+  "license": "MIT"
 }
