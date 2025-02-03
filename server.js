@@ -65,3 +65,8 @@ app.post('/ask', async (req, res) => {
 app.listen(port, () => {
     console.log(`🚀 Server running on port ${port}`);
 });
+
+app.get('/debug', (req, res) => {
+    res.json({ message: "Debugging: Server is handling GET requests" });
+});
+
