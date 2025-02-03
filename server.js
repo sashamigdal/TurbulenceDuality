@@ -19,11 +19,11 @@ if (!apiKey) {
 
 // Test route to check if server is running
 app.get('/', (req, res) => {
-    res.send("✅ Server is running! Use POST /ask to send questions.");
+    res.send("✅ Server is running! Use POST /question to send questions.");
 });
 
 // AI Response Endpoint
-app.post('/ask', async (req, res) => {
+app.post('/question', async (req, res) => {
     const { question } = req.body;
 
     if (!question) {
