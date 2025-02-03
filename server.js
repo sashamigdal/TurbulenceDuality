@@ -28,14 +28,19 @@ if (fs.existsSync(knowledgeBasePath)) {
     console.error("⚠️ Knowledge base file not found. AI will work without custom knowledge.");
 }
 
-// Function to retrieve relevant knowledge snippets
+// Function to retrieve relevant research excerpts with more structured context
 function retrieveRelevantKnowledge(question) {
     const lowerCaseQuestion = question.toLowerCase();
-    return knowledgeBase
-        .filter(entry => entry.text.toLowerCase().includes(lowerCaseQuestion))
-        .map(entry => entry.text)
-        .slice(0, 3) // Limit to 3 relevant snippets to avoid overloading the response
-        .join("\n\n");
+    let relevantSections = knowledgeBase.filter(entry => 
+        entry.text.toLowerCase().includes(lowerCaseQuestion) ||
+        lowerCaseQuestion.includes(entry.text.toLowerCase().split(" ").slice(0, 5).join(" "))
+    );
+
+    if (relevantSections.length === 0) {
+        return "I couldn't find relevant research for this topic.";
+    }
+
+    return relevantSections.map(entry => `**Source:** ${entry.file}\n**Excerpt:** ${entry.text}`).slice(0, 5).join("\n\n---\n\n");
 }
 
 // AI Response Endpoint
@@ -59,11 +64,11 @@ app.post('/question', async (req, res) => {
                 messages: [
                     { 
                         role: "system", 
-                        content: "You are an expert in turbulence theory, particularly the Euler Ensemble. Use the provided research materials to formulate precise answers. If no relevant material is found, answer based on general physics knowledge." 
+                        content: "You are an expert in turbulence theory, particularly the Euler Ensemble. Answer ONLY using the provided research excerpts. If no relevant research is found, say 'I don't know.' Do not rely on general turbulence knowledge." 
                     },
-                    { role: "user", content: `Context from research: ${relevantKnowledge}\n\nUser question: ${question}` }
+                    { role: "user", content: `Here is the relevant research on this topic:\n\n${relevantKnowledge}\n\nUser question: ${question}` }
                 ],
-                max_tokens: 400
+                max_tokens: 500
             },
             {
                 headers: { 
