@@ -6,10 +6,11 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Enable CORS for your frontend
+// ✅ Fix: Allow requests from your GitHub Pages site
 app.use(cors({
-    origin: "https://your-github-pages-url.github.io", // Replace with actual frontend URL
-    methods: ["POST"]
+    origin: "https://turbulenceduality.github.io", // ⬅️ Your actual GitHub Pages URL
+    methods: ["POST"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 app.use(express.json());
