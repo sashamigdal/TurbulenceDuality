@@ -19,299 +19,90 @@
   </script>
   <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   <style>
-    /* General Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
       font-family: 'Roboto', sans-serif;
       background: #101010;
       color: white;
-      line-height: 1.6;
-      scroll-behavior: smooth;
     }
-    h1, h2, h3 {
-      font-family: 'Poppins', sans-serif;
-    }
-    /* Navigation */
-    nav {
-      position: sticky;
-      top: 0;
-      background: #000;
-      padding: 10px;
-      z-index: 1000;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      flex-wrap: wrap;
-    }
-    nav ul li {
-      margin: 0 15px;
-    }
-    nav ul li a {
-      color: #00FF88;
-      text-decoration: none;
-      font-size: 1.1rem;
-    }
-    nav ul li a:hover {
-      color: #00cc6f;
-    }
-    /* Q&A Section */
     .q-and-a {
-      margin: 40px auto;
-      padding: 20px;
       max-width: 800px;
+      margin: auto;
+      padding: 20px;
       background: #202020;
-      color: white;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    }
-    .q-and-a h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #00FF88;
-    }
-    .q-and-a > p {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #DDDDDD;
-    }
-    .collapsible {
-      background: #303030;
-      color: #00FF88;
-      cursor: pointer;
-      padding: 15px;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 1.1rem;
-      width: 100%;
-      margin-bottom: 2px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-    .collapsible:hover {
-      background: #404040;
-    }
-    .collapsible:after {
-      content: '\002B';
-      float: right;
-      font-weight: bold;
-    }
-    .collapsible.active {
-      background: #404040;
-    }
-    .collapsible.active:after {
-      content: '\2212';
-    }
-    .content {
-      display: none;
-      overflow: hidden;
-      padding: 20px;
-      background: #181818;
-      color: #DDDDDD;
-      border-radius: 0 0 5px 5px;
-      margin-bottom: 10px;
-      line-height: 1.8;
-    }
-    .content.open {
-      display: block;
-    }
-    /* Submission Form */
-    .qa-form {
-      margin-top: 30px;
-      padding: 20px;
-      background: #181818;
-      border-radius: 5px;
-    }
-    .qa-form label {
-      display: block;
-      margin-bottom: 10px;
-      color: #00FF88;
     }
     .qa-form textarea {
       width: 100%;
       padding: 10px;
       border: 1px solid #444;
-      border-radius: 5px;
       background: #101010;
       color: white;
-      resize: vertical;
-      min-height: 100px;
-      margin-bottom: 10px;
-      font-family: 'Roboto', sans-serif;
-    }
-    .qa-form textarea:focus {
-      outline: none;
-      border-color: #00FF88;
+      border-radius: 5px;
     }
     .qa-form button {
       background: #00FF88;
-      color: #000;
+      color: black;
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
     }
     .qa-form button:hover {
       background: #00cc6f;
     }
-    /* Display Area */
     .qa-display {
-      margin-top: 30px;
-    }
-    .qa-display h3 {
-      color: #00FF88;
-      margin-bottom: 20px;
-      font-size: 1.3rem;
-    }
-    .qa-item {
+      margin-top: 20px;
       background: #181818;
-      padding: 15px;
-      border: 1px solid #333;
+      padding: 10px;
       border-radius: 5px;
-      margin-bottom: 10px;
-    }
-    .qa-item strong {
-      color: #00FF88;
-    }
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #000;
-      color: #888;
-      margin-top: 40px;
-    }
-    /* Responsive Design */
-    @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-      }
-      nav ul li {
-        margin: 5px 0;
-      }
-      .q-and-a {
-        margin: 20px 10px;
-        padding: 15px;
-      }
-      .collapsible {
-        font-size: 1rem;
-        padding: 12px;
-      }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="testimonials.html">Testimonials</a></li>
-      <li><a href="old-road-to-turbulence.html">Old Road</a></li>
-      <li><a href="talks.html">Talks</a></li>
-      <li><a href="history.html">History</a></li>
-    </ul>
-  </nav>
-
-  <!-- Q&A Section -->
-  <div id="q-and-a" class="q-and-a">
-    <h2>Questions and Comments</h2>
-    <p>Here are the questions answered by the Chat GPT Deep Research model:</p>
-    
-    <button class="collapsible">Is there a rigorous mathematical proof of the Euler ensemble as a solution to the momentum loop equation (MLE)?</button>
-    <div class="content">
-        <p>Yes, the Euler ensemble satisfies the MLE as a fixed-point solution. The proof is based on polygonal discretization, ensuring stability, verifying the cancellation of non-trivial terms, and confirming that the predicted energy decay law matches experimental and numerical results.</p>
-    </div>
-    
-    <button class="collapsible">How does the Euler ensemble explain turbulence decay?</button>
-    <div class="content">
-        <p>The Euler ensemble represents turbulence as a random walk on a discrete star polygon, forming a solvable string theory. This structure predicts a universal turbulent decay law $E(t) \sim t^{-5/4}$, replacing heuristic scaling laws with a mathematically exact result.</p>
-    </div>
-    
-    <button class="collapsible">How is the violation of the K41 scaling law for velocity difference described in this theory and how does it match the DNS?</button>
-    <div class="content">
-        <p>The Euler ensemble replaces the heuristic Kolmogorov K41 scaling with an exact momentum loop equation (MLE) solution, predicting a new universal velocity scaling law. Direct Numerical Simulations (DNS) confirm deviations from K41 and show excellent agreement with the predicted fractal structure of turbulence.</p>
-    </div>
-    
-    <button class="collapsible">How is the spontaneous stochasticity of decaying turbulence described and explained in this theory?</button>
-    <div class="content">
-        <p>Spontaneous stochasticity arises naturally from the random walk on the Euler ensemble, where turbulence trajectories explore a discrete fractal space of momentum loops. This leads to universal statistical properties of turbulence without requiring external randomness.</p>
-    </div>
-    
-    <button class="collapsible">What is the origin of the mathematical equivalence of decaying classical turbulence and quantum mechanics in loop space?</button>
-    <div class="content">
-        <p>The equivalence comes from the loop functional $\Psi[C, t]$, which obeys a Schrödinger-like equation in loop space, with viscosity playing the role of Planck's constant. This transforms the nonlinear Navier-Stokes equations into a linear quantum system.</p>
-    </div>
-    
-    <button class="collapsible">What is the next research necessary for this theory to be confirmed as the law of nature?</button>
-    <div class="content">
-        <p>Further confirmation requires high-resolution DNS and laboratory experiments to validate the predicted fractal structure of momentum loops and quantum-like oscillations in turbulence decay. Extending the Euler ensemble to magnetohydrodynamics (MHD) and non-decaying turbulence would test its universality.</p>
-    </div>
-
-    <!-- Submission Form -->
+  <div class="q-and-a">
+    <h2>Ask a Question</h2>
     <form id="qa-form" class="qa-form">
-      <label for="question">Your Question/Comment:</label>
-      <textarea id="question" name="question" rows="5" placeholder="Type your question or comment here..." required></textarea>
+      <textarea id="question" placeholder="Type your question here..." required></textarea>
       <br>
       <button type="submit">Submit</button>
     </form>
-    
-    <!-- Display Submitted Questions -->
     <div id="qa-display" class="qa-display">
-      <h3>Recently Submitted Questions</h3>
-      <div id="qa-list">
-        <!-- New Q&A items will be appended here -->
-      </div>
+      <h3>Answers</h3>
+      <div id="qa-list"></div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer id="footer">
-    <p>&copy; 2025 Turbulence Theory | Built with curiosity and creativity.</p>
-  </footer>
-
   <script>
-    // Collapsible functionality
-    const collapsibles = document.querySelectorAll('.collapsible');
-    collapsibles.forEach((collapsible) => {
-      collapsible.addEventListener('click', function() {
-        this.classList.toggle('active');
-        const content = this.nextElementSibling;
-        content.classList.toggle('open');
-        
-        // Close other open items
-        collapsibles.forEach((other) => {
-          if (other !== this && other.classList.contains('active')) {
-            other.classList.remove('active');
-            other.nextElementSibling.classList.remove('open');
-          }
-        });
-      });
-    });
-
-    // Q&A Form Submission
-    const form = document.getElementById('qa-form');
-    const qaList = document.getElementById('qa-list');
-    
-    form.addEventListener('submit', (event) => {
+    document.getElementById('qa-form').addEventListener('submit', async (event) => {
       event.preventDefault();
       const question = document.getElementById('question').value;
-      const newQaItem = document.createElement('div');
-      newQaItem.classList.add('qa-item');
-      newQaItem.innerHTML = `
-        <p><strong>Q:</strong> ${question}</p>
-        <p><strong>A:</strong> Thank you for your question! I'll review it and respond shortly.</p>
-      `;
-      qaList.appendChild(newQaItem);
-      form.reset();
+      const apiKey = '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'; // Replace with your API Key
+      const responseElement = document.createElement('div');
+      responseElement.innerHTML = `<p><strong>Q:</strong> ${question}</p><p><strong>A:</strong> Generating answer...</p>`;
+      document.getElementById('qa-list').prepend(responseElement);
+
+      try {
+        const response = await fetch("https://api.openai.com/v1/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${apiKey}`
+          },
+          body: JSON.stringify({
+            model: "gpt-4",
+            messages: [{ role: "user", content: question }],
+            max_tokens: 200
+          })
+        });
+
+        const data = await response.json();
+        responseElement.innerHTML = `<p><strong>Q:</strong> ${question}</p><p><strong>A:</strong> ${data.choices[0].message.content.trim()}</p>`;
+      } catch (error) {
+        responseElement.innerHTML = `<p><strong>Q:</strong> ${question}</p><p><strong>A:</strong> Sorry, an error occurred while generating the answer.</p>`;
+      }
+
+      document.getElementById('question').value = '';
     });
   </script>
 </body>
