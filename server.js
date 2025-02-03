@@ -8,8 +8,13 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Enable CORS to allow frontend requests
-app.use(cors());
+// Enable CORS to allow frontend requests only from GitHub Pages
+app.use(cors({
+    origin: "https://turbulenceduality.github.io", // ✅ Replace with your actual GitHub Pages URL
+    methods: ["POST"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
 app.use(express.json());
 
 // Load OpenAI API key from environment variables
