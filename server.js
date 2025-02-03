@@ -6,20 +6,24 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Enable CORS to allow frontend requests
-app.use(cors());
+// Enable CORS for your frontend
+app.use(cors({
+    origin: "https://your-github-pages-url.github.io", // Replace with actual frontend URL
+    methods: ["POST"]
+}));
+
 app.use(express.json());
 
-// Load OpenAI API key from environment variables
+// Load OpenAI API key
 const apiKey = process.env.API_KEY;
 if (!apiKey) {
     console.error("❌ OpenAI API key is missing. Set API_KEY in Render environment variables.");
-    process.exit(1); // Stop the server if the API key is missing
+    process.exit(1);
 }
 
-// Test route to check if server is running
-app.get('/', (req, res) => {
-    res.send("✅ Server is running! Use POST /question to send questions.");
+// Debug route
+app.get('/debug', (req, res) => {
+    res.json({ message: "✅ Debugging: Server is running correctly." });
 });
 
 // AI Response Endpoint
@@ -30,13 +34,13 @@ app.post('/question', async (req, res) => {
         return res.status(400).json({ error: "❌ Question is required." });
     }
 
-    console.log(`🟢 Received question: "${question}"`); // Log the incoming question
+    console.log(`🟢 Received question: "${question}"`);
 
     try {
         const response = await axios.post(
             'https://api.openai.com/v1/chat/completions',
             {
-                model: "gpt-4", // Change model if needed
+                model: "gpt-4",
                 messages: [
                     { role: "system", content: "You are an AI answering questions about turbulence theory." },
                     { role: "user", content: question }
@@ -52,7 +56,7 @@ app.post('/question', async (req, res) => {
         );
 
         const aiResponse = response.data.choices[0].message.content.trim();
-        console.log(`🟢 AI Response: "${aiResponse}"`); // Log AI response
+        console.log(`🟢 AI Response: "${aiResponse}"`);
 
         res.json({ answer: aiResponse });
     } catch (error) {
@@ -61,12 +65,12 @@ app.post('/question', async (req, res) => {
     }
 });
 
-// Start the server
+// Catch-All 404 Route
+app.use((req, res) => {
+    res.status(404).json({ error: "❌ Route not found. Use POST /question" });
+});
+
+// Start server
 app.listen(port, () => {
     console.log(`🚀 Server running on port ${port}`);
 });
-
-app.get('/debug', (req, res) => {
-    res.json({ message: "Debugging: Server is handling GET requests" });
-});
-
