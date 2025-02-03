@@ -128,7 +128,7 @@
     document.getElementById('qa-form').addEventListener('submit', async (event) => {
         event.preventDefault();
         const question = document.getElementById('question').value;
-        const apiKey = 'My test key';
+        const apiKey = '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';
         const responseElement = document.createElement('div');
         responseElement.innerHTML = `<p><strong>Q:</strong> ${question}</p><p><strong>A:</strong> Generating answer...</p>`;
         document.getElementById('qa-list').prepend(responseElement);
