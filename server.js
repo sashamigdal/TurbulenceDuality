@@ -1,20 +1,49 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
+require('dotenv').config();
+
 const app = express();
 const port = 3000;
 
-// Load the API key from an environment variable
+// Enable CORS to allow requests from the frontend
+app.use(cors());
+app.use(express.json());
+
+// Load the OpenAI API key from environment variables
 const apiKey = process.env.API_KEY;
 
-// Proxy endpoint
-app.get('/api', async (req, res) => {
+// Proxy endpoint for OpenAI API
+app.post('/ask', async (req, res) => {
+    const { question } = req.body;
+
+    if (!question) {
+        return res.status(400).json({ error: "Question is required." });
+    }
+
     try {
-        const response = await axios.get('https://api.example.com/data', {
-            headers: { 'Authorization': `Bearer ${apiKey}` }
-        });
-        res.json(response.data);
+        const response = await axios.post(
+            'https://api.openai.com/v1/chat/completions',
+            {
+                model: "gpt-4",
+                messages: [
+                    { role: "system", content: "You are an AI assistant answering questions about turbulence theory." },
+                    { role: "user", content: question }
+                ],
+                max_tokens: 400
+            },
+            {
+                headers: { 
+                    'Authorization': `Bearer ${apiKey}`,
+                    'Content-Type': 'application/json'
+                }
+            }
+        );
+
+        res.json({ answer: response.data.choices[0].message.content.trim() });
     } catch (error) {
-        res.status(500).send('Error fetching data');
+        console.error("Error fetching OpenAI response:", error.response?.data || error.message);
+        res.status(500).json({ error: "Failed to generate a response. Please try again later." });
     }
 });
 
