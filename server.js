@@ -6,9 +6,9 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// ✅ Fix: Allow requests from your GitHub Pages site
+// ✅ TEMP FIX: Allow ALL origins (for debugging only)
 app.use(cors({
-    origin: "https://turbulenceduality.github.io", // ⬅️ Your actual GitHub Pages URL
+    origin: "*",
     methods: ["POST"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
