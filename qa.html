@@ -3,21 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q&amp;A - Turbulence Duality</title>
+  <title>Questions and Comments (powered by AI) - Turbulence Theory</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;300&display=swap" rel="stylesheet">
-  <script type="text/javascript" async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Roboto', sans-serif;
       background: #101010;
-      color: #00FF88;
+      color: white;
       line-height: 1.6;
-      scroll-behavior: smooth;
     }
     h1, h2, h3 {
       font-family: 'Poppins', sans-serif;
     }
+    /* Navigation */
     nav {
       position: sticky;
       top: 0;
@@ -29,6 +46,7 @@
       display: flex;
       justify-content: center;
       list-style: none;
+      flex-wrap: wrap;
     }
     nav ul li {
       margin: 0 15px;
@@ -38,6 +56,10 @@
       text-decoration: none;
       font-size: 1.1rem;
     }
+    nav ul li a:hover {
+      color: #00cc6f;
+    }
+    /* Q&A Section */
     .q-and-a {
       margin: 40px auto;
       padding: 20px;
@@ -47,6 +69,69 @@
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
+    .q-and-a h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #00FF88;
+    }
+    .q-and-a h3 {
+      text-align: center;
+      margin: 30px 0 20px 0;
+      color: #00FF88;
+    }
+    .collapsible {
+      background: #303030;
+      color: #00FF88;
+      cursor: pointer;
+      padding: 15px;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.1rem;
+      width: 100%;
+      margin-bottom: 2px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .collapsible:hover {
+      background: #404040;
+    }
+    .collapsible:after {
+      content: '\002B';
+      float: right;
+      font-weight: bold;
+    }
+    .collapsible.active {
+      background: #404040;
+    }
+    .collapsible.active:after {
+      content: '\2212';
+    }
+    .content {
+      display: none;
+      overflow: hidden;
+      padding: 20px;
+      background: #181818;
+      color: #DDDDDD;
+      border-radius: 0 0 5px 5px;
+      margin-bottom: 10px;
+      line-height: 1.8;
+    }
+    .content.open {
+      display: block;
+    }
+    /* Form Styles */
+    .qa-form {
+      margin-top: 30px;
+      padding: 20px;
+      background: #181818;
+      border-radius: 5px;
+    }
+    .qa-form label {
+      display: block;
+      margin-bottom: 10px;
+      color: #00FF88;
+    }
     .qa-form textarea {
       width: 100%;
       padding: 10px;
@@ -54,7 +139,14 @@
       border-radius: 5px;
       background: #101010;
       color: white;
-      resize: none;
+      resize: vertical;
+      min-height: 100px;
+      margin-bottom: 10px;
+      font-family: 'Roboto', sans-serif;
+    }
+    .qa-form textarea:focus {
+      outline: none;
+      border-color: #00FF88;
     }
     .qa-form button {
       background: #00FF88;
@@ -63,115 +155,147 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      margin-top: 10px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
     .qa-form button:hover {
       background: #00cc6f;
     }
+    /* Display Area */
     .qa-display {
       margin-top: 30px;
     }
+    .qa-item {
+      background: #181818;
+      padding: 15px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .qa-item strong {
+      color: #00FF88;
+    }
+    hr {
+      margin: 40px 0;
+      border: none;
+      border-top: 1px solid #444;
+    }
+    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
       background: #000;
-      color: white;
+      color: #888;
       margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <div id="q-and-a" class="q-and-a">
-    <h2>Questions and Comments</h2>
-    <p>Have a question or comment about turbulence duality? Leave it below, and I'll get back to you!</p>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="old-road-to-turbulence.html">Old Road</a></li>
+      <li><a href="talks.html">Talks</a></li>
+      <li><a href="history.html">History</a></li>
+    </ul>
+  </nav>
 
+  <!-- Q&A Section -->
+  <div id="q-and-a" class="q-and-a">
+    <h2>Questions and Comments (powered by AI)</h2>
+    
+    <h3>Pre-recorded Questions and Answers</h3>
+    
+    <button class="collapsible">Is there a rigorous mathematical proof of the Euler ensemble as a solution to the momentum loop equation (MLE)?</button>
+    <div class="content">
+        <p>Yes, the Euler ensemble satisfies the MLE as a fixed-point solution. The proof is based on polygonal discretization, ensuring stability, verifying the cancellation of non-trivial terms, and confirming that the predicted energy decay law matches experimental and numerical results.</p>
+    </div>
+    
+    <button class="collapsible">How does the Euler ensemble explain turbulence decay?</button>
+    <div class="content">
+        <p>The Euler ensemble represents turbulence as a random walk on a discrete star polygon, forming a solvable string theory. This structure predicts a universal turbulent decay law $E(t) \sim t^{-5/4}$, replacing heuristic scaling laws with a mathematically exact result.</p>
+    </div>
+    
+    <button class="collapsible">How is the violation of the K41 scaling law for velocity difference described in this theory and how does it match the DNS?</button>
+    <div class="content">
+        <p>The Euler ensemble replaces the heuristic Kolmogorov K41 scaling with an exact momentum loop equation (MLE) solution, predicting a new universal velocity scaling law. Direct Numerical Simulations (DNS) confirm deviations from K41 and show excellent agreement with the predicted fractal structure of turbulence.</p>
+    </div>
+    
+    <button class="collapsible">How is the spontaneous stochasticity of decaying turbulence described and explained in this theory?</button>
+    <div class="content">
+        <p>Spontaneous stochasticity arises naturally from the random walk on the Euler ensemble, where turbulence trajectories explore a discrete fractal space of momentum loops. This leads to universal statistical properties of turbulence without requiring external randomness.</p>
+    </div>
+    
+    <button class="collapsible">What is the origin of the mathematical equivalence of decaying classical turbulence and quantum mechanics in loop space?</button>
+    <div class="content">
+        <p>The equivalence comes from the loop functional $\Psi[C, t]$, which obeys a Schrödinger-like equation in loop space, with viscosity playing the role of Planck's constant. This transforms the nonlinear Navier-Stokes equations into a linear quantum system.</p>
+    </div>
+    
+    <button class="collapsible">What is the next research necessary for this theory to be confirmed as the law of nature?</button>
+    <div class="content">
+        <p>Further confirmation requires high-resolution DNS and laboratory experiments to validate the predicted fractal structure of momentum loops and quantum-like oscillations in turbulence decay. Extending the Euler ensemble to magnetohydrodynamics (MHD) and non-decaying turbulence would test its universality.</p>
+    </div>
+
+    <hr>
+
+    <h3>Submit Your Question</h3>
+    
     <form id="qa-form" class="qa-form">
       <label for="question">Your Question/Comment:</label>
       <textarea id="question" name="question" rows="5" placeholder="Type your question or comment here..." required></textarea>
       <br>
       <button type="submit">Submit</button>
     </form>
-
+    
     <div id="qa-display" class="qa-display">
-      <h3>Questions &amp; Answers</h3>
-      <p><em>Note: Answers are generated by ChatGPT.</em></p>
-      <div id="qa-list"></div>
+      <h3>Recently Submitted Questions</h3>
+      <div id="qa-list">
+        <!-- New Q&A items will be appended here -->
+      </div>
     </div>
   </div>
 
+  <!-- Footer -->
   <footer id="footer">
-    <p>&copy; 2025 Turbulence Duality | Built with curiosity and creativity.</p>
+    <p>&copy; 2025 Turbulence Theory | Built with curiosity and creativity.</p>
   </footer>
- <script>
-    async function fetchData() {
-        try {
-            const response = await fetch('/api');
-            const data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    }
 
-    fetchData();
-</script>
   <script>
-    async function fetchWebsiteContent() {
-        let pages = [
-            "index.html", "momentum-loop-equation.html", "euler-ensemble-proof.html",
-            "fermi-ring.html", "continuum-limit-fermi.html", "vorticity-statistics.html",
-            "old-road-to-turbulence.html", "myths.html",
-            "https://sashamigdal.github.io/QuantumSolution/"
-        ];
-        let websiteContent = "";
+    // Collapsible functionality
+    const collapsibles = document.querySelectorAll('.collapsible');
+    collapsibles.forEach((collapsible) => {
+      collapsible.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const content = this.nextElementSibling;
+        content.classList.toggle('open');
         
-        for (let page of pages) {
-            try {
-                let response = await fetch(page);
-                let text = await response.text();
-                websiteContent += `Content from ${page}: ${text.substring(0, 2000)}...\n\n`; 
-            } catch (error) {
-                console.log(`Could not load ${page}`);
-            }
-        }
-        return websiteContent;
-    }
-   
+        // Close other open items
+        collapsibles.forEach((other) => {
+          if (other !== this && other.classList.contains('active')) {
+            other.classList.remove('active');
+            other.nextElementSibling.classList.remove('open');
+          }
+        });
+      });
+    });
 
-    document.getElementById('qa-form').addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const question = document.getElementById('question').value;
-        const apiKey = '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';
-        const responseElement = document.createElement('div');
-        responseElement.innerHTML = `<p><strong>Q:</strong> ${question}</p><p><strong>A:</strong> Generating answer...</p>`;
-        document.getElementById('qa-list').prepend(responseElement);
-
-        let websiteContent = await fetchWebsiteContent();
-
-        try {
-            const response = await fetch("https://api.openai.com/v1/chat/completions", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${apiKey}`
-                },
-                body: JSON.stringify({
-                    model: "gpt-4",
-                    messages: [
-                        { role: "system", content: `You are an AI assistant answering questions about turbulence theory. Here is some content from the website:\n${websiteContent}` },
-                        { role: "user", content: question }
-                    ],
-                    max_tokens: 400
-                })
-            });
-
-            const data = await response.json();
-            responseElement.innerHTML = `<p><strong>Q:</strong> ${question}</p><p><strong>A:</strong> ${data.choices[0].message.content.trim()}<br><em>(Generated by ChatGPT)</em></p>`;
-        } catch (error) {
-            responseElement.innerHTML = `<p><strong>Q:</strong> ${question}</p><p><strong>A:</strong> Sorry, an error occurred while generating the answer.</p>`;
-        }
-
-        document.getElementById('question').value = '';
+    // Q&A Form Submission
+    const form = document.getElementById('qa-form');
+    const qaList = document.getElementById('qa-list');
+    
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const question = document.getElementById('question').value;
+      const newQaItem = document.createElement('div');
+      newQaItem.classList.add('qa-item');
+      newQaItem.innerHTML = `
+        <p><strong>Q:</strong> ${question}</p>
+        <p><strong>A:</strong> Thank you for your question! I'll review it and respond shortly.</p>
+      `;
+      qaList.appendChild(newQaItem);
+      form.reset();
     });
   </script>
 </body>
