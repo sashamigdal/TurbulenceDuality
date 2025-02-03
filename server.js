@@ -19,6 +19,7 @@ const apiKey = process.env.API_KEY;
 
 // Proxy endpoint for OpenAI API
 app.post('/ask', async (req, res) => {
+    res.json({ message: "POST request received" });
     const { question } = req.body;
 
     if (!question) {
