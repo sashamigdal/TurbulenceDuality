@@ -65,7 +65,7 @@ app.post('/question', async (req, res) => {
         const response = await axios.post(
             'https://api.openai.com/v1/chat/completions',
             {
-                model: "gpt-4",
+                model: "ft:gpt-4o-2024-08-06:migdal-research::Ax365GPy",
                 messages: [
                     { 
                         role: "system", 
