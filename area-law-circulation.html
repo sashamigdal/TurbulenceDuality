@@ -3,50 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Area Law and Circulation Statistics</title>
+    <title>History of Area Law in Turbulence</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1, h2 {
+            color: green;
+        }
+        a {
+            color: cyan;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        .content {
+            width: 60%;
+            margin: auto;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 1px solid green;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Area Law and Circulation Statistics</h1>
+        <h1>History of Area Law in Turbulence</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="history-area-law.html">Area Law</a></li>
+                <li><a href="area-law-circulation.html">Area Law</a></li>
+                <li><a href="history-area-law.html">History of Area Law</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
     
-    <main>
+    <main class="content">
         <section>
-            <h2>Overview</h2>
-            <p>This page reviews recent work on velocity circulation statistics in hydrodynamic turbulence, 
-               with connections to the <a href="https://arxiv.org/abs/hep-th/9310088">Loop Equation and Area Law in Turbulence</a> 
-               (Migdal, 1995).</p>
+            <h2>The Loop Equation and the Area Law</h2>
+            <p>We derived a functional equation for the so-called loop average or Wilson loop in turbulence in the early nineties. 
+               All references to our previous works can be found in a recent review paper <a href="https://arxiv.org/abs/2209.12312">[10]</a>.</p>
+            <figure>
+                <img src="Dual-Turbulence.jpeg" alt="Dual-Turbulence" width="95%">
+                <figcaption>Illustration of Dual-Turbulence</figcaption>
+            </figure>
+            <p>The path to an exact solution by a dimensional reduction in this equation was proposed in the 1993 paper 
+               but has just been explored in the last two years.</p>
         </section>
-
+        
         <section>
-            <h2>Key Research Works</h2>
-            <ul>
-                <li><b>Alexander Migdal</b>: "Loop Equation and Area Law in Turbulence" <a href="https://arxiv.org/abs/hep-th/9310088">[Link]</a></li>
-                <li><b>Kartik P. Iyer, Katepalli R. Sreenivasan, P. K. Yeung</b>: "Circulation in High Reynolds Number Isotropic Turbulence is a Bifractal" <a href="https://link.aps.org/doi/10.1103/PhysRevX.9.041006">[Link]</a></li>
-                <li><b>Alexander Migdal</b>: "Statistical Equilibrium of Circulating Fluids" <a href="https://arxiv.org/abs/2209.12312">[Link]</a></li>
-                <li><b>Gabriel Apolinario, Luca Moriconi, Rodrigo Pereira, Victor Valadão</b>: "Vortex Gas Modeling of Turbulent Circulation Statistics" <a href="https://link.aps.org/doi/10.1103/PhysRevE.102.041102">[Link]</a></li>
-            </ul>
+            <h2>Recent Developments</h2>
+            <p>The situation has changed over the last decades. No alternative microscopic theory based on the Navier-Stokes equation emerged, 
+               but our understanding of strong turbulence phenomena grew significantly.</p>
+            <p>The latest DNS studies <a href="https://link.aps.org/doi/10.1103/PhysRevX.9.041006">[5]</a> and other numerical experiments revealed 
+               and quantified violations of K41 scaling laws. These numerical results align with multifractal scaling laws <a href="https://doi.org/10.1016/B978-0-444-86911-6.50012-9">[12]</a>.</p>
         </section>
-
+        
+        <section>
+            <h2>Verification of the Area Law</h2>
+            <p>Theoretically, we studied the loop equation in the confinement region and justified the Area Law suggested in '93. 
+               This law states that the tails of velocity circulation PDF in the confinement region are functions of the minimal area inside this loop.</p>
+            <p>It was verified in DNS a few years ago <a href="https://link.aps.org/doi/10.1103/PhysRevX.9.041006">[5]</a>, 
+               which triggered the further development of the geometric theory of turbulence 
+               <a href="https://link.aps.org/doi/10.1103/PhysRevE.102.041102">[2]</a>, 
+               <a href="https://arxiv.org/abs/2209.12312">[10]</a>.</p>
+        </section>
+        
         <section>
             <h2>References</h2>
             <ol>
-                <li>Alexander Migdal, "Loop Equation and Area Law in Turbulence," in *Quantum Field Theory and String Theory*, Springer US, 1995. <a href="https://arxiv.org/abs/hep-th/9310088">[Link]</a></li>
-                <li>Kartik P. Iyer, Katepalli R. Sreenivasan, P. K. Yeung, "Circulation in High Reynolds Number Isotropic Turbulence is a Bifractal," *Phys. Rev. X*, vol. 9, no. 4, p. 041006, 2019. <a href="https://link.aps.org/doi/10.1103/PhysRevX.9.041006">[Link]</a></li>
-                <li>Alexander Migdal, "Statistical Equilibrium of Circulating Fluids," *Physics Reports*, vol. 1011C, pp. 1-117, 2023. <a href="https://arxiv.org/abs/2209.12312">[Link]</a></li>
-                <li>Gabriel Apolinario, Luca Moriconi, Rodrigo Pereira, Victor Valadão, "Vortex Gas Modeling of Turbulent Circulation Statistics," *Physical Review E*, vol. 102, p. 041102, 2020. <a href="https://link.aps.org/doi/10.1103/PhysRevE.102.041102">[Link]</a></li>
+                <li>Peter D. Anderson and Martin Kruczenski, Loop equations and bootstrap methods in the lattice, Nuclear Physics B, 2017.</li>
+                <li>Gabriel Apolinario, Luca Moriconi, Rodrigo Pereira, and Victor Valadão, Vortex gas modeling of turbulent circulation statistics, PHYSICAL REVIEW E, 2020.</li>
+                <li>Abhay Ashtekar, New variables for classical and quantum gravity, Physical Review Letters, 1986.</li>
+                <li>Kartik P Iyer, Sachin S Bharadwaj, and Katepalli R Sreenivasan, The area rule for circulation in three-dimensional turbulence, PNAS, 2021.</li>
+                <li>Kartik P. Iyer, Katepalli R. Sreenivasan, and P. K. Yeung, Circulation in high Reynolds number isotropic turbulence is a bifractal, Phys. Rev. X, 2019.</li>
+                <li>Vladimir Kazakov and Zechuan Zheng, Bootstrap for lattice Yang-Mills theory, Phys. Rev. D, 2023.</li>
+                <li>Vladimir Kazakov and Zechuan Zheng, Bootstrap for finite n lattice Yang-Mills theory, 2024.</li>
+                <li>A.A. Migdal, Momentum loop dynamics and random surfaces in QCD, Nuclear Physics B, 1986.</li>
+                <li>A.A. Migdal, Second quantization of the Wilson loop, Nuclear Physics B - Proceedings Supplements, 1995.</li>
+                <li>Alexander Migdal, Statistical equilibrium of circulating fluids, Physics Reports, 2023.</li>
+                <li>Nicolás P. Müller, Juan Ignacio Polanco, and Giorgio Krstulovic, Intermittency of velocity circulation in quantum turbulence, Phys. Rev. X, 2021.</li>
+                <li>G Parisi and U Frisch, On the singularity structure of fully developed turbulence, 1985.</li>
+                <li>Carlo Rovelli and Lee Smolin, Knot theory and quantum gravity, Phys. Rev. Lett., 1988.</li>
             </ol>
         </section>
     </main>
-
+    
     <footer>
         <p>&copy; 2025 Alexander Migdal. All rights reserved.</p>
     </footer>
