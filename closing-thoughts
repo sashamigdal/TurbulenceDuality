@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closing Thoughts: The Ascent to Understanding</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: green;
+            text-align: center;
+        }
+        .content {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            color: black;
+            border: 1px solid green;
+            text-align: left;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 70%;
+        }
+        ul {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Closing Thoughts: The Ascent to Understanding</h1>
+    </header>
+    
+    <main class="content">
+        <figure>
+            <img src="PathToSummit.jpg" alt="Path to Summit">
+            <figcaption style="text-align: center; font-style: italic;">Scaling the heights of turbulence theory.</figcaption>
+        </figure>
+        
+        <ul>
+            <li>Scaling the summit of turbulence theory is like climbing a formidable mountain.</li>
+            <li>Each milestone—loop equations, dimension reduction, and Euler ensemble—brings us closer to a breathtaking view at the summit.</li>
+            <li>The wing-suit figure is me: flying or falling? Only time will tell...</li>
+        </ul>
+    </main>
+    
+    <footer>
+        <p style="text-align: center;">&copy; 2025 Alexander Migdal. All rights reserved.</p>
+    </footer>
+</body>
+</html>
