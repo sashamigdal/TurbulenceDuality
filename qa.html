@@ -34,7 +34,30 @@
     h1, h2, h3 {
       font-family: 'Poppins', sans-serif;
     }
-    /* Q&A Section */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #000;
+      padding: 10px;
+      z-index: 1000;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #00FF88;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    nav ul li a:hover {
+      color: #00cc6f;
+    }
     .q-and-a {
       margin: 40px auto;
       padding: 20px;
@@ -47,11 +70,6 @@
     .q-and-a h2 {
       text-align: center;
       margin-bottom: 20px;
-      color: #00FF88;
-    }
-    .q-and-a h3 {
-      text-align: center;
-      margin: 30px 0 20px 0;
       color: #00FF88;
     }
     .collapsible {
@@ -95,43 +113,97 @@
     .content.open {
       display: block;
     }
+    .qa-form {
+      margin-top: 30px;
+      padding: 20px;
+      background: #181818;
+      border-radius: 5px;
+    }
+    .qa-form label {
+      display: block;
+      margin-bottom: 10px;
+      color: #00FF88;
+    }
+    .qa-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background: #101010;
+      color: white;
+      resize: vertical;
+      min-height: 150px;
+      font-family: 'Roboto', sans-serif;
+    }
+    .qa-form textarea:focus {
+      outline: none;
+      border-color: #00FF88;
+    }
+    .qa-form button {
+      background: #00FF88;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .qa-form button:hover {
+      background: #00cc6f;
+    }
+    .qa-display {
+      margin-top: 30px;
+    }
+    .qa-item {
+      background: #181818;
+      padding: 15px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .qa-item strong {
+      color: #00FF88;
+    }
+    hr {
+      margin: 40px 0;
+      border: none;
+      border-top: 1px solid #444;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #888;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="old-road-to-turbulence.html">Old Road</a></li>
+      <li><a href="talks.html">Talks</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="extra-qa.html">Extended Q&A</a></li>
+    </ul>
+  </nav>
 
   <div id="q-and-a" class="q-and-a">
     <h2>Questions and Comments (powered by AI)</h2>
-    
+
     <h3>Pre-recorded Questions and Answers</h3>
-    
-    <button class="collapsible">What is the Euler ensemble and why is it important in turbulence theory?</button>
+
+    <button class="collapsible">How does the Euler ensemble explain turbulence decay?</button>
     <div class="content">
-        <p>The Euler ensemble is a discrete statistical manifold of regular star polygons that emerges as a fixed point of the momentum loop equation in the Navier-Stokes formulation. It provides an exactly solvable model of decaying turbulence, replacing heuristic scaling laws with universal functions derived from number theory.</p>
+        <p>The Euler ensemble represents turbulence as a random walk on a discrete star polygon, forming a solvable string theory. This structure predicts a universal turbulent decay law \(E(t) \sim t^{-5/4}\), replacing heuristic scaling laws with a mathematically exact result.</p>
     </div>
-    
-    <button class="collapsible">How does the Euler ensemble relate to conventional turbulence models like K41?</button>
+
+    <button class="collapsible">How is the violation of the K41 scaling law for velocity difference described in this theory?</button>
     <div class="content">
-        <p>Unlike Kolmogorov's K41 model, which assumes a universal energy cascade with power-law scaling, the Euler ensemble produces non-trivial universal functions for turbulence decay. These functions match experimental and numerical data, demonstrating that decaying turbulence does not follow a simple power law but a more intricate spectrum dictated by number-theoretic structures.</p>
-    </div>
-    
-    <button class="collapsible">What role does quantum mechanics play in this turbulence theory?</button>
-    <div class="content">
-        <p>The theory reveals an unexpected duality between turbulence and a quantum system, where the loop functional satisfies an equation analogous to the Schrödinger equation in loop space. This correspondence allows the use of quantum mechanical tools to solve classical turbulence in quadrature.</p>
-    </div>
-    
-    <button class="collapsible">How does the new theory explain experimental observations of decaying turbulence?</button>
-    <div class="content">
-        <p>The predicted energy decay follows $E(t) \sim t^{-5/4}$, which aligns with grid turbulence experiments and DNS data within a 1% margin of error. The energy spectrum also exhibits oscillations correlated with Riemann zeta function zeros, an effect observed in large-scale numerical simulations.</p>
-    </div>
-    
-    <button class="collapsible">Does this theory rule out finite-time blow-up in Navier-Stokes equations?</button>
-    <div class="content">
-        <p>The theory establishes a <b>No Explosion Theorem</b>, proving that finite-time blow-ups are inconsistent with the Navier-Stokes loop equation under realistic conditions. The only alternatives are smooth laminar flow or the stochastic solution described by the Euler ensemble.</p>
-    </div>
-    
-    <button class="collapsible">How can this work be experimentally verified further?</button>
-    <div class="content">
-        <p>Future experiments should focus on measuring the predicted non-trivial decay spectra and testing the oscillatory corrections linked to number theory. Large-scale DNS and controlled laboratory experiments will be key to validating the finer details of this theory.</p>
+        <p>The Euler ensemble replaces the heuristic Kolmogorov K41 scaling with an exact momentum loop equation (MLE) solution, predicting a new universal velocity scaling law. Direct Numerical Simulations (DNS) confirm deviations from K41 and show excellent agreement with the predicted fractal structure of turbulence.</p>
     </div>
 
     <hr>
@@ -147,11 +219,13 @@
     
     <div id="qa-display" class="qa-display">
       <h3>Recently Submitted Questions</h3>
-      <div id="qa-list">
-        <!-- New Q&A items will be appended here -->
-      </div>
+      <div id="qa-list"></div>
     </div>
   </div>
+
+  <footer id="footer">
+    <p>&copy; 2025 Turbulence Theory | Built with curiosity and creativity.</p>
+  </footer>
 
   <script>
     const collapsibles = document.querySelectorAll('.collapsible');
@@ -160,16 +234,8 @@
         this.classList.toggle('active');
         const content = this.nextElementSibling;
         content.classList.toggle('open');
-        
-        collapsibles.forEach((other) => {
-          if (other !== this && other.classList.contains('active')) {
-            other.classList.remove('active');
-            other.nextElementSibling.classList.remove('open');
-          }
-        });
       });
     });
   </script>
-
 </body>
 </html>
