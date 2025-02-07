@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extended Q&A - Turbulence Theory</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;300&display=swap" rel="stylesheet">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #101010;
+      color: white;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+    }
+    .q-and-a {
+      margin: 40px auto;
+      padding: 20px;
+      max-width: 800px;
+      background: #202020;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      overflow-y: auto;
+      max-height: 600px;
+    }
+    .collapsible {
+      background: #303030;
+      color: #00FF88;
+      cursor: pointer;
+      padding: 15px;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.1rem;
+      width: 100%;
+      margin-bottom: 2px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .collapsible:hover {
+      background: #404040;
+    }
+    .collapsible:after {
+      content: '\002B';
+      float: right;
+      font-weight: bold;
+    }
+    .collapsible.active:after {
+      content: '\2212';
+    }
+    .content {
+      display: none;
+      overflow: hidden;
+      padding: 20px;
+      background: #181818;
+      color: #DDDDDD;
+      border-radius: 0 0 5px 5px;
+      margin-bottom: 10px;
+    }
+    .content.open {
+      display: block;
+    }
+    .navigation {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .navigation a {
+      color: #00FF88;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="q-and-a">
+    <h2>Extended Questions and Answers (Powered by AI)</h2>
+
+    <button class="collapsible">What is the Euler ensemble and why is it important in turbulence theory?</button>
+    <div class="content">
+      <p>The Euler ensemble is a discrete statistical manifold of regular star polygons that emerges as a fixed point of the momentum loop equation in the Navier-Stokes formulation. It provides an exactly solvable model of decaying turbulence, replacing heuristic scaling laws with universal functions derived from number theory.</p>
+    </div>
+
+    <button class="collapsible">How does the Euler ensemble relate to conventional turbulence models like K41?</button>
+    <div class="content">
+      <p>Unlike Kolmogorov's K41 model, which assumes a universal energy cascade with power-law scaling, the Euler ensemble produces non-trivial universal functions for turbulence decay. These functions match experimental and numerical data, demonstrating that decaying turbulence does not follow a simple power law but a more intricate spectrum dictated by number-theoretic structures.</p>
+    </div>
+
+    <button class="collapsible">What role does quantum mechanics play in this turbulence theory?</button>
+    <div class="content">
+      <p>The theory reveals an unexpected duality between turbulence and a quantum system, where the loop functional satisfies an equation analogous to the Schrödinger equation in loop space. This correspondence allows the use of quantum mechanical tools to solve classical turbulence in quadrature.</p>
+    </div>
+
+    <button class="collapsible">What is the significance of the discovered relation to number theory?</button>
+    <div class="content">
+      <p>The statistical structure of the Euler ensemble is deeply linked to prime numbers and Euler totient functions. The universal decay spectrum involves discrete sums over rational fractions, making turbulence one of the few physical systems directly governed by number-theoretic distributions.</p>
+    </div>
+
+    <button class="collapsible">How does the new theory explain experimental observations of decaying turbulence?</button>
+    <div class="content">
+      <p>The predicted energy decay follows $E(t) \sim t^{-5/4}$, which aligns with grid turbulence experiments and DNS data within a 1% margin of error. The energy spectrum also exhibits oscillations correlated with Riemann zeta function zeros, an effect observed in large-scale numerical simulations.</p>
+    </div>
+
+    <button class="collapsible">How can this work be experimentally verified further?</button>
+    <div class="content">
+      <p>Future experiments should focus on measuring the predicted non-trivial decay spectra and testing the oscillatory corrections linked to number theory. Large-scale DNS and controlled laboratory experiments will be key to validating the finer details of this theory.</p>
+    </div>
+  </div>
+  <div class="navigation">
+    <a href="qa.html">Back to Main Q&A</a>
+  </div>
+  <script>
+    const collapsibles = document.querySelectorAll('.collapsible');
+    collapsibles.forEach((collapsible) => {
+      collapsible.addEventListener('click', function() {
+        this.classList.toggle('active');
+        this.nextElementSibling.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
