@@ -98,10 +98,23 @@
     <div class="content">
       <p>
         More than eighty years ago, Kolmogorov and Obukhov made a breakthrough in turbulence theory by establishing the relation 
-        \( \eqref{K41vvv} \) for the three-point correlation function of the velocity field in turbulent flow. This formula only selects the 
+        for the three-point correlation function of the velocity field in turbulent flow. 
+       <div class="equation">
+        <p>
+          \[
+          \langle \varphi_\alpha(\vec{r}_0)\,\varphi_\beta(\vec{r}_0)\,\varphi_\gamma(\vec{r}+\vec{r}_0) \rangle =
+          \frac{\mathcal E }{(d-1)(d+2) V}
+          	\left(
+          	 \delta_{\alpha \gamma} r_{\beta} +
+          	 \delta_{\beta \gamma} r_{\alpha} -
+          	 \frac{2}{d}\delta_{\alpha \beta} r_{\gamma}
+          	\right);
+          \]
+        </p>
+      </div>
+        This formula only selects the 
         <strong>potential part</strong> of the triple velocity correlation function by taking two coincident points. When taking the curl, we get zero:
       </p>
-
       <div class="equation">
         <p>
           \[
@@ -162,7 +175,7 @@
     <summary>Experimental Discrepancies</summary>
     <div class="content">
       <p>
-        Both the DNS and experimental papers <a href="#ref-5">[5]</a>, <a href="#ref-6">[6]</a> noted significant deviations from scaling laws (whether K41 or multifractal). The conclusion of <a href="#ref-5">[5]</a> was cautiously negative: "it is somewhat disappointing that the results are not more closely aligned with theoretical arguments." The most recent paper <a href="#ref-6">[6]</a> made a stronger negative claim: "Our results point to a Reynolds number-independent logarithmic correction to the classical power law for decaying turbulence that calls for theoretical understanding."
+        However, in the decaying turbulence, both the DNS and experimental papers <a href="#ref-5">[5]</a>, <a href="#ref-6">[6]</a> noted significant deviations from scaling laws (whether K41 or multifractal). The conclusion of <a href="#ref-5">[5]</a> was cautiously negative: "it is somewhat disappointing that the results are not more closely aligned with theoretical arguments." The most recent paper <a href="#ref-6">[6]</a> made a stronger negative claim: "Our results point to a Reynolds number-independent logarithmic correction to the classical power law for decaying turbulence that calls for theoretical understanding."
       </p>
     </div>
   </details>
