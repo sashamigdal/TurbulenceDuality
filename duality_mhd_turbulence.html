@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duality and Phase Transitions in MHD Turbulence</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .math {
+            font-size: 1.1em;
+            color: #00FF88;
+        }
+        .reference {
+            font-size: 0.9em;
+            color: #BBB;
+            margin-top: 20px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Duality and Phase Transitions in MHD Turbulence</h1>
+    </header>
+    <main>
+        <section>
+            <p>
+                This work develops a <strong>microscopic theory</strong> of decaying magnetohydrodynamic (MHD) turbulence, governed by the 
+                <strong>momentum loop equation (MLE)</strong>. 
+                The MLE represents the full MHD equations translated in the loop space without any approximations nor assumptions, 
+                for arbitrary finite Prandtl number, assuming both hydro and magnetic Reynolds numbers are set to infinity at a fixed ratio.
+            </p>
+
+            <ul>
+                <li><strong>Exact Analytic Solution:</strong> The solution corresponds to a <strong>pair of synchronized random walks</strong> 
+                    on regular star polygons. These polygons represent the <strong>vorticity and magnetic fluxes</strong>, which interact dynamically.</li>
+
+                <li><strong>Geometric Interpretation:</strong> The vorticity and magnetic polygons are <strong>rotated relative to each other</strong> 
+                    by an angle \( \phi = \arccos\left(\sqrt{\mathit{Pr}}\right) \), where \( \mathit{Pr} \) is the Prandtl number.</li>
+
+                <li><strong>Phase Transition at \( Pr = 1 \):</strong> At \( \mathit{Pr} = 1 \), the rotation angle <strong>becomes imaginary</strong>, 
+                    marking a fundamental transition in the system’s behavior.</li>
+
+                <li><strong>New Scaling Regime for \( Pr > 1 \):</strong> In the \( \mathit{Pr} > 1 \) regime, the magnetic polygon 
+                    no longer rotates but instead <strong>undergoes a rescaling</strong> relative to the vorticity polygon.</li>
+
+                <li><strong>Numerical Evidence:</strong> Recent <strong>direct numerical simulations (DNS)</strong> have observed a strong 
+                    <strong>Prandtl-number dependence</strong> in the critical exponents \( p \) and \( q \), 
+                    which govern both <strong>energy decay rates</strong> and the <strong>evolution of effective length scales</strong> over time.</li>
+
+                <li><strong>Universality of Scaling Laws:</strong> Despite finite-size effects, the numerical results suggest that these 
+                    scaling exponents exhibit a remarkable <strong>universality in the infinite Reynolds number limit</strong>, supporting 
+                    the validity of our theoretical framework.</li>
+            </ul>
+
+            <p>
+                These findings reveal that MHD turbulence is characterized by a rich structure of geometric phases and transitions. 
+                The interplay between the vorticity and magnetic fluxes follows universal principles that can be systematically 
+                described using our <strong>Euler ensemble solution of the loop space MHD</strong>.
+            </p>
+
+            <h2>References</h2>
+            <p class="reference">
+                A. Migdal, "Dual Theory of MHD Turbulence," <em>In preparation</em>, 2025.
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Alexander Migdal</p>
+    </footer>
+</body>
+</html>
