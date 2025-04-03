@@ -326,15 +326,21 @@
   </footer>
 
   <script>
-    // Collapsible functionality for testimonials
-    const collapsibleButtons = document.querySelectorAll('.collapsible');
-    collapsibleButtons.forEach((btn) => {
-      btn.addEventListener('click', function() {
-        this.classList.toggle('active');
-        const content = this.nextElementSibling;
-        content.classList.toggle('open');
-      });
+  // Collapsible functionality for testimonials
+  const collapsibleButtons = document.querySelectorAll('.collapsible');
+  collapsibleButtons.forEach((btn) => {
+    btn.addEventListener('click', function() {
+      this.classList.toggle('active');
+      const content = this.nextElementSibling;
+      content.classList.toggle('open');
+
+      // Trigger MathJax rendering for newly visible content
+      if (typeof MathJax !== 'undefined') {
+        MathJax.typesetPromise([content]);
+      }
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
