@@ -7,7 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;300&display=swap" rel="stylesheet">
   <script type="text/javascript" async
     src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script>
+ <!-- Configure and load MathJax v3 -->
+<script>
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -15,12 +16,25 @@
       processEscapes: true,
       processEnvironments: true
     },
-    svg: {
-      fontCache: 'global'
+    options: {
+      renderActions: {
+        find_script: [10, function (doc) {
+          document.querySelectorAll('script[type^="math/tex"]').forEach(function (node) {
+            const display = !!node.type.match(/; *mode=display/);
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+            const text = document.createTextNode('');
+            node.parentNode.replaceChild(text, node);
+            math.start = { node: text, delim: '', n: 0 };
+            math.end = { node: text, delim: '', n: 0 };
+            doc.math.push(math);
+          });
+        }, '']
+      }
     }
   };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
 
   <style>
     /* General Styles */
@@ -339,21 +353,21 @@
   </footer>
 
   <script>
-  // Collapsible functionality for testimonials
   const collapsibleButtons = document.querySelectorAll('.collapsible');
   collapsibleButtons.forEach((btn) => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function () {
       this.classList.toggle('active');
       const content = this.nextElementSibling;
       content.classList.toggle('open');
 
-      // Trigger MathJax rendering for newly visible content
-      if (typeof MathJax !== 'undefined') {
-        MathJax.typesetPromise([content]);
+      // Re-typeset LaTeX in the expanded content
+      if (window.MathJax) {
+        MathJax.typesetPromise([content]).catch((err) => console.error(err));
       }
     });
   });
 </script>
+
 
 </body>
 </html>
